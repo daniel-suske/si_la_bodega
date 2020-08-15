@@ -9,7 +9,7 @@ package util;
  *
  * @author Yeison
  */
-public class crud {
+public class Crud {
     
     
     
