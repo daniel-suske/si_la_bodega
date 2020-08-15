@@ -8,9 +8,13 @@ package util;
 /**
  *
  * @author Yeison
+ * 
  */
-public class Crud {
+public interface Crud {
     
-    
+    public abstract boolean agregarRegistro();
+    public abstract boolean consultarRegistro();
+    public abstract boolean actualizarRegistro();
+    public abstract boolean eliminarRegistro();
     
 }

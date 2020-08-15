@@ -1,7 +1,7 @@
 <%-- 
-    Document   : daniel.html
-    Created on : 14/08/2020, 09:20:13 PM
-    Author     : Patiño Sauarez
+    Document   : index
+    Created on : 15-ago-2020, 0:53:01
+    Author     : Yeison
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>LA BODEGA</title>
     </head>
     <body>
-        <h1>adadjlasdja</h1>
+        <h1>Hola Mundo</h1>
     </body>
 </html>
