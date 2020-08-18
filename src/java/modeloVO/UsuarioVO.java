@@ -35,6 +35,13 @@ public class UsuarioVO {
     public UsuarioVO() {
        
     }
+
+    public UsuarioVO(String Id, String Correo) {
+
+        this.Id = Id;
+        this.Correo = Correo;
+        
+    }
    
     
     public String getId() {

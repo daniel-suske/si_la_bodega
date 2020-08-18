@@ -5,13 +5,15 @@
  */
 package controlador;
 
+import modeloVO.UsuarioVO;
+import modeloDAO.UsuarioDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,6 +36,66 @@ public class UsuarioControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));
+        
+        String Id = request.getParameter("textId");
+        String Nombres = request.getParameter("textName");
+        String Apellidos = request.getParameter("textApell");
+        String Numero_Documento = request.getParameter("textNumD");
+        String Tipo_Documento = request.getParameter("textTipD");
+        String Correo = request.getParameter("correos");
+        String Contrasena = request.getParameter("textCont");
+        String Telefono = request.getParameter("textTele");
+        String Barrio = request.getParameter("textBarr");
+        String Dirrecion = request.getParameter("textDire");
+        String Id_Registrado_Por = request.getParameter("textId_R");
+        String Perfil = request.getParameter("textPerfil");
+        String Estado = request.getParameter("textEstado");
+        
+        //Lleguan los datos y se aseguran
+        UsuarioVO usuVO = new UsuarioVO(Id, Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Dirrecion, Id_Registrado_Por, Perfil, Estado);
+        
+        UsuarioDAO usuDAO = new UsuarioDAO(usuVO);  //Se realizan las operaciones del modelo
+        
+        
+        switch (opcion) {
+            
+            case 1: //Agregar Registro
+                    
+                if(usuDAO.agregarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Registró correctamente!");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Registró correctamente!");
+                    
+                }
+                
+                request.getRequestDispatcher("RegistrarUsuarios.jsp").forward(request, response);
+            
+            break;
+            
+            case 5: //Inicio de Sesión
+                
+                if (usuDAO.inicioSesion(Correo, Contrasena)) {
+                    
+                    //HttpSession miSesion = request.getSession(true); //Crea una sesion
+                   
+                    //usuVO = new UsuarioVO(Id, Correo); //Atributos que maneja en la session u objeto
+                    
+                    //miSesion.setAttribute("usuario", usuVO); //Enviando por la sesion
+                    
+                    request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario y/o la contraseña son incorrectos!");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                    
+                }
+            break;    
+        }
+        
         
     }
 

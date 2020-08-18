@@ -1,0 +1,24 @@
+
+.app-brand
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: #f6f9ffef;
+    transition: all 0.5s;
+}
+.app-brand:hover
+{
+    background: #4c85ffef;
+}
+.logo
+{
+    width: 75px;
+    padding: 2px 0px;
+}
+
+iframe
+{
+    width: 100%;
+    height: 100%;
+}

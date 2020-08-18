@@ -36,7 +36,7 @@ public class UsuarioDAO extends Conexion implements Crud {
     {    
     }
     
-    public UsuarioDAO(UsuarioVO usVO)                  //Metodo constructor y asigna un alias al VO
+    public UsuarioDAO(UsuarioVO usuVO)                  //Metodo constructor y asigna un alias al VO
     {
         super();
         
@@ -44,19 +44,19 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             conexion = this.obtenerConexion();
             
-            Id = usVO.getId();
-            Nombres = usVO.getNombres();
-            Apellidos = usVO.getApellidos();
-            Numero_Documento = usVO.getNumero_Documento();
-            Tipo_Documento = usVO.getTipo_Documento();
-            Correo = usVO.getCorreo();
-            Contrasena = usVO.getContrasena();
-            Telefono = usVO.getTelefono();
-            Barrio = usVO.getBarrio();
-            Direccion = usVO.getDireccion();
-            Id_Registrado_Por = usVO.getId_Registrado_Por();
-            Perfil = usVO.getPerfil();
-            Estado = usVO.getEstado();
+            Id = usuVO.getId();
+            Nombres = usuVO.getNombres();
+            Apellidos = usuVO.getApellidos();
+            Numero_Documento = usuVO.getNumero_Documento();
+            Tipo_Documento = usuVO.getTipo_Documento();
+            Correo = usuVO.getCorreo();
+            Contrasena = usuVO.getContrasena();
+            Telefono = usuVO.getTelefono();
+            Barrio = usuVO.getBarrio();
+            Direccion = usuVO.getDireccion();
+            Id_Registrado_Por = usuVO.getId_Registrado_Por();
+            Perfil = usuVO.getPerfil();
+            Estado = usuVO.getEstado();
             
         } catch (Exception e) {
             
@@ -67,7 +67,47 @@ public class UsuarioDAO extends Conexion implements Crud {
 
     @Override
     public boolean agregarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        try {
+            
+            sql = "INSERT INTO USUARIO(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Id_Registrado_Por, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Nombres);
+            puente.setString(2, Apellidos);
+            puente.setString(3, Numero_Documento);
+            puente.setString(4, Tipo_Documento);
+            puente.setString(5, Correo);
+            puente.setString(6, Contrasena);
+            puente.setString(7, Telefono);
+            puente.setString(8, Barrio);
+            puente.setString(9, Direccion);
+            puente.setString(10, Id_Registrado_Por);
+            puente.setString(11, Perfil);
+            puente.setString(12, Estado);
+            
+            puente.executeUpdate();
+            operacion = true;
+            
+        } catch(SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return operacion;
+        
     }
 
     @Override
@@ -86,5 +126,44 @@ public class UsuarioDAO extends Conexion implements Crud {
     }
     
     
+    public boolean inicioSesion(String correo, String contrasena) {
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM USUARIO WHERE Correo = ? && Contrasena = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Correo);
+            puente.setString(2, Contrasena);
+            mensajero = puente.executeQuery();
+            
+            if (mensajero.next()) {
+                
+                operacion = true;
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+        
+        }
+        
+        return operacion;
+        
+    }
+        
     
 }

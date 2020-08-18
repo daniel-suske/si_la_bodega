@@ -1,0 +1,23 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.header
+{
+    width: 100%;
+    border-style: none;
+}
+
+.aside
+{
+    height: 100%;
+    width: 50%;
+    float: left;
+}
+
+.card
+{
+    float: right;
+}

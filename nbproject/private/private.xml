@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/index.html</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/modeloDAO/UsuarioDAO.java</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/util/Conexion.java</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/index.jsp</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/controlador/UsuarioControlador.java</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/dashboard.jsp</file>
+            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/modeloVO/UsuarioVO.java</file>
         </group>
     </open-files>
 </project-private>
