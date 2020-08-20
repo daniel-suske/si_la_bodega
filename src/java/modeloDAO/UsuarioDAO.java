@@ -257,7 +257,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM USUARIO U INNER JOIN PERFIL P ON U.Perfil = P.Id INNER JOIN ESTADO E ON U.Estado = E.Id WHERE Perfil != ? ";
+            sql = "SELECT U.*, P.Nombre, E.Nombre FROM USUARIO U INNER JOIN PERFIL P ON U.Perfil = P.Id INNER JOIN ESTADO E ON U.Estado = E.Id WHERE Perfil != ?  ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, num);
             mensajero = puente.executeQuery();

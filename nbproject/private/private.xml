@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/java/modeloDAO/UsuarioDAO.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>110</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/modeloDAO/UsuarioDAO.java</file>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/ModificarUsuario.jsp</file>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/dashboard.jsp</file>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/src/java/controlador/UsuarioControlador.java</file>
-            <file>file:/Library/Yeison%20All/PROYECTO%202020/Desarrollo/si_la_bodega/web/Usuarios.jsp</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/src/java/controlador/RepuestoControlador.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/src/java/controlador/UsuarioControlador.java</file>
         </group>
     </open-files>
 </project-private>

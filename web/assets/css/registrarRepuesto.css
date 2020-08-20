@@ -54,7 +54,7 @@ main{
 	display: block;
 	font-weight: 700;
 	padding: 5px;
-	color: #000;
+	color: rgb(65, 65, 65);
 	cursor: pointer;
 }
 
@@ -66,7 +66,7 @@ main{
 	width: 90%;
 	background: #Fff;
 	border:none;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid rgb(65, 65, 65);
 	height: 45px;
 	line-height: 45px;
 	padding: 0 40px 0 10px;
@@ -76,7 +76,7 @@ main{
 }
 .formulario__input:focus{
 
-	border-bottom: 2px solid #0075ff;
+	border-bottom: 2px solid rgb(65, 65, 65);
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
@@ -142,11 +142,12 @@ margin:10px 0 17px 0;
 	flex-direction: column;
 	align-items: center;
 }
+
 .formulario__btn{
 	height: 45px;
 	line-height: 45px;
-	width: 50%;
-	background: #0075ff;
+	width: 30%;
+	background: #a6aab4;
 	color: #Fff;
 	font-weight: bold;
 	border:none;
@@ -215,14 +216,10 @@ grid-column: span 1;
 grid-column: span 1;
 
 }
-
 .formulario__btn{
 	width: 80%;
 }
-
 .formulario__input{
-    
 	width: 100%;
-}
 
 }
