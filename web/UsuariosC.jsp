@@ -1,13 +1,14 @@
 <%-- 
-    Document   : dashboard
-    Created on : 17-ago-2020, 23:42:22
+    Document   : Usuarios
+    Created on : 17-ago-2020, 23:49:09
     Author     : Yeison
 --%>
-<%@include file="Sesiones.jsp"%>
-<%@page import="modeloVO.UsuarioVO"%>
-<%@page import="modeloDAO.UsuarioDAO"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="modeloDAO.UsuarioDAO"%>
+<%@page import="modeloVO.UsuarioVO"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +20,7 @@
   <meta name="author" content="Grupo-6">
 
 
-  <title>La Bodega</title>
+  <title>Clientes</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -29,6 +30,10 @@
   <!-- PLUGINS CSS STYLE -->
   <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/plugins/data-tables/datatables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/jquery.datatables.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/responsive.datatables.min.css" />
+
   
   
   <!-- No Extra plugin used -->
@@ -50,37 +55,30 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
   <link href="assets/css/estilos.css" rel="stylesheet" />
-
+  <link href="assets/css/users.css" rel="stylesheet"/>
+  
         <!--Icono-->
         <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
         <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = " assets/img/Iconos.ico/apple-icon-72x72.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png " > 
         <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png" > 
         <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png "> 
-        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "assets/img/Iconos.ico/apple-icon-120x120.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "assets/img/Iconos.ico/apple-icon-144x144.png " > 
+        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "/assets/img/Iconos.ico/apple-icon-120x120.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "/assets/img/Iconos.ico/apple-icon-144x144.png " > 
         <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png "> 
         <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png" > 
         <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png" > 
         <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png" > 
         <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16.png "> 
+        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16. png "> 
         <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json" > 
         <meta  name ="msapplication-TileColor"  content = "#ffffff" > 
         <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
         <meta  name = "theme-color"  content = "#ffffff" >
 
   
-
-  <!--
-    HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-  -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script src="assets/plugins/nprogress/nprogress.js"></script>
+  
+  
 </head>
 
 
@@ -119,8 +117,7 @@
 
                 
                   <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="#" data-toggle="collapse" data-target="#dashboard"
-                      aria-expanded="false" aria-controls="dashboard">
+                    <a class="sidenav-item-link" href="dashboard.jsp">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">MENU</span> 
                     </a>
@@ -157,7 +154,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="UsuariosC.jsp">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Clientes</span> <b class="caret"></b>
                                 
                               </a>
@@ -195,7 +192,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="alert.html">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
@@ -231,7 +228,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="">
+                              <a class="sidenav-item-link" href="material-icon.html">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
@@ -636,7 +633,7 @@
                       </li>
 
                       <li>
-                        <a href="user-profile.html">
+                        <a href="#">
                           <i class="mdi mdi-account"></i> My Perfil
                         </a>
                       </li>
@@ -669,133 +666,102 @@
 
 
 
-<!-- AQUI VA EL contenido-->
+        <!-- AQUI VA EL contenido-->
 
-<div class="content-wrapper">
+        <div class="content-wrapper">
 
-      <div class="content">
-       
-        <br>
+              <div class="content">
+              
+                <br>
 
-          <h1>Bienvenido "Gerente"</h1>
-       
-          <hr>
+                <h1 class="text text-dark">Gestion de Clientes</h1>
+              
+                  <hr>
+                  <div class="navbar ">
 
-         
-          <!-- Top Statistics -->
-          <div class="row">
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">71,503</h2>
-                  <p>Inscripciones en Linea</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="barChart"></canvas>
+                  <br><br><br>
+                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                      <input type="search" class="form-control form-dark" name="text"/>
+                      <input type="submit" class="btn btn-primary" value="Buscar"/>
+                      <input type="hidden" name="opcion" value="4" />
+                  </form>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini  mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">9,503</h2>
-                  <p>Nuevos Visitantes</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="dual-line"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">71,503</h2>
-                  <p>Pedido Total Mensual</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="area-chart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">9,503</h2>
-                  <p>Total de Ingresos de este Año</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="line"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <br><br>
+                 <div class="table-responsive">   
+                    <table class="table table-bordered table-hover">
+                        <thead class="table table-striped table-hover">   
+                            <tr>
+                                <th scope="col" class="text-center">Id</th>
+                                <th scope="col" class="text-center">Nombres</th>
+                                <th scope="col" class="text-center">Apellidos</th>
+                                <th scope="col" class="text-center">Numero de Documento</th>
+                                <th scope="col" class="text-center">Tipo de Documento</th>
+                                <th scope="col" class="text-center">Correo</th>
+                                <th scope="col" class="text-center">Telefono</th>
+                                <th scope="col" class="text-center">Barrio</th>
+                                <th scope="col" class="text-center">Dirección</th>
+                                <th scope="col" class="text-center">Registrado Por</th>
+                                <th scope="col" class="text-center">Perfil</th>
+                                <th scope="col" class="text-center">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>  
+                        </thead>
+                      <%
+                          UsuarioVO usuVO = new UsuarioVO();
+                          UsuarioDAO usuDAO = new UsuarioDAO();
+                          
+                          ArrayList<UsuarioVO> listaUsuariosC = usuDAO.listarC();
+                          
+                          for (int i = 0; i < listaUsuariosC.size(); i++) {
+                              
+                              usuVO = listaUsuariosC.get(i);
+                              
+                      %>
+                      <tbody class="table table-striped table-hover text text-dark">
+                            <tr>
+                                <td scope="row" class="text-center"><%= usuVO.getId() %></td>
+                                <td class="text-center"><%= usuVO.getNombres() %></td>
+                                <td class="text-center"><%= usuVO.getApellidos() %></td>
+                                <td class="text-center"><%= usuVO.getNumero_Documento() %></td>
+                                <td class="text-center"><%= usuVO.getTipo_Documento() %></td>
+                                <td class="text-center"><%= usuVO.getCorreo() %></td>
+                                <td class="text-center"><%= usuVO.getTelefono() %></td>
+                                <td class="text-center"><%= usuVO.getBarrio() %></td>
+                                <td class="text-center"><%= usuVO.getDireccion() %></td>
+                                <td class="text-center"><%= usuVO.getId_Registrado_Por() %></td>
+                                <td class="text-center"><%= usuVO.getPerfil() %></td>
+                                <td class="text-center"><%= usuVO.getEstado() %></td>
+                                <td class="text-center">
+                                    <form method="post" action="Usuario">
+                                        <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
+                                    <button class="btn btn-warning">Modificar</button>
+                                        <input type="hidden" name="opcion" value="3"/>
+                                    </form>
+                                    |
+                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
+                                </td>
+                            </tr>
+                      </tbody>
+                      <% } %>
+                      
+                  </table>
+                
+                <br>
+               </div>   
 
+        <!-- Termina aqui -->
+        
+        <!-- Modales -->
+        
 
-          <div class="row">
-            <div class="col-xl-8 col-md-12">
-                    <!-- Sales Graph -->
-                    <div class="card card-default" data-scroll-height="675">
-                      <div class="card-header">
-                        <h2>Ventas del Año</h2>
-                      </div>
-                      <div class="card-body">
-                        <canvas id="linechart" class="chartjs"></canvas>
-                      </div>
-                      <div class="card-footer d-flex flex-wrap bg-white p-0">
-                        <div class="col-6 px-0">
-                          <div class="text-center p-4">
-                            <h4>$6,308</h4>
-                            <p class="mt-2">Total de ordenes de este año</p>
-                          </div>
-                        </div>
-                        <div class="col-6 px-0">
-                          <div class="text-center p-4 border-left">
-                            <h4>$70,506</h4>
-                            <p class="mt-2">Total de Ingresos de este año</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-</div>
-            <div class="col-xl-4 col-md-12">
-                <!-- Doughnut Chart -->
-                <div class="card card-default" data-scroll-height="675">
-                  <div class="card-header justify-content-center">
-                    <h2>Orders Overview</h2>
-                  </div>
-                  <div class="card-body" >
-                    <canvas id="doChart" ></canvas>
-                  </div>
-                  <a href="#" class="pb-5 d-block text-center text-muted"><i class="mdi mdi-download mr-2"></i> Descargar Informe Genral</a>
-                  <div class="card-footer d-flex flex-wrap bg-white p-0">
-                    <div class="col-6">
-                      <div class="py-4 px-4">
-                        <ul class="d-flex flex-column justify-content-between">
-                          <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #4c84ff"></i>Servicio Completo</li>
-                          <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #80e1c1 "></i>Servicio no Pagado</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-6 border-left">
-                      <div class="py-4 px-4 ">
-                        <ul class="d-flex flex-column justify-content-between">
-                          <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #8061ef"></i>Servicio Pendiente</li>
-                          <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #ffa128"></i>Servicio Cancelado</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-</div>
-          </div>
+    <!-- Modal para Actualizar -->
+    
+    
+       </div>
+    </div>
+   
 
-
-        <br>
-        </div>
-    </div>     
-
-<!-- Termina aqui -->
-
+        <!-- End Modals -->
 
 
           <footer class="footer mt-auto">
@@ -814,9 +780,12 @@
     </div>
   </div>
 
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
+ <script src="assets/plugins/nprogress/nprogress.js"></script>
+                      
+<script src="assets/plugins/jquery/jquery.min.js"></script>
 <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
 <script src="assets/plugins/jekyll-search.min.js"></script>
+<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
 
 
 
@@ -849,6 +818,22 @@
   });
 </script>
   
+
+
+<!--del Table-->
+
+<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js/"></script>
+<script src="assets/plugins/data-tables/datatables.responsive.min.js"></script>
+<!-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+        $('#userList').DataTable();
+    } );
+</script>
+
+<!--end table-->
 
 
 <script src="assets/js/sleek.bundle.js"></script>

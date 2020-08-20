@@ -133,7 +133,7 @@
                 </div>
                 <div class="modal-body">
                     <h4 class="modal-title">Registro Clientes</h4>
-                    <form action="" class="formulario" id="formulario">
+                    <form method="post" action="Usuario" class="formulario"> <!-- id="formulario" por Arreglar-->
                         <div class="formulario__grupo" id="grupo__nombres">
                             <span>
                                 <label for="nombres" class="formulario__label">Nombres:</label>
@@ -194,8 +194,8 @@
                             </div>
                             <p class="formulario__input-error">El Telefono debe ser de 6 a 10 digitos y solo pueden
                                 contener numeros</p>
-                        </div>
-
+                        </div>                     
+                        
                         <div class="formulario__grupo" id="grupo__direccion">
                             <label for="direccion" class="formulario__label">Direccion:</label>
                             <div class="formulario__grupo-input">
@@ -210,13 +210,24 @@
                         <div class="formulario__grupo" id="grupo__correo">
                             <label for="email" class="formulario__label">Correo:</label>
                             <div class="formulario__grupo-input">
-                                <input type="text" class="formulario__input" name="correo" id="correo"
+                                <input type="text" class="formulario__input" name="correos" id="correo"
                                     placeholder="Ejem:zuckerberg@gmail.com">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El correo debe ser de 10 a 100 digitos y puede debe
                                 contener un formato de correo</p>
                         </div>
+                        
+                        <div class="formulario__grupo" id="grupo__direccion">
+                            <label for="direccion" class="formulario__label">Barrio:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="barrio" id="barrio"
+                                    placeholder="Una localidad">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La direccion debe ser de 15 a 100 digitos y puede
+                                contener numeros, letras y simbolos</p>
+                        </div>                           
 
                         <div class="formulario__grupo" id="grupo__contrasena">
                             <label for="contrasena" class="formulario__label">Contraseña:</label>
@@ -255,16 +266,24 @@
                 <div class="modal-footer">
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
                         <button type="submit" class="formulario__btn">Registrarme</button>
+                        <input type="hidden" value="1" name="opcion">
+                        
                         <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado
                             Correctamente</p>
                     </div>
 
-
-
-
-                    </form>
-
-
+                <br>
+                <div style="color:Red">
+                    <center>
+                    <%if (request.getAttribute("mensajeFallido") != null) {%>
+                    ${mensajeFallido}
+                    <% } else { %>
+                    ${mensajeExitoso}
+                    <% } %>
+                    </center>
+                </div>
+                    
+                </form>
 
                 </div>
             </div>
@@ -1039,7 +1058,7 @@
                     </div>
                     <div class="modal-body">
                         <h4 class="modal-title">Inicio Sesión</h4>
-                        <form method="post" action="Usuario">
+                        <form method="post" action="Usuario" class="login">
 
                             <div class="login__grupo" id="grupoLogin__correos">
                                 <label for="correos" class="login__label">Correo:</label>
@@ -1060,19 +1079,22 @@
                                     <i class="login__validacion-estado fas fa-lock pass"></i>
                                     <i class="fas fa-eye eyes1" id="hi" onclick="hola()"></i>
 
-                                    <input type="password" class="login__input" name="textCont" id="contrasenas">
+                                    <input type="password" class="login__input" name="contrasena" id="contrasenas">
 
                                 </div>
                                 <p class="login__input-error">La contraseña debe ser minimo de 8 a 30 digitos y debe
                                     contener numeros y letras</p>
                             </div>
-
-
+                            
+                            <br> 
+                            
+                            <center>
                                 <div style="color:Red">
                                     <%if (request.getAttribute("mensajeFallido") != null) {%>
                                     ${mensajeFallido}
                                     <% } %>
                                 </div>
+                            </center>    
 
                             <div class="login__mensaje" id="login__mensaje">
                                 <p>
@@ -1093,7 +1115,7 @@
                         <div class="modal-footer">
                             <div class="login__grupo login__grupo-btn-enviar">
                                 <button type="submit" class="login__btn">Ingresar</button>
-                                <input type="hidden" value="5" name="opcion">
+                                <input type="hidden" value="8" name="opcion">
                             </div>
 
 

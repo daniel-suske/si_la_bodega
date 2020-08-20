@@ -8,6 +8,7 @@ package controlador;
 import modeloVO.UsuarioVO;
 import modeloDAO.UsuarioDAO;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,58 +39,164 @@ public class UsuarioControlador extends HttpServlet {
         int opcion = Integer.parseInt(request.getParameter("opcion"));
         
         String Id = request.getParameter("textId");
-        String Nombres = request.getParameter("textName");
-        String Apellidos = request.getParameter("textApell");
-        String Numero_Documento = request.getParameter("textNumD");
-        String Tipo_Documento = request.getParameter("textTipD");
+        String Nombres = request.getParameter("nombres");
+        String Apellidos = request.getParameter("apellidos");
+        String Numero_Documento = request.getParameter("documento");
+        String Tipo_Documento = request.getParameter("tipo");
         String Correo = request.getParameter("correos");
-        String Contrasena = request.getParameter("textCont");
-        String Telefono = request.getParameter("textTele");
-        String Barrio = request.getParameter("textBarr");
-        String Dirrecion = request.getParameter("textDire");
+        String Contrasena = request.getParameter("contrasena");
+        String Telefono = request.getParameter("telefono");
+        String Barrio = request.getParameter("barrio");
+        String Dirrecion = request.getParameter("direccion");
         String Id_Registrado_Por = request.getParameter("textId_R");
         String Perfil = request.getParameter("textPerfil");
         String Estado = request.getParameter("textEstado");
         
+        String text = request.getParameter("text");
+        
+        if(opcion == 1) {
+            
+            Perfil = "5";
+            Estado = "1";
+            
+        }
+        
         //Lleguan los datos y se aseguran
         UsuarioVO usuVO = new UsuarioVO(Id, Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Dirrecion, Id_Registrado_Por, Perfil, Estado);
+        
         
         UsuarioDAO usuDAO = new UsuarioDAO(usuVO);  //Se realizan las operaciones del modelo
         
         
         switch (opcion) {
             
-            case 1: //Agregar Registro
+            case 1: //Agregar Registro de Cliente
                     
-                if(usuDAO.agregarRegistro()) {
+                if(usuDAO.agregarRegistroCliente()) {
                     
-                    request.setAttribute("mensajeExitoso", "¡El Usuario se Registró correctamente!");
+                    request.setAttribute("mensajeExitoso", "¡El Cliente se Registró correctamente!");
                     
                 } else {
                     
-                    request.setAttribute("mensajeFallido", "¡El Usuario No se Registró correctamente!");
+                    request.setAttribute("mensajeFallido", "¡El Cliente No se Registró correctamente!");
                     
                 }
                 
-                request.getRequestDispatcher("RegistrarUsuarios.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             
             break;
             
-            case 5: //Inicio de Sesión
+            case 2: //Agregar Registro de Empleado
+            
+                if(usuDAO.agregarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Registró Correctamente!");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Registró Correctamente!");
+                    
+                }
+                
+                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+
+            
+            break;    
+              
+            case 3: //Consulta especifica para actualizar
+                       
+                usuVO = usuDAO.consultarId(Id);
+                
+                if (usuVO != null) {
+                    
+                    request.setAttribute("usuario", usuVO);
+                    
+                    request.getRequestDispatcher("ModificarUsuario.jsp").forward(request, response);
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Vehiculo a consultar NO existe!");
+                    
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                    
+                }                
+                
+            break;
+            
+            case 4: //Consulta por Busqueda
+                       
+                List<UsuarioVO>listaU = usuDAO.BuscarU(text); 
+                 
+                request.setAttribute("Listas", listaU);
+                
+                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                
+            break;
+            
+            case 5: //Modificación de Registro
+                
+                if(usuDAO.actualizarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Modifico Correctamente!");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Modifico Correctamente!");
+                    
+                }
+                
+                request.getRequestDispatcher("ModificarUsuario.jsp").forward(request, response);       
+                
+            break; 
+            
+            case 6: //Inactivar Registro
+                
+                if(usuDAO.InactivarUsuario(Id)) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Inactivo Correctamente");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Inactivo Correctamente!");
+                    
+                }
+                
+                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);       
+                
+            break;  
+            
+            case 7: //Activar Registro
+                
+                if(usuDAO.ActivarUsuario(Id)) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Activo Correctamente!");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Activo Correctamente!");
+                    
+                }
+                
+                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);       
+                
+            break;            
+             
+            case 8: //Inicio de Sesión
                 
                 if (usuDAO.inicioSesion(Correo, Contrasena)) {
                     
-                    //HttpSession miSesion = request.getSession(true); //Crea una sesion
+                    HttpSession miSesion = request.getSession(true); //Crea una sesion
                    
-                    //usuVO = new UsuarioVO(Id, Correo); //Atributos que maneja en la session u objeto
+                    usuVO = new UsuarioVO(Id, Correo); //Atributos que maneja en la session u objeto
                     
-                    //miSesion.setAttribute("usuario", usuVO); //Enviando por la sesion
+                    miSesion.setAttribute("usuario", usuVO); //Enviando por la sesion
                     
                     request.getRequestDispatcher("dashboard.jsp").forward(request, response);
                     
                 } else {
                     
                     request.setAttribute("mensajeFallido", "¡El Usuario y/o la contraseña son incorrectos!");
+                    
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 }

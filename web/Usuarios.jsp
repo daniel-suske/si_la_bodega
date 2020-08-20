@@ -4,6 +4,10 @@
     Author     : Yeison
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="modeloDAO.UsuarioDAO"%>
+<%@page import="modeloVO.UsuarioVO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,8 +28,11 @@
 
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="../../assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css">
+  <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/plugins/data-tables/datatables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/jquery.datatables.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/responsive.datatables.min.css" />
 
   
   
@@ -33,52 +40,45 @@
   
   
   
-  <link href="../../assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+  <link href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
   
   
   
-  <link href="../../assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+  <link href="assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
   
   
   
-  <link href="../../assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+  <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
   
   
 
   <!-- SLEEK CSS -->
-  <link id="sleek-css" rel="stylesheet" href="../../assets/css/sleek.css" />
-  <link href="../../assets/css/estilos.css" rel="stylesheet" />
-
+  <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
+  <link href="assets/css/estilos.css" rel="stylesheet" />
+  <link href="assets/css/users.css" rel="stylesheet"/>
+  
         <!--Icono-->
-        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "../../assets/img/Iconos.ico/apple-icon-57x57.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "../../assets/img/Iconos.ico/apple -icon-60x60.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "../../assets/img/Iconos.ico/apple-icon-72x72.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "../../assets/img/Iconos.ico/apple-icon-76x76.png" > 
-        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "../../assets/img/Iconos.ico/apple-icon-114x114.png "> 
-        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "../../assets/img/Iconos.ico/apple-icon-120x120.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "../../assets/img/Iconos.ico/apple-icon-144x144.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "../../assets/img/Iconos.ico/apple-icon-152x152.png "> 
-        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "../../assets/img/Iconos.ico/apple-icon-180x180.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "../../assets/img/Iconos.ico/android-icon-192x192.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "../../assets/img/Iconos.ico/favicon-32x32.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "../../assets/img/Iconos.ico/favicon-96x96.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "../../assets/img/Iconos.ico/favicon-16x16. png "> 
-        <link  rel = " manifest " href = "../../assets/img/Iconos.ico/manifest.json" > 
+        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png" > 
+        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png "> 
+        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "/assets/img/Iconos.ico/apple-icon-120x120.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "/assets/img/Iconos.ico/apple-icon-144x144.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png "> 
+        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png" > 
+        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png" > 
+        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png" > 
+        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png" > 
+        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16. png "> 
+        <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json" > 
         <meta  name ="msapplication-TileColor"  content = "#ffffff" > 
-        <meta  name = "msapplication-TileImage"  content = "../../assets/img/Iconos.ico/ms-icon-144x144.png" > 
+        <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
         <meta  name = "theme-color"  content = "#ffffff" >
 
   
-
-  <!--
-    HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-  -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script src="../../assets/plugins/nprogress/nprogress.js"></script>
+  
+  
 </head>
 
 
@@ -106,7 +106,7 @@
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
             <div class="app-brand">
-              <img class="logo" src="../../assets/img/logo.png">
+              <img class="logo" src="assets/img/logo.png">
             </div>
             <!-- begin sidebar scrollbar -->
             <div class="sidebar-scrollbar">
@@ -117,7 +117,7 @@
 
                 
                   <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="../../dashboard.jsp">
+                    <a class="sidenav-item-link" href="dashboard.jsp">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">MENU</span> 
                     </a>
@@ -154,7 +154,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="#">
+                              <a class="sidenav-item-link" href="UsuariosC.jsp">
                                 <span class="nav-text">Clientes</span> <b class="caret"></b>
                                 
                               </a>
@@ -620,13 +620,13 @@
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                      <img src="../../assets/img/user/usuario.png" class="user-image" alt="User Image" />
+                      <img src="assets/img/user/usuario.png" class="user-image" alt="User Image" />
                       <span class="d-none d-lg-inline-block">Nombre</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
-                        <img src="../../assets/img/user/usuario.png" class="img-circle" alt="User Image" />
+                        <img src="assets/img/user/usuario.png" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
                          Nombre y Apellido <small class="pt-1">Nombre@gmail.com</small>
                         </div>
@@ -650,7 +650,7 @@
                       </li>
 
                       <li class="dropdown-footer">
-                        <a href="../../index.jsp"> <i class="mdi mdi-logout"></i> Cerrar Sesión </a>
+                        <a href="index.jsp"> <i class="mdi mdi-logout"></i> Cerrar Sesión </a>
                       </li>
                     </ul>
                   </li>
@@ -674,19 +674,334 @@
               
                 <br>
 
-                  <h1>Gestion de Empleados</h1>
+                <h1 class="text text-dark">Gestion de Empleados</h1>
               
                   <hr>
+                  <div class="navbar ">
+                  <a class="btn btn-success btn-lg  text-light" data-toggle="modal" data-target=".bd-example-modal-lg">+ Nuevo Registro</a>
 
-                
-                
+                  <br><br><br>
+                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                      <input type="search" class="form-control form-dark" name="text"/>
+                      <input type="submit" class="btn btn-primary" value="Buscar"/>
+                      <input type="hidden" name="opcion" value="4" />
+                  </form>
+                  </div>
+                  <br><br>
+                 <div class="table-responsive">   
+                    <table class="table table-bordered table-hover">
+                        <thead class="table table-striped table-hover responsive nowrap">   
+                            <tr>
+                                <th scope="col" class="text-center">Id</th>
+                                <th scope="col" class="text-center">Nombres</th>
+                                <th scope="col" class="text-center">Apellidos</th>
+                                <th scope="col" class="text-center">Numero de Documento</th>
+                                <th scope="col" class="text-center">Tipo de Documento</th>
+                                <th scope="col" class="text-center">Correo</th>
+                                <th scope="col" class="text-center">Telefono</th>
+                                <th scope="col" class="text-center">Barrio</th>
+                                <th scope="col" class="text-center">Dirección</th>
+                                <th scope="col" class="text-center">Registrado Por</th>
+                                <th scope="col" class="text-center">Perfil</th>
+                                <th scope="col" class="text-center">Estado</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>  
+                        </thead>
+                      <%
+                          UsuarioVO usuVO = new UsuarioVO();
+                          UsuarioDAO usuDAO = new UsuarioDAO();
+                          
+                          String Id = ""; 
+                          
+                          ArrayList<UsuarioVO> listaUsuariosE = usuDAO.listarE();
+                          
+                          for (int i = 0; i < listaUsuariosE.size(); i++) {
+                              
+                              usuVO = listaUsuariosE.get(i);
+                              
+                      %>
+                      <tbody class="table table-striped table-hover text text-dark">
+                            <tr>
+                                <td scope="row" class="text-center"><%= usuVO.getId() %></td>
+                                <td class="text-center"><%= usuVO.getNombres() %></td>
+                                <td class="text-center"><%= usuVO.getApellidos() %></td>
+                                <td class="text-center"><%= usuVO.getNumero_Documento() %></td>
+                                <td class="text-center"><%= usuVO.getTipo_Documento() %></td>
+                                <td class="text-center"><%= usuVO.getCorreo() %></td>
+                                <td class="text-center"><%= usuVO.getTelefono() %></td>
+                                <td class="text-center"><%= usuVO.getBarrio() %></td>
+                                <td class="text-center"><%= usuVO.getDireccion() %></td>
+                                <td class="text-center"><%= usuVO.getId_Registrado_Por() %></td>
+                                <td class="text-center"><%= usuVO.getPerfil() %></td>
+                                <td class="text-center" name="EId"><%= usuVO.getEstado() %></td>
+                                <td class="text-center">
+                                    <form method="post" action="Usuario">
+                                        <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
+                                    <button class="btn btn-warning">Modificar</button>
+                                        <input type="hidden" name="opcion" value="3"/>
+                                    </form>
+                                    |
+                                    <%--
+                                    if(usuVO.getEstado() == "Activo") { --%>
+                                        
+                                    <form method="post" action="Usuario">
+                                        <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
+                                    <button class="btn btn-danger">Inactivar</button>
+                                        <input type="hidden" name="opcion" value="6"/>
+                                    </form>
+                                    
+                                    <br>
+                                    <%--<% } else if (usuVO.getEstado() == "Inactivo") { --%>
+                                    
+                                    <form method="post" action="Usuario">
+                                        <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
+                                    <button class="btn btn-secondary">Activar</button>
+                                        <input type="hidden" name="opcion" value="7"/>
+                                    </form>
+
+                                </td>
+                            </tr>
+                      </tbody>
+                      <% } %>
+                      
+                  </table>
+                      <center>
+                   <div style="color:Red">
+                        <%if (request.getAttribute("mensajeFallido") != null) {%>
+                        ${mensajeFallido}
+                        <% } else { %>
+                        ${mensajeExitoso}
+                        <% } %>
+                   </div> 
+                      </center>
                 <br>
-                </div>
-            </div>     
+               </div>   
 
         <!-- Termina aqui -->
+        
+        <!-- Modales -->
+        
+  <!--Modal Para Registrar -->
+    <div class="modal fade bd-example-modal-lg  modal-efe" tabindex="-1" role="dialog"
+        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-efe">
+
+            <div class="modal-content modal-efe">
+                <div class="modal-header">
+
+                    
+                    <img class="logona" src="assets/img/logo.png" alt="logo">
+                    <button type="button"  data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="equis">&times;</span>
+                    </button>
 
 
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-title">Registro de Empleados</h4>
+                    
+                    <form method="post" action="Usuario" class="formulario"> <!-- id="formulario" por Arreglar-->
+ 
+                        <div class="formulario__grupo" id="grupo__nombres">
+                            <span>
+                                <label for="nombres" class="formulario__label">Nombres:</label>
+                                <div class="formulario__grupo-input">
+                                    <input type="text" class="formulario__input" name="nombres" id="nombres"
+                                        placeholder="Nombre Completo">
+                                    <i class="formulario__validacion-estado far fa-times-circle"></i>
+                                </div>
+                                <p class="formulario__input-error">Los NOMBRES debe ser de 4 a 50 digitos y solo pueden
+                                    contener letras</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__apellidos">
+                            <label for="apellidos" class="formulario__label">Apellidos:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="apellidos" id="apellidos"
+                                    placeholder="Apellido Completo">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Los APELLIDOS debe ser de 4 a 50 digitos y solo pueden
+                                contener letras</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__tipo">
+                            <label for="tipo" class="formulario__label">Tipo de Documento:</label>
+                            <div class="formulario__grupo-input">
+                                <select name="tipo" id="tipo" class="formulario__input  selects">
+                                    <option value="EFE" selected>Seleccione su tipo de
+                                        Identificación</option>
+                                    <option value="CC">Cédula de Ciudadanía</option>
+                                    <option value="CE">Cédula de Extranjería</option>
+                                    <option value="PA">Pasaporte</option>
+                                    <option value="RC">Registro Civil</option>
+                                </select>
+
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Debe seleccionar el Tipo de Documento</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__documento">
+                            <label for="documento" class="formulario__label">Numero de Documento:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="number" class="formulario__input" name="documento" id="documento"
+                                    placeholder="Digite Correctamente">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El Numero de Documento debe ser de 7 a 11 digitos y solo
+                                pueden contener numeros</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__telefono">
+                            <label for="telefono" class="formulario__label">Telefono:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="number" class="formulario__input" name="telefono" id="telefono"
+                                    placeholder="Fijo o Celular">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El Telefono debe ser de 6 a 10 digitos y solo pueden
+                                contener numeros</p>
+                        </div>                     
+                        
+                        <div class="formulario__grupo" id="grupo__direccion">
+                            <label for="direccion" class="formulario__label">Direccion:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="direccion" id="direccion"
+                                    placeholder="Dirrecion actual">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La direccion debe ser de 15 a 100 digitos y puede
+                                contener numeros, letras y simbolos</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__correo">
+                            <label for="email" class="formulario__label">Correo:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="correos" id="correo"
+                                    placeholder="Digite Correctamente">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">El correo debe ser de 10 a 100 digitos y puede debe
+                                contener un formato de correo</p>
+                        </div>
+                        
+                        <div class="formulario__grupo" id="grupo__direccion">
+                            <label for="direccion" class="formulario__label">Barrio:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" class="formulario__input" name="barrio" id="barrio"
+                                    placeholder="Una localidad">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La direccion debe ser de 15 a 100 digitos y puede
+                                contener numeros, letras y simbolos</p>
+                        </div>                           
+
+                        <div class="formulario__grupo" id="grupo__contrasena">
+                            <label for="contrasena" class="formulario__label">Contraseña:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" class="formulario__input" name="contrasena" id="contrasena">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La contraseña debe ser minimo de 8 a 50 digitos y debe
+                                contener numeros y letras</p>
+                        </div>
+
+                        <div class="formulario__grupo" id="grupo__contrasena2">
+                            <label for="contrasena2" class="formulario__label">Repetir Contraseña:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" class="formulario__input" name="contrasena2" id="contrasena2">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Ambas contraseñas deben ser iguales</p>
+                        </div>
+                        
+                        <div class="formulario__grupo" id="grupo__contrasena2">
+                                <label for="contrasena2" class="formulario__label">Id de Usuario a cargo del registro:</label>
+                            <div class="formulario__grupo-input">
+                                <input type="number" class="formulario__input" name="textId_R" id="Id_R">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                                
+                        </div>      
+                        
+                        <div class="formulario__grupo" id="grupo__tipo">
+                            <label for="" class="formulario__label">Perfil:</label>
+                            <div class="formulario__grupo-input">
+                                <select name="textPerfil" id="" class="formulario__input  selects">
+                                    <option selected>Seleccione el Perfil:</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Secretari@</option>
+                                    <option value="3">Tecnico</option>
+                                    <option value="4">Cajero</option>
+                                </select>
+
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">Debe seleccionar el Tipo de Perfil</p>
+                        </div>    
+                        
+                        <div class="formulario__grupo" id="grupo__contrasena2">
+                                <label for="contrasena2" class="formulario__label">Estado:</label>
+                             <div class="formulario__grupo-input">
+                                <select name="textEstado" id="" class="formulario__input  selects">
+                                    <option selected>Seleccione el Estado:</option>
+                                    <option value="1">Activo</option>
+                                </select>
+
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                                
+                        </div>                         
+
+                        <div class="formulario__grupo" id="grupo__terminos">
+                            <label>
+                                <input class="formulario__checkbox text-dark" type="checkbox" name="terminos" id="terminos">
+                                Acepto los Terminos y Condiciones
+                            </label>
+                        </div>
+
+
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p>
+                                <i class="fas fa-exclamation-triangle"></i> <b>Error: </b>Porfavor Diligencie los Campos
+                                del Formulario Correctamente </p>
+
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <!--<div class="formulario__grupo formulario__grupo-btn-enviar ">-->
+                        <button type="submit" class="btn_f">Registrar</button>
+                        <input type="hidden" value="2" name="opcion">
+                        
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado
+                            Correctamente</p>
+
+                <br>
+                <div style="color:Red">
+                    <center>
+                        <%if (request.getAttribute("mensajeFallido") != null) {%>
+                        ${mensajeFallido}
+                        <% } else { %>
+                        ${mensajeExitoso}
+                        <% } %>
+                    </center>
+                </div>
+                </div>
+                    
+              </form>
+
+                        </div>
+                    </div>
+                </div>
+    <!-- Modal para Actualizar -->
+    
+    
+       </div>
+    </div>
+   
+
+        <!-- End Modals -->
 
 
           <footer class="footer mt-auto">
@@ -705,23 +1020,26 @@
     </div>
   </div>
 
-  <script src="../../assets/plugins/jquery/jquery.min.js"></script>
-<script src="../../assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
-<script src="../../assets/plugins/jekyll-search.min.js"></script>
+ <script src="assets/plugins/nprogress/nprogress.js"></script>
+                      
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
+<script src="assets/plugins/jekyll-search.min.js"></script>
+<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
 
 
 
-<script src="../../assets/plugins/charts/Chart.min.js"></script>
+<script src="assets/plugins/charts/Chart.min.js"></script>
   
 
 
-<script src="../../assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-<script src="../../assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
+<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
   
 
 
-<script src="../../assets/plugins/daterangepicker/moment.min.js"></script>
-<script src="../../assets/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="assets/plugins/daterangepicker/moment.min.js"></script>
+<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
 <script>
   jQuery(document).ready(function() {
     jQuery('input[name="dateRange"]').daterangepicker({
@@ -742,11 +1060,24 @@
   
 
 
+<!--del Table-->
+
+<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js/"></script>
+<script src="assets/plugins/data-tables/datatables.responsive.min.js"></script>
+<!-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+        $('#userList').DataTable();
+    } );
+</script>
+
+<!--end table-->
 
 
-
-
-<script src="../../assets/js/sleek.bundle.js"></script>
+<script src="assets/js/sleek.bundle.js"></script>
 </body>
 
 </html>
+
