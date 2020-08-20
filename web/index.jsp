@@ -210,7 +210,7 @@
                         <div class="formulario__grupo" id="grupo__correo">
                             <label for="email" class="formulario__label">Correo:</label>
                             <div class="formulario__grupo-input">
-                                <input type="text" class="formulario__input" name="correos" id="correo"
+                                <input type="email" class="formulario__input" name="correos" id="correo"
                                     placeholder="Ejem:zuckerberg@gmail.com">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>

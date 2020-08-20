@@ -1,13 +1,14 @@
 <%-- 
-    Document   : dashboard
-    Created on : 17-ago-2020, 23:42:22
+    Document   : Perfiles
+    Created on : 17-ago-2020, 23:49:09
     Author     : Yeison
 --%>
-<%@include file="Sesiones.jsp"%>
-<%@page import="modeloVO.UsuarioVO"%>
-<%@page import="modeloDAO.UsuarioDAO"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="modeloDAO.PerfilDAO"%>
+<%@page import="modeloVO.PerfilVO"%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +20,7 @@
   <meta name="author" content="Grupo-6">
 
 
-  <title>La Bodega</title>
+  <title>Perfiles</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -29,6 +30,10 @@
   <!-- PLUGINS CSS STYLE -->
   <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/plugins/data-tables/datatables.bootstrap4.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/jquery.datatables.min.css" />
+  <link rel="stylesheet" href="assets/plugins/data-tables/responsive.datatables.min.css" />
+
   
   
   <!-- No Extra plugin used -->
@@ -50,7 +55,8 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
   <link href="assets/css/estilos.css" rel="stylesheet" />
-
+  <link href="assets/css/users.css" rel="stylesheet"/>
+  
         <!--Icono-->
         <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
         <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
@@ -70,15 +76,9 @@
         <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
         <meta  name = "theme-color"  content = "#ffffff" >
 
-  <!--
-    HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
-  -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-  <script src="assets/plugins/nprogress/nprogress.js"></script>
+  
+  
+  
 </head>
 
 
@@ -117,8 +117,7 @@
 
                 
                   <li  class="has-sub active expand" >
-                    <a class="sidenav-item-link" href="#" data-toggle="collapse" data-target="#dashboard"
-                      aria-expanded="false" aria-controls="dashboard">
+                    <a class="sidenav-item-link" href="dashboard.jsp">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">MENU</span> 
                     </a>
@@ -164,7 +163,7 @@
   
                             
                             <li >
-                              <a class="sidenav-item-link" href="Perfiles.jsp">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Perfiles</span> <b class="caret"></b>
                                 
                               </a>
@@ -229,7 +228,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="">
+                              <a class="sidenav-item-link" href="material-icon.html">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
@@ -634,7 +633,7 @@
                       </li>
 
                       <li>
-                        <a href="user-profile.html">
+                        <a href="#">
                           <i class="mdi mdi-account"></i> My Perfil
                         </a>
                       </li>
@@ -667,133 +666,83 @@
 
 
 
-<!-- AQUI VA EL contenido-->
+        <!-- AQUI VA EL contenido-->
 
-<div class="content-wrapper">
+        <div class="content-wrapper">
 
-      <div class="content">
-       
-        <br>
+              <div class="content">
+              
+                <br>
 
-          <h1>Bienvenido "Gerente"</h1>
-       
-          <hr>
+                <h1 class="text text-dark">Gestion de Perfiles</h1>
+              
+                  <hr>
+                  <div class="navbar ">
 
-         
-          <!-- Top Statistics -->
-          <div class="row">
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">71,503</h2>
-                  <p>Inscripciones en Linea</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="barChart"></canvas>
+                  <br><br><br>
+                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                      <input type="search" class="form-control form-dark" name="text"/>
+                      <input type="submit" class="btn btn-primary" value="Buscar"/>
+                      <input type="hidden" name="opcion" value="4" />
+                  </form>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini  mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">9,503</h2>
-                  <p>Nuevos Visitantes</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="dual-line"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">71,503</h2>
-                  <p>Pedido Total Mensual</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="area-chart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6">
-              <div class="card card-mini mb-4">
-                <div class="card-body">
-                  <h2 class="mb-1">9,503</h2>
-                  <p>Total de Ingresos de este Año</p>
-                  <div class="chartjs-wrapper">
-                    <canvas id="line"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <br><br>
+                 <div class="table-responsive">   
+                    <table class="table table-bordered table-hover">
+                        <thead class="table table-striped table-hover">   
+                            <tr>
+                                <th scope="col" class="text-center">Id</th>
+                                <th scope="col" class="text-center">Nombre</th>
+                                <th scope="col" class="text-center">Acciones</th>
+                            </tr>  
+                        </thead>
+                      <%
+                          PerfilVO perfVO = new PerfilVO();
+                          PerfilDAO perfDAO = new PerfilDAO();
+                          
+                          ArrayList<PerfilVO> listaPerfiles = perfDAO.listarP();
+                          
+                          for (int i = 0; i < listaPerfiles.size(); i++) {
+                              
+                              perfVO = listaPerfiles.get(i);
+                              
+                      %>
+                      <tbody class="table table-striped table-hover text text-dark">
+                            <tr>
+                                <td scope="row" class="text-center"><%= perfVO.getId() %></td>
+                                <td class="text-center"><%= perfVO.getNombre()%></td>
+              
+                                <td class="text-center">
+                                    <form method="post" action="Perfil">
+                                        <input type="hidden" name="textId" value="<%= perfVO.getId() %>" />
+                                    <button class="btn btn-warning">Modificar</button>
+                                        <input type="hidden" name="opcion" value="2"/>
+                                    </form>
+                                    |
+                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
+                                </td>
+                            </tr>
+                      </tbody>
+                      <% } %>
+                      
+                  </table>
+                
+                <br>
+               </div>   
 
+        <!-- Termina aqui -->
+        
+        <!-- Modales -->
+        
 
-          <div class="row">
-            <div class="col-xl-8 col-md-12">
-                    <!-- Sales Graph -->
-                    <div class="card card-default" data-scroll-height="675">
-                      <div class="card-header">
-                        <h2>Ventas del Año</h2>
-                      </div>
-                      <div class="card-body">
-                        <canvas id="linechart" class="chartjs"></canvas>
-                      </div>
-                      <div class="card-footer d-flex flex-wrap bg-white p-0">
-                        <div class="col-6 px-0">
-                          <div class="text-center p-4">
-                            <h4>$6,308</h4>
-                            <p class="mt-2">Total de ordenes de este año</p>
-                          </div>
-                        </div>
-                        <div class="col-6 px-0">
-                          <div class="text-center p-4 border-left">
-                            <h4>$70,506</h4>
-                            <p class="mt-2">Total de Ingresos de este año</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-</div>
-            <div class="col-xl-4 col-md-12">
-                <!-- Doughnut Chart -->
-                <div class="card card-default" data-scroll-height="675">
-                  <div class="card-header justify-content-center">
-                    <h2>Orders Overview</h2>
-                  </div>
-                  <div class="card-body" >
-                    <canvas id="doChart" ></canvas>
-                  </div>
-                  <a href="#" class="pb-5 d-block text-center text-muted"><i class="mdi mdi-download mr-2"></i> Descargar Informe Genral</a>
-                  <div class="card-footer d-flex flex-wrap bg-white p-0">
-                    <div class="col-6">
-                      <div class="py-4 px-4">
-                        <ul class="d-flex flex-column justify-content-between">
-                          <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #4c84ff"></i>Servicio Completo</li>
-                          <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #80e1c1 "></i>Servicio no Pagado</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="col-6 border-left">
-                      <div class="py-4 px-4 ">
-                        <ul class="d-flex flex-column justify-content-between">
-                          <li class="mb-2"><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #8061ef"></i>Servicio Pendiente</li>
-                          <li><i class="mdi mdi-checkbox-blank-circle-outline mr-2" style="color: #ffa128"></i>Servicio Cancelado</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-</div>
-          </div>
+    <!-- Modal para Actualizar -->
+    
+    
+       </div>
+    </div>
+   
 
-
-        <br>
-        </div>
-    </div>     
-
-<!-- Termina aqui -->
-
+        <!-- End Modals -->
 
 
           <footer class="footer mt-auto">
@@ -812,9 +761,12 @@
     </div>
   </div>
 
-  <script src="assets/plugins/jquery/jquery.min.js"></script>
+ <script src="assets/plugins/nprogress/nprogress.js"></script>
+                      
+<script src="assets/plugins/jquery/jquery.min.js"></script>
 <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
 <script src="assets/plugins/jekyll-search.min.js"></script>
+<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
 
 
 
@@ -847,6 +799,22 @@
   });
 </script>
   
+
+
+<!--del Table-->
+
+<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js/"></script>
+<script src="assets/plugins/data-tables/datatables.responsive.min.js"></script>
+<!-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
+        $('#userList').DataTable();
+    } );
+</script>
+
+<!--end table-->
 
 
 <script src="assets/js/sleek.bundle.js"></script>

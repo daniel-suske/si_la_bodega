@@ -163,7 +163,7 @@
   
                             
                             <li >
-                              <a class="sidenav-item-link" href="#">
+                              <a class="sidenav-item-link" href="Perfiles.jsp">
                                 <span class="nav-text">Perfiles</span> <b class="caret"></b>
                                 
                               </a>
@@ -192,7 +192,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="#">
+                              <a class="sidenav-item-link" href="Servicios.jsp">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
@@ -445,7 +445,7 @@
                     
                       
                         <li >
-                          <a class="sidenav-item-link" href="basic-tables.html">
+                          <a class="sidenav-item-link" href="Estados.jsp">
                             <span class="nav-text">Gestion</span>
                             
                           </a>
@@ -887,7 +887,7 @@
                         </div>
                         
                         <div class="formulario__grupo" id="grupo__direccion">
-                            <label for="direccion" class="formulario__label">Barrio:</label>
+                            <label for="barrio" class="formulario__label">Barrio:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="barrio" id="barrio"
                                     placeholder="Una localidad">
@@ -917,7 +917,7 @@
                         </div>
                         
                         <div class="formulario__grupo" id="grupo__contrasena2">
-                                <label for="contrasena2" class="formulario__label">Id de Usuario a cargo del registro:</label>
+                                <label for="textId_R class="formulario__label">Id de Usuario a cargo del registro:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="textId_R" id="Id_R">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
@@ -926,7 +926,7 @@
                         </div>      
                         
                         <div class="formulario__grupo" id="grupo__tipo">
-                            <label for="" class="formulario__label">Perfil:</label>
+                            <label for="textPerfil" class="formulario__label">Perfil:</label>
                             <div class="formulario__grupo-input">
                                 <select name="textPerfil" id="" class="formulario__input  selects">
                                     <option selected>Seleccione el Perfil:</option>
@@ -942,7 +942,7 @@
                         </div>    
                         
                         <div class="formulario__grupo" id="grupo__contrasena2">
-                                <label for="contrasena2" class="formulario__label">Estado:</label>
+                                <label for="textEstado" class="formulario__label">Estado:</label>
                              <div class="formulario__grupo-input">
                                 <select name="textEstado" id="" class="formulario__input  selects">
                                     <option selected>Seleccione el Estado:</option>
