@@ -146,7 +146,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="Usuarios.jsp">
 
                                                 <span class="nav-text">Empleados</span> <b class="caret"></b>
                                             </a>
@@ -159,7 +159,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="UsuariosC.jsp">
                                                 <span class="nav-text">Clientes</span> <b class="caret"></b>
 
                                             </a>
@@ -168,7 +168,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="#">
+                                            <a class="sidenav-item-link" href="Perfiles.jsp">
                                                 <span class="nav-text">Perfiles</span> <b class="caret"></b>
 
                                             </a>
@@ -451,7 +451,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="basic-tables.html">
+                                            <a class="sidenav-item-link" href="Estados.jsp">
                                                 <span class="nav-text">Gestion</span>
 
                                             </a>

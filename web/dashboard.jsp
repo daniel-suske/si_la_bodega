@@ -296,7 +296,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="basic-tables.html">
+                              <a class="sidenav-item-link" href="consultarRepuesto.jsp">
                                 <span class="nav-text">Inventario de Repuestos</span>
                                 
                               </a>
