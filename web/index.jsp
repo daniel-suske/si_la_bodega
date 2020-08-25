@@ -394,16 +394,15 @@
                 <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
                     <div class="margin-b-60">
                         <h2>Solicitar un Servicio</h2>
-                        <p>Puedes vistar la página o se puede dirigir directamente a la empresa y realiza la solicitud
-                            de el servicio de reparacion del electrodoméstico </p>
+                        <p>Puedes realizar la solicitud den el servicio de reparación del electrodoméstico</p>
                     </div>
                     <img class="full-width img-responsive wow fadeInUp" src="recursos/img/500x500/01.jpg" alt="Portfolio Image"
                         data-wow-duration=".3" data-wow-delay=".2s">
                 </div>
                 <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
                     <div class="margin-b-60">
-                        <h2>Secretaria Agenda el servicio</h2>
-                        <p>Validando tus datos el tecnico se acerca para validar tu daño y costo </p>
+                        <h2>Agendar el  Servicio </h2>
+                        <p>Nuestro Tecnico se acerca se una forma rapida y valida el daño y el costo</p>
                     </div>
                     <img class="full-width img-responsive wow fadeInUp" src="recursos/img/500x500/02.jpg" alt="Portfolio Image"
                         data-wow-duration=".3" data-wow-delay=".3s">
@@ -427,8 +426,7 @@
                 <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
                     <div class="margin-t-60 margin-b-60">
                         <h2>Diagnóstico del técnico</h2>
-                        <p>El diagnóstico lo documenta el técnico en su libreta, costo y el precio del electrodoméstico
-                            asi sabras si lo cancelas o lo aplazas </p>
+                        <p>El diagnóstico lo documenta el técnico en su libreta, costo y el precio del electrodoméstico </p>
 
                     </div>
                     <img class="full-width img-responsive wow fadeInUp" src="recursos/img/500x500/07.jpg" alt="Portfolio Image"
@@ -436,8 +434,8 @@
                 </div>
                 <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
                     <div class="margin-t-60 margin-b-60">
-                        <h2>El técnico realiza la reparación</h2>
-                        <p>Se elabora la factura con tus respectivos datos </p>
+                        <h2>Se realiza la reparación</h2>
+                        <p>Se elabora la factura con los datos respectivos del cliente en acción de rapidez</p>
 
                     </div>
                     <img class="full-width img-responsive wow fadeInUp" src="recursos/img/500x500/05.jpg" alt="Portfolio Image"
