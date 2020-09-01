@@ -673,6 +673,7 @@
               <div class="content">
               
                 <br>
+                
 
                 <h1 class="text text-dark">Gestion de Empleados</h1>
               
@@ -843,7 +844,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__documento">
-                            <label for="documento" class="formulario__label">Numero de Documento:</label>
+                            <label for="documento" class="formulario__label">Número de Documento:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="documento" id="documento"
                                     placeholder="Digite Correctamente">
@@ -854,7 +855,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__telefono">
-                            <label for="telefono" class="formulario__label">Telefono:</label>
+                            <label for="telefono" class="formulario__label">Teléfono:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="telefono" id="telefono"
                                     placeholder="Fijo o Celular">
@@ -865,7 +866,7 @@
                         </div>                     
                         
                         <div class="formulario__grupo" id="grupo__direccion">
-                            <label for="direccion" class="formulario__label">Direccion:</label>
+                            <label for="direccion" class="formulario__label">Dirección:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="direccion" id="direccion"
                                     placeholder="Dirrecion actual">
@@ -917,7 +918,7 @@
                         </div>
                         
                         <div class="formulario__grupo" id="grupo__contrasena2">
-                                <label for="textId_R class="formulario__label">Id de Usuario a cargo del registro:</label>
+                                <label for="textId_R" class="formulario__label">Id de Usuario a cargo del registro:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="textId_R" id="Id_R">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
@@ -995,7 +996,6 @@
                     </div>
                 </div>
     <!-- Modal para Actualizar -->
-    
     
        </div>
     </div>

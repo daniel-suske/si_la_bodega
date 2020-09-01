@@ -175,7 +175,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__documento">
-                            <label for="documento" class="formulario__label">Numero de Documento:</label>
+                            <label for="documento" class="formulario__label">Número de Documento:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="documento" id="documento"
                                     placeholder="Ejem: 1001556252..">
@@ -186,7 +186,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__telefono">
-                            <label for="telefono" class="formulario__label">Telefono:</label>
+                            <label for="telefono" class="formulario__label">Teléfono:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="telefono" id="telefono"
                                     placeholder="Ejem: 3152648487..">
@@ -197,7 +197,7 @@
                         </div>                     
                         
                         <div class="formulario__grupo" id="grupo__direccion">
-                            <label for="direccion" class="formulario__label">Direccion:</label>
+                            <label for="direccion" class="formulario__label">Dirección:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="direccion" id="direccion"
                                     placeholder="Ejem: CALLE 200 #145-12..">
