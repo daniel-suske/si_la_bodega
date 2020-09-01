@@ -105,11 +105,11 @@
         <aside class="left-sidebar bg-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
-            <div class="app-brand">
+            <div class="app-brand bg-white">
               <img class="logo" src="assets/img/logo.png">
             </div>
             <!-- begin sidebar scrollbar -->
-            <div class="sidebar-scrollbar">
+            <div class="sidebar-scrollbar ">
 
               <!-- sidebar menu -->
               <ul class="nav sidebar-inner" id="sidebar-menu">
@@ -357,7 +357,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="google-map.html">
+                              <a class="sidenav-item-link" href="consultarFactura.jsp">
                                 <span class="nav-text">General</span>
                                 
                               </a>

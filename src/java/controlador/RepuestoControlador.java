@@ -78,7 +78,7 @@ public class RepuestoControlador extends HttpServlet {
                 break; 
                 
             case 3:
-                String ope=null;
+              repuVO=null;
                 repuVO = repuDAO.consultarSerie(No_Serie);
                 if(repuVO !=null){
                 request.setAttribute("repuesto", repuVO);
