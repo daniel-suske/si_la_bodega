@@ -12,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import static javax.xml.bind.DatatypeConverter.parseString;
+
+
 import modeloDAO.RepuestoDAO;
+
 import modeloVO.RepuestoVO;
 
 /**
@@ -52,7 +54,9 @@ public class RepuestoControlador extends HttpServlet {
         String Estado = request.getParameter("estado");
         
         RepuestoVO repuVO = new RepuestoVO(Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado);
-        RepuestoDAO repuDAO = new RepuestoDAO(repuVO);
+            RepuestoDAO repuDAO = new RepuestoDAO(repuVO);
+            
+            
         
         switch(opcion){
         
@@ -73,6 +77,7 @@ public class RepuestoControlador extends HttpServlet {
                 } else {
                     request.setAttribute("mensajeError", "¡El Repuesto NO se actualizo correctamente!");
                     request.getRequestDispatcher("actualizarRepuesto.jsp").forward(request, response);
+                    
                 }
                 
                 break; 
@@ -87,19 +92,20 @@ public class RepuestoControlador extends HttpServlet {
                 request.getRequestDispatcher("consultarRepuesto.jsp").forward(request, response);
                 
                 }else{
-                    request.setAttribute("mensajeError", "¡El Vehiculo NO existe!");
+                    request.setAttribute("mensajeError", "¡El repuesto NO existe!");
                     request.getRequestDispatcher("consultarRepuesto.jsp").forward(request, response);
                 }
             break;
             
             case 4:
                 repuVO = repuDAO.consultarId(Id);
+                
                 if(repuVO !=null){
                 request.setAttribute("repuesto_id", repuVO);
                 request.getRequestDispatcher("actualizarRepuesto.jsp").forward(request, response);
                 
                 }else{
-                    request.setAttribute("mensajeError", "¡El Vehiculo NO existe!");
+                    request.setAttribute("mensajeError", "¡El Repuesto NO existe!");
                     request.getRequestDispatcher("consultarRepuesto.jsp").forward(request, response);
                 }
             break;

@@ -4,30 +4,34 @@
 <%@include file="dash1.jsp" %>
 
 <!-- AQUI VA EL contenido-->
-
+<title>Consultar Repuesto</title>
 <div class="content-wrapper">
 
     <div class="content">
         <div class="card bg-white" style="width: 104%">
             <div class="card-body ">
-                <h3>Consultar Repuestos</h3>
+                <h5>Consultar Repuestos</h5>
                 <br><br>
+                 
                 <form method="post" action="Repuesto" class="form-inline"> 
 
                     <input type="hidden" value="3" name="opcion"> 
                     <label for="no_serie" class="m-2"> No_Serie:</label>
                     <input type="text"  class="form-control m-2" name="no_serie" id="no_serie" autofocus="100"> 
+                    <div class="form-inline">
                     <button class="btn btn-success m-2">Consultar</button> 
-
+                    </form>
+               
                     <button class="btn btn-info">
                         <a style="text-decoration: none; color: #Fff" href="registrarRepuesto.jsp">Crear</a>
                     </button>
                     <button class="btn btn-dark m-2">
                         <a style="text-decoration: none; color: #Fff" href="consultarRepuesto.jsp">All</a>
                     </button>
+                </div>
 
 
-                </form>
+                
             </div></div>
 
         <br><br> 
@@ -37,7 +41,7 @@
         <div class="card bg-white" style="width: 104%">
             <div class="card-body ">
                 <table class="table col-10 table-hover table-bordered" > 
-                    <thead class="table-dark" > 
+                    <thead class=""style="background-color: #443F4F" > 
                         <tr> 
                             <th class="text-light">#</th> 
                             <th class="text-light">Nombre</th> 

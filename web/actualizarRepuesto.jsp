@@ -4,6 +4,9 @@
     Author     : Yeison
 --%>
 
+<%@page import="modeloDAO.EstadoDAO"%>
+<%@page import="modeloVO.EstadoVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="modeloVO.RepuestoVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -671,6 +674,8 @@
 
 
                 <!-- AQUI VA EL contenido-->
+                <div class="card bg-white row-justify-center" style="width: 90%">
+            <div class="card-body ">
 
                 <div class="content-wrapper">
 
@@ -678,7 +683,7 @@
 
                         RepuestoVO repVO = (RepuestoVO) request.getAttribute("repuesto_id");
                         if (repVO != null) {
-
+                            
 
                     %>
 
@@ -745,7 +750,7 @@
                                 <label for="fecha_compra" class="formulario__label">Fecha Compra:</label>
                                 <div class="formulario__grupo-input">
 
-                                    <input type="date" class="formulario__input" name="dates" id="dates" value="<%=repVO.getFecha_Compra()%>">
+                                    <input type="date" class="formulario__input" onblur="agre()" name="dates" id="dates" value="<%=repVO.getFecha_Compra()%>">
                                     <input type="hidden" name="fecha" id="fecha" >
                                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                                 </div>
@@ -802,12 +807,24 @@
                             <div class="formulario__grupo" id="grupo__estado">
                                 <label for="estado" class="formulario__label">Estado:</label>
                                 <div class="formulario__grupo-input">
-                                  <select name="estado" class="formulario__input" value="<%=repVO.getEstado()%>" >
-                                        <option value="1">Activo</option>
-                                        <option value="2">Inactivo</option>
+                                     <select name="estado" class="formulario__input"  >
+                                    <%
+                                    EstadoVO estVO = new EstadoVO();
+                                EstadoDAO estDAO = new EstadoDAO();
+                        ArrayList< EstadoVO> listaE = estDAO.listarE();
+                                for (int i = 0; i < listaE.size(); i++) {
+                                    estVO = listaE.get(i);
+                                    if(estVO.getId().equals(repVO.getEstado())){
+                                    %>
+                                   
+                                        
+                                        <option selected value="<%=estVO.getId()%>"><%=estVO.getNombre()%></option>
+                                       <%}else{%>
+                                       <option  value="<%=estVO.getId()%>"><%=estVO.getNombre()%></option>
+                                       <%}}%>
                                     </select>
                                     <i class="formulario__validacion-estado far fa-times-circle"></i>
-                                    
+
                                 </div>
                                 <p class="formulario__input-error">estadoooo</p>
                             </div>
@@ -815,7 +832,7 @@
                             <div>
                                 <input type="hidden" name="opcion" id="opcion" value="2">
                                 <input type="hidden" name="Id" id="id" value="<%=repVO.getId()%>">
-                                
+
                             </div>
 
 
@@ -830,7 +847,9 @@
                     </div>
 
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        
                         <button  class="formulario__btn">Actualizar</button>
+                        
                         <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado
                             Correctamente</p>
 
@@ -865,6 +884,8 @@
 
             </div>
         </div>
+            </div>
+        </div>
 
         <script src="assets/plugins/jquery/jquery.min.js"></script>
         <script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
@@ -873,8 +894,6 @@
 
 
         <script src="assets/plugins/charts/Chart.min.js"></script>
-
-        <script src="assets/js/registrarRepuesto.js" language="javascript" type="text/javascript"></script>
 
 
         <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
@@ -901,8 +920,12 @@
                             });
                         });
         </script>
-
-
+        <script>
+            document.getElementById("fecha").value = document.getElementById("dates").value; 
+            function agre(){
+            document.getElementById("fecha").value = document.getElementById("dates").value; 
+        }
+        </script>
 
 
 
