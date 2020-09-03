@@ -652,11 +652,11 @@
                                             <a href="#"> <i class="mdi mdi-diamond-stone"></i> Cargos</a>
                                         </li>
                                         <li class="right-sidebar-in">
-                                            <a href="javascript:0"> <i class="mdi mdi-settings"></i> Configuración </a>
+                                            <a href="javascript:0"> <i class="mdi mdi-settings"></i> Confiación </a>
                                         </li>
 
                                         <li class="dropdown-footer">
-                                            <a href="index.jsp"> <i class="mdi mdi-logout"></i> Cerrar Sesión </a>
+                                            <a href="index.jsp"> <i class="mdi mdi-logout"></i> Cerrar cesión </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -716,7 +716,7 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Fecha</th>
-                            <th scope="col">Reparacion</th>
+                            <th scope="col">Servicio</th>
                             <th scope="col">Tipo de Pago</th>
                             <th scope="col">Valor Total</th>
                             <th scope="col">Garantia</th>
@@ -742,7 +742,7 @@
                             
                             <td><%=faVO.getId()%></td>
                             <td><%=faVO.getFecha()%></td>
-                            <td><%=faVO.getReparacion()%></td>
+                            <td><%=faVO.getServicio()%></td>
                             <td><%=faVO.getTipo_Pago()%></td>
                             <td><%=faVO.getValor_Total()%></td>
                             <td><%=faVO.getGarantia()%></td>
@@ -770,7 +770,7 @@
                         <tr>
                             <td><%=faVO.getId()%></td>
                             <td><%=faVO.getFecha()%></td>
-                            <td><%=faVO.getReparacion()%></td>
+                            <td><%=faVO.getServicio()%></td>
                             <td><%=faVO.getTipo_Pago()%></td>
                             <td><%=faVO.getValor_Total()%></td>
                             <td><%=faVO.getGarantia()%></td>

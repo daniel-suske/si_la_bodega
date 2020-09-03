@@ -682,8 +682,8 @@
                     <th>
                         <label>Fecha:</label><br>
                         <input  class="form-control" type="text" name="textFecha"><br><br>
-                        <label>Reparacion:</label><br>
-                        <input class="form-control"type="text" name="textRepara"><br><br>
+                        <label>Servicio:</label><br>
+                        <input class="form-control"type="text" name="textServi"><br><br>
                         <label>Tipo_Pago:</label><br>
                         <input class="form-control" type="text" name="textTipPago"><br><br>
                         <label>Valor_Total:</label><br>

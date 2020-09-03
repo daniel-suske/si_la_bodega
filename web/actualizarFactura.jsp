@@ -685,7 +685,7 @@
                         <label >Fecha:</label><br>
                         <input  class="form-control" type="text" name="textFecha" value="<%=faVO.getFecha() %>"><br><br>
                         <label>Reparacion:</label><br>
-                        <input class="form-control"type="text" name="textRepara" value="<%=faVO.getReparacion()%>"><br><br>
+                        <input class="form-control"type="text" name="textServi" value="<%=faVO.getServicio()%>"><br><br>
                         <label>Tipo_Pago:</label><br>
                         <input class="form-control" type="text" name="textTipPago" value="<%=faVO.getTipo_Pago()%>"<br><br>
                         <label>Valor_Total:</label><br>
@@ -694,7 +694,8 @@
                         <input class="form-control"type="text" name="textGarantia" value="<%=faVO.getGarantia()%>"<br><br>
                         <label> Recibe:</label><br>
                         <input class="form-control" type="text" name="textRecibe" value="<%=faVO.getRecibe()%>"<br><br>
-                   
+                        <p>No se que error es </p>
+                        <p> no se cierra</p>
                     </th>
                 </tr>
             </table>

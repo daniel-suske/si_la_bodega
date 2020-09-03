@@ -33,7 +33,7 @@ public class FacturaDAO extends Conexion implements Crud{
   
    
    
-   private String Id="",Fecha="",Reparacion="",Tipo_Pago="",Valor_Total="",Garantia="", Recibe="";
+   private String Id="",Fecha="",Servicio="",Tipo_Pago="",Valor_Total="",Garantia="", Recibe="";
     public FacturaDAO() {
     }
 
@@ -44,7 +44,7 @@ public class FacturaDAO extends Conexion implements Crud{
            conexion= this.obtenerConexion();
            Id= faVO.getId();
            Fecha=faVO.getFecha();
-           Reparacion=faVO.getReparacion();
+           Servicio=faVO.getServicio();
            Tipo_Pago=faVO.getTipo_Pago();
            Valor_Total=faVO.getValor_Total();
            Garantia=faVO.getGarantia();
@@ -58,10 +58,10 @@ public class FacturaDAO extends Conexion implements Crud{
     public boolean agregarRegistro() {
         try {
      
-            sql = "insert into factura (Fecha,Reparacion,Tipo_Pago,Valor_Total,Garantia,recibe)values(?,?,?,?,?,?)";
+            sql = "insert into factura (Fecha,Servicio,Tipo_Pago,Valor_Total,Garantia,recibe)values(?,?,?,?,?,?)";
             puente=conexion.prepareStatement(sql);
             puente.setString(1, Fecha);
-            puente.setString(2, Reparacion);
+            puente.setString(2, Servicio);
             puente.setString(3, Tipo_Pago);
             puente.setString(4, Valor_Total);
             puente.setString(5, Garantia);
@@ -118,10 +118,10 @@ public class FacturaDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update factura set Fecha=?,Reparacion=?,Tipo_Pago=?,Valor_Total=?,Garantia=?,Recibe=? where Id=? ";
+            sql = "update factura set Fecha=?,Servicio=?,Tipo_Pago=?,Valor_Total=?,Garantia=?,Recibe=? where Id=? ";
             puente=conexion.prepareStatement(sql);
             puente.setString(1, Fecha);
-            puente.setString(2, Reparacion);
+            puente.setString(2, Servicio);
             puente.setString(3, Tipo_Pago);
             puente.setString(4, Valor_Total);
             puente.setString(5, Garantia);

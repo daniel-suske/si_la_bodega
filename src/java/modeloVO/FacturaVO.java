@@ -11,15 +11,15 @@ package modeloVO;
  */
 public class FacturaVO {
 
-    private String Id, Fecha, Reparacion, Tipo_Pago, Valor_Total, Garantia, Recibe;
+    private String Id, Fecha, Servicio, Tipo_Pago, Valor_Total, Garantia, Recibe;
 
     public FacturaVO() {
     }
 
-    public FacturaVO(String Id, String Fecha, String Reparacion, String Tipo_Pago, String Valor_Total, String Garantia, String Recibe) {
+    public FacturaVO(String Id, String Fecha, String Servicio, String Tipo_Pago, String Valor_Total, String Garantia, String Recibe) {
         this.Id = Id;
         this.Fecha = Fecha;
-        this.Reparacion = Reparacion;
+        this.Servicio = Servicio;
         this.Tipo_Pago = Tipo_Pago;
         this.Valor_Total = Valor_Total;
         this.Garantia = Garantia;
@@ -42,12 +42,12 @@ public class FacturaVO {
         this.Fecha = Fecha;
     }
 
-    public String getReparacion() {
-        return Reparacion;
+    public String getServicio() {
+        return Servicio;
     }
 
-    public void setReparacion(String Reparacion) {
-        this.Reparacion = Reparacion;
+    public void setServicio(String Reparacion) {
+        this.Servicio = Servicio;
     }
 
     public String getTipo_Pago() {
