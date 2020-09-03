@@ -675,29 +675,49 @@
         <div class="content-wrapper">
 
               <div class="content">
-                  <form method="post" action="Factura">
-            
-            <table>
-                <tr>
-                    <th>
-                        <label>Fecha:</label><br>
-                        <input  class="form-control" type="text" name="textFecha"><br><br>
-                        <label>Servicio:</label><br>
-                        <input class="form-control"type="text" name="textServi"><br><br>
-                        <label>Tipo_Pago:</label><br>
-                        <input class="form-control" type="text" name="textTipPago"><br><br>
-                        <label>Valor_Total:</label><br>
-                        <input class="form-control" type="text" name="textVaPago"><br><br>
-                        <label>Garantia:</label><br>
-                        <input class="form-control"type="text" name="textGarantia"><br><br>
-                        <label> Recibe:</label><br>
-                        <input class="form-control" type="text" name="textRecibe"><br><br>
+                  <form  class="form" role="form" method="post" action="Factura" autocomplete="off">
+             <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Fecha:</label>
+                        <div class="col-lg-9">
+                        <input  class="form-control" type="text" name="textFecha">
+                        </div>
+             </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Servicio:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control"type="text" name="textServi">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Tipo_Pago:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textTipPago">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Valor_Total:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textVaPago">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Garantia:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control"type="text" name="textGarantia">
+                        </div>
+                      </div>
+                       <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"> Recibe:</label>
+                         <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textRecibe">
+                         </div>
+                       </div>
                    
-                    </th>
-                </tr>
-            </table>
-                      <button class="btn btn-success">Registrar</button>
+                  <div class="form-group row">
+                  <div class="col-lg-12 text-center">
+                      <button class="btn btn-success col-lg-3 col-form-label form-control-label">Registrar</button>
             <input type="hidden" value="1" name="opcion">
+                 
             
         </form>
               <div style="color:Red">
@@ -707,6 +727,8 @@
             ${mensajeExitoso}
             <% } %>
         </div>
+            </div>
+                  </div>
    
        
   

@@ -671,38 +671,67 @@
 
 
         <!-- AQUI VA EL contenido-->
-
+ <div class="form-group row">
+        
+	<div class="card-body">
         <div class="content-wrapper">
 
               <div class="content">
                  <%  FacturaVO faVO = (FacturaVO) request.getAttribute("Factura");
                             if (faVO != null) {%>
-                   <form method="post" action="Factura">
+                            <form class="form" role="form" method="post" action="Factura" autocomplete="off">
+           
+            <div class="form-group row">
+                
+                
             
-            <table>
-                <tr>
-                    <th>
-                        <label >Fecha:</label><br>
-                        <input  class="form-control" type="text" name="textFecha" value="<%=faVO.getFecha() %>"><br><br>
-                        <label>Reparacion:</label><br>
-                        <input class="form-control"type="text" name="textServi" value="<%=faVO.getServicio()%>"><br><br>
-                        <label>Tipo_Pago:</label><br>
-                        <input class="form-control" type="text" name="textTipPago" value="<%=faVO.getTipo_Pago()%>"<br><br>
-                        <label>Valor_Total:</label><br>
-                        <input class="form-control" type="text" name="textVaPago" value="<%=faVO.getValor_Total()%>"<br><br>
-                        <label>Garantia:</label><br>
-                        <input class="form-control"type="text" name="textGarantia" value="<%=faVO.getGarantia()%>"<br><br>
-                        <label> Recibe:</label><br>
-                        <input class="form-control" type="text" name="textRecibe" value="<%=faVO.getRecibe()%>"<br><br>
-                        <p>No se que error es </p>
-                        <p> no se cierra</p>
-                    </th>
-                </tr>
-            </table>
-                      <button class="btn btn-success">Actualizar</button>
+                <label class="col-lg-3 col-form-label form-control-label">Fecha:</label>
+                <div class="col-lg-9">
+                    <input  class="form-control" type="text" name="textFecha" value="<%=faVO.getFecha()%>">
+                </div>
+            </div>
+            <div class="form-group row">
+            
+                <label class="col-lg-3 col-form-label form-control-label">Servicio:</label>
+                <div class="col-lg-9">
+                    <input class="form-control"type="text" name="textServi" value="<%=faVO.getServicio()%>">
+                </div>
+            </div>
+          <div class="form-group row">
+              
+                        <label class="col-lg-3 col-form-label form-control-label">Tipo_Pago:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textTipPago" value="<%=faVO.getTipo_Pago()%>">
+                        </div>
+                         </div>
+                        <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Valor_Total:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textVaPago" value="<%=faVO.getValor_Total()%>">
+                        </div>
+                        </div>
+                         <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Garantia:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control"type="text" name="textGarantia" value="<%=faVO.getGarantia()%>">
+                        </div>
+                         </div>
+                        <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"> Recibe:</label>
+                        <div class="col-lg-9">
+                        <input class="form-control" type="text" name="textRecibe" value="<%=faVO.getRecibe()%>">
+                        </div>
+                        </div>
+                       
+              <div class="form-group row">
+                  <div class="col-lg-12 text-center">
+                      <button class="btn btn-success col-lg-3 col-form-label form-control-label">Actualizar</button>
             <input type="hidden" value="3" name="opcion">
-            
+              </div>
+              </div>
+                
         </form>
+                        
               <div style="color:Red">
             <%if (request.getAttribute("mensajeFallido") != null) {%>
             ${mensajeFallido}
