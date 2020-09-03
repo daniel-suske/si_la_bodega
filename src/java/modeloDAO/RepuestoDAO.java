@@ -89,7 +89,7 @@ public class RepuestoDAO extends Conexion implements Crud {
             
         } catch(SQLException e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -99,7 +99,7 @@ public class RepuestoDAO extends Conexion implements Crud {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             

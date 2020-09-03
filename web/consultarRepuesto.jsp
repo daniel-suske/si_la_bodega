@@ -22,12 +22,12 @@
                     <button class="btn btn-success m-2">Consultar</button> 
                     </form>
                
-                    <button class="btn btn-info">
-                        <a style="text-decoration: none; color: #Fff" href="registrarRepuesto.jsp">Crear</a>
-                    </button>
-                    <button class="btn btn-dark m-2">
-                        <a style="text-decoration: none; color: #Fff" href="consultarRepuesto.jsp">All</a>
-                    </button>
+                    
+                        <a class="btn btn-info" style="text-decoration: none; color: #Fff" href="registrarRepuesto.jsp">Crear</a>
+                    
+                   
+                        <a class="btn btn-dark m-2" style="text-decoration: none; color: #Fff" href="consultarRepuesto.jsp">Todo</a>
+                    
                 </div>
 
 
@@ -40,7 +40,7 @@
         </div> 
         <div class="card bg-white" style="width: 104%">
             <div class="card-body ">
-                <table class="table col-10 table-hover table-bordered" > 
+                <table class="table table-sm table-hover table-bordered" > 
                     <thead class=""style="background-color: #443F4F" > 
                         <tr> 
                             <th class="text-light">#</th> 

@@ -25,7 +25,7 @@
 
 
         <!--formulario css -->
-        <link rel="stylesheet" href="assets/css/registrarRepuesto.css">
+        
 
         <!-- switch -->
         <link rel="stylesheet" href="assets/css/switch.css">

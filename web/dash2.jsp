@@ -22,7 +22,7 @@
 
 <script src="assets/plugins/charts/Chart.min.js"></script>
 
-<script src="assets/js/registrarRepuesto.js" language="javascript" type="text/javascript"></script>
+
 
 
 <script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>

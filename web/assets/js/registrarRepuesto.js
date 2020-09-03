@@ -5,7 +5,7 @@ const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-Z0-9\s\_\-]{7,50}$/, // Letras, numeros, espacios, guiones.
     no_serie: /^[a-zA-Z0-9\_\-]{10,50}$/, // Letras, numeros, guion y guion_bajo
-    marca: /^[a-zA-ZÀ-ÿ\s\_\-]{2,30}$/, //letras 
+    marca: /^[a-zA-Z\s\_\-]{2,30}$/, //letras 
     modelo: /^[a-zA-Z0-9\_\-]{3,50}$/, // Letras, numeros, guion y guion_bajo
 
     lugar_compra: /^[\s\S]{10,100}$/, // Letras, numeros, guion y guion_bajo
