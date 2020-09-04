@@ -66,7 +66,7 @@ public class ServicioDAO extends Conexion {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM SERVICIO";
+            sql = "SELECT * FROM servicio";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

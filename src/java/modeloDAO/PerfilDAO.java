@@ -62,7 +62,7 @@ public class PerfilDAO extends Conexion {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM PERFIL";
+            sql = "SELECT * FROM perfil";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

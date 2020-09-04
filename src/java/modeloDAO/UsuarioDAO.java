@@ -67,12 +67,14 @@ public class UsuarioDAO extends Conexion implements Crud {
         }
     }
 
+    //Registar como Empleado
+    
     @Override
     public boolean agregarRegistro() {
 
         try {
             
-            sql = "INSERT INTO USUARIO(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Id_Registrado_Por, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO usuario(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Id_Registrado_Por, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Nombres);
             puente.setString(2, Apellidos);
@@ -112,11 +114,13 @@ public class UsuarioDAO extends Conexion implements Crud {
         
     }
     
+    //Registrar como Cliente
+    
     public boolean agregarRegistroCliente() {
         
         try {
             
-            sql = "INSERT INTO USUARIO(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO usuario(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Nombres);
             puente.setString(2, Apellidos);
@@ -167,7 +171,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM USUARIO WHERE Id = ?";
+            sql = "SELECT * FROM usuario WHERE Id = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Id);
             mensajero = puente.executeQuery();
@@ -204,7 +208,7 @@ public class UsuarioDAO extends Conexion implements Crud {
 
         try {
             
-            sql = "UPDATE USUARIO SET Nombres = ?, Apellidos = ?, Numero_Documento = ?, Tipo_Documento = ?, Correo = ?, Telefono = ?,  Barrio = ?, Direccion = ?  WHERE Id= ?";
+            sql = "UPDATE usuario SET Nombres = ?, Apellidos = ?, Numero_Documento = ?, Tipo_Documento = ?, Correo = ?, Telefono = ?,  Barrio = ?, Direccion = ?  WHERE Id= ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Nombres);
             puente.setString(2, Apellidos);
@@ -257,7 +261,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM USUARIO U INNER JOIN PERFIL P ON U.Perfil = P.Id INNER JOIN ESTADO E ON U.Estado = E.Id WHERE Perfil != ?  ";
+            sql = "SELECT U.*, P.Nombre, E.Nombre FROM usuario U INNER JOIN perfil P ON U.Perfil = P.Id INNER JOIN estado E ON U.Estado = E.Id WHERE Perfil != ?  ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, num);
             mensajero = puente.executeQuery();
@@ -302,7 +306,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM USUARIO U INNER JOIN PERFIL P ON U.Perfil = P.Id INNER JOIN ESTADO E ON U.Estado = E.Id WHERE Perfil = ? ";
+            sql = "SELECT U.*, P.Nombre, E.Nombre FROM usuario U INNER JOIN perfil P ON U.Perfil = P.Id INNER JOIN estado E ON U.Estado = E.Id WHERE Perfil = ? ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, num);
             mensajero = puente.executeQuery();
@@ -346,7 +350,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM USUARIO U INNER JOIN PERFIL P ON U.Perfil = P.Id INNER JOIN ESTADO E ON U.Estado = E.Id WHERE Id LIKE '%?%' OR Nombres LIKE '%?%' OR Apellidos LIKE '%?%' OR Numero_Documento LIKE '%?%' OR Tipo_Documento LIKE '%?%' OR Correo LIKE '%?%' OR Telefono LIKE '%?%' OR Barrio LIKE '%?%' OR Direccion LIKE '%?%' OR Perfil LIKE '%?%' OR Estado LIKE '%?%' ";
+            sql = "SELECT U.*, P.Nombre, E.Nombre FROM usuario U INNER JOIN perfil P ON U.perfil = P.Id INNER JOIN estado E ON U.Estado = E.Id WHERE Id LIKE '%?%' OR Nombres LIKE '%?%' OR Apellidos LIKE '%?%' OR Numero_Documento LIKE '%?%' OR Tipo_Documento LIKE '%?%' OR Correo LIKE '%?%' OR Telefono LIKE '%?%' OR Barrio LIKE '%?%' OR Direccion LIKE '%?%' OR Perfil LIKE '%?%' OR Estado LIKE '%?%' ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, text);
             puente.setString(2, text);
@@ -400,7 +404,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         
         try {
             
-            sql = "UPDATE USUARIO SET Estado = ?  WHERE Id= ?";
+            sql = "UPDATE usuario SET Estado = ?  WHERE Id= ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numEs);
             puente.setString(2, Id);
@@ -437,7 +441,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         
         try {
             
-            sql = "UPDATE USUARIO SET Estado = ?  WHERE Id= ?";
+            sql = "UPDATE usuario SET Estado = ?  WHERE Id= ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numEs);
             puente.setString(2, Id);
@@ -474,7 +478,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM USUARIO WHERE Correo = ? && Contrasena = ?";
+            sql = "SELECT * FROM usuario WHERE Correo = ? && Contrasena = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Correo);
             puente.setString(2, Contrasena);

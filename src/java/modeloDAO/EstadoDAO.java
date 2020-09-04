@@ -60,7 +60,7 @@ public class EstadoDAO extends Conexion {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM ESTADO";
+            sql = "SELECT * FROM estado";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

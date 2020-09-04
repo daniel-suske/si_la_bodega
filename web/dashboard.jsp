@@ -105,7 +105,7 @@
         <aside class="left-sidebar bg-sidebar">
           <div id="sidebar" class="sidebar sidebar-with-footer">
             <!-- Aplication Brand -->
-            <div class="app-brand bg-white">
+            <div class="app-brand">
               <img class="logo" src="assets/img/logo.png">
             </div>
             <!-- begin sidebar scrollbar -->
@@ -229,7 +229,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
@@ -265,13 +265,31 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="basic-input.html">
+                              <a class="sidenav-item-link" href="consultaReparacion.jsp">
                                 <span class="nav-text">Gestion</span>
                                 
                               </a>
                             </li>
                           
-                          
+                        <li  class="has-sub" >
+                          <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#data-tables"
+                            aria-expanded="false" aria-controls="data-tables">
+                            <span class="nav-text">Detalles de Repuestos</span> <b class="caret"></b>
+                          </a>
+                          <ul  class="collapse"  id="data-tables">
+                            <div class="sub-menu">
+                              
+                              <li >
+                                <a href="#">Recientes</a>
+                              </li>
+                              
+                              <li >
+                                <a href="#">Información</a>
+                              </li>
+                              
+                            </div>
+                          </ul>
+                        </li>
                         
 
                         
@@ -309,25 +327,17 @@
                         <li  class="has-sub" >
                           <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#data-tables"
                             aria-expanded="false" aria-controls="data-tables">
-                            <span class="nav-text">Facturas</span> <b class="caret"></b>
+                            <span class="nav-text">Detalles de Repuestos</span> <b class="caret"></b>
                           </a>
                           <ul  class="collapse"  id="data-tables">
                             <div class="sub-menu">
                               
                               <li >
-                                <a href="basic-data-table.html">Recientes</a>
+                                <a href="#">Recientes</a>
                               </li>
                               
                               <li >
-                                <a href="responsive-data-table.html">Responsive Data Table</a>
-                              </li>
-                              
-                              <li >
-                                <a href="hoverable-data-table.html">Hoverable Data Table</a>
-                              </li>
-                              
-                              <li >
-                                <a href="expendable-data-table.html">Expendable Data Table</a>
+                                <a href="#">Información</a>
                               </li>
                               
                             </div>
@@ -369,7 +379,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="vector-map.html">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Especificas</span>
                                 
                               </a>
@@ -408,13 +418,13 @@
                         <li  class="has-sub" >
                           <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#others"
                             aria-expanded="false" aria-controls="others">
-                            <span class="nav-text">Others</span> <b class="caret"></b>
+                            <span class="nav-text">Otros</span> <b class="caret"></b>
                           </a>
                           <ul  class="collapse"  id="others">
                             <div class="sub-menu">
                               
                               <li >
-                                <a href="invoice.html">Invoice</a>
+                                <a href="invoice.html">Covexo</a>
                               </li>
                               
                               <li >
@@ -479,7 +489,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="quick-start.html">
+                              <a class="sidenav-item-link" href="Usuarios.jsp">
                                 <span class="nav-text">Usuario</span>
                                 
                               </a>
@@ -564,7 +574,7 @@
                   <button type="button" name="search" id="search-btn" class="btn btn-flat">
                     <i class="mdi mdi-magnify"></i>
                   </button>
-                  <input type="text" name="query" id="search-input" class="form-control" placeholder="'button', 'chart' etc."
+                  <input type="text" name="query" id="search-input" class="form-control" placeholder="Busqueda"
                     autofocus autocomplete="off" />
                 </div>
                 <div id="search-results-container">
@@ -759,7 +769,7 @@
                 <!-- Doughnut Chart -->
                 <div class="card card-default" data-scroll-height="675">
                   <div class="card-header justify-content-center">
-                    <h2>Orders Overview</h2>
+                    <h2>Grafica de Estados</h2>
                   </div>
                   <div class="card-body" >
                     <canvas id="doChart" ></canvas>
