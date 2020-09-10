@@ -31,6 +31,7 @@ public class RepuestoVO {
     }
     
     public RepuestoVO() {
+        
     }
    
 

@@ -41,8 +41,8 @@
         </div></div>
 
     <br><br> 
-    <div style="color:red"> 
-        <% if (request.getAttribute("mensajeError") != null) { %> ${mensajeError} <%}%>
+    <div > 
+        <% if (request.getAttribute("mensajeError") != null) { %> <h4 class="text-center text-danger">${mensajeError}</h4> <%}%>
     </div> 
     <div class="card bg-white" style="width: 104%">
         <div class="card-body ">

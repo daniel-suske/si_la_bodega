@@ -67,6 +67,7 @@ public class RepuestoControlador extends HttpServlet {
                 } else {
                     
                     request.getRequestDispatcher("registrarRepuesto.jsp").forward(request, response);
+                    request.setAttribute("mensajeError", "¡El Repuesto NO se Registro correctamente verifique El Numero de Serie!");
                 }
                 
                 break;

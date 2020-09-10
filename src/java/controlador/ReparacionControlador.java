@@ -33,6 +33,8 @@ public class ReparacionControlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,7 +46,7 @@ public class ReparacionControlador extends HttpServlet {
          String Id = request.getParameter("Id");
         String Id_Servicio = request.getParameter("id_Servicio");
         String Id_Producto = request.getParameter("id_producto");
-        String Fecha_Hora = request.getParameter("fecha_hora");
+        String Fecha_Hora = request.getParameter("fecha");
         String Descripcion = request.getParameter("descripcion");
         String Costos = request.getParameter("costos");
         String Tecnico = request.getParameter("tecnico");

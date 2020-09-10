@@ -18,6 +18,7 @@
 
 
        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
         <!-- GOOGLE FONTS -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -138,7 +139,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#usuarios"
                                    aria-expanded="false" aria-controls="usuarios">
-                                    <i class="mdi mdi-pencil-box-multiple"></i>
+                                    <i class="mdi mdi-account-circle"></i>
                                     <span class="nav-text">USUARIOS</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="usuarios"
@@ -189,7 +190,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                                    aria-expanded="false" aria-controls="components">
-                                    <i class="mdi mdi-folder-multiple-outline"></i>
+                                    <i class="mdi mdi-clipboard-list"></i>
                                     <span class="nav-text">SERVICIOS</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="components"
@@ -225,7 +226,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
                                    aria-expanded="false" aria-controls="icons">
-                                    <i class="mdi mdi-diamond-stone"></i>
+                                    <i class="mdi mdi-laptop-chromebook"></i>
                                     <span class="nav-text">Productos</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="icons"
@@ -261,7 +262,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#forms"
                                    aria-expanded="false" aria-controls="forms">
-                                    <i class="mdi mdi-email-mark-as-unread"></i>
+                                    <i class="mdi mdi mdi-wrench"></i>
                                     <span class="nav-text">Reparaciones</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="forms"
@@ -312,7 +313,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#tables"
                                    aria-expanded="false" aria-controls="tables">
-                                    <i class="mdi mdi-table"></i>
+                                    <i class="mdi mdi-screwdriver"></i>
                                     <span class="nav-text">Repuestos</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="tables"
@@ -367,7 +368,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#maps"
                                    aria-expanded="false" aria-controls="maps">
-                                    <i class="mdi mdi-google-maps"></i>
+                                    <i class="mdi mdi-cash-usd"></i>
                                     <span class="nav-text">Facturas</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="maps"
@@ -480,7 +481,7 @@
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
                                    aria-expanded="false" aria-controls="documentation">
-                                    <i class="mdi mdi-book-open-page-variant"></i>
+                                    <i class="mdi mdi-cogs"></i>
                                     <span class="nav-text">Configuración</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="documentation"

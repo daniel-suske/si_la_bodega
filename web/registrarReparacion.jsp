@@ -7,7 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="dash1.jsp" %>
 <title>Registrar Reparacion</title>
-<link rel="stylesheet" href="assets/css/registrarRepuesto.css">
+<link rel="stylesheet" href="assets/css/registrarReparacion.css">
+
 <div class="content-wrapper">
 
     <div class="content">
@@ -16,114 +17,98 @@
         <h3>Registrar Reparacion</h3>
         <br><br>
 
-        <form action="Repuesto" class="formulario" id="formulario" name="formulario"
+        <form action="Reparacion" class="formulario" id="formulario" name="formulario"
               method="POST">
-            <div class="formulario__grupo" id="grupo__nombre">
+            <div class="formulario__grupo" id="grupo__id_servicio">
                 <span>
-                    <label for="nombre" class="formulario__label">Id Servicio:</label>
+                    <label for="id_servicio" class="formulario__label">Id Servicio:</label>
                     <div class="formulario__grupo-input">
                         <input type="text" class="formulario__input" name="id_servicio" id="id_servicio"
-                               placeholder="Ejem: Bomba de Agua">
+                               placeholder="Id Servicio">
                         <i class="formulario__validacion-estado far fa-times-circle"></i>
                     </div>
                     <p class="formulario__input-error">Digite un Id servicio</p>
             </div>
 
-            <div class="formulario__grupo" id="grupo__no_serie">
-                <label for="no_serie" class="formulario__label">Id_Producto</label>
+            <div class="formulario__grupo" id="grupo__id_producto">
+                <label for="id_producto" class="formulario__label">Id_Producto:</label>
                 <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" name="id_producto" id="id_producto"
                            placeholder="58">
 
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">Los Numero de Serie debe ser de 10 a 50 digitos y
-                    pueden
-                    contener numeros, guiones y letras</p>
-            </div>
-
-            <div class="formulario__grupo" id="grupo__marca">
-                <label for="no_serie" class="formulario__label">Marca:</label>
-                <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="marca" id="marca"
-                           placeholder="Ejem: LG">
-                    <i class="formulario__validacion-estado far fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">La Marca debe ser de 2 a 50 digitos y
-                    pueden
-                    contener guiones y letras</p>
-            </div>
-
-
-
-            <div class="formulario__grupo" id="grupo__modelo">
-                <label for="modelo" class="formulario__label">Modelo:</label>
-                <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="modelo" id="modelo"
-                           placeholder="Ejem: byt-23w1">
-                    <i class="formulario__validacion-estado far fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">El Modelo debe contener entre 3 a 50 digitos y
-                    pueden contener letras, guiones y numeros</p>
+                <p class="formulario__input-error">Digite un id servicio</p>
             </div>
 
             <div class="formulario__grupo" id="grupo__fecha_compra">
-                <label for="fecha_compra" class="formulario__label">Fecha Compra:</label>
+                <label for="dates" class="formulario__label">Fecha Reparacion:</label>
                 <div class="formulario__grupo-input">
 
                     <input type="date" class="formulario__input" name="dates" id="dates">
                     <input type="hidden" name="fecha" id="fecha" >
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">Debe seleccionar una fecha de compra</p>
+                <p class="formulario__input-error">Debe seleccionar una fecha de reparacion</p>
             </div>
 
 
 
-            <div class="formulario__grupo" id="grupo__lugar_compra">
-                <label for="lugar_compra" class="formulario__label">Lugar Compra:</label>
+            <div class="formulario__grupo" id="grupo__descripcion">
+                <label for="descripcion " class="formulario__label">Descripcion:</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="lugar_compra" id="lugar_compra"
-                           placeholder="Ejem: almacen el reparador calle 7 #1">
+                    <textarea type="text" class="formulario__input" name="descripcion" id="descripcion"
+                              placeholder="Descripcion del servicio"></textarea>
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El Lugar de Compra debe ser de 10 a 100 digitos y pueden
-                    contener numeros, letras guion y caracteres</p>
+                <p class="formulario__input-error">La descripcion puede contener entre 3 a 50 digitos y
+                    pueden contener letras, guiones y numeros</p>
             </div>
 
-            <div class="formulario__grupo" id="grupo__valor_compra">
-                <label for="valor_compra" class="formulario__label">Valor Compra:</label>
+            
+
+
+
+            <div class="formulario__grupo" id="grupo__costos">
+                <label for="costos" class="formulario__label">Costos: </label>
                 <div class="formulario__grupo-input">
-                    <input type="number" class="formulario__input" name="valor_compra" id="valor_compra"
-                           placeholder="Ejem: 150.000 $">
+                    <input type="number" class="formulario__input" name="costos" id="costos"
+                           placeholder="Ejem: $ 4'183.000">
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El valor de compra debe ser de 2 a 18 digitos y solo
-                    puede
-                    contener numeros</p>
+                <p class="formulario__input-error">Los costos solo pueden contener numeros</p>
             </div>
 
-            <div class="formulario__grupo" id="grupo__valor_venta">
-                <label for="valor_venta" class="formulario__label">Valor Venta:</label>
+            <div class="formulario__grupo" id="grupo__tecnico">
+                <label for="tecnico" class="formulario__label">Tecnico</label>
                 <div class="formulario__grupo-input">
-                    <input type="number" class="formulario__input" name="valor_venta" id="valor_venta"
-                           placeholder="Ejem:150.000 $">
+                    <input type="number" class="formulario__input" name="tecnico" id="tecnico"
+                           placeholder="Ejem: 1">
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El valor de venta debe ser de 2 a 18 digitos y solo puede
-                    contener numeros</p>
+                <p class="formulario__input-error">El tecnico solo puede contener numeros</p>
             </div>
 
-            <div class="formulario__grupo" id="grupo__cantidad">
-                <label for="cantidad" class="formulario__label">Cantidad:</label>
-                <div class="formulario__grupo-input">
-                    <input type="number" class="formulario__input" name="cantidad" id="cantidad">
-                    <i class="formulario__validacion-estado far fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">La cantidad de repuestos debe ser minimo de 1 a 8 digitos
-                    y debe
-                    contener numeros</p>
-            </div>
+                  <div class="formulario__grupo" id="grupo__repuesto">
+                            <label for="repuesto" class="formulario__label">Repuesto</label>
+                            <div class="formulario__grupo-inputs">
+                                <select class="formulario__inputs" name="repuesto" id="repuesto">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                                        <a id="addElement" class="btn btn-secondary text-light"
+                                            style="text-decoration:none">Agregar</a>
+                                        
+                            </div>
+                            <p class="formulario__input-error">El valor de venta debe ser de 2 a 18 digitos y solo puede
+                                contener numeros</p>
+                        </div>
+
+
+
+                        <div class="form-group mt-2" id="list-categories">
+
+                        </div>
 
             <div>
                 <input type="hidden" name="opcion" id="opcion" value="1">
@@ -145,6 +130,9 @@
         <button  class="formulario__btn">Registrarme</button>
         <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado
             Correctamente</p>
+        <div > 
+            <% if (request.getAttribute("mensajeError") != null) { %> <h3 class="text-danger">${mensajeError}</h3> <%}%>
+    </div> 
 
 
 
@@ -156,6 +144,6 @@
         <br>
     </div>
 </div>   
-<script src="assets/js/registrarRepuesto.js" language="javascript" type="text/javascript"></script>
+<script src="assets/js/registrarReparacion.js" type="text/javascript"></script>
 
 <%@include file="dash2.jsp" %>

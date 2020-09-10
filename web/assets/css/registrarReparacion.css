@@ -1,3 +1,12 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/09/2020, 11:18:55 AM
+    Author     : jony
+*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 *{
 	box-sizing: border-box;
@@ -54,10 +63,8 @@ main{
 	display: block;
 	font-weight: 700;
 	padding: 5px;
-	color: #9A9393;
+	color: rgb(65, 65, 65);
 	cursor: pointer;
-    
-        margin-top: 10px;
 }
 
 .formulario__grupo-input{
@@ -68,7 +75,7 @@ main{
 	width: 90%;
 	background: #Fff;
 	border:none;
-	border-bottom: 1px solid #9A9393;
+	border-bottom: 1px solid rgb(65, 65, 65);
 	height: 45px;
 	line-height: 45px;
 	padding: 0 40px 0 10px;
@@ -78,7 +85,7 @@ main{
 }
 .formulario__input:focus{
 
-	border-bottom: 2px solid #9A9393;
+	border-bottom: 2px solid rgb(65, 65, 65);
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
@@ -117,7 +124,6 @@ grid-column: span 2;
 padding-top: 30px;
 text-align: center;
 grid-column: span 2;
-color:#9A9393;
 margin:10px 0 17px 0;
 }
 
@@ -145,11 +151,12 @@ margin:10px 0 17px 0;
 	flex-direction: column;
 	align-items: center;
 }
+
 .formulario__btn{
 	height: 45px;
 	line-height: 45px;
-	width: 50%;
-	background: #0075ff;
+	width: 30%;
+	background: #a6aab4;
 	color: #Fff;
 	font-weight: bold;
 	border:none;
@@ -218,14 +225,33 @@ grid-column: span 1;
 grid-column: span 1;
 
 }
-
 .formulario__btn{
 	width: 80%;
 }
-
 .formulario__input{
-    
 	width: 100%;
-}
 
 }
+}
+.formulario__grupo-inputs {
+  position: relative;
+}
+
+.formulario__inputs {
+  width: 80%;
+  background: #fff;
+
+  border: none;
+  border-bottom: 1px solid rgb(65, 65, 65);
+  height: 45px;
+  line-height: 45px;
+  padding: 0 40px 0 10px;
+  transition: 0.3s ease all;
+  outline: none;
+  margin-right: 10px;
+}
+#grupo__repuesto {
+  grid-column: span 2;
+}
+
+

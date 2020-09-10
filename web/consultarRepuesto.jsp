@@ -35,9 +35,9 @@
             </div></div>
 
         <br><br> 
-        <div style="color:red"> 
-            <% if (request.getAttribute("mensajeError") != null) { %> ${mensajeError} <%}%>
-        </div> 
+       <div > 
+        <% if (request.getAttribute("mensajeError") != null) { %> <h4 class="text-center text-danger mb-2">${mensajeError}</h4> <%}%>
+    </div>  
         <div class="card bg-white" style="width: 104%">
             <div class="card-body ">
                 <table class="table table-sm table-hover table-bordered" > 
@@ -48,13 +48,14 @@
                             <th class="text-light">No_Serie</th> 
                             <th class="text-light">Marca</th> 
                             <th class="text-light">Modelo</th> 
-                            <th class="text-light">Fecha_Compra</th> 
-                            <th class="text-light">Lugar_Compra</th> 
-                            <th class="text-light">Valor_Compra</th> 
-                            <th class="text-light">Valor_Venta</th> 
+                            <th class="text-light">Fecha Compra</th> 
+                            <th class="text-light">Lugar Compra</th> 
+                            <th class="text-light">Valor Compra</th> 
+                            <th class="text-light">Valor Venta</th> 
                             <th class="text-light">Cantidad</th> 
                             <th class="text-light">Estado</th>
-                            <th class="text-light">Acción</th>
+                            <th class="text-light">Editar</th>
+                            <th class="text-light">Estado</th>
                         </tr> 
 
 
@@ -87,11 +88,12 @@
                                     <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                     <input type="hidden" value="4" name="opcion">
                                     <div class="row justify-content-center">
-                                        <button class="btn btn-warning mb-2"><i><img src="assets/icons/editar.png" width="25px"><i></button>
+                                        <button class="btn-xs btn-primary mb-2 " style="border-radius:5px"><i><img src="assets/icons/edit.png" width="30px"><i></button>
                                                     </div>
                                                     </form>
-                                                    <form action="Repuesto"  class="m-2"  method="POST">
-
+                            </td>
+                                                   
+                            <td>
 
 
                                                         <%
@@ -99,6 +101,7 @@
 
                                                             if (a.equals(repVO.getEstado())) {
                                                         %>
+                                                         <form action="Repuesto"  class="m-2"  method="POST">
                                                         <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                                         <input type="hidden" value="2" name="estado">
                                                         <input type="hidden" value="5" name="opcion">
@@ -115,7 +118,7 @@
                                                         </button>
 
                                                         <%} else {%>
-
+                                                        <form action="Repuesto"  class="m-2"  method="POST">
                                                         <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                                         <input type="hidden" value="1" name="estado">
                                                         <input type="hidden" value="6" name="opcion">
@@ -160,9 +163,11 @@
                                                                     <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                                                     <input type="hidden" value="4" name="opcion">
                                                                     <div class="row justify-content-center">
-                                                                    <button class="btn btn-warning mb-2"><i><img src="assets/icons/editar.png" width="25px"><i></button>
+                                                                    <button class="btn-xs btn-primary mb-2"><i><img src="assets/icons/editar.png" width="25px"><i></button>
                                                                                 </div>
                                                                                 </form>
+                                                            </td>
+                                                            <td>
                                                                                 <form action="Repuesto"  class="m-2"  method="POST">
 
 

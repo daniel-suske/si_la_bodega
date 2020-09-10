@@ -112,7 +112,7 @@ public class RepuestoDAO extends Conexion implements Crud {
         RepuestoVO repVO = null;
         try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
-            sql = "select r.*, e.Nombre from repuesto r inner join estado e on r.estado=e.id  where no_serie = ?  ";
+            sql = "select r.*, e.nombre from repuesto r inner join estado e on r.estado=e.id  where no_serie= ? ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numeroSerie);
             mensajero = puente.executeQuery();//execute query para consultas
