@@ -29,6 +29,8 @@ public class PerfilDAO extends Conexion {
     
     private String Id = "", Nombre = "";  //Declarar las variables del VO
     
+    public String nump = "";
+    
     public PerfilDAO() 
     {
     }
@@ -93,4 +95,45 @@ public class PerfilDAO extends Conexion {
         
     }
     
+    public ArrayList<PerfilVO> listarPE()
+    {
+        
+        ArrayList<PerfilVO>listaPerfilesE = new ArrayList<PerfilVO>();
+        
+        try {
+            
+            nump = "5";
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM perfil WHERE Id != ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, nump);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                PerfilVO perfVO = new PerfilVO(mensajero.getString(1), mensajero.getString(2));
+                listaPerfilesE.add(perfVO);
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return listaPerfilesE;
+        
+    }
 }

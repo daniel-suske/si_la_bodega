@@ -585,7 +585,7 @@
                                 <button type="button" name="search" id="search-btn" class="btn btn-flat">
                                     <i class="mdi mdi-magnify"></i>
                                 </button>
-                                <input type="text" name="query" id="search-input" class="form-control" placeholder="'button', 'chart' etc."
+                                <input type="text" name="query" id="search-input" class="form-control" placeholder="Busqueda"
                                        autofocus autocomplete="off" />
                             </div>
                             <div id="search-results-container">
@@ -615,7 +615,7 @@
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-chart-areaspline"></i>  Generar Reporte3
+                                                <i class="mdi mdi-chart-areaspline"></i>  Generar Reporte
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12 PM</span>
                                             </a>
                                         </li>
@@ -656,7 +656,7 @@
 
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-account"></i> My Perfil
+                                                <i class="mdi mdi-account"></i> Mi Perfil
                                             </a>
                                         </li>
                                         <li>
