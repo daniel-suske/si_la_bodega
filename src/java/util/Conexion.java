@@ -27,7 +27,7 @@ public class Conexion {
         bd = "SI_LA_BODEGA";
         user = "root";
         password = "";
-        urlBd = "jdbc:mysql://localhost:3306/" + bd;
+        urlBd = "jdbc:mysql://192.168.64.2:3306/" + bd;
         
         try {
             
