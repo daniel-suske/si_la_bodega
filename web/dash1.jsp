@@ -32,7 +32,6 @@
         <link rel="stylesheet" href="assets/css/switch.css">
         <!-- PLUGINS CSS STYLE -->
         <link href="assets/plugins/nprogress/nprogress.css" rel="stylesheet" />
-        
         <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css">
 
         <link rel="shortcut icon" href="recursos/favicon.ico" />
@@ -56,7 +55,6 @@
 
         <!-- SLEEK CSS -->
         <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
-        
         <link href="assets/css/estilos.css" rel="stylesheet" />
 
         <!--Icono-->
@@ -587,7 +585,7 @@
                                 <button type="button" name="search" id="search-btn" class="btn btn-flat">
                                     <i class="mdi mdi-magnify"></i>
                                 </button>
-                                <input type="text" name="query" id="search-input" class="form-control" placeholder="Busqueda"
+                                <input type="text" name="query" id="search-input" class="form-control" placeholder="'button', 'chart' etc."
                                        autofocus autocomplete="off" />
                             </div>
                             <div id="search-results-container">

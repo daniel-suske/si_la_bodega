@@ -90,14 +90,16 @@ public class UsuarioControlador extends HttpServlet {
             
                 if(usuDAO.agregarRegistro()) {
                     
-                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Registró Correctamente!");
                     
                 } else {
                     
                     request.setAttribute("mensajeFallido", "¡El Usuario No se Registró Correctamente!");
                     
-                    request.getRequestDispatcher("RegistrarUsuarioE.jsp").forward(request, response);
                 }
+                
+                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+
             
             break;    
               

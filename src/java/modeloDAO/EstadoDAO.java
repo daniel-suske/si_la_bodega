@@ -29,8 +29,6 @@ public class EstadoDAO extends Conexion {
     
     private String Id = "", Nombre = "";  //Declarar las variables del VO
     
-    public String nume = "";
-    
     public EstadoDAO()
     {
     }
@@ -90,48 +88,6 @@ public class EstadoDAO extends Conexion {
         }
         
         return listaEstados;
-        
-    }
-    
-    public ArrayList<EstadoVO> listarEA()
-    {
-        
-        ArrayList<EstadoVO>listaEstadosA = new ArrayList<EstadoVO>();
-        
-        try {
-            
-            nume = "2";
-            
-            conexion = this.obtenerConexion();
-            sql = "SELECT * FROM estado WHERE Id != ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, nume);
-            mensajero = puente.executeQuery();
-            while (mensajero.next()) {
-                
-                EstadoVO estVO = new EstadoVO(mensajero.getString(1), mensajero.getString(2));
-                listaEstadosA.add(estVO);
-            }
-            
-        } catch (SQLException e) {
-            
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
-            
-        } finally {
-            
-            try {
-                
-                this.cerrarConexion();
-                
-            } catch (SQLException e) {
-                
-                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
-                
-            }
-            
-        }
-        
-        return listaEstadosA;
         
     }
     

@@ -1,12 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 1-sep-2020, 11:40:53
-    Author     : Yeison
-*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 *{
 	box-sizing: border-box;
@@ -21,10 +12,47 @@ font-family: 'Roboto', sans-serif;
         
   }
 
+.modal-efe{
+	border-top-color:rgb(26,104,196);
+        border: 1px solid #000; 
+}
+  .modal-header {
+	
+	  border-radius: 3px;
+	  margin-right: -0.2px;
+	  background: rgb(156,195,242);
+	  background: linear-gradient(90deg, rgba(156,195,242,1) 0%, rgba(13,84,242,1) 100%);
+  }
+  .equis {
+	
+	font-size: 30px;
+	color: #000;
+        
+  }
+  .equis:hover {
+	
+	color: #000;
+  }
+  .modal-title {
+	text-align: center;
+	padding: 0px;
+	font-family: "Roboto", sans-serif;
+	font-size: 30px;
+	color: #000;
+        margin-bottom: 35px;
+  }
+main{
+	max-width: 800px;
+	width: 100%;
+	margin: auto;
+	padding: 40px;
+
+}
 .formulario{
 
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	grid: 20px;
 }
 .formulario__label{
 	display: block;
