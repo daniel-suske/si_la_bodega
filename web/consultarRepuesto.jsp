@@ -55,7 +55,7 @@
                             <th class="text-light">Cantidad</th> 
                             <th class="text-light">Estado</th>
                             <th class="text-light">Editar</th>
-                            <th class="text-light">Estado</th>
+                                <th class="text-light">Estado</th>
                         </tr> 
 
 

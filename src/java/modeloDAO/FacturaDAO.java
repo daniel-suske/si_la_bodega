@@ -173,7 +173,7 @@ public class FacturaDAO extends Conexion implements Crud{
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
        //Si lo encuentra Va a crearme un VO. agregar el vehiculoVO eL alias  y como no es placa si no mensajero.getString(1)      
-        FacturaVO  vehVO = new FacturaVO(mensajero.getString(1),mensajero.getString(2), mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),mensajero.getString(9));
+        FacturaVO  vehVO = new FacturaVO(mensajero.getString(1),mensajero.getString(2), mensajero.getString(8), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),mensajero.getString(9));
         // si lo encuentra  va a crear un todas las columnas de la base de datos 
                ListaFacturas.add(vehVO);//agregar lista de vehiculos y crea UNA POSICION DE LOS DATOS DEL ARREGLO A TRAVEZ DE LOS DATOS DEL VO.
             }

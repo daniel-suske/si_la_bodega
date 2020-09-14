@@ -158,7 +158,7 @@ public class RepuestoDAO extends Conexion implements Crud {
     }
      
     
-     public ArrayList<RepuestoVO>listar(){
+     public ArrayList<RepuestoVO>listar(){  
     ArrayList<RepuestoVO>listaRepuestos = new ArrayList<RepuestoVO>();
     try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
