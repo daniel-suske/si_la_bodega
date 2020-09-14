@@ -687,7 +687,7 @@
             
                 <label class="col-lg-3 col-form-label form-control-label">Fecha:</label>
                 <div class="col-lg-9">
-                    <input  class="form-control" type="text" name="textFecha" value="<%=faVO.getFecha()%>">
+                    <input  class="form-control" type="date" name="textFecha" value="<%=faVO.getFecha()%>">
                 </div>
             </div>
             <div class="form-group row">
@@ -699,13 +699,13 @@
             </div>
           <div class="form-group row">
               
-                        <label class="col-lg-3 col-form-label form-control-label">Tipo_Pago:</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Tipo Pago:</label>
                         <div class="col-lg-9">
                         <input class="form-control" type="text" name="textTipPago" value="<%=faVO.getTipo_Pago()%>">
                         </div>
                          </div>
                         <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Valor_Total:</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Valor Total:</label>
                         <div class="col-lg-9">
                         <input class="form-control" type="text" name="textVaPago" value="<%=faVO.getValor_Total()%>">
                         </div>

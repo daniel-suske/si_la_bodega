@@ -22,7 +22,7 @@
   <meta name="author" content="Grupo-6">
 
 
-  <title>Empleados</title>
+  <title>Registrar Factura</title>
 
   <!-- GOOGLE FONTS -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -677,25 +677,26 @@
               <div class="content">
                   <form  class="form" role="form" method="post" action="Factura" autocomplete="off">
              <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Fecha:</label>
+                 <label class="col-lg-3 col-form-label form-control-label">Fecha de Factura :</label>
                         <div class="col-lg-9">
-                        <input  class="form-control" type="text" name="textFecha">
+                            <input  class="form-control" type="date" name="textFecha" id="fecha">
                         </div>
              </div>
                       <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Servicio:</label>
+                        
                         <div class="col-lg-9">
                         <input class="form-control"type="text" name="textServi">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Tipo_Pago:</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Tipo de Pago:</label>
                         <div class="col-lg-9">
                         <input class="form-control" type="text" name="textTipPago">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Valor_Total:</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Valor Total:</label>
                         <div class="col-lg-9">
                         <input class="form-control" type="text" name="textVaPago">
                         </div>
@@ -707,10 +708,22 @@
                         </div>
                       </div>
                        <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"> Recibe:</label>
-                         <div class="col-lg-9">
-                        <input class="form-control" type="text" name="textRecibe">
-                         </div>
+                           <label class="col-lg-3 col-form-label form-control-label">Recibe:</label>
+                            <div class="col-lg-9">
+                        <select name="textRecibe"  class="form-control form-control-lg">
+                            <option value=""> Seleccione...</option>
+                            <%
+                                UsuarioDAO usuDAO = new UsuarioDAO();
+                                for (UsuarioVO usuVO : usuDAO.listarE()) {
+
+                            %>
+                            <option value="<%= usuVO.getId()%>"> <%= usuVO.getNombres()%></option>
+                            <%
+                                }
+                            %>
+                        </select>
+                            </div>
+
                        </div>
                    
                   <div class="form-group row">

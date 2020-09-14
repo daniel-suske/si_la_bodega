@@ -168,12 +168,12 @@ public class FacturaDAO extends Conexion implements Crud{
         ArrayList<FacturaVO>ListaFacturas = new ArrayList<FacturaVO>();// se declara un objeto Arraylist de tipo VehiculoVO y el nombre del arregloo alias : listaVehiculos  , y se volve a declarar el nombre:ArrayList y el nombre del objeto<VehiculoVO>
                 try {
             conexion = this.obtenerConexion();
-            sql =" select * from factura ";
+            sql =" SELECT F.*, S.Descripcion, U.nombres FROM factura F INNER JOIN Servicio S ON f.Servicio = s.id INNER JOIN usuario U ON u.id = f.Recibe   ";
             puente=conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
        //Si lo encuentra Va a crearme un VO. agregar el vehiculoVO eL alias  y como no es placa si no mensajero.getString(1)      
-        FacturaVO  vehVO = new FacturaVO(mensajero.getString(1),mensajero.getString(2), mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),mensajero.getString(7));
+        FacturaVO  vehVO = new FacturaVO(mensajero.getString(1),mensajero.getString(2), mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6),mensajero.getString(9));
         // si lo encuentra  va a crear un todas las columnas de la base de datos 
                ListaFacturas.add(vehVO);//agregar lista de vehiculos y crea UNA POSICION DE LOS DATOS DEL ARREGLO A TRAVEZ DE LOS DATOS DEL VO.
             }
