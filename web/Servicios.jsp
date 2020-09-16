@@ -22,20 +22,23 @@
                 <h1 class="text text-dark">Gestion de Servicios</h1>
               
                   <hr>
-                  <div class="navbar ">
+                  <div class="navbar">
 
                   <br><br><br>
+                  <a class="btn btn-success btn-lg text-light" href="RegistrarServicio.jsp">+ Nuevo Registro</a><br>
                   <form class="form-inline form-control-lg" method="post" action="Usuario">
-                      <input type="search" class="form-control form-dark" name="text"/>
-                      <input type="submit" class="btn btn-primary" value="Buscar"/>
+                      <input type="search" class="form-control form-dark form-control-lg" name="text"/>
+                      <input type="submit" class="btn-sm btn-primary" value="Buscar"/>
                       <input type="hidden" name="opcion" value="4" />
                   </form>
                   </div>
                   <br><br>
+                <div class="card bg-white" style="width: 100%">
+                 <div class="card-body "> 
                  <div class="table-responsive">   
                     <table class="table table-bordered table-hover">
-                        <thead class="table table-striped table-hover">   
-                            <tr>
+                        <thead class="table table-striped table-sm table-hover">   
+                            <tr class="thead-dark">
                                 <th scope="col" class="text-center">#</th>
                                 <th scope="col" class="text-center">Fecha del Pedido</th>
                                 <th scope="col" class="text-center">Descripción</th>
@@ -66,13 +69,13 @@
                                  <td class="text-center"><%= serVO.getEstado()%></td>
                                 
                                 <td class="text-center">
-                                    <form method="post" action="Perfil">
-                                        <input type="hidden" name="textId" value="<%= serVO.getId() %>" />
-                                    <button class="btn btn-warning">Modificar</button>
-                                        <input type="hidden" name="opcion" value="2"/>
-                                    </form>
-                                    |
-                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
+                                     <form method="post" action="Servicio" class="justify-content-center">
+                                            <input type="hidden" name="textId" value="<%= serVO.getId() %>" />
+                                            <div class="row justify-content-center">
+                                            <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/edit.png" width="20px"></i></button>
+                                            </div>
+                                            <input type="hidden" name="opcion" value="3"/>
+                                     </form>
                                 </td>
                             </tr>
                       </tbody>
@@ -81,7 +84,9 @@
                   </table>
                 
                 <br>
-               </div>   
+               </div>  
+            </div>
+            </div>
 
         <!-- Termina aqui -->
         

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 /**
  *
  * @author Yeison
@@ -24,9 +25,10 @@ public class UsuarioDAO extends Conexion implements Crud {
     
     private Connection conexion = null;                  //Conectar la data base
     private PreparedStatement puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
+    private CallableStatement puentesp = null;           //Para Llamar procedimientos Almacenados
     private ResultSet mensajero = null;                  //Encargado de las consultas
     
-    private String sql;                                  //Permite manejar consultas
+    private String sql;                                  //Permite manejar operaciones
     private boolean operacion = false;                   //Para confirmar el estado de la operación
     
                                                         //Declarar las variables del VO
@@ -74,22 +76,22 @@ public class UsuarioDAO extends Conexion implements Crud {
 
         try {
             
-            sql = "INSERT INTO usuario(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Id_Registrado_Por, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombres);
-            puente.setString(2, Apellidos);
-            puente.setString(3, Numero_Documento);
-            puente.setString(4, Tipo_Documento);
-            puente.setString(5, Correo);
-            puente.setString(6, Contrasena);
-            puente.setString(7, Telefono);
-            puente.setString(8, Barrio);
-            puente.setString(9, Direccion);
-            puente.setString(10, Id_Registrado_Por);
-            puente.setString(11, Perfil);
-            puente.setString(12, Estado);
+            sql = "CALL sp_insertar_usuario (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Nombres);
+            puentesp.setString(2, Apellidos);
+            puentesp.setString(3, Numero_Documento);
+            puentesp.setString(4, Tipo_Documento);
+            puentesp.setString(5, Correo);
+            puentesp.setString(6, Contrasena);
+            puentesp.setString(7, Telefono);
+            puentesp.setString(8, Barrio);
+            puentesp.setString(9, Direccion);
+            puentesp.setString(10, Id_Registrado_Por);
+            puentesp.setString(11, Perfil);
+            puentesp.setString(12, Estado);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
             
         } catch(SQLException e) {
@@ -120,21 +122,22 @@ public class UsuarioDAO extends Conexion implements Crud {
         
         try {
             
-            sql = "INSERT INTO usuario(Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Direccion, Perfil, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombres);
-            puente.setString(2, Apellidos);
-            puente.setString(3, Numero_Documento);
-            puente.setString(4, Tipo_Documento);
-            puente.setString(5, Correo);
-            puente.setString(6, Contrasena);
-            puente.setString(7, Telefono);
-            puente.setString(8, Barrio);
-            puente.setString(9, Direccion);
-            puente.setString(10, Perfil);
-            puente.setString(11, Estado);
+            sql = "CALL sp_insertar_usuario (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Nombres);
+            puentesp.setString(2, Apellidos);
+            puentesp.setString(3, Numero_Documento);
+            puentesp.setString(4, Tipo_Documento);
+            puentesp.setString(5, Correo);
+            puentesp.setString(6, Contrasena);
+            puentesp.setString(7, Telefono);
+            puentesp.setString(8, Barrio);
+            puentesp.setString(9, Direccion);
+            puentesp.setString(10, Id_Registrado_Por);
+            puentesp.setString(11, Perfil);
+            puentesp.setString(12, Estado);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
             
         } catch(SQLException e) {
@@ -171,7 +174,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM usuario WHERE Id = ?";
+            sql = "SELECT * FROM vista_usuarios WHERE Id = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Id);
             mensajero = puente.executeQuery();
@@ -208,19 +211,19 @@ public class UsuarioDAO extends Conexion implements Crud {
 
         try {
             
-            sql = "UPDATE usuario SET Nombres = ?, Apellidos = ?, Numero_Documento = ?, Tipo_Documento = ?, Correo = ?, Telefono = ?,  Barrio = ?, Direccion = ?  WHERE Id= ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombres);
-            puente.setString(2, Apellidos);
-            puente.setString(3, Numero_Documento);
-            puente.setString(4, Tipo_Documento);
-            puente.setString(5, Correo);
-            puente.setString(6, Telefono);
-            puente.setString(7, Barrio);
-            puente.setString(8, Direccion);
-            puente.setString(9, Id);
+            sql = "CALL sp_modificar_usuario (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Nombres);
+            puentesp.setString(2, Apellidos);
+            puentesp.setString(3, Numero_Documento);
+            puentesp.setString(4, Tipo_Documento);
+            puentesp.setString(5, Correo);
+            puentesp.setString(6, Telefono);
+            puentesp.setString(7, Barrio);
+            puentesp.setString(8, Direccion);
+            puentesp.setString(9, Id);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
               
             
@@ -252,7 +255,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-        public ArrayList<UsuarioVO> listarE()
+    public ArrayList<UsuarioVO> listarE()
     {
         
         ArrayList<UsuarioVO>listaUsuariosE = new ArrayList<UsuarioVO>();
@@ -261,13 +264,12 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM usuario U INNER JOIN perfil P ON U.Perfil = P.Id INNER JOIN estado E ON U.Estado = E.Id WHERE Perfil != ?  ";
+            sql = "SELECT * FROM vista_empleados";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, num);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 
-                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(14), mensajero.getString(15));
+                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(12), mensajero.getString(13));
                 
                 
                 listaUsuariosE.add(usuVO);
@@ -297,7 +299,7 @@ public class UsuarioDAO extends Conexion implements Crud {
     }
         
     
-        public ArrayList<UsuarioVO> listarC()
+    public ArrayList<UsuarioVO> listarC()
     {
         
         ArrayList<UsuarioVO>listaUsuariosC = new ArrayList<UsuarioVO>();
@@ -306,13 +308,12 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT U.*, P.Nombre, E.Nombre FROM usuario U INNER JOIN perfil P ON U.Perfil = P.Id INNER JOIN estado E ON U.Estado = E.Id WHERE Perfil = ? ";
+            sql = "SELECT * FROM vista_clientes";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, num);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 
-                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(14), mensajero.getString(15));
+                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(12), mensajero.getString(13));
                 
                 
                 listaUsuariosC.add(usuVO);
@@ -341,6 +342,48 @@ public class UsuarioDAO extends Conexion implements Crud {
         
     }
         
+    public ArrayList<UsuarioVO> listarT()
+    {
+        
+        ArrayList<UsuarioVO>listaUsuariosT = new ArrayList<UsuarioVO>();
+        
+        try {
+            
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM vista_tecnicos";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                UsuarioVO usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(12), mensajero.getString(13));
+                
+                
+                listaUsuariosT.add(usuVO);
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return listaUsuariosT;
+        
+    }    
         
         public List BuscarU(String text) {
             
@@ -398,18 +441,16 @@ public class UsuarioDAO extends Conexion implements Crud {
             
         
         
-    public boolean InactivarUsuario(String Id) {
-        
-        numEs = "2";
+    public boolean InactivarUsuario() {
         
         try {
             
-            sql = "UPDATE usuario SET Estado = ?  WHERE Id= ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, numEs);
-            puente.setString(2, Id);
+            sql = "CALL sp_cambiar_estadou (?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Estado);
+            puentesp.setString(2, Id);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
               
             
@@ -435,18 +476,16 @@ public class UsuarioDAO extends Conexion implements Crud {
         
     }
     
-        public boolean ActivarUsuario(String Id) {
-        
-        numEs = "1";
+        public boolean ActivarUsuario() {
         
         try {
             
-            sql = "UPDATE usuario SET Estado = ?  WHERE Id= ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, numEs);
-            puente.setString(2, Id);
+            sql = "CALL sp_cambiar_estadou (?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Estado);
+            puentesp.setString(2, Id);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
               
             
@@ -478,11 +517,11 @@ public class UsuarioDAO extends Conexion implements Crud {
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM usuario WHERE Correo = ? && Contrasena = ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Correo);
-            puente.setString(2, Contrasena);
-            mensajero = puente.executeQuery();
+            sql = "CALL sp_inicio_sesion (?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Correo);
+            puentesp.setString(2, Contrasena);
+            mensajero = puentesp.executeQuery();
             
             if (mensajero.next()) {
                 

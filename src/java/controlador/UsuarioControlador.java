@@ -90,7 +90,7 @@ public class UsuarioControlador extends HttpServlet {
             
                 if(usuDAO.agregarRegistro()) {
                     
-                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                    request.getRequestDispatcher("RegistrarDatosPE.jsp").forward(request, response);
                     
                 } else {
                     
@@ -150,33 +150,31 @@ public class UsuarioControlador extends HttpServlet {
             
             case 6: //Inactivar Registro
                 
-                if(usuDAO.InactivarUsuario(Id)) {
+                if(usuDAO.InactivarUsuario()) {
                     
-                    request.setAttribute("mensajeExitoso", "¡El Usuario se Inactivo Correctamente");
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);    
                     
                 } else {
                     
-                    request.setAttribute("mensajeFallido", "¡El Usuario No se Inactivo Correctamente!");
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);    
                     
                 }
-                
-                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);       
+                  
                 
             break;  
             
             case 7: //Activar Registro
                 
-                if(usuDAO.ActivarUsuario(Id)) {
+                if(usuDAO.ActivarUsuario()) {
                     
-                    request.setAttribute("mensajeExitoso", "¡El Usuario se Activo Correctamente!");
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);      
                     
                 } else {
-                    
-                    request.setAttribute("mensajeFallido", "¡El Usuario No se Activo Correctamente!");
+                   
+                   request.getRequestDispatcher("Usuarios.jsp").forward(request, response);      
                     
                 }
-                
-                request.getRequestDispatcher("Usuarios.jsp").forward(request, response);       
+                 
                 
             break;            
              

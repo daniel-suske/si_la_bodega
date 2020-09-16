@@ -30,17 +30,17 @@
                     </div>
                     <section class="row mt-5">
                             <div class="card w-100 m-auto">
-                                    <div class="card-header container">
+                                    <div class="card-header container bg-success">
                                             <h2 class="m-auto">Información del Usuario</h2>
                                     </div>
 
                                     <div class="card-body">
                                         
-                                            <form action="Usuario" method="post">
+                                            <form action="Usuario" method="POST">
                                                 
                                                 <div class="formulario">
                                                     <div class="form-group mr-5">
-                                                            <label>Nombres:</label>
+                                                            <label> * Nombres:</label>
                                                             <input type="text" name="nombres" class="form-control" placeholder="Digite Nombres Completos">
                                                     </div>
                                                     <div class="form-group ">
@@ -56,7 +56,7 @@
                                                     <div class="form-group ">
                                                             <label>Tipo de Documento:</label>
                                                             <select name="tipo" class="form-control form-control-lg">
-                                                                    <option value="EFE" selected>Seleccione su tipo de
+                                                                    <option value="" selected>Seleccione su tipo de
                                                                         Identificación</option>
                                                                     <option value="CC">Cédula de Ciudadanía</option>
                                                                     <option value="CE">Cédula de Extranjería</option>

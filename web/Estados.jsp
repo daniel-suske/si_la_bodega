@@ -33,10 +33,12 @@
                   </form>
                   </div>
                   <br><br>
+                <div class="card bg-white" style="width: 100%">
+                <div class="card-body ">
                  <div class="table-responsive">   
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
-                            <tr>
+                            <tr class="thead-dark">
                                 <th scope="col" class="text-center">#</th>
                                 <th scope="col" class="text-center">Nombre</th>
                                 <th scope="col" class="text-center">Acciones</th>
@@ -59,13 +61,13 @@
                                 <td class="text-center"><%= estVO.getNombre()%></td>
               
                                 <td class="text-center">
-                                    <form method="post" action="Perfil">
-                                        <input type="hidden" name="textId" value="<%= estVO.getId() %>" />
-                                    <button class="btn btn-warning">Modificar</button>
-                                        <input type="hidden" name="opcion" value="2"/>
-                                    </form>
-                                    |
-                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
+                                     <form method="post" action="Estado" class="justify-content-center">
+                                            <input type="hidden" name="textId" value="<%= estVO.getId() %>" />
+                                            <div class="row justify-content-center">
+                                            <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/edit.png" width="20px"></i></button>
+                                            </div>
+                                            <input type="hidden" name="opcion" value="3"/>
+                                     </form>
                                 </td>
                             </tr>
                       </tbody>
@@ -74,7 +76,9 @@
                   </table>
                 
                 <br>
-               </div>   
+               </div>  
+             </div>        
+           </div>
 
         <!-- Termina aqui -->
         

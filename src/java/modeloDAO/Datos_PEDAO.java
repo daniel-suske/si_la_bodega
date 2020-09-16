@@ -5,10 +5,8 @@
  */
 package modeloDAO;
 
-import java.sql.CallableStatement;
 import util.*;
-import modeloVO.ServicioVO;
-
+import modeloVO.Datos_PEVO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,24 +19,23 @@ import java.util.logging.Logger;
  *
  * @author Yeison
  */
-public class ServicioDAO extends Conexion implements Crud {
- 
+public class Datos_PEDAO extends Conexion implements Crud {
+    
     private Connection conexion = null;                  //Conectar la data base
     private PreparedStatement puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
-    private CallableStatement puentesp = null;           //Para Llamar procedimientos Almacenados
     private ResultSet mensajero = null;                  //Encargado de las consultas
     
     private String sql;                                  //Permite manejar consultas
     private boolean operacion = false;                   //Para confirmar el estado de la operación
-
     
-    private String Id = "", Fecha_Pedido = "", Descripcion = "", Cliente = "", Registrado_Por = "", Estado = ""; //Declarar las variables del VO
+    //Declarar las variables del VO
+    private String Id = "", Id_Empleado = "", Fecha_Nacimiento = "", Estado_Civil = "", EPS = "", ARL = "", Fondo_Pensiones = "", Nivel_Escolaridad = "", Experiencia = "";
     
-    public ServicioDAO() 
+    public Datos_PEDAO() 
     {
     }
     
-    public ServicioDAO(ServicioVO serVO)    //Metodo Constructor
+    public Datos_PEDAO(Datos_PEVO datVO)
     {
         super();
         
@@ -46,57 +43,21 @@ public class ServicioDAO extends Conexion implements Crud {
             
             conexion = this.obtenerConexion();
             
-            Id = serVO.getId();
-            Fecha_Pedido = serVO.getFecha_Pedido();
-            Descripcion = serVO.getDescripcion();
-            Cliente = serVO.getCliente();
-            Registrado_Por = serVO.getRegistrado_Por();
-            Estado = serVO.getEstado();
+            Id = datVO.getId();
+            Id_Empleado = datVO.getId_Empleado();
+            Fecha_Nacimiento = datVO.getFecha_Nacimiento();
+            Estado_Civil = datVO.getEstado_Civil();
+            EPS = datVO.getEPS();
+            ARL = datVO.getARL();
+            Fondo_Pensiones = datVO.getFondo_Pensiones();
+            Nivel_Escolaridad = datVO.getNivel_Escolaridad();
+            Experiencia = datVO.getExperiencia();
             
-        } catch (Exception e) {
+        } catch(Exception e) {
             
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
             
         }
-    }
-    
-    public ArrayList<ServicioVO> listarS()
-    {
-        
-        ArrayList<ServicioVO>listaServicios = new ArrayList<ServicioVO>();
-        
-        try {
-            
-            conexion = this.obtenerConexion();
-            sql = "SELECT * FROM vista_servicios";
-            puente = conexion.prepareStatement(sql);
-            mensajero = puente.executeQuery();
-            while (mensajero.next()) {
-                
-                ServicioVO serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
-                
-                listaServicios.add(serVO);
-            }
-            
-        } catch (SQLException e) {
-            
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
-            
-        } finally {
-            
-            try {
-                
-                this.cerrarConexion();
-                
-            } catch (SQLException e) {
-                
-                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
-                
-            }
-            
-        }
-        
-        return listaServicios;
         
     }
 
@@ -105,15 +66,18 @@ public class ServicioDAO extends Conexion implements Crud {
         
         try {
             
-            sql = "CALL sp_insertar_servicio (?, ?, ?, ?, ?)";
-            puentesp = conexion.prepareCall(sql);
-            puentesp.setString(1, Fecha_Pedido);
-            puentesp.setString(2, Descripcion);
-            puentesp.setString(3, Cliente);
-            puentesp.setString(4, Registrado_Por);
-            puentesp.setString(5, Estado);
+            sql = "INSERT INTO datos_personales_empleados (Id_Empleado, Fecha_Nacimiento, Estado_Civil, EPS, ARL, Fondo_Pensiones, Nivel_Escolaridad, Experiencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Id_Empleado);
+            puente.setString(2, Fecha_Nacimiento);
+            puente.setString(3, Estado_Civil);
+            puente.setString(4, EPS);
+            puente.setString(5, ARL);
+            puente.setString(6, Fondo_Pensiones);
+            puente.setString(7, Nivel_Escolaridad);
+            puente.setString(8, Experiencia);
             
-            puentesp.executeUpdate();
+            puente.executeUpdate();
             operacion = true;
             
         } catch(SQLException e) {
@@ -152,5 +116,7 @@ public class ServicioDAO extends Conexion implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
     
 }

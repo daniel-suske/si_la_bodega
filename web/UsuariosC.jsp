@@ -30,16 +30,18 @@
 
                   <br><br><br>
                   <form class="form-inline form-control-lg" method="post" action="Usuario">
-                      <input type="search" class="form-control form-dark" name="text"/>
-                      <input type="submit" class="btn btn-primary" value="Buscar"/>
+                      <input type="search" class="form-control form-dark " name="text"/>
+                      <input type="submit" class="btn btn-primary " value="Buscar"/>
                       <input type="hidden" name="opcion" value="4" />
                   </form>
                   </div>
                   <br><br>
-                 <div class="table-responsive">   
-                    <table class="table table-bordered table-hover">
+                 <div class="card bg-white" style="width: 100%">
+                 <div class="card-body "> 
+                  <div class="table-responsive">   
+                    <table class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
-                            <tr>
+                            <tr class="thead-dark">
                                 <th scope="col" class="text-center">#</th>
                                 <th scope="col" class="text-center">Nombres</th>
                                 <th scope="col" class="text-center">Apellidos</th>
@@ -49,7 +51,6 @@
                                 <th scope="col" class="text-center">Telefono</th>
                                 <th scope="col" class="text-center">Barrio</th>
                                 <th scope="col" class="text-center">Dirección</th>
-                                <th scope="col" class="text-center">Registrado Por</th>
                                 <th scope="col" class="text-center">Perfil</th>
                                 <th scope="col" class="text-center">Estado</th>
                                 <th scope="col" class="text-center">Acciones</th>
@@ -77,17 +78,16 @@
                                 <td class="text-center"><%= usuVO.getTelefono() %></td>
                                 <td class="text-center"><%= usuVO.getBarrio() %></td>
                                 <td class="text-center"><%= usuVO.getDireccion() %></td>
-                                <td class="text-center"><%= usuVO.getId_Registrado_Por() %></td>
                                 <td class="text-center"><%= usuVO.getPerfil() %></td>
                                 <td class="text-center"><%= usuVO.getEstado() %></td>
                                 <td class="text-center">
-                                    <form method="post" action="Usuario">
-                                        <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
-                                    <button class="btn btn-warning">Modificar</button>
-                                        <input type="hidden" name="opcion" value="3"/>
-                                    </form>
-                                    |
-                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
+                                <form method="post" action="Usuario" class="justify-content-center">
+                                     <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
+                                      <div class="row justify-content-center">
+                                      <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/edit.png" width="20px"></i></button>
+                                      </div>
+                                      <input type="hidden" name="opcion" value="3"/>
+                                </form>
                                 </td>
                             </tr>
                       </tbody>
@@ -97,6 +97,8 @@
                 
                 <br>
                </div>   
+            </div>
+           </div>
 
         <!-- Termina aqui -->
         
