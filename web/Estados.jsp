@@ -10,7 +10,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="dash1.jsp" %>
 
-<title>Estados</title>
+    <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/> 
+
+    <title>Estados</title>
 
         <!-- AQUI VA EL contenido-->
 
@@ -36,7 +38,7 @@
                 <div class="card bg-white" style="width: 100%">
                 <div class="card-body ">
                  <div class="table-responsive">   
-                    <table class="table table-bordered table-hover table-sm">
+                    <table id="datatable" class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
                             <tr class="thead-dark">
                                 <th scope="col" class="text-center">#</th>
@@ -44,6 +46,7 @@
                                 <th scope="col" class="text-center">Acciones</th>
                             </tr>  
                         </thead>
+                      <tbody class="table table-striped table-hover text text-dark">
                       <%
                           EstadoVO estVO = new EstadoVO();
                           EstadoDAO estDAO = new EstadoDAO();
@@ -55,7 +58,6 @@
                               estVO = listaEstados.get(i);
                               
                       %>
-                      <tbody class="table table-striped table-hover text text-dark">
                             <tr>
                                 <td scope="row" class="text-center"><%= estVO.getId() %></td>
                                 <td class="text-center"><%= estVO.getNombre()%></td>
@@ -70,9 +72,8 @@
                                      </form>
                                 </td>
                             </tr>
-                      </tbody>
                       <% } %>
-                      
+                     </tbody>
                   </table>
                 
                 <br>
@@ -94,5 +95,49 @@
 
         <!-- End Modals -->
 
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 
+        <!-- End Modals -->
+
+        
         <%@include file="dash2.jsp" %>
+
+ <!-- Optional JavaScript -->
+    <!--, then Popper.js, then Bootstrap JS -->
+    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
+      
+    <script>
+        $(document).ready(function(){
+            $("#datatable").DataTable({
+                language: {
+                        "sProcessing": "Procesando ...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sSearch": "Buscar:",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando ...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "botones": {
+                            "copiar": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                }
+            });
+        });
+    </script>

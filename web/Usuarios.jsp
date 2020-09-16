@@ -13,7 +13,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta http-equiv="ContentType" content="text/html">
+    
     <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/> 
     
 
@@ -58,8 +59,8 @@
                                         <th>Modificar</th>
                                         <th>Estado </th>
                                     </tr>
-                                    </tr>
                                 </thead>
+                                <tbody>
                                 <%
                                 UsuarioVO usuVO = new UsuarioVO();
                                 UsuarioDAO usuDAO = new UsuarioDAO();
@@ -73,7 +74,6 @@
                                     usuVO = listaUsuariosE.get(i);
                               
                                 %>
-                                <tbody>
                                     <tr class="text-dark justify-content-center">
                                         <td scope="col" class="text-center"><%= usuVO.getId() %></td>
                                         <td scope="col" class="text-center"><%= usuVO.getNombres() %></td>
@@ -88,16 +88,20 @@
                                         <td scope="col" class="text-center"><%= usuVO.getPerfil() %></td>
                                         <td scope="col" class="text-center"><%= usuVO.getEstado() %></td>
                                         <td scope="col" class="text-center">
-                                        <form method="post" action="Usuario" class="justify-content-center">
+                                        <form method="POST" action="Usuario" class="justify-content-center">
                                             <input type="hidden" name="textId" value="<%= usuVO.getId() %>" />
                                             <div class="row justify-content-center">
                                             <button class="btn-sm btn-warning mg-auto mb-1"><i><img src="assets/icons/edit.png" width="20px"></i></button>
                                             </div>
                                             <input type="hidden" name="opcion" value="3"/>
                                         </form>
+                                        <form method="POST" action="Datos_PE"> 
+                                            <input type="hidden" name="Id_Empleado" value="<%= usuVO.getId() %>" />
                                             <div class="row justify-content-center">
                                             <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/datosPE.png" width="20px"/></i></button>
                                             </div>
+                                            <input type="hidden" name="opcion" value="2"/>
+                                        </form>    
                                         </td>
                                         <td>
                                          <%
@@ -110,8 +114,8 @@
                                             <input type="hidden" value="2" name="textEstado">
                                             <input type="hidden" value="6" name="opcion">
 
-                                            <button >
-                                                <label class="swtich-container ">
+                                            <button class="m-auto">
+                                                <label class="swtich-container m-auto">
                                                 <input type="checkbox" checked  id="switch">
                                                 <div class="slider bg-primary">
 
@@ -140,15 +144,24 @@
                                             </form>
                                         </td>
                                     </tr>
+                                  <% } %>
                                 </tbody>
-                                <% } %>
-                            </table> 
+                            </table>
+                            <center>
+                            <div style="color:Red">
+                                 <%if (request.getAttribute("mensajeFallido") != null) {%>
+                                 ${mensajeFallido}
+                                 <% } else { %>
+                                 ${mensajeExitoso}
+                                 <% } %>
+                            </div> 
+                            </center>
                             </div>
                             </div>
-
 
        </div>
     </div>
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
                    
                    <%@include file="dash2.jsp"%>
   
@@ -161,6 +174,33 @@
       
     <script>
         $(document).ready(function(){
-            $("#datatable").DataTable();
-        })
+            $("#datatable").DataTable({
+                language: {
+                        "sProcessing": "Procesando ...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sSearch": "Buscar:",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando ...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "botones": {
+                            "copiar": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                }
+            });
+        });
     </script>

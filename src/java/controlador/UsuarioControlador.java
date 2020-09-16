@@ -92,6 +92,8 @@ public class UsuarioControlador extends HttpServlet {
                     
                     request.getRequestDispatcher("RegistrarDatosPE.jsp").forward(request, response);
                     
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Registro Correctamente por favor Siga registrando los demas Datos!");
+                    
                 } else {
                     
                     request.setAttribute("mensajeFallido", "¡El Usuario No se Registró Correctamente!");
@@ -114,7 +116,7 @@ public class UsuarioControlador extends HttpServlet {
                     
                 } else {
                     
-                    request.setAttribute("mensajeFallido", "¡El Vehiculo a consultar NO existe!");
+                    request.setAttribute("mensajeFallido", "¡El Usuario a consultar NO existe!");
                     
                     request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
                     
@@ -138,13 +140,16 @@ public class UsuarioControlador extends HttpServlet {
                     
                     request.setAttribute("mensajeExitoso", "¡El Usuario se Modifico Correctamente!");
                     
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);     
+                    
                 } else {
                     
                     request.setAttribute("mensajeFallido", "¡El Usuario No se Modifico Correctamente!");
                     
+                    request.getRequestDispatcher("ModificarUsuario.jsp").forward(request, response);     
+                    
                 }
-                
-                request.getRequestDispatcher("ModificarUsuario.jsp").forward(request, response);       
+                  
                 
             break; 
             
@@ -181,18 +186,18 @@ public class UsuarioControlador extends HttpServlet {
             case 8: //Inicio de Sesión
                 
                 if (usuDAO.inicioSesion(Correo, Contrasena)) {
-                    
+                                   
                     HttpSession miSesion = request.getSession(true); //Crea una sesion
-                   
-                    usuVO = new UsuarioVO(Id, Correo); //Atributos que maneja en la session u objeto
                     
-                    miSesion.setAttribute("usuario", usuVO); //Enviando por la sesion
+                    usuVO = new UsuarioVO(Id, Nombres, Apellidos, Correo, Numero_Documento, Perfil, Estado); //Atributos que maneja en la session u objeto
+                    
+                    miSesion.setAttribute("sesion_usuario", usuVO); //Enviando por la sesion
                     
                     request.getRequestDispatcher("dashboard.jsp").forward(request, response);
                     
                 } else {
                     
-                    request.setAttribute("mensajeFallido", "¡El Usuario y/o la contraseña son incorrectos!");
+                    request.setAttribute("mensajeFallido", "¡El Usuario y/o la contraseña son incorrectos o no se encuentra Activo!");
                     
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     

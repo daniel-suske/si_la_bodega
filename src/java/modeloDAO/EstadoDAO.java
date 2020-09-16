@@ -48,7 +48,7 @@ public class EstadoDAO extends Conexion {
             
         } catch(Exception e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE,null,e);
             
         }
         
@@ -73,7 +73,7 @@ public class EstadoDAO extends Conexion {
             
         } catch (SQLException e) {
             
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -83,7 +83,7 @@ public class EstadoDAO extends Conexion {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             
@@ -115,7 +115,7 @@ public class EstadoDAO extends Conexion {
             
         } catch (SQLException e) {
             
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -125,7 +125,7 @@ public class EstadoDAO extends Conexion {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(EstadoDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             

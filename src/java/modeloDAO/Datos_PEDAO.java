@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 /**
  *
  * @author Yeison
@@ -23,6 +24,7 @@ public class Datos_PEDAO extends Conexion implements Crud {
     
     private Connection conexion = null;                  //Conectar la data base
     private PreparedStatement puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
+    private CallableStatement puentesp = null;           //Para Llamar procedimientos Almacenados
     private ResultSet mensajero = null;                  //Encargado de las consultas
     
     private String sql;                                  //Permite manejar consultas
@@ -55,7 +57,7 @@ public class Datos_PEDAO extends Conexion implements Crud {
             
         } catch(Exception e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
             
         }
         
@@ -66,23 +68,23 @@ public class Datos_PEDAO extends Conexion implements Crud {
         
         try {
             
-            sql = "INSERT INTO datos_personales_empleados (Id_Empleado, Fecha_Nacimiento, Estado_Civil, EPS, ARL, Fondo_Pensiones, Nivel_Escolaridad, Experiencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Id_Empleado);
-            puente.setString(2, Fecha_Nacimiento);
-            puente.setString(3, Estado_Civil);
-            puente.setString(4, EPS);
-            puente.setString(5, ARL);
-            puente.setString(6, Fondo_Pensiones);
-            puente.setString(7, Nivel_Escolaridad);
-            puente.setString(8, Experiencia);
+            sql = "CALL sp_insertar_datosPE (?, ?, ?, ?, ?, ?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Id_Empleado);
+            puentesp.setString(2, Fecha_Nacimiento);
+            puentesp.setString(3, Estado_Civil);
+            puentesp.setString(4, EPS);
+            puentesp.setString(5, ARL);
+            puentesp.setString(6, Fondo_Pensiones);
+            puentesp.setString(7, Nivel_Escolaridad);
+            puentesp.setString(8, Experiencia);
             
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
             
         } catch(SQLException e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -92,7 +94,7 @@ public class Datos_PEDAO extends Conexion implements Crud {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             
@@ -107,9 +109,85 @@ public class Datos_PEDAO extends Conexion implements Crud {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Datos_PEVO consultarId_Empleado(String Id_Empleado) {
+        
+        Datos_PEVO  datVO = null;
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT VDT.*, CONCAT(VE.Apellidos,' ',VE.Nombres) AS Nombre FROM vista_datos_pe VDT INNER JOIN vista_uempleados VE ON VDT.Id_Empleado = VE.Id WHERE Id_Empleado = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Id_Empleado);
+            mensajero = puente.executeQuery();
+            
+            while (mensajero.next()) {
+                
+            datVO = new Datos_PEVO(mensajero.getString(1), mensajero.getString(10), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9));
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return datVO;
+    }
+    
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            
+            sql = "CALL sp_modificar_datosPE (?, ?, ?, ?, ?, ?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Fecha_Nacimiento);
+            puentesp.setString(2, Estado_Civil);
+            puentesp.setString(3, EPS);
+            puentesp.setString(4, ARL);
+            puentesp.setString(5, Fondo_Pensiones);
+            puentesp.setString(6, Nivel_Escolaridad);
+            puentesp.setString(7, Experiencia);
+            puentesp.setString(8, Id);
+            
+            puentesp.executeUpdate();
+            operacion = true;
+              
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+                
+        return operacion;
+        
     }
 
     @Override

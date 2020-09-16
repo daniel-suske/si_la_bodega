@@ -5,10 +5,9 @@
  */
 package modeloDAO;
 
-import java.sql.CallableStatement;
+
 import util.*;
 import modeloVO.ServicioVO;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.sql.CallableStatement;
 /**
  *
  * @author Yeison
@@ -55,7 +55,7 @@ public class ServicioDAO extends Conexion implements Crud {
             
         } catch (Exception e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
             
         }
     }
@@ -80,7 +80,7 @@ public class ServicioDAO extends Conexion implements Crud {
             
         } catch (SQLException e) {
             
-            Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -90,7 +90,7 @@ public class ServicioDAO extends Conexion implements Crud {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(PerfilDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             
@@ -118,7 +118,7 @@ public class ServicioDAO extends Conexion implements Crud {
             
         } catch(SQLException e) {
             
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
             
         } finally {
             
@@ -128,7 +128,7 @@ public class ServicioDAO extends Conexion implements Crud {
                 
             } catch (SQLException e) {
                 
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
                 
             }
             
@@ -143,9 +143,79 @@ public class ServicioDAO extends Conexion implements Crud {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+        public ServicioVO consultarId(String Id) {
+        
+        ServicioVO  serVO = null;
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM vista_servicios WHERE Id = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Id);
+            mensajero = puente.executeQuery();
+            
+            while (mensajero.next()) {
+                
+            serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return serVO;
+    }
+    
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            
+            sql = "CALL sp_modificar_servicio (?, ?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Fecha_Pedido);
+            puentesp.setString(2, Descripcion);
+            puentesp.setString(3, Id);
+            
+            puentesp.executeUpdate();
+            operacion = true;
+              
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+                
+        return operacion;
     }
 
     @Override

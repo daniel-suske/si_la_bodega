@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="modeloDAO.UsuarioDAO"%>
 <%@page import="modeloVO.UsuarioVO"%>
+<%@page import="modeloDAO.UsuarioDAO"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
                     <section class="row">
                             <div class="card w-100 m-auto">
                                     <div class="card-header container bg-warning">
-                                            <h2 class="m-auto ">Información del Usuario</h2>
+                                            <h2>Información del Usuario</h2>
                                     </div>
                                 
                                 <%
@@ -48,38 +48,74 @@
                                 %>
 
                                     <div class="card-body">
-                                            <form action="Usuario" method="post">
+                                            <form action="Usuario" method="POST">
                                                 <input type="hidden" name="textId" value="<%= usuVO.getId()%>"/>
                                                     <div class="form-group">
-                                                            <label>Nombres</label>
+                                                            <label>Nombres:</label>
                                                             <input type="text" name="nombres" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getNombres() %>">
                                                     </div>
                                                     <div class="form-group">
-                                                            <label>Apellidos</label>
+                                                            <label>Apellidos:</label>
                                                             <input type="text" name="apellidos" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getApellidos()%>">
                                                     </div>
                                                     <div class="form-group">
-                                                            <label>Numero de Documento</label>
+                                                            <label>Número de Documento:</label>
                                                             <input type="number" name="documento" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getNumero_Documento()%>">
                                                     </div> 
                                                      <div class="form-group">
-                                                            <label>Tipo de documento</label>
-                                                            <input type="text" name="tipo" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getTipo_Documento()%>">
+                                                            <label>Tipo de Documento:</label>
+                                                            <select name="tipo" class="form-control form-control-lg">
+                                                                    <option value="" selected>Seleccione su tipo de Identificación...</option>
+                                                                    <%
+                                                                        String cc = "CC";
+                                                                        String ce = "CE";
+                                                                        String pa = "PA";
+                                                                        String rc = "RC";
+                                                                        
+                                                                        if (cc.equals(usuVO.getTipo_Documento())) {
+                                                                    %>
+                                                                    <option value="CC" selected>Cédula de Ciudadanía</option>
+                                                                    <option value="CE">Cédula de Extranjería</option>
+                                                                    <option value="PA">Pasaporte</option>
+                                                                    <option value="RC">Registro Civil</option>
+                                                                    <%
+                                                                        } else if(ce.equals(usuVO.getTipo_Documento())) {
+                                                                    %>
+                                                                    <option value="CC">Cédula de Ciudadanía</option>
+                                                                    <option value="CE" selected>Cédula de Extranjería</option>
+                                                                    <option value="PA">Pasaporte</option>
+                                                                    <option value="RC">Registro Civil</option>
+                                                                    <%
+                                                                        }  else if(pa.equals(usuVO.getTipo_Documento())) {
+                                                                    %>
+                                                                    <option value="CC">Cédula de Ciudadanía</option>
+                                                                    <option value="CE">Cédula de Extranjería</option>
+                                                                    <option value="PA" selected>Pasaporte</option>
+                                                                    <option value="RC">Registro Civil</option>
+                                                                    <%
+                                                                        }  else if(rc.equals(usuVO.getTipo_Documento())) {
+                                                                    %>
+                                                                    <option value="CC">Cédula de Ciudadanía</option>
+                                                                    <option value="CE">Cédula de Extranjería</option>
+                                                                    <option value="PA" selected>Pasaporte</option>
+                                                                    <option value="RC">Registro Civil</option>
+                                                                    <% } %>
+                                                            </select>       
                                                     </div>                                       
                                                     <div class="form-group">
-                                                            <label>Correo</label>
+                                                            <label>Correo:</label>
                                                             <input type="email" name="correos" class="form-control" placeholder="Ingrese Email" value="<%= usuVO.getCorreo()%>">
                                                     </div>	
                                                     <div class="form-group">
-                                                            <label>Telefono</label>
+                                                            <label>Teléfono:</label>
                                                             <input type="number" name="telefono" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getTelefono() %>">
                                                     </div>
                                                     <div class="form-group">
-                                                            <label>Barrio</label>
+                                                            <label>Barrio:</label>
                                                             <input type="text" name="barrio" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getBarrio() %>">
                                                     </div>
                                                     <div class="form-group">
-                                                            <label>Direccion</label>
+                                                            <label>Dirección:</label>
                                                             <input type="text" name="direccion" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= usuVO.getDireccion() %>">
                                                     </div>
                                             
@@ -116,81 +152,5 @@
         <!-- End Modals -->
 
 
-          <footer class="footer mt-auto">
-            <div class="copyright bg-white">
-              <p>
-                &copy; <span id="copy-year">2019</span> Personalización por el Grupo-6
-              </p>
-            </div>
-            <script>
-                var d = new Date();
-                var year = d.getFullYear();
-                document.getElementById("copy-year").innerHTML = year;
-            </script>
-          </footer>
-
-    </div>
-  </div>
-
- <script src="assets/plugins/nprogress/nprogress.js"></script>
-                      
-<script src="assets/plugins/jquery/jquery.min.js"></script>
-<script src="assets/plugins/slimscrollbar/jquery.slimscroll.min.js"></script>
-<script src="assets/plugins/jekyll-search.min.js"></script>
-<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-
-
-
-<script src="assets/plugins/charts/Chart.min.js"></script>
-  
-
-
-<script src="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js"></script>
-<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill.js"></script>
-  
-
-
-<script src="assets/plugins/daterangepicker/moment.min.js"></script>
-<script src="assets/plugins/daterangepicker/daterangepicker.js"></script>
-<script>
-  jQuery(document).ready(function() {
-    jQuery('input[name="dateRange"]').daterangepicker({
-    autoUpdateInput: false,
-    singleDatePicker: true,
-    locale: {
-      cancelLabel: 'Clear'
-    }
-  });
-    jQuery('input[name="dateRange"]').on('apply.daterangepicker', function (ev, picker) {
-      jQuery(this).val(picker.startDate.format('MM/DD/YYYY'));
-    });
-    jQuery('input[name="dateRange"]').on('cancel.daterangepicker', function (ev, picker) {
-      jQuery(this).val('');
-    });
-  });
-</script>
-  
-
-
-<!--del Table-->
-
-<script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
-<script src="assets/plugins/data-tables/datatables.bootstrap4.min.js/"></script>
-<script src="assets/plugins/data-tables/datatables.responsive.min.js"></script>
-<!-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
-        $('#userList').DataTable();
-    } );
-</script>
-
-<!--end table-->
-
-
-<script src="assets/js/sleek.bundle.js"></script>
-</body>
-
-</html>
-
+        <%@include file="dash2.jsp" %>
 

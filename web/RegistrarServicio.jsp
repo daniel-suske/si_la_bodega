@@ -28,13 +28,13 @@
                     </div>
                     <section class="row mt-5">
                             <div class="card w-100 m-auto">
-                                    <div class="card-header container">
+                                    <div class="card-header container bg-success">
                                                 <h2 class="m-auto">Información del Servicio</h2>
                                     </div>
 
                                     <div class="card-body">
                                         
-                                            <form action="" method="POST">
+                                            <form action="Servicio" method="POST">
                                                 
    
                                                     <div class="form-group">
@@ -43,16 +43,16 @@
                                                     </div>	
                                                     <div class="form-group ">
                                                             <label>Descripción:</label>
-                                                            <textarea class="form-control" placeholder="Digite una Descripción de la solicitud"></textarea>
+                                                            <textarea class="form-control" name="Descript" placeholder="Digite una Descripción de la solicitud"></textarea>
                                                     </div>   
                                                 <div class="formulario">
                                                     <div class="form-group mr-5">
                                                             <label>Clientes:</label>
-                                                            <select name="textId_R" class="form-control form-control-lg">
+                                                            <select name="Cliente" class="form-control form-control-lg">
                                                                     <option value=""> Seleccione...</option>
                                                                     <%
-                                                                        UsuarioDAO usuDAO = new UsuarioDAO();
-                                                                        for(UsuarioVO usuVO : usuDAO.listarC()) {
+                                                                        UsuarioDAO usuCDAO = new UsuarioDAO();
+                                                                        for(UsuarioVO usuVO : usuCDAO.listarC()) {
                                                                             
                                                                     %>
                                                                     <option value="<%= usuVO.getId() %>"> <%= usuVO.getNombres() %></option>
@@ -63,10 +63,11 @@
                                                     </div>
                                                     <div class="form-group">
                                                             <label>Registrado por:</label>
-                                                            <select name="textId_R" class="form-control form-control-lg">
+                                                            <select name="R_Por" class="form-control form-control-lg">
                                                                     <option value=""> Seleccione...</option>
                                                                     <%
-                                                                        for(UsuarioVO usuVO : usuDAO.listarE()) {
+                                                                       UsuarioDAO usuEDAO = new UsuarioDAO();
+                                                                        for(UsuarioVO usuVO : usuEDAO.listarE()) {
                                                                             
                                                                     %>
                                                                     <option value="<%= usuVO.getId() %>"> <%= usuVO.getNombres() %></option>
@@ -78,7 +79,7 @@
                                                 </div>           
                                                     <div class="form-group ">
                                                             <label>Estado</label>
-                                                                <select name="textEstado" class="form-control form-control-lg">
+                                                                <select name="Est" class="form-control form-control-lg">
                                                                     <option value=""> Seleccione el Estado Correspondiente</option>
                                                                     <%
                                                                         EstadoDAO estDAO = new EstadoDAO();
@@ -93,8 +94,8 @@
                                                     </div>  
                                                             
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Registrar Empleado</button>
-                                                    <input type="hidden" value="2" name="opcion">
+                                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Registrar Servicio</button>
+                                                    <input type="hidden" value="1" name="opcion">
                                                 </div>
                                                             
                                                 <div style="color:Red">

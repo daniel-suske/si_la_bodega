@@ -7,8 +7,28 @@
 <%@page import="modeloVO.UsuarioVO"%>
 <%@page import="modeloDAO.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
+
+<%
+    HttpSession miSesion = (HttpSession)request.getSession();
+    
+    String NombreU = "", ApellidoU = "", PerfilU = "";
+    
+    if (miSesion.getAttribute("sesion_usuario") == null) {
+        
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+    } else {
+        
+        UsuarioVO usuVO = (UsuarioVO)miSesion.getAttribute("sesion_usuario");
+        
+        NombreU = usuVO.getCorreo();
+        ApellidoU = usuVO.getApellidos();
+        PerfilU = usuVO.getPerfil();
+    }
+
+%>
+
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -686,7 +706,7 @@
        
         <br>
 
-          <h1>Bienvenido "Gerente"</h1>
+        <h1>Bienvenido: <%= NombreU %> </h1>
        
           <hr>
 

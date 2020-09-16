@@ -36,10 +36,16 @@ public class UsuarioVO {
        
     }
 
-    public UsuarioVO(String Id, String Correo) {
+    //Para la Sessiones O No
+    public UsuarioVO(String Id, String Nombres, String Apellidos, String Correo, String Numero_Documento, String Perfil, String Estado) { 
 
         this.Id = Id;
+        this.Nombres = Nombres;
+        this.Apellidos = Apellidos;
         this.Correo = Correo;
+        this.Numero_Documento = Numero_Documento;
+        this.Perfil = Perfil;
+        this.Estado = Estado;
         
     }
     

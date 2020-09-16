@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.CallableStatement;
+import java.util.UUID;
 /**
  *
  * @author Yeison
@@ -34,7 +35,7 @@ public class UsuarioDAO extends Conexion implements Crud {
                                                         //Declarar las variables del VO
     private String Id = "", Nombres = "", Apellidos = "", Numero_Documento = "", Tipo_Documento = "", Correo = "", Contrasena = "", Telefono = "", Barrio = "", Direccion = "", Id_Registrado_Por = "", Perfil = "", Estado = "";
     
-    public String num = "5", numEs = "";
+    public String num = "5", numEs = "", Clave = "";
     
     public UsuarioDAO()
     {    
@@ -83,6 +84,8 @@ public class UsuarioDAO extends Conexion implements Crud {
             puentesp.setString(3, Numero_Documento);
             puentesp.setString(4, Tipo_Documento);
             puentesp.setString(5, Correo);
+            Clave = UUID.randomUUID().toString().toUpperCase().substring(0, 10);
+            Contrasena = Clave;
             puentesp.setString(6, Contrasena);
             puentesp.setString(7, Telefono);
             puentesp.setString(8, Barrio);
@@ -264,7 +267,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM vista_empleados";
+            sql = "SELECT * FROM vista_uempleados";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
@@ -308,7 +311,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM vista_clientes";
+            sql = "SELECT * FROM vista_uclientes";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
@@ -384,7 +387,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         return listaUsuariosT;
         
     }    
-        
+        // en proges
         public List BuscarU(String text) {
             
            List<UsuarioVO>listaU = new ArrayList<UsuarioVO>();
@@ -549,7 +552,53 @@ public class UsuarioDAO extends Conexion implements Crud {
         
         return operacion;
         
-    }        
+    }
+
+    //Datos para la sessión
+    public UsuarioVO consultarCorreo(String Correo) {
+        
+        UsuarioVO  usuVO = null;
+        
+        conexion = null;                  //Conectar la data base
+        puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
+        puentesp = null;           //Para Llamar procedimientos Almacenados
+        mensajero = null;                  //Encargado de las consultas
+        sql = null;
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM vista_usuarios WHERE Correo = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Correo);
+            mensajero = puente.executeQuery();
+            
+            while (mensajero.next()) {
+                
+            usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10), mensajero.getString(11), mensajero.getString(12), mensajero.getString(13));
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return usuVO;
+    }
         
     
 }

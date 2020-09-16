@@ -70,10 +70,6 @@
                                                             <input type="email" name="correos" class="form-control" placeholder="Digite su Correo Correctamente">
                                                     </div>	
                                                     <div class="form-group">
-                                                            <label>Contraseña:</label>
-                                                            <input type="password" name="contrasena" class="form-control" placeholder="Ingrese Contraseña">
-                                                    </div>
-                                                    <div class="form-group">
                                                             <label>Teléfono:</label>
                                                             <input type="number" name="telefono" class="form-control" placeholder="Digite su Número de Teléfono">
                                                     </div>

@@ -26,7 +26,17 @@
                     </div>
                     <section class="row mt-5">
                             <div class="card w-100 m-auto">
-                                    <div class="card-header container">
+                                <!-- <div style="color:Red">
+                                        <center>
+                                        <%if (request.getAttribute("mensajeFallido") != null) {%>
+                                        ${mensajeFallido}
+                                        <% } else { %>
+                                        ${mensajeExitoso}
+                                        <% } %>
+                                        </center>
+                                    </div>
+                                 -->       
+                                     <div class="card-header container">
                                             <h2 class="m-auto">Información del Empleado</h2>
                                     </div>
 
@@ -58,8 +68,8 @@
                                                             <label>Estado Civil:</label>
                                                             <select name="Estado_C" class="form-control form-control-lg">
                                                                     <option value="" selected>Seleccione su Estado Civil</option>
-                                                                    <option value="SO">Soltero</option>
-                                                                    <option value="CA">Casado</option>
+                                                                    <option value="SO">Solter@</option>
+                                                                    <option value="CA">Casad@</option>
                                                             </select>
                                                     </div>  
  

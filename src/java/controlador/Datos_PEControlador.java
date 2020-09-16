@@ -60,6 +60,8 @@ public class Datos_PEControlador extends HttpServlet {
                if(datDAO.agregarRegistro()) {
                    
                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                   
+                   request.setAttribute("mensajeExitoso", "¡El Usuario y sus Datos se Registraron Correctamente!");
                 
                } else {
                            
@@ -71,6 +73,43 @@ public class Datos_PEControlador extends HttpServlet {
                
            break; 
            
+           case 2: //Consulta especifica para actualizar
+                       
+                datVO = datDAO.consultarId_Empleado(Id_Empleado);
+                
+                if (datVO != null) {
+                    
+                    request.setAttribute("datos", datVO);
+                    
+                    request.getRequestDispatcher("ModificarDatosPE.jsp").forward(request, response);
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡Los Datos a consultar NO existen!");
+                    
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);
+                    
+                }                
+                
+            break;
+           
+            case 3: //Modificación de Registro
+                
+                if(datDAO.actualizarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡Los Datos se Modificaron Correctamente!");
+                    
+                    request.getRequestDispatcher("Usuarios.jsp").forward(request, response);     
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡Los Datos No se Modificaron Correctamente!");
+                    
+                    request.getRequestDispatcher("ModificarDatosPE.jsp").forward(request, response);     
+                    
+                }
+                
+           break; 
        }
        
     }

@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import modeloVO.ServicioVO;
+import modeloDAO.ServicioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,7 +35,80 @@ public class ServicioControlador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        
+       int opcion = Integer.parseInt(request.getParameter("opcion"));
+       
+       String Id = request.getParameter("textId");
+       String Fecha_Pedido = request.getParameter("Fecha_P");
+       String Descripcion = request.getParameter("Descript");
+       String Cliente = request.getParameter("Cliente");
+       String Registrado_Por = request.getParameter("R_Por");
+       String Estado = request.getParameter("Est");
+       
+       //Lleguan los datos y se aseguran
+       ServicioVO serVO = new ServicioVO(Id, Fecha_Pedido, Descripcion, Cliente, Registrado_Por, Estado);
+       
+       //Se realizan las operaciones del modelo
+       ServicioDAO serDAO = new ServicioDAO(serVO);
+       
+       switch(opcion) {
+           
+           case 1: //Agregar Registro 
+              
+               if(serDAO.agregarRegistro()) {
+                   
+                   request.getRequestDispatcher("Servicios.jsp").forward(request, response);
+                   
+                   request.setAttribute("mensajeExitoso", "¡El Servicio se Registro Correctamente!");
+                
+               } else {
+                           
+                   request.setAttribute("mensajeFallido", "¡El Servicio no se Registro Correctamente!");
+                   
+                   request.getRequestDispatcher("RegistrarServicio.jsp").forward(request, response);
+                   
+               }    
+               
+           break; 
+           
+           case 2:    //Consulta especifica para actualizar
+                       
+                serVO = serDAO.consultarId(Id);
+                
+                if (serVO != null) {
+                    
+                    request.setAttribute("servicios", serVO);
+                    
+                    request.getRequestDispatcher("ModificarServicio.jsp").forward(request, response);
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡Los Datos a consultar NO existen!");
+                    
+                    request.getRequestDispatcher("Servicios.jsp").forward(request, response);
+                    
+                }  
+               
+           break;    
+           
+           case 3:    //Modificación de Registro
+                
+                if(serDAO.actualizarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Servicio se modifico Correctamente!");
+                    
+                    request.getRequestDispatcher("Servicios.jsp").forward(request, response);     
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Servicio No se modifico Correctamente!");
+                    
+                    request.getRequestDispatcher("ModificarServicio.jsp").forward(request, response);     
+                    
+                }
+                
+           break; 
+           
+       }
         
     }
 
