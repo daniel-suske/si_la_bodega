@@ -34,9 +34,10 @@ public class Sesiones extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        //Cerrar Sesión
         HttpSession miSesion = request.getSession();
         
-        miSesion.removeAttribute("usuario");
+        miSesion.removeAttribute("sesion_usuario");
         
         miSesion.invalidate();
         

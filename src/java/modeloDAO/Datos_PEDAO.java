@@ -33,6 +33,8 @@ public class Datos_PEDAO extends Conexion implements Crud {
     //Declarar las variables del VO
     private String Id = "", Id_Empleado = "", Fecha_Nacimiento = "", Estado_Civil = "", EPS = "", ARL = "", Fondo_Pensiones = "", Nivel_Escolaridad = "", Experiencia = "";
     
+    public String iduse = "", use = "";
+    
     public Datos_PEDAO() 
     {
     }
@@ -109,6 +111,45 @@ public class Datos_PEDAO extends Conexion implements Crud {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public String consultarUltimoEmpleado() {
+        
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT Id, CONCAT(Apellidos,' ',Nombres) AS Empleado FROM vista_uempleados ORDER BY Id DESC LIMIT 1;";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            
+            while (mensajero.next()) {
+                
+            iduse = mensajero.getString(1);
+            use = mensajero.getString(2);
+                
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(Datos_PEDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return use;
+        
+    }
+   
     public Datos_PEVO consultarId_Empleado(String Id_Empleado) {
         
         Datos_PEVO  datVO = null;

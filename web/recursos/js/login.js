@@ -4,7 +4,7 @@ const inputss = document.querySelectorAll('#login input');
 const expresioness = {
 
     correos: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    contrasenas: /^.{8,30}$/, // 4 a 12 digitos.
+     contrasenas: /^.{1,30}$/, // 4 a 12 digitos.
 
 
 };
@@ -67,9 +67,8 @@ login.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (camposLogin.contrasena && camposLogin.correo) {
-        formuls.reset();
 
-
+        formuls.submit();
 
         document.querySelectorAll('.login__grupo-correcto').forEach((icono) => {
             icono.classList.remove('login__grupo-correcto');

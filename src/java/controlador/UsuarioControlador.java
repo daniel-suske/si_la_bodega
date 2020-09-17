@@ -44,7 +44,7 @@ public class UsuarioControlador extends HttpServlet {
         String Numero_Documento = request.getParameter("documento");
         String Tipo_Documento = request.getParameter("tipo");
         String Correo = request.getParameter("correos");
-        String Contrasena = request.getParameter("contrasena");
+        String Contrasena = request.getParameter("contrasenas");
         String Telefono = request.getParameter("telefono");
         String Barrio = request.getParameter("barrio");
         String Dirrecion = request.getParameter("direccion");
@@ -189,11 +189,43 @@ public class UsuarioControlador extends HttpServlet {
                                    
                     HttpSession miSesion = request.getSession(true); //Crea una sesion
                     
-                    usuVO = new UsuarioVO(Id, Nombres, Apellidos, Correo, Numero_Documento, Perfil, Estado); //Atributos que maneja en la session u objeto
+                    usuVO = usuDAO.consultarCorreo(Correo); //Atributos que maneja en la session u objeto
                     
                     miSesion.setAttribute("sesion_usuario", usuVO); //Enviando por la sesion
                     
-                    request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+                    switch (usuVO.getPerfil()) {
+                        
+                        case "1":
+                    
+                        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+                        
+                        break;
+                        
+                        case "2":
+                    
+                        request.getRequestDispatcher("dashboardS.jsp").forward(request, response);
+                        
+                        break;
+                        
+                        case "3":
+                    
+                        request.getRequestDispatcher("dashboardT.jsp").forward(request, response);
+                        
+                        break;
+                        
+                        case "4":
+                    
+                        request.getRequestDispatcher("dashboardCA.jsp").forward(request, response);
+                        
+                        break;
+                        
+                        case "5":
+                    
+                        request.getRequestDispatcher("dashboardCL.jsp").forward(request, response);
+                        
+                        break;
+                            
+                    }
                     
                 } else {
                     

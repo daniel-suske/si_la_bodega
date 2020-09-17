@@ -16,7 +16,13 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.CallableStatement;
+import java.util.Properties;
 import java.util.UUID;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 /**
  *
  * @author Yeison
@@ -36,6 +42,7 @@ public class UsuarioDAO extends Conexion implements Crud {
     private String Id = "", Nombres = "", Apellidos = "", Numero_Documento = "", Tipo_Documento = "", Correo = "", Contrasena = "", Telefono = "", Barrio = "", Direccion = "", Id_Registrado_Por = "", Perfil = "", Estado = "";
     
     public String num = "5", numEs = "", Clave = "";
+    public int cr = 0;
     
     public UsuarioDAO()
     {    
@@ -62,6 +69,8 @@ public class UsuarioDAO extends Conexion implements Crud {
             Id_Registrado_Por = usuVO.getId_Registrado_Por();
             Perfil = usuVO.getPerfil();
             Estado = usuVO.getEstado();
+            
+            
             
         } catch (Exception e) {
             
@@ -94,8 +103,13 @@ public class UsuarioDAO extends Conexion implements Crud {
             puentesp.setString(11, Perfil);
             puentesp.setString(12, Estado);
             
+            cr = 1;
+            if(enviarCorreo()) {
+            
             puentesp.executeUpdate();
             operacion = true;
+            
+            }
             
         } catch(SQLException e) {
             
@@ -536,18 +550,6 @@ public class UsuarioDAO extends Conexion implements Crud {
             
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
             
-        } finally {
-            
-            try {
-                
-                this.cerrarConexion();
-                
-            } catch (SQLException e) {
-                
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
-                
-            }
-        
         }
         
         return operacion;
@@ -558,8 +560,6 @@ public class UsuarioDAO extends Conexion implements Crud {
     public UsuarioVO consultarCorreo(String Correo) {
         
         UsuarioVO  usuVO = null;
-        
-        conexion = null;                  //Conectar la data base
         puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
         puentesp = null;           //Para Llamar procedimientos Almacenados
         mensajero = null;                  //Encargado de las consultas
@@ -600,5 +600,63 @@ public class UsuarioDAO extends Conexion implements Crud {
         return usuVO;
     }
         
+    
+    public boolean enviarCorreo() {
+        
+        boolean enviado = false;
+        
+        try {
+            
+            String host = "smtp.gmail.com";
+            String bot = "bothat23j@gmail.com";
+            String botp = "Autho09Sendja12";
+            String asunto = "";
+            String texto = "";
+            switch (cr) {
+                case 1:
+                       asunto = "Confirmación de Cuenta en LA BODEGA";
+                       texto = "Bienvenido al sistema LA BODEGA  <b>"+Nombres+" "+Apellidos+"</b><br> su contraseña proporcionada es: <b>"+Contrasena+"</b> <br> Se le recomienda cambiarla";
+                break;
+            }
+            Properties pro = System.getProperties();
+            
+            pro.put("mail.smtp.starttls.enable","true");
+            pro.put("mail.smtp.host",host);
+            pro.put("mail.smtp.user",bot);
+            pro.put("mail.smtp.password", botp);
+            pro.put("mail.smtp.port", 587);
+            pro.put("mail.smtp.auth", "true");
+            
+            Session sesion = Session.getDefaultInstance(pro,null);
+            
+            MimeMessage message = new MimeMessage(sesion);
+            
+            message.setFrom(new InternetAddress(bot));
+            
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(Correo));
+            
+            message.setSubject(asunto);
+            message.setText(texto, "ISO-8859-1", "html");
+            
+            Transport transport = sesion.getTransport("smtp");
+            
+            transport.connect(host,bot,botp);
+            
+            transport.sendMessage(message, message.getAllRecipients());
+            
+            transport.close();
+            
+            enviado = true;
+            
+        } catch(Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        return enviado;
+        
+    }
+    
     
 }

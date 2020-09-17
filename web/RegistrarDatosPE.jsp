@@ -8,6 +8,8 @@
 
 <%@page import="modeloDAO.UsuarioDAO"%>
 <%@page import="modeloVO.UsuarioVO"%>
+<%@page import="modeloDAO.Datos_PEDAO"%>
+<%@page import="modeloVO.Datos_PEVO"%>
 
 <%@include file="dash1.jsp" %>
 
@@ -36,8 +38,8 @@
                                         </center>
                                     </div>
                                  -->       
-                                     <div class="card-header container">
-                                            <h2 class="m-auto">Información del Empleado</h2>
+                                     <div class="card-header container bg-success">
+                                            <h2 class="m-auto">¡El Usuario se Registro Correctamente por favor Siga registrando los demas Datos! Información del Empleado</h2>
                                     </div>
 
                                     <div class="card-body">
@@ -46,22 +48,18 @@
                                                 
                                                     <div class="form-group">
                                                             <label>Empleado Correspondiente:</label>
-                                                            <select name="Id_Empleado" class="form-control form-control-lg">
-                                                                    <option value=""> Seleccione...</option>
-                                                                    <%
-                                                                        UsuarioDAO usuDAO = new UsuarioDAO();
-                                                                        for(UsuarioVO usuVO : usuDAO.listarE()) {
-                                                                            
-                                                                    %>
-                                                                    <option value="<%= usuVO.getId() %>"> <%= usuVO.getNombres() %></option>
-                                                                    <%
-                                                                        }
-                                                                    %>
-                                                            </select>
+                                                             <%
+                                                               String name = "", id = "";
+                                                               Datos_PEDAO datDAO = new Datos_PEDAO();
+                                                               name = datDAO.consultarUltimoEmpleado();
+                                                             %>
+                                                             <select name="Id_Empleado" class="form-control form-control-lg bg-primary text-light">
+                                                                 <option value="<%= id = datDAO.iduse %>"><%= name %></option>
+                                                             </select>
                                                     </div>
                                                     <div class="form-group ">
                                                             <label>Fecha de Nacimiento:</label>
-                                                            <input type="date" name="Fecha_N" class="form-control" placeholder="Digite su Fecha de Nacimiento">
+                                                            <input type="date" name="Fecha_N" max="2002-09-16" class="form-control" placeholder="Digite su Fecha de Nacimiento">
                                                     </div>   
 
                                                     <div class="form-group ">

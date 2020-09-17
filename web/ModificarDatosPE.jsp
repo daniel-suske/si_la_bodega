@@ -54,7 +54,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                             <label>Fecha de Nacimiento:</label>
-                                                            <input type="date" name="Fecha_N" class="form-control" placeholder="Seleccione su Fecha de Nacimiento Correspondiente" value="<%= datVO.getFecha_Nacimiento()%>">
+                                                            <input type="date" name="Fecha_N" max="2002-09-16" class="form-control" placeholder="Seleccione su Fecha de Nacimiento Correspondiente" value="<%= datVO.getFecha_Nacimiento()%>">
                                                     </div>
                                                     <div class="form-group ">
                                                             <label>Estado Civil:</label>

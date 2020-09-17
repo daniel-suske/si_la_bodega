@@ -3,10 +3,44 @@
     Created on : 17-ago-2020, 23:49:09
     Author     : Yeison
 --%>
-
-
+<%@include file="Sesiones.jsp"%>
+<%@page import="modeloVO.UsuarioVO"%>
+<%@page import="modeloDAO.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    HttpSession miSesion = (HttpSession)request.getSession();
+    
+    String NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "";
+    
+    if (miSesion.getAttribute("sesion_usuario") == null) {
+        
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+    } else {
+        
+        UsuarioVO usuVO = (UsuarioVO)miSesion.getAttribute("sesion_usuario");
+        
+        NombreU = usuVO.getNombres();
+        ApellidoU = usuVO.getApellidos();
+        CorreoU = usuVO.getCorreo();
+        p = usuVO.getPerfil();
+        if(p.equals("1")) {
+           PerfilU = "Gerente";
+        } else if(p.equals("2")) {
+            PerfilU = "Secretari@";
+        } else if(p.equals("3")) {
+            PerfilU = "Tecnico";
+        } else if(p.equals("4")) {
+            PerfilU = "Cajero";
+        } else if(p.equals("5")){
+            PerfilU = "Cliente";
+        }
+        
+    }
+
+%>
 <html lang="es">
     <head>
 	<meta charset="UTF-8">
@@ -642,40 +676,45 @@
                                 </li>
                                 <!-- User Account -->
                                 <li class="dropdown user-menu">
-                                    <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                        <img src="assets/img/user/usuario.png" class="user-image" alt="User Image" />
-                                        <span class="d-none d-lg-inline-block">Nombre</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <!-- User image -->
-                                        <li class="dropdown-header">
-                                            <img src="assets/img/user/usuario.png" class="img-circle" alt="User Image" />
-                                            <div class="d-inline-block">
-                                                Nombre y Apellido <small class="pt-1">Nombre@gmail.com</small>
-                                            </div>
-                                        </li>
+                                  <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                    <img src="assets/img/user/usuario.png" class="user-image" alt="User Image" />
+                                    <span class="d-none d-lg-inline-block"><%= NombreU %></span>
+                                  </button>
+                                  <ul class="dropdown-menu dropdown-menu-right">
+                                    <!-- User image -->
+                                    <li class="dropdown-header">
+                                      <img src="assets/img/user/usuario.png" class="img-circle" alt="User Image" />
+                                      <div class="d-inline-block">
+                                      <%= NombreU %> <small class="pt-1"><%= CorreoU %></small>
+                                      </div>
+                                    </li>
 
-                                        <li>
-                                            <a href="#">
-                                                <i class="mdi mdi-account"></i> Mi Perfil
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="mdi mdi-email"></i> Mensages
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#"> <i class="mdi mdi-diamond-stone"></i> Cargos</a>
-                                        </li>
-                                        <li class="right-sidebar-in">
-                                            <a href="javascript:0"> <i class="mdi mdi-settings"></i> Configuración </a>
-                                        </li>
+                                    <li>
+                                        <a href="#" class="text-dark">
+                                        <i class="mdi mdi-account text-primary"></i> Mi Perfil
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#" class="text-dark">
+                                        <i class="mdi mdi-email text-primary"></i> Mensages
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#" class="text-dark">
+                                          <i class="mdi mdi-diamond-stone text-primary"></i> Cargos</a>
+                                    </li>
+                                    <li class="right-sidebar-in">
+                                      <a href="javascript:0" class="text-dark">
+                                          <i class="mdi mdi-settings text-primary"></i> Configuración </a>
+                                    </li>
 
-                                        <li class="dropdown-footer">
-                                            <a href="index.jsp"> <i class="mdi mdi-logout"></i> Cerrar Sesión </a>
-                                        </li>
-                                    </ul>
+                                    <li class="dropdown-footer">
+                                    <form method="POST" action="Sesiones">
+                                        <a class="text-dark"> 
+                                            <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Session"/></a>
+                                    </form>
+                                    </li>
+                                  </ul>
                                 </li>
                             </ul>
                         </div>

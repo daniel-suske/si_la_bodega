@@ -12,7 +12,7 @@
 <%
     HttpSession miSesion = (HttpSession)request.getSession();
     
-    String NombreU = "", ApellidoU = "", PerfilU = "";
+    String NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "";
     
     if (miSesion.getAttribute("sesion_usuario") == null) {
         
@@ -22,9 +22,22 @@
         
         UsuarioVO usuVO = (UsuarioVO)miSesion.getAttribute("sesion_usuario");
         
-        NombreU = usuVO.getCorreo();
+        NombreU = usuVO.getNombres();
         ApellidoU = usuVO.getApellidos();
-        PerfilU = usuVO.getPerfil();
+        CorreoU = usuVO.getCorreo();
+        p = usuVO.getPerfil();
+        if(p.equals("1")) {
+           PerfilU = "Gerente";
+        } else if(p.equals("2")) {
+            PerfilU = "Secretari@";
+        } else if(p.equals("3")) {
+            PerfilU = "Tecnico";
+        } else if(p.equals("4")) {
+            PerfilU = "Cajero";
+        } else if(p.equals("5")){
+            PerfilU = "Cliente";
+        }
+        
     }
 
 %>
@@ -38,6 +51,25 @@
   <meta name="keywords" content="Servicio Tecnico de Reparación de Electrodomesticos, Servicio, Reparaciones de electrodomesticos, Reparaciones de electrodomesticos dañados, Servicio Tecnico de electrodomesticos, Electrodomesticos aberiados, Empresa reparadora de electrodomesticos.">
   <meta name="author" content="Grupo-6">
 
+          <!--Icono-->
+        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png" > 
+        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png "> 
+        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "/assets/img/Iconos.ico/apple-icon-120x120.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "/assets/img/Iconos.ico/apple-icon-144x144.png " > 
+        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png "> 
+        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png" > 
+        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png" > 
+        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png" > 
+        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png" > 
+        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16.png "> 
+        <link  rel = "icon"  href = "assets/img/Iconos.ico/favicon.ico"> 
+        <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json" > 
+        <meta  name ="msapplication-TileColor"  content = "#ffffff" > 
+        <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
+        <meta  name = "theme-color"  content = "#ffffff" >
 
   <title>La Bodega</title>
 
@@ -70,25 +102,6 @@
   <!-- SLEEK CSS -->
   <link id="sleek-css" rel="stylesheet" href="assets/css/sleek.css" />
   <link href="assets/css/estilos.css" rel="stylesheet" />
-
-        <!--Icono-->
-        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png" > 
-        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png "> 
-        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "/assets/img/Iconos.ico/apple-icon-120x120.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "/assets/img/Iconos.ico/apple-icon-144x144.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png "> 
-        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16. png "> 
-        <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json" > 
-        <meta  name ="msapplication-TileColor"  content = "#ffffff" > 
-        <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
-        <meta  name = "theme-color"  content = "#ffffff" >
 
   <!--
     HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -586,14 +599,14 @@
           <header class="main-header " id="header">
             <nav class="navbar navbar-static-top navbar-expand-lg">
               <!-- Sidebar toggle button -->
-              <button id="sidebar-toggler" class="sidebar-toggle">
+              <button id="sidebar-toggler" class="sidebar-toggle text-dark">
                 <span class="sr-only">Toggle navigation</span>
               </button>
               <!-- search form -->
               <div class="search-form d-none d-lg-inline-block">
                 <div class="input-group">
                   <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                    <i class="mdi mdi-magnify"></i>
+                    <i class="mdi mdi-magnify text-primary"></i>
                   </button>
                   <input type="text" name="query" id="search-input" class="form-control" placeholder="Busqueda"
                     autofocus autocomplete="off" />
@@ -607,82 +620,87 @@
                 <ul class="nav navbar-nav">
                   <li class="dropdown notifications-menu">
                     <button class="dropdown-toggle" data-toggle="dropdown">
-                      <i class="mdi mdi-bell-outline"></i>
+                      <i class="mdi mdi-bell-outline text-primary"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <li class="dropdown-header">Tienes 5 notificaciones</li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-account-plus"></i> Nuevos Empleados Registrados
+                          <i class="mdi mdi-account-plus text-primary"></i> Nuevos Empleados Registrados
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
                         </a>
                       </li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-account-remove"></i> Usuarios Inactivados
+                          <i class="mdi mdi-account-remove text-primary"></i> Usuarios Inactivados
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 07 AM</span>
                         </a>
                       </li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-chart-areaspline"></i>  Generar Reporte3
+                          <i class="mdi mdi-chart-areaspline text-primary"></i>  Generar Reporte3
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12 PM</span>
                         </a>
                       </li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-account-supervisor"></i> Nuevos Clientes
+                          <i class="mdi mdi-account-supervisor text-primary"></i> Nuevos Clientes
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
                         </a>
                       </li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-server-network-off"></i> Estado del Servidor
+                          <i class="mdi mdi-server-network-off text-primary"></i> Estado del Servidor
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 05 AM</span>
                         </a>
                       </li>
-                      <li class="dropdown-footer">
+                      <li class="dropdown-footer ">
                         <a class="text-center" href="#"> Visualizar todo </a>
                       </li>
                     </ul>
                   </li>
                   <li class="right-sidebar-in right-sidebar-2-menu">
-                    <i class="mdi mdi-settings mdi-spin"></i>
+                    <i class="mdi mdi-settings mdi-spin text-primary"></i>
                   </li>
                   <!-- User Account -->
                   <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                       <img src="assets/img/user/usuario.png" class="user-image" alt="User Image" />
-                      <span class="d-none d-lg-inline-block">Nombre</span>
+                      <span class="d-none d-lg-inline-block"><%= NombreU %></span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                       <!-- User image -->
                       <li class="dropdown-header">
                         <img src="assets/img/user/usuario.png" class="img-circle" alt="User Image" />
                         <div class="d-inline-block">
-                         Nombre y Apellido <small class="pt-1">Nombre@gmail.com</small>
+                        <%= NombreU %> <small class="pt-1"><%= CorreoU %></small>
                         </div>
                       </li>
 
                       <li>
-                        <a href="user-profile.html">
-                          <i class="mdi mdi-account"></i> My Perfil
+                          <a href="#" class="text-dark">
+                          <i class="mdi mdi-account text-primary"></i> Mi Perfil
                         </a>
                       </li>
                       <li>
-                        <a href="#">
-                          <i class="mdi mdi-email"></i> Mensages
+                        <a href="#" class="text-dark">
+                          <i class="mdi mdi-email text-primary"></i> Mensages
                         </a>
                       </li>
                       <li>
-                        <a href="#"> <i class="mdi mdi-diamond-stone"></i> Cargos</a>
+                        <a href="#" class="text-dark">
+                            <i class="mdi mdi-diamond-stone text-primary"></i> Cargos</a>
                       </li>
                       <li class="right-sidebar-in">
-                        <a href="javascript:0"> <i class="mdi mdi-settings"></i> Configuración </a>
+                        <a href="javascript:0" class="text-dark">
+                            <i class="mdi mdi-settings text-primary"></i> Configuración </a>
                       </li>
 
                       <li class="dropdown-footer">
-                        <a href="index.jsp"> <i class="mdi mdi-logout"></i> Cerrar Sesión </a>
+                        <form method="POST" action="Sesiones">
+                            <a class="text-dark"> 
+                                <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Session"/></a>
+                        </form>
                       </li>
                     </ul>
                   </li>
@@ -704,9 +722,8 @@
 
       <div class="content">
        
-        <br>
-
-        <h1>Bienvenido: <%= NombreU %> </h1>
+        <h2 class="h1 text-right text-uppercase text-primary"><%= PerfilU %></h2>
+        <h1 class="text-left text-dark">Bienvenido <span class="text-primary">:</span> <br> <%= NombreU %> <%= ApellidoU %></h1> 
        
           <hr>
 
@@ -829,7 +846,7 @@
 
           <footer class="footer mt-auto">
             <div class="copyright bg-white">
-              <p>
+                <p class="text-dark">
                 &copy; <span id="copy-year">2019</span> Personalización por el Grupo-6
               </p>
             </div>

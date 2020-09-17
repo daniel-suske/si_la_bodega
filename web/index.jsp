@@ -249,7 +249,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__terminos">
-                            <label>
+                            <label class="text-dark">
                                 <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
                                 Acepto los Terminos y Condiciones
                             </label>
@@ -1056,7 +1056,7 @@
                     </div>
                     <div class="modal-body">
                         <h4 class="modal-title">Inicio Sesión</h4>
-                        <form method="post" action="Usuario" class="login">
+                        <form method="POST" action="Usuario" class="login" id="login">
 
                             <div class="login__grupo" id="grupoLogin__correos">
                                 <label for="correos" class="login__label">Correo:</label>
@@ -1077,7 +1077,7 @@
                                     <i class="login__validacion-estado fas fa-lock pass"></i>
                                     <i class="fas fa-eye eyes1" id="hi" onclick="hola()"></i>
 
-                                    <input type="password" class="login__input" name="contrasena" id="contrasenas">
+                                    <input type="password" class="login__input" name="contrasenas" id="contrasenas">
 
                                 </div>
                                 <p class="login__input-error">La contraseña debe ser minimo de 8 a 30 digitos y debe
@@ -1153,7 +1153,7 @@
     <script src="recursos/js/components/wow.min.js" type="text/javascript"></script>
     <script src="recursos/js/components/swiper.min.js" type="text/javascript"></script>
     <script src="recursos/js/components/masonry.min.js" type="text/javascript"></script>
-
+    <!-- validaciones -->
     <script src="recursos/js/formulario.js" language="javascript" type="text/javascript"></script>
     <script src="recursos/js/login.js" language="javascript" type="text/javascript"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
