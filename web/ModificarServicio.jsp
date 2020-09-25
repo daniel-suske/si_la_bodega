@@ -70,7 +70,7 @@
                                                     </div> 
                                                     
                                                     <div class="form-group">
-                                                            <button class="btn btn-primary">Modificar</button>
+                                                            <button class="btn btn-warning border border-dark btn-lg btn-block mt-5">Modificar</button>
                                                             <input type="hidden" name="opcion" value="3"/>
                                                     </div>														
                                             </form>

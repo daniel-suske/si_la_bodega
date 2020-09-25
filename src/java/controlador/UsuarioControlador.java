@@ -43,8 +43,15 @@ public class UsuarioControlador extends HttpServlet {
         String Apellidos = request.getParameter("apellidos");
         String Numero_Documento = request.getParameter("documento");
         String Tipo_Documento = request.getParameter("tipo");
-        String Correo = request.getParameter("correos");
-        String Contrasena = request.getParameter("contrasenas");
+        String Correo = "";
+        String Contrasena = "";
+        if(opcion == 1) {
+            Correo = request.getParameter("correo");
+            Contrasena = request.getParameter("contrasena");
+        } else {
+            Correo = request.getParameter("correos");
+            Contrasena = request.getParameter("contrasenas");
+        }
         String Telefono = request.getParameter("telefono");
         String Barrio = request.getParameter("barrio");
         String Dirrecion = request.getParameter("direccion");

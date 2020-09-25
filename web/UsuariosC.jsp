@@ -37,7 +37,7 @@
                   <br><br>
                  <div class="card bg-white" style="width: 100%">
                  <div class="card-body "> 
-                  <div class="table-responsive">   
+                 <div class="basic-data-table">    
                     <table id="datatable" class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
                             <tr class="thead-dark">

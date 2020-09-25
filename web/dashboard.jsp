@@ -535,7 +535,7 @@
                         
                           
                             <li >
-                              <a class="sidenav-item-link" href="customization.html">
+                              <a class="sidenav-item-link" href="#">
                                 <span class="nav-text">Personalización</span>
                                 
                               </a>
@@ -638,7 +638,7 @@
                       </li>
                       <li>
                         <a href="#">
-                          <i class="mdi mdi-chart-areaspline text-primary"></i>  Generar Reporte3
+                          <i class="mdi mdi-chart-areaspline text-primary"></i>  Generar Reporte
                           <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12 PM</span>
                         </a>
                       </li>
@@ -699,7 +699,7 @@
                       <li class="dropdown-footer">
                         <form method="POST" action="Sesiones">
                             <a class="text-dark"> 
-                                <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Session"/></a>
+                                <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Sesión"/></a>
                         </form>
                       </li>
                     </ul>

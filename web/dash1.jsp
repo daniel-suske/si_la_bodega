@@ -12,7 +12,7 @@
 <%
     HttpSession miSesion = (HttpSession)request.getSession();
     
-    String NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "";
+    String IdU ="", NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "";
     
     if (miSesion.getAttribute("sesion_usuario") == null) {
         
@@ -22,6 +22,7 @@
         
         UsuarioVO usuVO = (UsuarioVO)miSesion.getAttribute("sesion_usuario");
         
+        IdU = usuVO.getId();
         NombreU = usuVO.getNombres();
         ApellidoU = usuVO.getApellidos();
         CorreoU = usuVO.getCorreo();
@@ -511,7 +512,7 @@
 
                                     </div>
                                 </ul>
-
+                            </li>
 
                             <li  class="has-sub" >
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
@@ -535,7 +536,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="quick-start.html">
+                                            <a class="sidenav-item-link" href="#">
                                                 <span class="nav-text">Usuario</span>
 
                                             </a>
@@ -547,7 +548,7 @@
 
 
                                         <li >
-                                            <a class="sidenav-item-link" href="customization.html">
+                                            <a class="sidenav-item-link" href="#">
                                                 <span class="nav-text">Personalización</span>
 
                                             </a>
@@ -611,14 +612,14 @@
                 <header class="main-header " id="header">
                     <nav class="navbar navbar-static-top navbar-expand-lg">
                         <!-- Sidebar toggle button -->
-                        <button id="sidebar-toggler" class="sidebar-toggle">
+                        <button id="sidebar-toggler" class="sidebar-toggle text-dark">
                             <span class="sr-only">Toggle navigation</span>
                         </button>
                         <!-- search form -->
                         <div class="search-form d-none d-lg-inline-block">
                             <div class="input-group">
                                 <button type="button" name="search" id="search-btn" class="btn btn-flat">
-                                    <i class="mdi mdi-magnify"></i>
+                                    <i class="mdi mdi-magnify text-primary"></i>
                                 </button>
                                 <input type="text" name="query" id="search-input" class="form-control" placeholder="Busqueda"
                                        autofocus autocomplete="off" />
@@ -632,37 +633,37 @@
                             <ul class="nav navbar-nav">
                                 <li class="dropdown notifications-menu">
                                     <button class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="mdi mdi-bell-outline"></i>
+                                        <i class="mdi mdi-bell-outline text-primary"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-header">Tienes 5 notificaciones</li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-account-plus"></i> Nuevos Empleados Registrados
+                                                <i class="mdi mdi-account-plus text-primary"></i> Nuevos Empleados Registrados
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-account-remove"></i> Usuarios Inactivados
+                                                <i class="mdi mdi-account-remove text-primary"></i> Usuarios Inactivados
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 07 AM</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-chart-areaspline"></i>  Generar Reporte
+                                                <i class="mdi mdi-chart-areaspline text-primary"></i>  Generar Reporte
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12 PM</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-account-supervisor"></i> Nuevos Clientes
+                                                <i class="mdi mdi-account-supervisor text-primary"></i> Nuevos Clientes
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10 AM</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                <i class="mdi mdi-server-network-off"></i> Estado del Servidor
+                                                <i class="mdi mdi-server-network-off text-primary"></i> Estado del Servidor
                                                 <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 05 AM</span>
                                             </a>
                                         </li>
@@ -672,7 +673,7 @@
                                     </ul>
                                 </li>
                                 <li class="right-sidebar-in right-sidebar-2-menu">
-                                    <i class="mdi mdi-settings mdi-spin"></i>
+                                    <i class="mdi mdi-settings mdi-spin text-primary"></i>
                                 </li>
                                 <!-- User Account -->
                                 <li class="dropdown user-menu">
@@ -711,7 +712,7 @@
                                     <li class="dropdown-footer">
                                     <form method="POST" action="Sesiones">
                                         <a class="text-dark"> 
-                                            <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Session"/></a>
+                                            <i class="mdi mdi-logout text-primary"></i><input class="btn btn-sm btn-outline-primary" type="submit" value="Cerrar Sesión"/></a>
                                     </form>
                                     </li>
                                   </ul>

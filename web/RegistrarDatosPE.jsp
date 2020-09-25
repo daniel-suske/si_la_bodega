@@ -100,7 +100,7 @@
   
                                                             
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Registrar Datos</button>
+                                                    <button type="submit" class="btn btn-success border border-dark btn-lg btn-block mt-5">Registrar Datos</button>
                                                     <input type="hidden" value="1" name="opcion">
                                                 </div>
                                                             

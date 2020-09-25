@@ -29,9 +29,9 @@
                             <h1 class="col-12 d-flex justify-content-center p-4 btn-primary w-100">Registrar Empleados</h1>
                     </div>
                     <section class="row mt-5">
-                            <div class="card w-100 m-auto">
+                            <div class="card w-100">
                                     <div class="card-header container bg-success">
-                                            <h2 class="m-auto">Información del Usuario</h2>
+                                            <h2>Información del Usuario</h2>
                                     </div>
 
                                     <div class="card-body">
@@ -85,18 +85,8 @@
                                                 </div>  
                                                     <div class="form-group">
                                                             <label>Registrado Por:</label>
-                                                            <select name="textId_R" class="form-control form-control-lg">
-                                                                    <option value=""> Seleccione...</option>
-                                                                    <%
-                                                                        UsuarioDAO usuDAO = new UsuarioDAO();
-                                                                        for(UsuarioVO usuVO : usuDAO.listarE()) {
-                                                                            
-                                                                    %>
-                                                                    <option value="<%= usuVO.getId() %>"> <%= usuVO.getNombres() %></option>
-                                                                    <%
-                                                                        }
-                                                                    %>
-                                                            </select>
+                                                            <input type="hidden" name="textId_R" class="form-control" value="<%= IdU %>">
+                                                            <input type="text" class="form-control bg-info text-dark text-center" value="<%= ApellidoU %> <%= NombreU %>" disabled>
                                                     </div>
                                                 <div class="formulario">
                                                     <div class="form-group mr-5">
@@ -132,7 +122,7 @@
                                                 </div>  
                                                             
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Registrar Empleado</button>
+                                                    <button type="submit" class="btn btn-success border border-dark btn-lg btn-block mt-5">Registrar Empleado</button>
                                                     <input type="hidden" value="2" name="opcion">
                                                 </div>
                                                             

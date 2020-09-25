@@ -5,7 +5,8 @@
  */
 package modeloDAO;
 
-import util.*;
+import util.Conexion;
+import util.Crud;
 import modeloVO.EstadoVO;
 
 import java.sql.Connection;

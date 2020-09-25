@@ -16,13 +16,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.CallableStatement;
-import java.util.Properties;
 import java.util.UUID;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 /**
  *
  * @author Yeison
@@ -43,6 +38,9 @@ public class UsuarioDAO extends Conexion implements Crud {
     
     public String num = "5", numEs = "", Clave = "";
     public int cr = 0;
+    
+    public Correo corrE = new Correo();
+    
     
     public UsuarioDAO()
     {    
@@ -103,8 +101,7 @@ public class UsuarioDAO extends Conexion implements Crud {
             puentesp.setString(11, Perfil);
             puentesp.setString(12, Estado);
             
-            cr = 1;
-            if(enviarCorreo()) {
+            if(corrE.enviarPNewUE(Nombres, Apellidos, Contrasena, Correo)) {
             
             puentesp.executeUpdate();
             operacion = true;
@@ -600,7 +597,7 @@ public class UsuarioDAO extends Conexion implements Crud {
         return usuVO;
     }
         
-    
+    /* 
     public boolean enviarCorreo() {
         
         boolean enviado = false;
@@ -657,6 +654,6 @@ public class UsuarioDAO extends Conexion implements Crud {
         return enviado;
         
     }
-    
+    */
     
 }

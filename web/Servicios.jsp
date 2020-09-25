@@ -41,7 +41,8 @@
                   <br><br>
                 <div class="card bg-white" style="width: 100%">
                  <div class="card-body "> 
-                 <div class="table-responsive">   
+                 <div class="basic-data-table">  
+                     
                     <table  id="datatable" class="table table-bordered table-hover">
                         <thead class="table table-striped table-sm table-hover">   
                             <tr class="thead-dark">
@@ -59,6 +60,8 @@
                           ServicioVO serVO = new ServicioVO();
                           ServicioDAO serDAO = new ServicioDAO();
                           
+                          String e = "", a = "";
+                          
                           ArrayList<ServicioVO> listaServicios = serDAO.listarS();
                           
                           for (int i = 0; i < listaServicios.size(); i++) {
@@ -72,8 +75,19 @@
                                  <td class="text-center"><%= serVO.getDescripcion()%></td>
                                  <td class="text-center"><%= serVO.getCliente()%></td>
                                  <td class="text-center"><%= serVO.getRegistrado_Por()%></td>
-                                 <td class="text-center"><%= serVO.getEstado()%></td>
-                                
+                                 <%
+                                     e = "Activo";
+                                     a = "En Proceso";
+                                     if(e.equals(serVO.getEstado())) {
+                                         
+                                 %>
+                                 <td class="text-center bg-primary btn-outline-primary"><%= serVO.getEstado()%></td>
+                                 
+                                 <% } else if(a.equals(serVO.getEstado())){ %>
+                                 <td class="text-center btn-outline-warning"><%= serVO.getEstado()%></td>
+                                 <% } else { %>
+                                 <td class="text-center btn-outline-"><%= serVO.getEstado()%></td>
+                                 <% } %>
                                 <td class="text-center">
                                      <form method="POST" action="Servicio" class="justify-content-center">
                                             <input type="hidden" name="textId" value="<%= serVO.getId() %>" />

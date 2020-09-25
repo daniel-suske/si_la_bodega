@@ -39,9 +39,10 @@
                             <br><br>
 
                             <div class="card bg-white" style="width: 100%">
-                            <div class="card-body ">
-                            
-                            <table id="datatable" class="table table-responsive table-sm table-bordered table-hover" style="width:100%">
+                            <div class="card-body">
+                            <div class="basic-data-table">
+                                
+                            <table id="basic-data-table" class="table table-sm table-bordered table-hover" style="width:100%">
                                 <thead>
                                     <tr class="thead-dark">
                                         <th scope="col" class="text-center">#</th>
@@ -158,10 +159,12 @@
                             </center>
                             </div>
                             </div>
+                            </div>
 
        </div>
     </div>
-    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
+    <script src="assets/plugins/data-tables/datatables.bootstrap4.min.js"></script>
                    
                    <%@include file="dash2.jsp"%>
   
@@ -174,7 +177,7 @@
       
     <script>
         $(document).ready(function(){
-            $("#datatable").DataTable({
+            $("#basic-data-table").DataTable({
                 language: {
                         "sProcessing": "Procesando ...",
                         "sLengthMenu": "Mostrar _MENU_ registros",

@@ -116,7 +116,7 @@
     </header>
 
 
-    <div class="modal fade bd-example-modal-lg  modal-efe" tabindex="-1" role="dialog"
+    <div id="registeruser" class="modal fade bd-example-modal-lg  modal-efe" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg  modal-efe">
 
@@ -133,10 +133,10 @@
                 </div>
                 <div class="modal-body">
                     <h4 class="modal-title">Registro Clientes</h4>
-                    <form method="post" action="Usuario" class="formulario"> <!-- id="formulario" por Arreglar-->
+                    <form method="POST" action="Usuario" class="formulario" id="formulario"> <!-- id="formulario" por Arreglar-->
                         <div class="formulario__grupo" id="grupo__nombres">
                             <span>
-                                <label for="nombres" class="formulario__label">Nombres:</label>
+                                <label for="nombres" class="formulario__label">* Nombres:</label>
                                 <div class="formulario__grupo-input">
                                     <input type="text" class="formulario__input" name="nombres" id="nombres"
                                         placeholder="Ejem: Juan Camilo..">
@@ -147,10 +147,10 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__apellidos">
-                            <label for="apellidos" class="formulario__label">Apellidos:</label>
+                            <label for="apellidos" class="formulario__label">* Apellidos:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="apellidos" id="apellidos"
-                                    placeholder="Ejem: Garcia Marquez..">
+                                    placeholder="Ejem: Garcia Marquez.." >
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">Los APELLIDOS debe ser de 4 a 50 digitos y solo pueden
@@ -158,10 +158,10 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__tipo">
-                            <label for="tipo" class="formulario__label">Tipo de Documento:</label>
+                            <label for="tipo" class="formulario__label">* Tipo de Documento:</label>
                             <div class="formulario__grupo-input">
-                                <select name="tipo" id="tipo" class="formulario__input  selects">
-                                    <option value="EFE" selected>Seleccione su tipo de
+                                <select name="tipo" id="tipo" class="selects formulario__input">
+                                    <option value="" selected>Seleccione su tipo de
                                         Identificación</option>
                                     <option value="CC">Cédula de Ciudadanía</option>
                                     <option value="CE">Cédula de Extranjería</option>
@@ -175,10 +175,10 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__documento">
-                            <label for="documento" class="formulario__label">Número de Documento:</label>
+                            <label for="documento" class="formulario__label">* Número de Documento:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="documento" id="documento"
-                                    placeholder="Ejem: 1001556252..">
+                                       placeholder="Ejem: 1001556252..">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El Numero de Documento debe ser de 7 a 11 digitos y solo
@@ -186,10 +186,10 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__telefono">
-                            <label for="telefono" class="formulario__label">Teléfono:</label>
+                            <label for="telefono" class="formulario__label">* Teléfono:</label>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="telefono" id="telefono"
-                                    placeholder="Ejem: 3152648487..">
+                                       placeholder="Ejem: 3152648487..">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">El Telefono debe ser de 6 a 10 digitos y solo pueden
@@ -197,10 +197,10 @@
                         </div>                     
                         
                         <div class="formulario__grupo" id="grupo__direccion">
-                            <label for="direccion" class="formulario__label">Dirección:</label>
+                            <label for="direccion" class="formulario__label">* Dirección:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="direccion" id="direccion"
-                                    placeholder="Ejem: CALLE 200 #145-12..">
+                                       placeholder="Ejem: CALLE 200 #145-12..">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">La direccion debe ser de 15 a 100 digitos y puede
@@ -208,29 +208,27 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__correo">
-                            <label for="email" class="formulario__label">Correo:</label>
+                            <label for="correo" class="formulario__label">* Correo:</label>
                             <div class="formulario__grupo-input">
-                                <input type="email" class="formulario__input" name="correos" id="correo"
-                                    placeholder="Ejem:zuckerberg@gmail.com">
+                                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Ejem:zuckerberg@gmail.com">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
-                            <p class="formulario__input-error">El correo debe ser de 10 a 100 digitos y puede debe
+                            <p class="formulario__input-error">El correo debe ser de 7 a 30 digitos y  debe
                                 contener un formato de correo</p>
                         </div>
                         
-                        <div class="formulario__grupo" id="grupo__direccion">
-                            <label for="direccion" class="formulario__label">Barrio:</label>
+                        <div class="formulario__grupo" id="grupo__barrio">
+                            <label for="barrio" class="formulario__label">* Barrio:</label>
                             <div class="formulario__grupo-input">
                                 <input type="text" class="formulario__input" name="barrio" id="barrio"
-                                    placeholder="Una localidad">
+                                       placeholder="Una localidad">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
-                            <p class="formulario__input-error">La direccion debe ser de 15 a 100 digitos y puede
-                                contener numeros, letras y simbolos</p>
+                            <p class="formulario__input-error">El Barrio debe ser de 7 a 100 digitos y puede contener numeros, letras y simbolos</p>
                         </div>                           
 
                         <div class="formulario__grupo" id="grupo__contrasena">
-                            <label for="contrasena" class="formulario__label">Contraseña:</label>
+                            <label for="contrasena" class="formulario__label">* Contraseña:</label>
                             <div class="formulario__grupo-input">
                                 <input type="password" class="formulario__input" name="contrasena" id="contrasena">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
@@ -240,7 +238,7 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__contrasena2">
-                            <label for="contrasena2" class="formulario__label">Repetir Contraseña:</label>
+                            <label for="contrasena2" class="formulario__label">* Repetir Contraseña:</label>
                             <div class="formulario__grupo-input">
                                 <input type="password" class="formulario__input" name="contrasena2" id="contrasena2">
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
@@ -250,7 +248,7 @@
 
                         <div class="formulario__grupo" id="grupo__terminos">
                             <label class="text-dark">
-                                <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                                <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos" >
                                 Acepto los Terminos y Condiciones
                             </label>
                         </div>
@@ -1056,18 +1054,16 @@
                     </div>
                     <div class="modal-body">
                         <h4 class="modal-title">Inicio Sesión</h4>
-                        <form method="POST" action="Usuario" class="login" id="login">
+                            <form method="post" action="Usuario" class="login" id="login">
 
                             <div class="login__grupo" id="grupoLogin__correos">
                                 <label for="correos" class="login__label">Correo:</label>
                                 <div class="login__grupo-input" id="email">
                                     <i class="login__validacion-estado fas fa-user pass"></i>
-                                    <input type="text" class="login__input" name="correos" id="correos"
-                                        placeholder="Ejem:zuckerberg@gmail.com ">
+                                    <input type="text" class="login__input" name="correos" id="correos">
 
                                 </div>
-                                <p class="login__input-error">Debe
-                                    ser de formato de correo</p>
+                                <p class="login__input-error">Debe ser de formato de correo</p>
                             </div>
 
                             <div class="login__grupo" id="grupoLogin__contrasenas">
@@ -1076,12 +1072,10 @@
                                 <div class="login__grupo-input" id="password">
                                     <i class="login__validacion-estado fas fa-lock pass"></i>
                                     <i class="fas fa-eye eyes1" id="hi" onclick="hola()"></i>
-
                                     <input type="password" class="login__input" name="contrasenas" id="contrasenas">
-
+                                    
                                 </div>
-                                <p class="login__input-error">La contraseña debe ser minimo de 8 a 30 digitos y debe
-                                    contener numeros y letras</p>
+                                <p class="login__input-error">La contraseña debe ser minimo de 8 a 30 digitos y debe contener numeros y letras</p>
                             </div>
                             
                             <br> 
@@ -1118,7 +1112,7 @@
 
 
 
-                   </form>
+                        </form>
 
 
 

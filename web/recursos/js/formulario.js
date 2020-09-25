@@ -1,27 +1,31 @@
-const formularios = document.getElementById('formulario');
+/* global formulario */
+
+const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
-  usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
   nombres: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar acentos.
   apellidos: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
   documento: /^\d{7,14}$/, // 7 a 14 numeros.
   telefono: /^\d{7,10}$/, // 7 a 14 numeros.
-  contrasena: /^.{8,20}$/, // 4 a 12 digitos.
-  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   direccion: /^.{15,100}/,
+  correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  barrio: /^.{7,100}/, 
+  contrasena: /^.{8,20}$/ // 4 a 12 digitos.
 
 };
 const campos = {
 
   nombres: false,
   apellidos: false,
+  tipo: false,
   documento: false,
   telefono: false,
-  contrasena: false,
-  correo: false,
   direccion: false,
-  tipo: false
+  correo: false,
+  barrio: false,
+  contrasena: false
+  
 };
 
 const validarFormulario = (e) => {
@@ -35,14 +39,17 @@ const validarFormulario = (e) => {
     case "documento":
       validarCampo(expresiones.documento, e.target, 'documento');
       break;
-    case "direccion":
-      validarCampo(expresiones.direccion, e.target, 'direccion');
-      break;
     case "telefono":
       validarCampo(expresiones.telefono, e.target, 'telefono');
       break;
+    case "direccion":
+      validarCampo(expresiones.direccion, e.target, 'direccion');
+      break;
     case "correo":
       validarCampo(expresiones.correo, e.target, 'correo');
+      break;  
+    case "barrio":
+      validarCampo(expresiones.barrio, e.target, 'barrio');
       break;
     case "contrasena":
       validarCampo(expresiones.contrasena, e.target, 'contrasena');
@@ -60,7 +67,7 @@ const validarFormulario = (e) => {
 
 
 
-    if (event.target.value == ("EFE")) {
+    if (event.target.value == ("")) {
 
 
       document.querySelector("#grupo__tipo i").classList.add('fa-times-circle');
@@ -102,16 +109,17 @@ const validarCampo = (expresion, input, campo) => {
     document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
     campos[campo] = false;
 
-  }
+    }
+ };
+    
 
-}
 
 const validarPassword2 = () => {
 
   const pass1 = document.getElementById('contrasena');
   const pass2 = document.getElementById('contrasena2');
 
-  if (pass1.value != pass2.value) {
+  if (pass1.value !== pass2.value) {
     document.querySelector(`#grupo__contrasena2 i`).classList.add('fa-times-circle');
     document.querySelector(`#grupo__contrasena2 i`).classList.remove('fa-check-circle');
     document.getElementById(`grupo__contrasena2`).classList.remove("formulario__grupo-correcto");
@@ -128,34 +136,39 @@ const validarPassword2 = () => {
     campos['contrasena'] = true;
 
   }
-}
+};
 
-inputs.forEach((input, selectElement) => {
-  input.addEventListener("keyup", validarFormulario);
-  input.addEventListener("blur", validarFormulario);
-
-});
-
-formulario.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const terminos = document.getElementById('terminos');
-  if (campos.nombres && campos.apellidos && campos.documento && campos.direccion && campos.telefono && campos.contrasena && campos.tipo && terminos.checked) {
-    formulario.reset();
-    document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-    setTimeout(() => {
-      document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-
-    }, 7000);
-
-    document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-      icono.classList.remove('formulario__grupo-correcto');
-
-      document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+    inputs.forEach((input, selectElement) => {
+      input.addEventListener("keyup", validarFormulario);
+      input.addEventListener("blur", validarFormulario);
     });
-  } else {
-    document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-    setTimeout(() => {
-      document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
-    }, 20000);
-  }
-});
+
+    formulario.addEventListener("submit", (e) => {
+        
+      e.preventDefault();  
+      
+      const terminos = document.getElementById('terminos');
+      if (campos.nombres && campos.apellidos && campos.tipo && campos.documento && campos.telefono && campos.direccion && campos.correo && campos.barrio && campos.contrasena && terminos.checked) {
+
+        document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+        setTimeout(() => {
+          document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+
+        }, 7000);
+
+        document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+          icono.classList.remove('formulario__grupo-correcto');
+
+          document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+        });
+        
+       formulario.submit();
+        
+      } else {
+
+        document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+        setTimeout(() => {
+          document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+        }, 20000);
+      }
+    });

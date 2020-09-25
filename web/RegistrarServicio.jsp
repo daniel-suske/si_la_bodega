@@ -94,7 +94,7 @@
                                                     </div>  
                                                             
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-lg btn-block mt-5">Registrar Servicio</button>
+                                                    <button type="submit" class="btn btn-success border border-dark btn-lg btn-block mt-5">Registrar Servicio</button>
                                                     <input type="hidden" value="1" name="opcion">
                                                 </div>
                                                             

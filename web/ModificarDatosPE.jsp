@@ -33,7 +33,7 @@
                     </div>
                     <section class="row">
                             <div class="card w-100 m-auto">
-                                    <div class="card-header container bg-warning">
+                                    <div class="card-header bg-warning">
                                             <h2>Datos e Información del Empleado</h2>
                                     </div>
                                 
@@ -48,9 +48,11 @@
                                     <div class="card-body">
                                             <form action="Datos_PE" method="POST">
                                                 <input type="hidden" name="textId" value="<%= datVO.getId()%>"/>
-                                                    <div class="form-group">
-                                                            <label>Empleado</label>
-                                                            <input type="text" name="Id_Empleado" class="form-control" readonly="" value="<%= datVO.getId_Empleado()%>">
+                                                    <div class="form-group text-center">
+                                                        <label>Empleado</label><br>
+                                                        <h2 class="text-center">
+                                                            <span class="badge badge-primary"><%= datVO.getId_Empleado()%></span>
+                                                        </h2>
                                                     </div>
                                                     <div class="form-group">
                                                             <label>Fecha de Nacimiento:</label>
@@ -125,7 +127,7 @@
                                                     </div>
                                             
                                                     <div class="form-group">
-                                                            <button class="btn btn-primary">Modificar Datos</button>
+                                                            <button class="btn btn-warning border border-dark btn-lg btn-block mt-5">Modificar Datos</button>
                                                             <input type="hidden" name="opcion" value="3"/>
                                                     </div>														
                                             </form>

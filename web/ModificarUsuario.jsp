@@ -24,18 +24,18 @@
               <div class="content">
               
                 <br>
-
-                <h1 class="text text-dark">Modificación de Usuarios</h1>
               
                   <hr>
                   
                   <br><br><br>
                  
                     <div class="row">
+                          <h1 class="text text-dark">Modificación de Usuarios</h1>
                     </div>
-                    <section class="row">
-                            <div class="card w-100 m-auto">
-                                    <div class="card-header container bg-warning">
+                    <hr>
+                    <section class="row mt-5">
+                            <div class="card w-100">
+                                    <div class="card-header bg-warning">
                                             <h2>Información del Usuario</h2>
                                     </div>
                                 
@@ -120,7 +120,7 @@
                                                     </div>
                                             
                                                     <div class="form-group">
-                                                            <button class="btn btn-primary">Modificar</button>
+                                                            <button class="btn btn-warning border border-dark btn-lg btn-block mt-5">Modificar</button>
                                                             <input type="hidden" name="opcion" value="5"/>
                                                     </div>														
                                             </form>
