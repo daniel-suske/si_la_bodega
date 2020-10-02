@@ -33,6 +33,10 @@ public class RepuestoVO {
     public RepuestoVO() {
         
     }
+
+    public RepuestoVO(String Valor_Venta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
 
     public String getId() {

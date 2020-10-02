@@ -5,6 +5,7 @@
  */
 package modeloDAO;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +24,8 @@ import util.Crud;
 public class RepuestoDAO extends Conexion implements Crud {
 
     private Connection conexion = null;                  //Conectar la data base
-    private PreparedStatement puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
+    private PreparedStatement puente = null;
+   private CallableStatement puenteps = null;      //Para que no sea vulnerable a inyyecion de code, lo asegura
     private ResultSet mensajero = null;                  //Encargado de las consultas
 
     private String sql;                                  //Permite manejar consultas
@@ -70,21 +72,21 @@ public class RepuestoDAO extends Conexion implements Crud {
     public boolean agregarRegistro() {
         try {
             
-            sql = "INSERT INTO REPUESTO (Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombre);
-            puente.setString(2, No_Serie);
-            puente.setString(3, Marca);
-            puente.setString(4, Modelo);
-            puente.setString(5, Fecha_Compra);
-            puente.setString(6, Lugar_Compra);
-            puente.setString(7, Valor_Compra);
-            puente.setString(8, Valor_Venta);
-            puente.setString(9, Cantidad);
-            puente.setString(10, Estado);
+            sql = " CALL registrarRepuesto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puenteps = conexion.prepareCall(sql);
+            puenteps.setString(1, Nombre);
+            puenteps.setString(2, No_Serie);
+            puenteps.setString(3, Marca);
+            puenteps.setString(4, Modelo);
+            puenteps.setString(5, Fecha_Compra);
+            puenteps.setString(6, Lugar_Compra);
+            puenteps.setString(7, Valor_Compra);
+            puenteps.setString(8, Valor_Venta);
+            puenteps.setString(9, Cantidad);
+            puenteps.setString(10, Estado);
             
             
-            puente.executeUpdate();
+            puenteps.executeUpdate();
             operacion = true;
             
         } catch(SQLException e) {
@@ -113,7 +115,7 @@ public class RepuestoDAO extends Conexion implements Crud {
         try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
             sql = "select r.*, e.nombre from repuesto r inner join estado e on r.estado=e.id  where no_serie= ? ";
-            puente = conexion.prepareStatement(sql);
+            puente = conexion.prepareCall(sql);
             puente.setString(1, numeroSerie);
             mensajero = puente.executeQuery();//execute query para consultas
             while (mensajero.next()) {
@@ -136,8 +138,8 @@ public class RepuestoDAO extends Conexion implements Crud {
         RepuestoVO repVO = null;
         try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
-            sql = "select * from repuesto where Id=? ";
-            puente = conexion.prepareStatement(sql);
+            sql = "CALL consultar_Repuesto_Id ( ? ) ";
+            puente = conexion.prepareCall(sql);
             puente.setString(1, Id);
             mensajero = puente.executeQuery();//execute query para consultas
             while (mensajero.next()) {
@@ -162,9 +164,33 @@ public class RepuestoDAO extends Conexion implements Crud {
     ArrayList<RepuestoVO>listaRepuestos = new ArrayList<RepuestoVO>();
     try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
-            sql = "select r.*, e.Nombre from repuesto r inner join estado e on r.estado=e.id order by r.id asc ";
-            puente = conexion.prepareStatement(sql);
-            mensajero = puente.executeQuery();//execute query para consultas
+            sql = "CALL consultar_repuesto()";
+            puenteps = conexion.prepareCall(sql);
+            mensajero = puenteps.executeQuery();//execute query para consultas
+            while (mensajero.next()) {
+                RepuestoVO repuVO = new RepuestoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7),  mensajero.getString(8), mensajero.getString(9),  mensajero.getString(10), mensajero.getString(12));
+                listaRepuestos.add(repuVO);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaRepuestos;
+    }
+     
+     public ArrayList<RepuestoVO>listar_Activos(){  
+    ArrayList<RepuestoVO>listaRepuestos = new ArrayList<RepuestoVO>();
+    try {
+            conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
+            sql = "CALL consultar_repuesto_act()";
+            puenteps = conexion.prepareCall(sql);
+            mensajero = puenteps.executeQuery();//execute query para consultas
             while (mensajero.next()) {
                 RepuestoVO repuVO = new RepuestoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7),  mensajero.getString(8), mensajero.getString(9),  mensajero.getString(10), mensajero.getString(12));
                 listaRepuestos.add(repuVO);

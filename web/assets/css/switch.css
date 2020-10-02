@@ -1,4 +1,4 @@
-.swtich-container {
+    .swtich-container {
     position: relative;
     display: inline-block;
     width: 85px; /* Anoche del contenedor */
@@ -36,7 +36,7 @@
   }
   
   input:checked + .slider {
-    background-color: #02889B;
+    background-color: #277CDF;
   }
   
   input:focus + .slider {
@@ -91,8 +91,10 @@
   
   .slider {
     border-radius: 17px;
+    padding-top: 25px; 
   }
   
   .slider:before {
+  
     border-radius: 50%;
   }

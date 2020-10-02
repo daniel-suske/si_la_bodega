@@ -13,7 +13,7 @@ public class ReparacionVO {
 
     private String Id, Id_Servicio, Id_Producto, Fecha_Hora, Descripcion, Costos, Tecnico;
 
-    public ReparacionVO(String Id, String Id_Servicio, String Id_Producto, String Fecha_Hora, String Descripcion, String Costos, String Tecnico) {
+    public ReparacionVO(String Id, String Id_Servicio, String Id_Producto, String Fecha_Hora, String Descripcion, String Costos, String Tecnico ) {
         this.Id = Id;
         this.Id_Servicio = Id_Servicio;
         this.Id_Producto = Id_Producto;
@@ -21,7 +21,10 @@ public class ReparacionVO {
         this.Descripcion = Descripcion;
         this.Costos = Costos;
         this.Tecnico = Tecnico;
+        
     }
+
+
     
      public ReparacionVO() {
     }

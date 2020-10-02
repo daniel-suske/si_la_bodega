@@ -5,10 +5,12 @@
  */
 package modeloDAO;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modeloVO.Detalles_RepuestoVO;
@@ -22,13 +24,16 @@ import util.Crud;
 public class Detalles_RepuestoDAO extends Conexion implements Crud {
     
      private Connection conexion = null;                  //Conectar la data base
-    private PreparedStatement puente = null;             //Para que no sea vulnerable a inyyecion de code, lo asegura
+    private PreparedStatement puente = null;    
+  
+     private CallableStatement puentesp = null; //Para que no sea vulnerable a inyyecion de code, lo asegura
+     
     private ResultSet mensajero = null;                  //Encargado de las consultas
 
     private String sql;                                  //Permite manejar consultas
     private boolean operacion = false; 
     
-    private String Id_Reparacion="", Id_Repuesto="";
+    private String Id_Reparacion="", Id_Repuesto="", Cantidad="";
     
    
     
@@ -37,8 +42,11 @@ public class Detalles_RepuestoDAO extends Conexion implements Crud {
     
     Id_Reparacion = detaVO.getId_Reparacion();
     Id_Repuesto = detaVO.getId_Repuesto();
+    Cantidad= detaVO.getCantidad();
     
     }
+    
+   
     
      public Detalles_RepuestoDAO(){
     
@@ -48,14 +56,14 @@ public class Detalles_RepuestoDAO extends Conexion implements Crud {
     @Override
     public boolean agregarRegistro() {
           try {
+conexion=this.obtenerConexion();
+            sql = "CALL crear_detalles_Repuesto(?,?)";
+            puentesp = conexion.prepareCall(sql);
+           
+            puentesp.setString(1, Id_Repuesto);
+            puentesp.setString(2, Cantidad);
 
-            sql = "INSERT INTO Detalles_Repuesto  VALUES ( ?, ?)";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Id_Reparacion);
-            puente.setString(2, Id_Repuesto);
-            
-
-            puente.executeUpdate();
+            puentesp.executeUpdate();
             operacion = true;
 
         } catch (SQLException e) {
@@ -79,6 +87,30 @@ public class Detalles_RepuestoDAO extends Conexion implements Crud {
         return operacion;
     }
 
+    public ArrayList<Detalles_RepuestoVO>listar(){
+    ArrayList<Detalles_RepuestoVO>listaDetallles = new ArrayList<Detalles_RepuestoVO>();
+    try {
+            conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
+            sql = "CALL consultar_detalles()";
+            puentesp = conexion.prepareCall(sql);
+            mensajero = puentesp.executeQuery();//execute query para consultas
+            while (mensajero.next()) {
+                Detalles_RepuestoVO repaVO = new Detalles_RepuestoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(5), mensajero.getString(4));
+                listaDetallles.add(repaVO);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(ReparacionDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(ReparacionDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaDetallles;
+    }
+    
     @Override
     public boolean consultarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

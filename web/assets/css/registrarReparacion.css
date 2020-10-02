@@ -70,6 +70,29 @@ main{
 .formulario__grupo-input{
 	position: relative;
 }
+.espas{
+    
+    margin-left: 35px;
+    color: #000;
+    
+    
+}
+.espa{
+    
+    margin-left: 35px;
+    
+    
+}
+.tablita{
+    padding-top: 25px;
+    border-bottom: 1px solid #000;
+}
+.tablota{
+    padding-top: 25px;
+    border-top: 1px solid #000;
+    padding-left: 25px;
+    color:#000;
+}
 
 .formulario__input{
 	width: 90%;
@@ -238,7 +261,22 @@ grid-column: span 1;
 }
 
 .formulario__inputs {
-  width: 80%;
+  width: 50%;
+  background: #fff;
+
+  border: none;
+  border-bottom: 1px solid rgb(65, 65, 65);
+  height: 45px;
+  line-height: 45px;
+  padding: 0 40px 0 10px;
+  transition: 0.3s ease all;
+  outline: none;
+  margin-right: 10px;
+}
+
+
+.formulario__inputw {
+  width: 20%;
   background: #fff;
 
   border: none;

@@ -11,12 +11,43 @@ package modeloVO;
  */
 public class Detalles_RepuestoVO {
     
-    String Id_Reparacion, Id_Repuesto;
-
-    public Detalles_RepuestoVO(String Id_Reparacion, String Id_Repuesto) {
+   private  String Id, Id_Reparacion, Id_Repuesto, Cantidad;
+    
+    public Detalles_RepuestoVO(String Id, String Id_Reparacion, String Id_Repuesto, String Cantidad) {
+        this.Id=Id;
         this.Id_Reparacion = Id_Reparacion;
         this.Id_Repuesto = Id_Repuesto;
+        this.Cantidad= Cantidad;
     }
+    
+     public Detalles_RepuestoVO(String Id_Repuesto, String Cantidad) {
+          this.Id_Repuesto = Id_Repuesto;
+          this.Cantidad=Cantidad;
+    }
+
+    public Detalles_RepuestoVO() {
+    }
+    
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String Id) {
+        this.Id = Id;
+    }
+
+    public String getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(String Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+    
+
+   
 
     public String getId_Reparacion() {
         return Id_Reparacion;
