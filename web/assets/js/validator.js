@@ -35,7 +35,7 @@ $('document').ready(function(){
     required: true,
     minlength: 20,
     maxlength: 300
-    },
+    }
     },
     messages:
     {
@@ -51,7 +51,7 @@ $('document').ready(function(){
     required: "Tu Nombre y Apellidos son Importantes",
     minlength: "Tu Mensaje es demasiado corto",
     maxlength: "Tu Mensaje supera los 300 caracteres"
-    },
+    }
     },
     errorPlacement : function(error, element) {
     $(element).closest('.form-group').find('.help-block').html(error.html());
@@ -71,5 +71,5 @@ $('document').ready(function(){
     alert('ok');
     }
     });
-})
+});
 

@@ -20,8 +20,8 @@ public class Correo {
     public boolean enviado = false;
     public int opc = 0;
     public String host = "smtp.gmail.com";
-    public String bot = "bothat23j@gmail.com";
-    public String botp = "Autho09Sendja12";
+    public String bot = "labodega.0ycd@gmail.com";
+    public String botp = "LaBodega0198762345";
     public String asunt = "";
     public String text = "";
     

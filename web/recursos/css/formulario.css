@@ -69,14 +69,16 @@ main{
 	background: #Fff;
 	border:none;
 	border-bottom: 1px solid #9A9393;
+        box-sizing: border-box;
 	height: 45px;
 	line-height: 45px;
-	padding: 0 40px 0 10px;
+	padding: 0 40px 0 35px;
 	transition: .3s ease all;
 	outline: none;
+        display: block;
 	margin-right: 10px;
 }
-.formulario__input:focus{
+.formulario__input:hover{
 
 	border-bottom: 2px solid #9A9393;
 	outline: none;
@@ -228,4 +230,29 @@ grid-column: span 1;
 	width: 100%;
 }
 
+}
+
+.ojos1 {
+    
+  position: absolute;
+  display: none;
+  font-size: 17px;
+  margin: 13px 0 0 85%;
+  cursor: pointer;
+  visibility: visible;
+  
+}
+.ojos2 {
+  position: absolute;
+  cursor: pointer;
+  display: none;
+  font-size: 17px;
+  margin: 13px 0 0 90%;
+  visibility: visible;
+}
+.ojos1-correcto {
+  visibility: hidden;
+}
+.ojos2-correcto {
+  visibility: visible;
 }
