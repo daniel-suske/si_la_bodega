@@ -114,7 +114,7 @@
                             <td><%=repVO.getTecnico()%></td> 
 
                             <td>
-                                <form action="Repuesto" class="m-2" method="POST">
+                                <form action="Reparacion" class="m-2" method="POST">
                                     <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                     <input type="hidden" value="4" name="opcion">
                                     <div class="row justify-content-center">
