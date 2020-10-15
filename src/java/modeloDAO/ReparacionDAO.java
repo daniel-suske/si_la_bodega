@@ -126,6 +126,31 @@ public class ReparacionDAO extends Conexion implements Crud {
         }
         return listaReparaciones;
     }
+     
+     public ReparacionVO consultarId(String Id) {
+        ReparacionVO repaVO = null;
+        try {
+            conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
+            sql = "CALL consultar_Reparacion_Id ( ? ) ";
+            puente = conexion.prepareCall(sql);
+            puente.setString(1, Id);
+            mensajero = puente.executeQuery();//execute query para consultas
+            while (mensajero.next()) {
+                repaVO = new ReparacionVO(Id, mensajero.getString(2),mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(8));
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return repaVO;
+
+    }
 
     @Override
     public boolean actualizarRegistro() {

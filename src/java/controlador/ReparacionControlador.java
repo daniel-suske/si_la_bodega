@@ -97,6 +97,16 @@ public class ReparacionControlador extends HttpServlet {
                 }
 
                 break;
+            case 4:
+               repaVO= repaDAO.consultarId(Id);
+                if(repaVO != null){
+                request.setAttribute("reparacion_id", repaVO);
+                    request.getRequestDispatcher("actualizarReparacion.jsp").forward(request, response);
+                }else {
+                    request.setAttribute("mensajeError", "¡La Reparacion NO existe!");
+                    request.getRequestDispatcher("consultaReparacion.jsp").forward(request, response);
+                }
+                break;
 
         }
 

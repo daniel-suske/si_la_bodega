@@ -144,12 +144,13 @@
                                                             <td scope="col"><%=repVO.getCostos()%></td> 
                                                             <td scope="col"><%=repVO.getTecnico()%></td> 
                                                             <td scope="col">
-                                                                <form action="Repuesto" class="m-2" method="POST">
+                                                                <form action="Reparacion" class="m-2" method="POST">
                                                                     <input type="hidden" value="<%=repVO.getId()%>" name="Id" id="Id">
                                                                     <input type="hidden" value="4" name="opcion">
                                                                     <div class="row justify-content-center">
                                                                         <button class="btn btn-warning mb-2"><i><img src="assets/icons/editar.png" width="25px"><i></button>
                                                                                     </div>
+                                                                    <h1>dfdfdf</h1>
                                                                                     </form>
                                                                                     <%}
                                                                                         }%>

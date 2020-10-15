@@ -53,8 +53,8 @@ public class RepuestoControlador extends HttpServlet {
         String Valor_Venta = request.getParameter("valor_venta");
         String Cantidad = request.getParameter("cantidad");
         String Estado = request.getParameter("estado");
-        Part part = request.getPart("imagen");
-        InputStream inputStream = part.getInputStream();
+       /* Part part = request.getPart("imagen");
+        InputStream inputStream = part.getInputStream();*/
 
         RepuestoVO repuVO = new RepuestoVO(Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado);
         RepuestoDAO repuDAO = new RepuestoDAO(repuVO);
