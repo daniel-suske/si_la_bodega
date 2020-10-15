@@ -72,7 +72,7 @@ public class RepuestoDAO extends Conexion implements Crud {
     public boolean agregarRegistro() {
         try {
             
-            sql = " CALL registrarRepuesto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = " CALL registrar_Repuesto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             puenteps = conexion.prepareCall(sql);
             puenteps.setString(1, Nombre);
             puenteps.setString(2, No_Serie);

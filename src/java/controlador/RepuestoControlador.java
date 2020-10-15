@@ -7,6 +7,7 @@ package controlador;
 
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import modeloDAO.RepuestoDAO;
 
@@ -51,6 +53,8 @@ public class RepuestoControlador extends HttpServlet {
         String Valor_Venta = request.getParameter("valor_venta");
         String Cantidad = request.getParameter("cantidad");
         String Estado = request.getParameter("estado");
+        Part part = request.getPart("imagen");
+        InputStream inputStream = part.getInputStream();
 
         RepuestoVO repuVO = new RepuestoVO(Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado);
         RepuestoDAO repuDAO = new RepuestoDAO(repuVO);
@@ -58,8 +62,9 @@ public class RepuestoControlador extends HttpServlet {
         switch (opcion) {
 
             case 1:
+                
                 if (repuDAO.agregarRegistro()) {
-
+                    
                     request.getRequestDispatcher("consultarRepuesto.jsp").forward(request, response);
                 } else {
 

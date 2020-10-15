@@ -6,6 +6,7 @@
 
 <!-- AQUI VA EL contenido-->
 <link rel="stylesheet" href="assets/css/registrarRepuesto.css">
+
 <title>Registrar Reparacion</title>
 
                 <!-- AQUI VA EL contenido-->
@@ -18,7 +19,7 @@
                     <h2>Registrar Repuestos</h2>
                     <br><br>
 
-                    <form action="Repuesto" class="formulario" id="formulario" name="formulario"
+                    <form action="Repuesto" class="formulario" id="formulario" name="formulario" enctype="multipart/form-data"
                         method="POST">
                         <div class="formulario__grupo" id="grupo__nombre">
                             <span>
@@ -128,6 +129,17 @@
                                 y debe
                                 contener numeros</p>
                         </div>
+                        
+                        <div class="formulario__grupo" id="grupo__imagen">
+                            <label for="cantidad" class="formulario__label">Imagen del Repuesto</label>
+                            <div class="formulario__grupo-input">
+                                <input type="file" class="form-control-file" accept="image/*"    onchange="validateFileType()" name="imagen" id="imagen">
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
+                            <p class="formulario__input-error">La cantidad de repuestos debe ser minimo de 1 a 8 digitos
+                                y debe
+                                contener numeros</p>
+                        </div>
 
                         <div>
                             <input type="hidden" name="opcion" id="opcion" value="1">
@@ -165,13 +177,27 @@
             </div>   
 
                 <!-- Termina aqui -->
-
+<script type="text/javascript">
+       function validateFileType(){
+           var fileName = document.getElementById("imagen").value;
+           var idxDot = fileName.lastIndexOf(".") + 1;
+           var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+           if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+               //TO DO
+           }else{
+               alert("Solo se Aceptan archivos tipo imagen");
+               var filess = document.getElementById("imagen");
+               filess.value="";
+           }   
+       }
+</script>
 
 
 
                 
 
          <script src="assets/js/registrarRepuesto.js" language="javascript" type="text/javascript"></script>
+          <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 <%@include file="dash2.jsp" %>
 
         

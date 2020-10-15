@@ -187,15 +187,23 @@ formulario.addEventListener("submit", (e) => {
         fecha: fecha,
         descripcion: descripcion,
         costos: total_subtotal,
-        tecnico: tecnico}, function(rs){
+        tecnico: tecnico}, function(res){
      
-        datoss = JSON.parse(rs);
+        datoss = JSON.parse(res);
 
           ass=datoss.res;
          
-         if(ass){
+         if(ass === "si"){
                 formulario.reset();
-                location.href ="http://localhost:21754/SI_LA_BODEGA/consultaReparacion.jsp";
+                location.href ="consultaReparacion.jsp";
+            }
+            if(ass==='no'){
+                
+                document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+        setTimeout(() => {
+            document.getElementById('formulario__mensaje').classList.remove('formulario__mensaje-activo');
+        }, 40000);
+                
             }
          
         })

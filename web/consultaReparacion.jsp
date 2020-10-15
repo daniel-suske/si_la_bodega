@@ -49,12 +49,13 @@
     <div > 
         <% if (request.getAttribute("mensajeError") != null) { %> <h4 class="text-center text-danger">${mensajeError}</h4> <%}%>
     </div> 
-    <div class="card bg-white">
+    <div class="card bg-white " style="width: 100%">
         <div class="card-body ">
+            
             <div class="basic-data-table">
-                <table id="datatable" class="table-responsive table-hover table-bordered"  width="100%"> 
+                <table id="basic-data-table" class="table table-sm table-hover table-bordered"  width="100%"> 
                     <thead class="bg-dark" > 
-                        <tr class="thead-dark"> 
+                        <tr class="thead-dark" > 
                             <th class="text-light">#</th> 
                             <th class="text-light">Id Servicio</th> 
                             <th class="text-light">Id Producto</th> 
@@ -169,7 +170,7 @@
 
 
                                                                                     </div>
-                                                                                    </div>   
+                                                                                     
 
 
                                                                                     <!-- Termina aqui -->
@@ -183,7 +184,7 @@
 
                                                                                     <script>
                                                                                         $(document).ready(function () {
-                                                                                            $("#datatable").DataTable({
+                                                                                            $("#basic-data-table").DataTable({
                                                                                                 language: {
                                                                                                     "sProcessing": "Procesando ...",
                                                                                                     "sLengthMenu": "Mostrar _MENU_ registros",
@@ -215,3 +216,5 @@
                                                                                     </script>
 
 
+
+                                                                                    

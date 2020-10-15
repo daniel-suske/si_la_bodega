@@ -12,7 +12,9 @@ package modeloVO;
 public class RepuestoVO {
 
     
-    
+    private String ruta;
+
+   
     private String Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado;
     
     public RepuestoVO(String Id, String Nombre, String No_Serie, String Marca, String Modelo, String Fecha_Compra, String Lugar_Compra,
@@ -32,6 +34,14 @@ public class RepuestoVO {
     
     public RepuestoVO() {
         
+    }
+    
+     public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 
     public RepuestoVO(String Valor_Venta) {

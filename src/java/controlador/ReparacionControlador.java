@@ -88,8 +88,12 @@ public class ReparacionControlador extends HttpServlet {
                     out.print(respon);
 
                 } else {
+                    
+                    String respon = "{\"res\": \"no\"}";
+                    PrintWriter out = response.getWriter();
+                    System.out.print(respon);
+                    out.print(respon);
 
-                    request.getRequestDispatcher("registrarRepuesto.jsp").forward(request, response);
                 }
 
                 break;
