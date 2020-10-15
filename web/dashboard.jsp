@@ -678,7 +678,7 @@
                       </li>
 
                       <li>
-                          <a href="#" class="text-dark">
+                          <a href="PerfilU.jsp" class="text-dark">
                           <i class="mdi mdi-account text-primary"></i> Mi Perfil
                         </a>
                       </li>

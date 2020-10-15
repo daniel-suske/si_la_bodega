@@ -3,7 +3,10 @@
 	box-sizing: border-box;
 }
 body{
-font-family: 'Roboto', sans-serif;
+    background: url(../img/MY/Fondo_pass.jpg) no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size:cover;
+    font-family: 'Roboto', sans-serif;
 }
 .logona {
 	width: 70px;
@@ -12,7 +15,7 @@ font-family: 'Roboto', sans-serif;
   }
 
 .modal-efe{
-	border-top-color:rgb(26,104,196);
+	margin-top: 50px;
 }
   .modal-header {
 	
@@ -21,6 +24,14 @@ font-family: 'Roboto', sans-serif;
 	  background: rgb(156,195,242);
 	  background: linear-gradient(90deg, rgba(156,195,242,1) 0%, rgba(13,84,242,1) 100%);
   }
+    .ex {
+      font-size: 30px;
+      color: #000;
+      transition: all 0.5s;
+    }
+    .ex:hover {
+      color: #FC0202;
+    }
   .modal-title {
 	text-align: center;
 	padding: 0px;
@@ -52,10 +63,13 @@ main{
 .formulario__label:hover {
         color: #0075ff;
 }
-.formulario__label-check {
+.formulario_laberl-check {
+        display: block;
 	font-weight: 700;
+	padding: 5px;
 	color: #000;
 	cursor: pointer;
+        margin-top: 10px;
 	transition: all 0.5s;
 }
 .formulario__label-check:hover {
@@ -85,9 +99,6 @@ main{
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
-.selects:hover{
-        cursor: pointer;
-}
 .formulario__input-error {
 	font-size: 12px;
 	margin-bottom: 0;
@@ -101,45 +112,18 @@ main{
 	color: #bb2929;
         transition: all 0.5s;
 }
-.formulario__input-existente {
-    
-    	font-size: 12px;
-	margin-bottom: 0;
-	display: none; /*ocultar */
-    
-}
-.formulario__input-existente-activo {
-    
-	display:block;
-	width: 90%;
-	margin-top: 5px;
-        margin-bottom: 8px;
-	color: #fd7e14;
-        font-size: 14px;
-}
 .formulario__validacion-estado {
 	position:absolute;
 	right: 10px;
 	bottom: 15px;
 	z-index: 100;
-	font-size: 20px;
+	font-size: 25px;
 	opacity: 0;
         transition: all 0.5s;
-}
-.formulario__validacion-unico {
-    
-        position: absolute;
-        display: none;
-        font-size: 20px;
-        margin: 13px 0 0 40%;
-        cursor: pointer;
-        opacity: 0;
-    
 }
 .formulario__checkbox{
 	margin-top: 40px;
         transition: all 0.5s;
-        cursor: pointer;
 }
 .formulario__grupo-terminos,
 .formulario__mensaje,
@@ -219,11 +203,6 @@ box-shadow: 3px 0px 30px rgba(163,163,163, 1);
         transition: all 0.5s;
 }
 
-.formulario__grupo-incorrecto .formulario__validacion-unico {
-	color: #fd7e14;
-	opacity: 1;
-}
-
 .formulario__grupo-incorrecto .formulario__input{
 	
 	border-bottom: 2px solid #bb2929;
@@ -240,16 +219,6 @@ box-shadow: 3px 0px 30px rgba(163,163,163, 1);
 .formulario__grupo-correcto .formulario__input{
 	
 	border-bottom: 2px solid #1ed12d;
-}
-
-.formulario__validacion-unico-I {
-    	color: #fd7e14;
-	opacity: 1;
-}
-
-.formulario__validacion-unico-A {
-        color: #1ed12d;
-        opacity: 1;
 }
 
 /* media queries*/

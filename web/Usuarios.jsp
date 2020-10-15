@@ -40,7 +40,7 @@
 
                             <div class="card bg-white" style="width: 100%">
                             <div class="card-body">
-                            <div class="basic-data-table">
+                            <div class="basic-data-table pagination-seperated pagination-seperated-rounded">
                                 
                             <table id="basic-data-table" class="table table-sm table-bordered table-hover" style="width:100%">
                                 <thead>
@@ -174,7 +174,7 @@
     <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
     
     <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
-      
+    
     <script>
         $(document).ready(function(){
             $("#basic-data-table").DataTable({

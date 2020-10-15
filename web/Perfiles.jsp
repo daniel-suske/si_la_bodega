@@ -26,10 +26,10 @@
                 <h1 class="text text-dark">Gestion de Perfiles</h1>
               
                   <hr>
+                  <br>
                   <div class="navbar ">
-
-                  <br><br><br>
-                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                  <br>
+                  <form class="form-inline" method="POST" action="">
                       <input type="search" class="form-control form-dark" name="text"/>
                       <input type="submit" class="btn btn-primary" value="Buscar"/>
                       <input type="hidden" name="opcion" value="4" />
@@ -38,7 +38,7 @@
                   <br><br>
                  <div class="card bg-white" style="width: 100%">
                  <div class="card-body">
-                  <div class="basic-data-table">   
+                  <div class="basic-data-table pagination-seperated pagination-seperated-rounded">   
                     <table id="datatable" class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
                             <tr class="thead-dark">
@@ -71,7 +71,6 @@
                                             </div>
                                             <input type="hidden" name="opcion" value="3"/>
                                    </form>
-                                    |
                                    <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
                                 </td>
                             </tr>

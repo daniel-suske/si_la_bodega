@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.google.gson.Gson;
+import java.io.PrintWriter;
 /**
  *
  * @author Yeison
@@ -42,8 +44,7 @@ public class UsuarioControlador extends HttpServlet {
         String Apellidos = request.getParameter("apellidos");
         String Numero_Documento = request.getParameter("documento");
         String Tipo_Documento = request.getParameter("tipo");
-        String Correo = "";
-        String Contrasena = "";
+        String Correo = "", Contrasena = "";
         if(opcion == 1) {
             Correo = request.getParameter("correo");
             Contrasena = request.getParameter("contrasena");
@@ -56,15 +57,20 @@ public class UsuarioControlador extends HttpServlet {
         String Dirrecion = request.getParameter("direccion");
         String Id_Registrado_Por = request.getParameter("textId_R");
         String Perfil = request.getParameter("textPerfil");
-        String Estado = request.getParameter("textEstado");
-        
-        String text = request.getParameter("text");
-        
-        if(opcion == 1) {
-            
-            Perfil = "5";
-            Estado = "1";
-            
+        String Estado = "", text = "";
+        if(opcion == 10){
+           Estado = request.getParameter("contrasena_p");
+           text = "CS3";
+        } else if(opcion == 11) {
+           Estado = request.getParameter("textEstado");
+           text = "Cor2";
+        } else {
+           Estado = request.getParameter("textEstado");
+           text = request.getParameter("text");
+        }
+        if(opcion == 1) {            
+           Perfil = "5";
+           Estado = "1";   
         }
         
         //Lleguan los datos y se aseguran
@@ -93,18 +99,22 @@ public class UsuarioControlador extends HttpServlet {
             break;
             
             case 2: //Agregar Registro de Empleado
-            
+
                 if(usuDAO.agregarRegistro()) {
                     
-                    request.getRequestDispatcher("RegistrarDatosPE.jsp").forward(request, response);
+                    String respon = "{\"resu\": \"si\"}";
+                    PrintWriter out = response.getWriter();
+                    System.out.print(respon);
+                    out.print(respon);
                     
                     request.setAttribute("mensajeExitoso", "¡El Usuario se Registro Correctamente por favor Siga registrando los demas Datos!");
                     
                 } else {
                     
-                    request.setAttribute("mensajeFallido", "¡El Usuario No se Registró Correctamente!");
-                    
-                    request.getRequestDispatcher("RegistrarUsuarioE.jsp").forward(request, response);
+                    String respon = "{\"resu\": \"no\"}";
+                    PrintWriter out = response.getWriter();
+                    System.out.print(respon);
+                    out.print(respon);
                     
                 }
             
@@ -161,7 +171,7 @@ public class UsuarioControlador extends HttpServlet {
             
             case 6: //Inactivar Registro
                 
-                if(usuDAO.InactivarUsuario()) {
+                if(usuDAO.CambiarEstadoUsuario()) {
                     
                     request.getRequestDispatcher("Usuarios.jsp").forward(request, response);    
                     
@@ -176,7 +186,7 @@ public class UsuarioControlador extends HttpServlet {
             
             case 7: //Activar Registro
                 
-                if(usuDAO.ActivarUsuario()) {
+                if(usuDAO.CambiarEstadoUsuario()) {
                     
                     request.getRequestDispatcher("Usuarios.jsp").forward(request, response);      
                     
@@ -240,6 +250,76 @@ public class UsuarioControlador extends HttpServlet {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                     
                 }
+            break;  
+            
+            case 9: //consultar unicidad
+                
+               if(usuDAO.consultarUnicidad(text)) {
+                   
+                    String respon = "{\"rescu\": \"si\"}";
+                    PrintWriter out = response.getWriter();
+                    System.out.print(respon);
+                    out.print(respon);
+                   
+               } else {
+                   
+                    String respon = "{\"rescu\": \"no\"}";
+                    PrintWriter out = response.getWriter();
+                    System.out.print(respon);
+                    out.print(respon);
+                   
+               }
+            break;
+            
+            case 10: //Cambiar password
+               
+                if(usuDAO.consultarUnicidad(text)) {
+                    
+                    if(usuDAO.cambiarContrasena()) {
+                        
+                    request.setAttribute("mensajeExitoso", "¡La Contraseña Si se Cambio Correctamente!");
+                    
+                        
+                    } else {
+                        
+                    request.setAttribute("mensajeFallido", "¡La Contraseña No se Cambio Correctamente!");  
+                        
+                    }
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Codigo es Incorrecto o No Existe Verifique!");
+                      
+                    
+                }
+                
+                    request.getRequestDispatcher("CambiarContrasenaU.jsp").forward(request, response); 
+                
+            break;
+            
+            case 11: //enviar correo
+                
+                if(usuDAO.consultarUnicidad(text)) {
+                    
+                    if(usuDAO.generarCodigo()) {
+                        
+                    request.setAttribute("mensajeExitoso", "¡Se envio la Respuesta al Correo, Porf favor verifique!");
+                    
+                        
+                    } else {
+                        
+                    request.setAttribute("mensajeFallido", "¡No se pudo realizar la Petición!");  
+                        
+                    }
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Correo Es Incorrecto o no Existe Verifique!");
+                    
+                }
+                
+                    request.getRequestDispatcher("EnviarCorrCon.jsp").forward(request, response); 
+                
             break;    
         }
         

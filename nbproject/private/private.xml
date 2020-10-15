@@ -3,24 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/registrarReparacion.js</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/Sesiones.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/ReparacionControlador.java</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/registrarRepuesto.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/registrarRepuesto.js</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/actualizarReparacion.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloDAO/RepuestoDAO.java</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/consultaReparacion.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/dash1.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloVO/RepuestoVO.java</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/dashboard.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/dash2.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/RegistrarUsuarioE.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/css/registrarRepuesto.css</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/UsuariosC.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/Usuarios.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/recursos/js/formulario.js</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/RepuestoControlador.java</file>
+            <file>file:/Library/Yeison%20All/Seguimiento%20a%20proyect/Desarrollo/si_la_bodega/src/java/util/Conexion.java</file>
         </group>
     </open-files>
 </project-private>

@@ -101,12 +101,10 @@ public class UsuarioDAO extends Conexion implements Crud {
             puentesp.setString(11, Perfil);
             puentesp.setString(12, Estado);
             
-            if(corrE.enviarPNewUE(Nombres, Apellidos, Contrasena, Correo)) {
-            
             puentesp.executeUpdate();
             operacion = true;
-            
-            }
+            //Envia Correo
+            corrE.enviarPNewUE(Nombres, Apellidos, Contrasena, Correo);
             
         } catch(SQLException e) {
             
@@ -175,10 +173,157 @@ public class UsuarioDAO extends Conexion implements Crud {
         return operacion;
         
     }
+    
+    public boolean generarCodigo() {
+        
+        operacion = false;
+        try {
+            
+            Clave = UUID.randomUUID().toString().toUpperCase().substring(0, 10);
+            Contrasena = Clave;
+            cambiarContrasena();
+            corrE.enviarSPChange(Contrasena, Correo);
+            
+        } catch (Exception e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        }
+        
+        return operacion;
+    }
 
     @Override
     public boolean consultarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public boolean consultarUnicidad(String tipov) {
+        
+        String val = "";
+        
+        switch(tipov) {
+            
+            case "N1":
+            try {
+
+                sql= "CALL sp_consultar_unicidad_num (?)";
+                puentesp = conexion.prepareCall(sql);
+                puentesp.setString(1, Numero_Documento);
+                mensajero = puentesp.executeQuery();
+                while(mensajero.next()){
+                    Id = mensajero.getString(1);
+                }
+                if(Id == null){
+                    operacion = false;
+                } else {
+                    operacion = true;
+                }
+
+            } catch (SQLException e) {
+
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+            } finally {
+
+                try {
+
+                    this.cerrarConexion();
+
+                } catch (SQLException e) {
+
+                    Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+                }
+            }
+            break;
+            
+            case "C2":
+            try {
+
+                sql= "CALL sp_consultar_unicidad_cor (?)";
+                puentesp = conexion.prepareCall(sql);
+                puentesp.setString(1, Correo);
+                mensajero = puentesp.executeQuery();
+                while(mensajero.next()){
+                    Id = mensajero.getString(1);
+                }
+                if(Id == null){
+                    operacion = false;
+                } else {
+                    operacion = true;
+                }
+
+            } catch (SQLException e) {
+
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+            } finally {
+
+                try {
+
+                    this.cerrarConexion();
+
+                } catch (SQLException e) {
+
+                    Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+                }
+            } 
+            break;  
+            
+            case "Cor2":
+            try {
+
+                sql= "CALL sp_consultar_unicidad_cor (?)";
+                puentesp = conexion.prepareCall(sql);
+                puentesp.setString(1, Correo);
+                mensajero = puentesp.executeQuery();
+                while(mensajero.next()){
+                    Id = mensajero.getString(1);
+                }
+                if(Id == null){
+                    operacion = false;
+                    this.cerrarConexion();
+                } else {
+                    operacion = true;
+                }
+
+            } catch (SQLException e) {
+
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+            } 
+            
+            break; 
+            
+            case "CS3":
+            try {
+
+                sql= "CALL sp_consultar_unicidad_con (?)";
+                puentesp = conexion.prepareCall(sql);
+                puentesp.setString(1, Estado);
+                mensajero = puentesp.executeQuery();
+                while(mensajero.next()){
+                    Id = mensajero.getString(1);
+                }
+                if(Id == null){
+                    operacion = false;
+                    this.cerrarConexion();
+                } else {
+                    operacion = true;
+                }
+
+            } catch (SQLException e) {
+
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+
+            } 
+            
+            break;
+            
+        }
+        return operacion;
     }
     
     public UsuarioVO consultarId(String Id) {
@@ -263,6 +408,40 @@ public class UsuarioDAO extends Conexion implements Crud {
         
     }        
         
+    public boolean cambiarContrasena() {
+
+        try {
+            
+            sql = "CALL sp_cambiar_contrasena (?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Contrasena);
+            puentesp.setString(2, Id);
+            
+            puentesp.executeUpdate();
+            operacion = true;
+              
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+                
+        return operacion;
+        
+    } 
 
     @Override
     public boolean eliminarRegistro() {
@@ -452,45 +631,9 @@ public class UsuarioDAO extends Conexion implements Crud {
         return listaU;
         
     }
-            
+             
         
-        
-    public boolean InactivarUsuario() {
-        
-        try {
-            
-            sql = "CALL sp_cambiar_estadou (?, ?)";
-            puentesp = conexion.prepareCall(sql);
-            puentesp.setString(1, Estado);
-            puentesp.setString(2, Id);
-            
-            puentesp.executeUpdate();
-            operacion = true;
-              
-            
-        } catch (SQLException e) {
-            
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
-            
-        } finally {
-            
-            try {
-                
-                this.cerrarConexion();
-                
-            } catch (SQLException e) {
-                
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
-                
-            }
-            
-        }
-                
-        return operacion;
-        
-    }
-    
-        public boolean ActivarUsuario() {
+    public boolean CambiarEstadoUsuario() {
         
         try {
             
@@ -523,8 +666,7 @@ public class UsuarioDAO extends Conexion implements Crud {
                 
         return operacion;
         
-    }  
-        
+    }    
         
    public boolean inicioSesion(String correo, String contrasena) {
         
@@ -596,64 +738,5 @@ public class UsuarioDAO extends Conexion implements Crud {
         
         return usuVO;
     }
-        
-    /* 
-    public boolean enviarCorreo() {
-        
-        boolean enviado = false;
-        
-        try {
-            
-            String host = "smtp.gmail.com";
-            String bot = "bothat23j@gmail.com";
-            String botp = "Autho09Sendja12";
-            String asunto = "";
-            String texto = "";
-            switch (cr) {
-                case 1:
-                       asunto = "Confirmación de Cuenta en LA BODEGA";
-                       texto = "Bienvenido al sistema LA BODEGA  <b>"+Nombres+" "+Apellidos+"</b><br> su contraseña proporcionada es: <b>"+Contrasena+"</b> <br> Se le recomienda cambiarla";
-                break;
-            }
-            Properties pro = System.getProperties();
-            
-            pro.put("mail.smtp.starttls.enable","true");
-            pro.put("mail.smtp.host",host);
-            pro.put("mail.smtp.user",bot);
-            pro.put("mail.smtp.password", botp);
-            pro.put("mail.smtp.port", 587);
-            pro.put("mail.smtp.auth", "true");
-            
-            Session sesion = Session.getDefaultInstance(pro,null);
-            
-            MimeMessage message = new MimeMessage(sesion);
-            
-            message.setFrom(new InternetAddress(bot));
-            
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(Correo));
-            
-            message.setSubject(asunto);
-            message.setText(texto, "ISO-8859-1", "html");
-            
-            Transport transport = sesion.getTransport("smtp");
-            
-            transport.connect(host,bot,botp);
-            
-            transport.sendMessage(message, message.getAllRecipients());
-            
-            transport.close();
-            
-            enviado = true;
-            
-        } catch(Exception e) {
-            
-            e.printStackTrace();
-            
-        }
-        
-        return enviado;
-        
-    }
-    */
     
 }

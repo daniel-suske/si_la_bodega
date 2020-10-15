@@ -26,10 +26,6 @@
     <link href="recursos/css/animate.css" rel="stylesheet">
 
 
-
-
-
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="recursos/css/formulario.css">
     <link rel="stylesheet" href="recursos/css/login.css">
@@ -38,21 +34,21 @@
     <link href="recursos/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
     <link href="recursos/css/layout.min.css" rel="stylesheet" type="text/css" />
     <link href="recursos/css/layout.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="recursos/favicon.ico" />
+    <link href="recursos/favicon.ico"/>
     <!--Icono-->
     <link rel="apple-touch-icon" tallas="57x57" href="recursos/img/Iconos.ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" tallas="60x60" href="recursos/img/Iconos.ico/apple -icon-60x60.png ">
-    <link rel=" apple-touch-icon " tamaños=" 72x72 " href="recursos/img/Iconos.ico/apple-icon-72x72.png ">
+    <link rel="apple-touch-icon" tallas="60x60" href="recursos/img/Iconos.ico/apple -icon-60x60.png">
+    <link rel=" apple-touch-icon " tamaños=" 72x72 " href="recursos/img/Iconos.ico/apple-icon-72x72.png">
     <link rel=" apple-touch-icon " tamaños="76x76" href="recursos/img/Iconos.ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon " tamaños=" 114x114 " href="recursos/img/Iconos.ico/apple-icon-114x114.png ">
+    <link rel="apple-touch-icon " tamaños=" 114x114 " href="recursos/img/Iconos.ico/apple-icon-114x114.png">
     <link rel="apple-touch-icon" tallas="120x120" href="recursos/img/Iconos.ico/apple-icon-120x120.png">
     <link rel="apple-touch-icon" tallas="144x144" href="recursos/img/Iconos.ico/apple-icon-144x144.png ">
-    <link rel=" apple-touch-icon " tamaños=" 152x152 " href="recursos/img/Iconos.ico/apple-icon-152x152.png ">
+    <link rel=" apple-touch-icon " tamaños=" 152x152 " href="recursos/img/Iconos.ico/apple-icon-152x152.png">
     <link rel=" apple-touch-icon " tamaños="180x180" href="recursos/img/Iconos.ico/apple-icon-180x180.png">
     <link rel="icon" type="image / png" tamaños="192x192" href="recursos/img/Iconos.ico/android-icon-192x192.png">
     <link rel="icon" type="image / png" tamaños="32x32" href="recursos/img/Iconos.ico/favicon-32x32.png">
     <link rel="icon" type="image / png" tallas="96x96" href="recursos/img/Iconos.ico/favicon-96x96.png">
-    <link rel="icon" type="image / png" tallas="16x16" href="recursos/img/Iconos.ico/favicon-16x16. png ">
+    <link rel="icon" type="image / png" tallas="16x16" href="recursos/img/Iconos.ico/favicon-16x16.png">
     <link rel=" manifest " href="recursos/img/Iconos.ico/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="recursos/img/Iconos.ico/ms-icon-144x144.png">
@@ -124,11 +120,9 @@
                 <div class="modal-header">
 
                     <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="equis">&times;</span>
+                        <span aria-hidden="true" class="equis"><i class="ex fas fa-times"></i></span>
                     </button>
                     <img class="logona" src="recursos/img/logo.png" alt="logo">
-
-
 
                 </div>
                 <div class="modal-body">
@@ -174,7 +168,9 @@
                         </div>
 
                         <div class="formulario__grupo" id="grupo__documento">
+                            <i class="formulario__validacion-unico fas fa-user-check" id="validacion-unico-n"></i>
                             <label for="documento" class="formulario__label">* Número de Documento:</label>
+                            <p class="formulario__input-existente">El Número de documento digitado ya existe, por favor verifique</p>
                             <div class="formulario__grupo-input">
                                 <input type="number" class="formulario__input" name="documento" id="documento"
                                        placeholder="Ejem: 1001556252..">
@@ -217,9 +213,11 @@
                         </div>   
 
                         <div class="formulario__grupo" id="grupo__correo">
+                            <i class="formulario__validacion-unico fas fa-user-check" id="validacion-unico-n"></i>
                             <label for="correo" class="formulario__label">* Correo:</label>
+                            <p class="formulario__input-existente">El Correo digitado ya existe, por favor verifique</p>
                             <div class="formulario__grupo-input">
-                                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Ejem:zuckerberg@gmail.com">
+                                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="Ejem:zuckerberg@gmail.com" autocomplete="email">
                                 <span><i class="formulario__validacion-estado far fa-times-circle"></i></span>
                             </div>
                             <p class="formulario__input-error">El correo debe ser de 7 a 30 digitos y  debe
@@ -231,7 +229,7 @@
                             <label for="contrasena" class="formulario__label">* Contraseña:</label>
                             <div class="formulario__grupo-input" id="password">
                                 <i class="fas fa-eye ojos1" id="hello" onclick="ver()"></i>
-                                <input type="password" class="formulario__input" name="contrasena" id="contrasena">
+                                <input type="password" class="formulario__input" name="contrasena" id="contrasena" autocomplete="new-password">
                                 <span><i class="formulario__validacion-estado far fa-times-circle"></i></span>
                             </div>
                             <p class="formulario__input-error">La contraseña debe ser minimo de 8 digitos y debe contener como minimo una letra minuscula y una mayuscula y un numero</p>
@@ -240,7 +238,7 @@
                         <div class="formulario__grupo" id="grupo__contrasena2">
                             <label for="contrasena2" class="formulario__label">* Repetir Contraseña:</label>
                             <div class="formulario__grupo-input">
-                                <input type="password" class="formulario__input" name="contrasena2" id="contrasena2">
+                                <input type="password" class="formulario__input" name="contrasena2" id="contrasena2" autocomplete="new-password">
                                 <span><i class="formulario__validacion-estado far fa-times-circle"></i></span>
                             </div>
                             <p class="formulario__input-error">Ambas contraseñas deben ser iguales</p>
@@ -248,14 +246,13 @@
 
                         <div class="formulario__grupo" id="grupo__terminos">
                                 <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos" >
-                                <label>Acepto los Terminos y Condiciones</label>
+                                <label for="terminos" class="formulario__label-check">Acepto los Terminos y Condiciones</label>
                         </div>
 
 
                         <div class="formulario__mensaje" id="formulario__mensaje">
                             <p>
-                                <i class="fas fa-exclamation-triangle"></i> <b>: </b>Porfavor Diligencie los Campos
-                                del Formulario Correctamente </p>
+                                <i class="fas fa-exclamation-triangle"></i> <b>: </b>Porfavor Diligencie los Campos del Formulario Correctamente </p>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -263,8 +260,7 @@
                         <button type="submit" class="formulario__btn">Registrarme</button>
                         <input type="hidden" value="1" name="opcion">
                         
-                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado
-                            Correctamente</p>
+                        <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario Enviado Correctamente</p>
                     </div>
 
                 <br>
@@ -284,10 +280,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -1042,7 +1034,7 @@
                     <div class="modal-header">
 
                         <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="equis">&times;</span>
+                            <span aria-hidden="true" class="equis"><i class="ex fas fa-times"></i></span>
                         </button>
                         <img class="logona" src="recursos/img/logo.png" alt="logo">
 
@@ -1057,10 +1049,10 @@
                                 <label for="correos" class="login__label">Correo:</label>
                                 <div class="login__grupo-input" id="email">
                                     <i class="login__validacion-estado fas fa-user pass"></i>
-                                    <input type="text" class="login__input" name="correos" id="correos">
+                                    <input type="text" class="login__input" name="correos" id="correos" autocomplete="username">
 
                                 </div>
-                                <p class="login__input-error">Debe ser de formato de correo</p>
+                                    <p class="login__input-error">El correo es Requerido</p>
                             </div>
 
                             <div class="login__grupo" id="grupoLogin__contrasenas">
@@ -1069,9 +1061,9 @@
                                 <div class="login__grupo-input" id="password">
                                     <i class="login__validacion-estado fas fa-lock pass"></i>
                                     <i class="fas fa-eye eyes1" id="hi" onclick="hola()"></i>
-                                    <input type="password" class="login__input" name="contrasenas" id="contrasenas">
+                                    <input type="password" class="login__input" name="contrasenas" id="contrasenas" autocomplete="current-password">
                                 </div>
-                                <p class="login__input-error">La contraseña debe ser minimo de 8 a 30 digitos y debe contener numeros y letras</p>
+                                <p class="login__input-error">La contraseña es Requerida</p>
                             </div>
                             
                             <br> 
@@ -1092,12 +1084,8 @@
 
                             </div>
                             <div class="links">
-                                <a href="#"  class="linka">Olvide
-                                    mi
-                                    Contraseña</a>
-                                <a data-toggle="modal" data-target=".bd-example-modal-lg" class="linka"
-                                    data-dismiss="modal" aria-label="Close">Aun no
-                                    tienes cuenta?</a>
+                                <a href="EnviarCorrCon.jsp"  class="linka">Olvide mi Contraseña</a>
+                                <a data-toggle="modal" data-target=".bd-example-modal-lg" class="linka" data-dismiss="modal" aria-label="Close">Aun no tienes cuenta?</a>
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -25,10 +25,10 @@
                 <h1 class="text text-dark">Gestion de Clientes</h1>
               
                   <hr>
-                  <div class="navbar ">
-
-                  <br><br><br>
-                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                  <br>
+                  <div class="navbar">
+                  <br>
+                  <form class="form-inline" method="POST" action="Usuario">
                       <input type="search" class="form-control form-dark " name="text"/>
                       <input type="submit" class="btn btn-primary " value="Buscar"/>
                       <input type="hidden" name="opcion" value="4" />
@@ -36,8 +36,8 @@
                   </div>
                   <br><br>
                  <div class="card bg-white" style="width: 100%">
-                 <div class="card-body "> 
-                 <div class="basic-data-table">    
+                 <div class="card-body"> 
+                 <div class="basic-data-table pagination-seperated pagination-seperated-rounded">    
                     <table id="datatable" class="table table-bordered table-hover table-sm">
                         <thead class="table table-striped table-hover">   
                             <tr class="thead-dark">

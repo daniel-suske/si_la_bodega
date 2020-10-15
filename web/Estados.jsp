@@ -25,10 +25,10 @@
                 <h1 class="text text-dark">Gestion de Estados</h1>
               
                   <hr>
-                  <div class="navbar ">
-
-                  <br><br><br>
-                  <form class="form-inline form-control-lg" method="post" action="Usuario">
+                  <br>
+                  <div class="navbar">
+                  <br>
+                  <form class="form-inline" method="PÒST" action="">
                       <input type="search" class="form-control form-dark" name="text"/>
                       <input type="submit" class="btn btn-primary" value="Buscar"/>
                       <input type="hidden" name="opcion" value="4" />

@@ -12,8 +12,7 @@
 <%@page import="modeloVO.Datos_PEVO"%>
 
 <%@include file="dash1.jsp" %>
-
-<link rel="stylesheet" type="text/css" href="assets/css/RUsersE.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/Datos_PE.css"/>
 <!-- AQUI VA EL contenido-->
 
 
@@ -28,23 +27,18 @@
                     </div>
                     <section class="row mt-5">
                             <div class="card w-100 m-auto">
-                                <!-- <div style="color:Red">
-                                        <center>
-                                        <%if (request.getAttribute("mensajeFallido") != null) {%>
-                                        ${mensajeFallido}
-                                        <% } else { %>
-                                        ${mensajeExitoso}
-                                        <% } %>
-                                        </center>
-                                    </div>
-                                 -->       
+                                     <%if (request.getAttribute("mensajeFallido") != null) {%>
+                                     ${mensajeFallido}
+                                     <% } else { %>
+                                     ${mensajeExitoso}
+                                     <% } %>
                                      <div class="card-header container bg-success">
                                             <h2 class="m-auto">¡El Usuario se Registro Correctamente por favor Siga registrando los demas Datos! Información del Empleado</h2>
                                     </div>
 
                                     <div class="card-body">
                                         
-                                            <form action="Datos_PE" method="POST">
+                                        <form action="Datos_PE" method="POST" id="formularioDUE">
                                                 
                                                     <div class="form-group">
                                                             <label>Empleado Correspondiente:</label>
@@ -53,51 +47,84 @@
                                                                Datos_PEDAO datDAO = new Datos_PEDAO();
                                                                name = datDAO.consultarUltimoEmpleado();
                                                              %>
-                                                             <select name="Id_Empleado" class="form-control form-control-lg bg-primary text-light">
+                                                             <select id="Id_Empleado" name="Id_Empleado" class="form-control form-control-lg bg-primary text-light">
                                                                  <option value="<%= id = datDAO.iduse %>"><%= name %></option>
                                                              </select>
                                                     </div>
-                                                    <div class="form-group ">
-                                                            <label>Fecha de Nacimiento:</label>
-                                                            <input type="date" name="Fecha_N" max="2002-09-16" class="form-control" placeholder="Digite su Fecha de Nacimiento">
+                                                    <div class="formulario__grupo" id="grupo__Fecha_N">
+                                                        <label for="Fecha_N" class="formulario__label">* Fecha de Nacimiento:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="date" id="Fecha_N" name="Fecha_N" max="2002-09-16" class="formulario__input select-click" placeholder="Digite su Fecha de Nacimiento">
+                                                        </div>
+                                                        <p class="formulario__input-error">La Fecha es un campo requerido y seleccionelo correctamente</p>
                                                     </div>   
 
-                                                    <div class="form-group ">
-                                                            <label>Estado Civil:</label>
-                                                            <select name="Estado_C" class="form-control form-control-lg">
+                                                    <div class="formulario__grupo" id="grupo__Estado_C">
+                                                        <label for="Estado_C" class="formulario__label">* Estado Civil:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <select id="Estado_C" name="Estado_C" class="formulario__input select-click">
                                                                     <option value="" selected>Seleccione su Estado Civil</option>
                                                                     <option value="SO">Solter@</option>
                                                                     <option value="CA">Casad@</option>
                                                             </select>
+                                                        </div>   
+                                                        <p class="formulario__input-error">Debe seleccionar el Estado Civil Actual</p>
                                                     </div>  
  
-                                                    <div class="form-group">
-                                                            <label>EPS:</label>
-                                                            <input type="text" name="Eps" class="form-control" placeholder="Digite su EPS Actualmente">
+                                                    <div class="formulario__grupo" id="grupo__Eps">
+                                                        <label for="Eps" class="formulario__label">* EPS:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="text" id="Eps" name="Eps" class="formulario__input" placeholder="Digite su EPS Actualmente">
+                                                        </div>
+                                                        <p class="formulario__input-error">La EPS debe ser de 4 a 50 digitos y puede contener letras, números y signos</p>
                                                     </div>	
-                                                    <div class="form-group">
-                                                            <label>ARL:</label>
-                                                            <input type="text" name="Arl" class="form-control" placeholder="Digite su ARL Actualmente">
+                                                    <div class="formulario__grupo" id="grupo__Arl">
+                                                        <label for="Arl" class="formulario__label">* ARL:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="text" id="Arl" name="Arl" class="formulario__input" placeholder="Digite su ARL Actualmente">
+                                                        </div>
+                                                        <p class="formulario__input-error">El ARL debe ser de 4 a 50 digitos y puede contener letras, números y signos</p>
                                                     </div>
-                                                    <div class="form-group">
-                                                            <label>Fondo Pensiones:</label>
-                                                            <input type="text" name="Fondo_P" class="form-control" placeholder="Digite su Fondo de Pensiones Actualmente">
+                                                    <div class="formulario__grupo" id="grupo__Fondo_P">
+                                                        <label for="Fondo_P" class="formulario__label">* Fondo Pensiones:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="text" id="Fondo_P" name="Fondo_P" class="formulario__input" placeholder="Digite su Fondo de Pensiones Actualmente">
+                                                        </div>
+                                                        <p class="formulario__input-error">El Fondo de Pensiones debe ser de 4 a 50 digitos y puede contener letras, números y signos</p>
                                                     </div>
 
-                                                    <div class="form-group mr-5">
-                                                            <label>Nivel de Educación:</label>
-                                                            <select name="Nivel_E" class="form-control form-control-lg">
+                                                    <div class="formulario__grupo" id="grupo__Nivel_E">
+                                                        <label for="Nivel_E" class="formulario__label">* Nivel de Educación:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <select id="Nivel_E" name="Nivel_E" class="formulario__input select-click">
                                                                     <option value="" selected>Seleccione su Nivel de Escolaridad</option>
                                                                     <option value="BA">Basico</option>
                                                                     <option value="ME">Medio</option>
                                                                     <option value="SU">Superior</option>
                                                             </select>
+                                                        </div>
+                                                        <p class="formulario__input-error">Debe seleccionar su Nivel de Educación</p>
                                                     </div>
-                                                    <div class="form-group ">
-                                                            <label>Años de Experiencia:</label>
-                                                            <input type="number" name="Exp" class="form-control" placeholder="Digite sus Años de Experiencia con su labor">
+                                                    <div class="formulario__grupo" id="grupo__Exp">
+                                                        <label for="Exp" class="formulario__label">* Años de Experiencia:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="number" id="Exp" name="Exp" class="formulario__input" placeholder="Digite sus Años de Experiencia con su labor">
+                                                        </div>
+                                                        <p class="formulario__input-error">Los Años de Experiencia no pueden ser mayores a 100</p>
                                                     </div>  
   
+                                                <div class="formulario__mensaje" id="formulario__mensaje">
+                                                    <p>
+                                                    <i class="fas fa-exclamation-triangle"></i> <b>Incorrecto : </b>Porfavor Diligencie los Campos del Formulario Correctamente
+                                                    </p>
+                                                </div>    
                                                             
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-success border border-dark btn-lg btn-block mt-5">Registrar Datos</button>
@@ -122,9 +149,9 @@
             </div> 
 
                 <!-- Termina aqui -->
-
-
-
-
                 
-<%@include file="dash2.jsp" %>
+            <script src="assets/plugins/jquery/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="assets/js/Datos_PE.js"></script>
+            <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+                
+            <%@include file="dash2.jsp" %>

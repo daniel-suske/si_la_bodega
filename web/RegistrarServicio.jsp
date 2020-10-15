@@ -12,8 +12,7 @@
 
 
 <%@include file="dash1.jsp" %>
-
-<link rel="stylesheet" type="text/css" href="assets/css/RUsersE.css"/>
+<link rel="stylesheet" type="text/css" href="assets/css/Servicio.css"/>
 <!-- AQUI VA EL contenido-->
 
 
@@ -34,22 +33,31 @@
 
                                     <div class="card-body">
                                         
-                                            <form action="Servicio" method="POST">
+                                        <form action="Servicio" method="POST" id="formularioSE">
                                                 
-   
-                                                    <div class="form-group">
-                                                            <label>Fecha de Solicitud:</label>
-                                                            <input type="date" name="Fecha_P" class="form-control" placeholder="Seleccione la fecha correspondiente">
+                                                    <div class="formulario__grupo" id="grupo__Fecha_P">
+                                                        <label for="Fecha_P" class="formulario__label">* Fecha de Solicitud:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <input type="date" id="Fecha_P" name="Fecha_P" class="formulario__input select-click" min="2020-01-01" placeholder="Seleccione la fecha correspondiente">
+                                                        </div>
+                                                        <p class="formulario__input-error">La Fecha es un campo requerido y seleccionelo correctamente</p>
                                                     </div>	
-                                                    <div class="form-group ">
-                                                            <label>Descripción:</label>
-                                                            <textarea class="form-control" name="Descript" placeholder="Digite una Descripción de la solicitud"></textarea>
+                                                    <div class="formulario__grupo" id="grupo__Descript">
+                                                        <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                        <label for="Descript" class="formulario__label">* Descripción:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <textarea class="formulario__input descript" id="Descript" name="Descript" placeholder="Digite una Descripción de la solicitud"></textarea>
+                                                        </div>
+                                                        <p class="formulario__input-error">La Descripción no puede ir vacia y por favor lo más claro posible</p>
                                                     </div>   
                                                 <div class="formulario">
-                                                    <div class="form-group mr-5">
-                                                            <label>Clientes:</label>
-                                                            <select name="Cliente" class="form-control form-control-lg">
-                                                                    <option value=""> Seleccione...</option>
+                                                    <div class="formulario__grupo mr-5" id="grupo__Cliente">
+                                                        <label for="Cliente" class="formulario__label">* Cliente:</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                            <select id="Cliente" name="Cliente" class="formulario__input select-click">
+                                                                    <option value="">Seleccione el Cliente correspondiente...</option>
                                                                     <%
                                                                         UsuarioDAO usuCDAO = new UsuarioDAO();
                                                                         for(UsuarioVO usuVO : usuCDAO.listarC()) {
@@ -60,26 +68,20 @@
                                                                         }
                                                                     %>
                                                             </select>
+                                                        </div>
+                                                        <p class="formulario__input-error">Debe seleccionar el Cliente correctamente</p>
                                                     </div>
                                                     <div class="form-group">
-                                                            <label>Registrado por:</label>
-                                                            <select name="R_Por" class="form-control form-control-lg">
-                                                                    <option value=""> Seleccione...</option>
-                                                                    <%
-                                                                       UsuarioDAO usuEDAO = new UsuarioDAO();
-                                                                        for(UsuarioVO usuVO : usuEDAO.listarE()) {
-                                                                            
-                                                                    %>
-                                                                    <option value="<%= usuVO.getId() %>"> <%= usuVO.getNombres() %></option>
-                                                                    <%
-                                                                        }
-                                                                    %>
-                                                            </select>
+                                                        <label class="formulario__label">Registrado Por:</label>
+                                                            <input type="hidden" id="R_Por" name="R_Por" class="form-control is-valid" value="<%= IdU %>">
+                                                            <input type="text" class="form-control bg-info text-dark text-center" value="<%= ApellidoU %> <%= NombreU %>" disabled>
                                                     </div>     
                                                 </div>           
-                                                    <div class="form-group ">
-                                                            <label>Estado</label>
-                                                                <select name="Est" class="form-control form-control-lg">
+                                                    <div class="formulario__grupo" id="grupo__Est">
+                                                        <label for="Est" class="formulario__label">* Estado</label>
+                                                        <div class="formulario__grupo-input">
+                                                                <i class="formulario__validacion-estado fas fa-exclamation-triangle"></i>
+                                                                <select id="Est" name="Est" class="formulario__input select-click">
                                                                     <option value=""> Seleccione el Estado Correspondiente</option>
                                                                     <%
                                                                         EstadoDAO estDAO = new EstadoDAO();
@@ -91,7 +93,15 @@
                                                                         }
                                                                     %>
                                                             </select>
+                                                        </div>
+                                                        <p class="formulario__input-error">Debe seleccionar el Estado Correspondiente</p>
                                                     </div>  
+                                                            
+                                                <div class="formulario__mensaje" id="formulario__mensaje">
+                                                    <p>
+                                                    <i class="fas fa-exclamation-triangle"></i> <b>Incorrecto : </b>Porfavor Diligencie los Campos del Formulario Correctamente
+                                                    </p>
+                                                </div>    
                                                             
                                                 <div class="form-group">
                                                     <button type="submit" class="btn btn-success border border-dark btn-lg btn-block mt-5">Registrar Servicio</button>
@@ -115,10 +125,10 @@
  
             </div> 
 
-                <!-- Termina aqui -->
+            <!-- Termina aqui -->
 
-
-
-
+            <script src="assets/plugins/jquery/jquery.min.js" type="text/javascript"></script>
+            <script type="text/javascript" src="assets/js/Servicio.js"></script>
+            <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
                 
-<%@include file="dash2.jsp" %>
+            <%@include file="dash2.jsp" %>

@@ -12,7 +12,7 @@
 <%
     HttpSession miSesion = (HttpSession)request.getSession();
     
-    String IdU ="", NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "";
+    String IdU ="", NombreU = "", ApellidoU = "", p = "", PerfilU = "", CorreoU = "", TelefonoU = "", NumeroDU = "", TipoDU = "", BarrioU = "", DireccionU = "";
     
     if (miSesion.getAttribute("sesion_usuario") == null) {
         
@@ -26,6 +26,11 @@
         NombreU = usuVO.getNombres();
         ApellidoU = usuVO.getApellidos();
         CorreoU = usuVO.getCorreo();
+        TelefonoU = usuVO.getTelefono();
+        NumeroDU = usuVO.getNumero_Documento();
+        TipoDU = usuVO.getTipo_Documento();
+        BarrioU = usuVO.getBarrio();
+        DireccionU = usuVO.getDireccion();
         p = usuVO.getPerfil();
         if(p.equals("1")) {
            PerfilU = "Gerente";
@@ -94,22 +99,22 @@
         <link href="assets/css/estilos.css" rel="stylesheet" />
 
         <!--Icono-->
-        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png" > 
-        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png "> 
-        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "assets/img/Iconos.ico/apple-icon-120x120.png" > 
-        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "assets/img/Iconos.ico/apple-icon-144x144.png " > 
-        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png "> 
-        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png" > 
-        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png" > 
-        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16. png "> 
-        <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json" > 
-        <meta  name ="msapplication-TileColor"  content = "#ffffff" > 
-        <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png" > 
+        <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "assets/img/Iconos.ico/apple-icon-57x57.png"> 
+        <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "assets/img/Iconos.ico/apple -icon-60x60.png"> 
+        <link  rel = " apple-touch-icon "  tamaños = " 72x72 "  href = "assets/img/Iconos.ico/apple-icon-72x72.png"> 
+        <link  rel = " apple-touch-icon "  tamaños = "76x76"  href = "assets/img/Iconos.ico/apple-icon-76x76.png"> 
+        <link  rel = "apple-touch-icon "  tamaños = " 114x114 "  href = "assets/img/Iconos.ico/apple-icon-114x114.png"> 
+        <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "assets/img/Iconos.ico/apple-icon-120x120.png"> 
+        <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "assets/img/Iconos.ico/apple-icon-144x144.png"> 
+        <link  rel = " apple-touch-icon "  tamaños = " 152x152 "  href = "assets/img/Iconos.ico/apple-icon-152x152.png"> 
+        <link  rel = " apple-touch-icon "  tamaños = "180x180"  href = "assets/img/Iconos.ico/apple-icon-180x180.png"> 
+        <link  rel = "icon"  type = "image / png"  tamaños = "192x192"  href = "assets/img/Iconos.ico/android-icon-192x192.png"> 
+        <link  rel = "icon"  type = "image / png"  tamaños = "32x32"  href = "assets/img/Iconos.ico/favicon-32x32.png"> 
+        <link  rel = "icon"  type = "image / png"  tallas = "96x96"  href = "assets/img/Iconos.ico/favicon-96x96.png"> 
+        <link  rel = "icon"  type = "image / png"  tallas = "16x16"  href = "assets/img/Iconos.ico/favicon-16x16.png"> 
+        <link  rel = " manifest " href = "assets/img/Iconos.ico/manifest.json"> 
+        <meta  name ="msapplication-TileColor"  content = "#ffffff"> 
+        <meta  name = "msapplication-TileImage"  content = "assets/img/Iconos.ico/ms-icon-144x144.png"> 
         <meta  name = "theme-color"  content = "#ffffff" >
 
 
@@ -691,7 +696,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="#" class="text-dark">
+                                        <a href="PerfilU.jsp" class="text-dark">
                                         <i class="mdi mdi-account text-primary"></i> Mi Perfil
                                       </a>
                                     </li>

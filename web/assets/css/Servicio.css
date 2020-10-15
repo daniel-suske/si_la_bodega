@@ -1,0 +1,227 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12-oct-2020, 18:10:26
+    Author     : Yeison
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+*{
+	box-sizing: border-box;
+}
+body{
+   
+    font-family: 'Roboto', sans-serif;
+    color:#1b223c;
+    font-size: 0.98rem;
+    
+}
+.logona {
+    
+	width: 70px;
+	display: block;
+	margin: auto;
+        
+  }
+
+.formulario{
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+        
+}
+.formulario__label{
+    
+	display: block;
+	font-weight: 700;
+	padding: 6px;
+	color: #000;
+	cursor: pointer;
+        font-size: 16px;
+}
+
+.formulario__grupo-input{
+    
+	position: relative;
+        margin-bottom: 1.20rem
+        
+}
+
+.formulario__input{
+    
+	width: 100%;
+	background: #Fff;
+	border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .3s ease all;
+	outline: none;
+	margin-right: 10px;
+}
+.descript{
+        height: 100px;
+        
+}
+.formulario__input:hover{
+
+	border: 2px solid #0075ff;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+.select-click:hover{
+        cursor: pointer;
+}
+.formulario__input-error {
+    
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none; /*ocultar */
+	
+}
+.formulario__input-error-activo {
+    
+	display:block;
+	width: 90%;
+	margin-top: 5px;
+        margin-bottom: 8px;
+	color: #bb2929;
+        font-size: 14px;
+}
+.formulario__validacion-estado {
+    
+        position: absolute;
+        display: none;
+        font-size: 20px;
+        margin: 13px 0 0 90%;
+        cursor: pointer;
+        opacity: 0;
+  
+}
+
+.formulario__grupo-terminos,
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+grid-column: span 2;
+}
+
+#grupo__terminos{
+    
+    padding-top: 30px;
+    text-align: center;
+    grid-column: span 2;
+    margin:10px 0 17px 0;
+
+}
+
+.formulario__mensaje{
+    
+        text-align: center;
+	margin: 10px 0 10px 0;
+	height: 45px;
+	background: #f66060;
+	padding: 12px 15px;
+	border-radius: 3px;
+	display: none;
+	
+}
+
+.formulario__mensaje-activo{
+	display: block;
+}
+
+.formulario__mensaje p{
+	margin: 0;
+	color: #000;
+}
+.modal-footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.btn_f{
+	height: 45px;
+	line-height: 45px;
+	width: 80%;
+	background: #0075ff;
+	color: #fff;
+	font-weight: bold;
+	border:none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition:  .1s ease all;
+}
+
+.formulario__btn:hover{
+box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+}
+
+.formulario__mensaje-error{
+        text-align: center;
+	margin: 10px 0 10px 0;
+	height: 45px;
+	background: #f66060;
+	padding: 12px 15px;
+	border-radius: 3px;
+	display: none;
+}
+.formulario__mensaje-error-activo{
+	display: block;
+}
+
+
+/*Estilos para validar*/
+
+.formulario__grupo-incorrecto .formulario__label{
+	color: #bb2929;
+}
+.formulario__grupo-incorrecto .formulario__validacion-estado{
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input{
+	
+	border: 2px solid #bb2929;
+}
+
+.formulario__grupo-correcto .formulario__label{
+	color: #1ed12d;
+}
+.formulario__grupo-correcto .formulario__validacion-estado{
+        color: #1ed12d;
+        opacity: 1;
+}
+.formulario__grupo-correcto .formulario__input{
+	
+	border: 2px solid #1ed12d;
+}
+
+/* media queries*/
+@media screen and (max-width: 800px){
+    
+	.formulario{
+	
+	grid-template-columns: 1fr ;
+	}
+
+.formulario__grupo-terminos,
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+grid-column: span 1;
+}
+
+.formulario__btn{
+	width: 80%;
+}
+
+.formulario__input{
+    
+	width: 100%;
+}
+
+}
+
