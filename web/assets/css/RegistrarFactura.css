@@ -1,0 +1,131 @@
+
+.form-row{
+    
+  margin-bottom:-70px;
+}
+
+.form-control-lg:focus{
+    border:3px solid #0075ff;
+    outline:none;
+    box-shadow: 3px 0px 30pxpx rgba(163,163,163,0.4);
+    
+
+}
+.formulario__input-error{
+    padding: 10px;
+    color:#000;
+    font-size: 15px;
+    display: none;
+    
+}
+.formulario__input-error-activo{
+    display: block
+}
+
+.formulario__mensaje{
+    color:#000;
+    
+}
+.formulario__validacion-estado{
+position: absolute;
+right: 50px;
+bottom: 15px;
+z-index: 100;
+font-size: 20px;
+opacity: 0;
+color:#000;
+
+    
+}
+.formulario__validacion-status{
+    position: absolute;
+right:20px;
+bottom: 15px;
+z-index: 100;
+font-size: 20px;
+opacity: 0;
+
+color:#000
+    
+}
+.formulario__btn{
+  padding: 20px;
+    left: 30%;
+    width: 80%;
+}
+.formulario__mensaje{
+    height: 35px;
+    width: 53%;
+    margin-top: 30px;
+    background: #f66060;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    color: black;
+    margin-right: 50px;
+    display: none;
+}
+.formulario__mensaje-activo{
+    display:block;
+}
+.formulario__mensaje p{
+    margin: 0;
+    font-size: 20px;
+    font-family: AUTO;
+    padding: 7px;
+}
+/* estilo para validacion */
+.form-group-correcto 
+.formulario__validacion-estado{
+    color: #1ed12d;
+    opacity: 1;
+    
+}
+.form-group-correcto 
+.formulario__validacion-status{
+    color: #1ed12d;
+    opacity: 1;
+    
+}
+.form-group-correcto
+.formulario__label{
+    color: #1ed12d;
+}
+.form-group-correcto
+.form-control-lg{
+    border:3px solid #1ed12d;
+}
+
+.form-group-incorrecto
+.formulario__label{
+    color:#bb2929;
+    
+}
+.form-group-incorrecto
+.formulario__validacion-estado{
+    color:#bb2929;
+    opacity: 1;
+}
+.form-group-incorrecto
+.formulario__validacion-status{
+    color:#bb2929;
+    opacity: 1;
+}
+.form-group-incorrecto
+.form-control-lg{
+    border:3px solid #bb2929;
+}
+
+/*mediaqueries*/
+@media screen and (max-width: 800px){
+    .form{
+        grid-template-column:1fr;
+    }
+    .formulario__btn{
+        width: 70%;
+     
+    }
+}
+
+
+
+

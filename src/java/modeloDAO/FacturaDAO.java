@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.sql.CallableStatement;
 import modeloVO.FacturaVO;
 import util.Conexion;
 import util.Crud;
@@ -26,6 +26,7 @@ public class FacturaDAO extends Conexion implements Crud{
      
    private Connection conexion= null;
    private PreparedStatement puente= null;
+   private CallableStatement puentesp = null;  
    private ResultSet mensajero = null;
    private String sql;
    private boolean operacion = false;
@@ -57,16 +58,16 @@ public class FacturaDAO extends Conexion implements Crud{
     @Override
     public boolean agregarRegistro() {
         try {
-     
-            sql = "insert into factura (Fecha,Servicio,Tipo_Pago,Valor_Total,Garantia,recibe)values(?,?,?,?,?,?)";
-            puente=conexion.prepareStatement(sql);
-            puente.setString(1, Fecha);
-            puente.setString(2, Servicio);
-            puente.setString(3, Tipo_Pago);
-            puente.setString(4, Valor_Total);
-            puente.setString(5, Garantia);
-            puente.setString(6, Recibe);
-            puente.executeUpdate();
+           conexion = this.obtenerConexion();
+            sql = "CALL insertar_factura(?,?,?,?,?,?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Fecha);
+            puentesp.setString(2, Servicio);
+            puentesp.setString(3, Tipo_Pago);
+            puentesp.setString(4, Valor_Total);
+            puentesp.setString(5, Garantia);
+            puentesp.setString(6, Recibe);
+            puentesp.executeUpdate();
             operacion=true;
             
         } catch (SQLException e) {
@@ -118,16 +119,17 @@ public class FacturaDAO extends Conexion implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update factura set Fecha=?,Servicio=?,Tipo_Pago=?,Valor_Total=?,Garantia=?,Recibe=? where Id=? ";
-            puente=conexion.prepareStatement(sql);
-            puente.setString(1, Fecha);
-            puente.setString(2, Servicio);
-            puente.setString(3, Tipo_Pago);
-            puente.setString(4, Valor_Total);
-            puente.setString(5, Garantia);
-            puente.setString(6, Recibe);
-            puente.setString(7, Id);
-            puente.executeUpdate();
+            conexion = this.obtenerConexion();
+            sql = "CALL modificar_factura (?,?,?,?,?,?,?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setString(1, Fecha);
+            puentesp.setString(2, Servicio);
+            puentesp.setString(3, Tipo_Pago);
+            puentesp.setString(4, Valor_Total);
+            puentesp.setString(5, Garantia);
+            puentesp.setString(6, Recibe);
+            puentesp.setString(7, Id);
+            puentesp.executeUpdate();
             operacion=true;
            
         } catch (SQLException e) {

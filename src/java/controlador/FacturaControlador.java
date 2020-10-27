@@ -38,12 +38,12 @@ public class FacturaControlador extends HttpServlet {
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));//opcion que es registrar actualizar y eliminar en las vistas.
        String Id = request.getParameter("textId");
-        String Fecha = request.getParameter("textFecha");// los text se deben poner en minuscula 
-         String Servicio = request.getParameter("textServi");
-          String Tipo_Pago = request.getParameter("textTipPago");
-          String Valor_Total = request.getParameter("textVaPago");
-          String Garantia = request.getParameter("textGarantia");
-          String Recibe = request.getParameter("textRecibe");
+        String Fecha = request.getParameter("factura");// los text se deben poner en minuscula 
+         String Servicio = request.getParameter("servicio");
+          String Tipo_Pago = request.getParameter("pago");
+          String Valor_Total = request.getParameter("total");
+          String Garantia = request.getParameter("garantia");
+          String Recibe = request.getParameter("recibe");
           
            FacturaVO faVO = new FacturaVO (Id, Fecha, Servicio, Tipo_Pago, Valor_Total, Garantia, Recibe);
            FacturaDAO faDAO = new FacturaDAO(faVO);
@@ -80,7 +80,7 @@ public class FacturaControlador extends HttpServlet {
                   else{
                       request.setAttribute("mensajeFallido","¡La Factura no se pudo Consultar!");
                   }
-                   request.getRequestDispatcher("consultarFactura.jsp").forward(request, response);
+                   request.getRequestDispatcher("actualizarFactura.jsp").forward(request, response);
                    break;  
                    
                    case 3: 

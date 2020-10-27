@@ -13,6 +13,9 @@ public class ProductoVO {
     
     private String Id, Tipo_Producto, Marca, Modelo, Numero_Serie, Estado;
     
+     public ProductoVO() {
+    }
+    
      public ProductoVO(String Id, String Tipo_Producto, String Marca, String Modelo, String Numero_Serie, String Estado) {
         this.Id = Id;
         this.Tipo_Producto = Tipo_Producto;
