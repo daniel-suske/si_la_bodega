@@ -206,13 +206,19 @@
                                                         });
                                                     </script>
 
-                                                    //Script para cargar la pagina en el lugar del scroll anterior
+                                                    <!--Script para cargar la pagina en el lugar del scroll anterior-->
                                                     <script>
                                                         window.onload = function () {
                                                             var pos = window.name || 0;
                                                             window.scrollTo(0, pos);
-                                                        }
+                                                        };
                                                         window.onunload = function () {
                                                             window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
-                                                        }
+                                                        };
                                                     </script>
+<script>
+        document.getElementById(`producto_menu`).classList.add("active");
+        document.getElementById(`producto_menu`).classList.add("expand");
+        document.getElementById(`producto`).classList.add("show");
+        document.getElementById(`producto_gestion`).classList.add("active");
+</script>

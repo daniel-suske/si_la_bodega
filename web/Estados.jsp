@@ -142,3 +142,9 @@
             });
         });
     </script>
+    <script>
+        document.getElementById(`estado_menu`).classList.add("active");
+        document.getElementById(`estado_menu`).classList.add("expand");
+        document.getElementById(`estados`).classList.add("show");
+        document.getElementById(`estado_gestion`).classList.add("active");
+    </script>

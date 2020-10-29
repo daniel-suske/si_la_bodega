@@ -38,7 +38,7 @@
                  <div class="card bg-white" style="width: 100%">
                  <div class="card-body"> 
                  <div class="basic-data-table pagination-seperated pagination-seperated-rounded">    
-                    <table id="datatable" class="table table-bordered table-hover table-sm">
+                    <table id="datatable" class="table table-bordered table-hover table-sm text-justify">
                         <thead class="table table-striped table-hover">   
                             <tr class="thead-dark">
                                 <th scope="col" class="text-center">#</th>
@@ -153,4 +153,10 @@
                 }
             });
         });
+    </script>
+    <script>
+        document.getElementById(`usuario_menu`).classList.add("active");
+        document.getElementById(`usuario_menu`).classList.add("expand");
+        document.getElementById(`usuario`).classList.add("show");
+        document.getElementById(`usuario_cliente`).classList.add("active");
     </script>

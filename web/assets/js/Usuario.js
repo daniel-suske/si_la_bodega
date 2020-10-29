@@ -1,3 +1,5 @@
+$(document).ready(function (){
+
 const formularioUE = document.getElementById('formularioUE');
 const inputs = document.querySelectorAll('#formularioUE input');
 const selects = document.querySelectorAll('#formularioUE select');
@@ -260,3 +262,4 @@ formularioUE.addEventListener('submit', (e) => {
         }, 20000);
     }
 });
+}); 

@@ -127,8 +127,8 @@
 
             <!-- Termina aqui -->
 
-            <script src="assets/plugins/jquery/jquery.min.js" type="text/javascript"></script>
-            <script type="text/javascript" src="assets/js/Servicio.js"></script>
+            <script type="text/javascript" src="assets/plugins/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="assets/js/RegistrarServicio.js"></script>
             <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
                 
             <%@include file="dash2.jsp" %>

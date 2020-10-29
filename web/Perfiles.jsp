@@ -143,3 +143,9 @@
             });
         });
     </script>
+    <script>
+        document.getElementById(`usuario_menu`).classList.add("active");
+        document.getElementById(`usuario_menu`).classList.add("expand");
+        document.getElementById(`usuario`).classList.add("show");
+        document.getElementById(`usuario_perfiles`).classList.add("active");
+    </script>

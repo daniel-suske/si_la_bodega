@@ -106,7 +106,27 @@ public class ServicioControlador extends HttpServlet {
                     
                 }
                 
-           break; 
+           break;
+           
+           case 4:
+               
+               serVO = serDAO.consultarId(Id);
+               
+               if (serVO != null) {
+                    
+                    request.setAttribute("servicios", serVO);
+                    
+                    request.getRequestDispatcher("ModificarServicio.jsp").forward(request, response);
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡Los Datos a consultar NO existen!");
+                    
+                    request.getRequestDispatcher("Servicios.jsp").forward(request, response);
+                    
+                } 
+               
+           break;
            
        }
         

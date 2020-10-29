@@ -3,24 +3,21 @@
     
       
       {
-        "label": "Ecommerce",
-        "link": "index.html",
-        "tags": "ecommerce, charts, todos, maps, tabs, tables",
-        "location": "Dashboard"
+        "label": "Empleados",
+        "link": "Usuarios.jsp",
+        "tags": "usuarios, empleados, trabajadores",
+        "location": "Usuarios"
       },
       
     
       
       {
-        "label": "Analytics",
-        "link": "analytics.html",
-        "tags": "users, charts, notifications, maps",
-        "location": "Dashboard"
+        "label": "Clientes",
+        "link": "UsuarioC.jsp",
+        "tags": "usuarios, clientes",
+        "location": "Clientes"
       },
       
-    
-
-  
     
       
       {

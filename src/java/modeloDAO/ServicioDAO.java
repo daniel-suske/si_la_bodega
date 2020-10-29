@@ -35,6 +35,8 @@ public class ServicioDAO extends Conexion implements Crud {
     
     private String Id = "", Fecha_Pedido = "", Descripcion = "", Cliente = "", Registrado_Por = "", Estado = ""; //Declarar las variables del VO
     
+    public  String IdSer = "7";
+    
     public ServicioDAO() 
     {
     }
@@ -101,6 +103,47 @@ public class ServicioDAO extends Conexion implements Crud {
         
     }
 
+   public ArrayList<ServicioVO> listarSCL()
+    {
+        
+        ArrayList<ServicioVO>listaServiciosCL = new ArrayList<ServicioVO>();
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT * FROM vista_servicio WHERE Cliente = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, IdSer);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                ServicioVO serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
+                
+                listaServiciosCL.add(serVO);
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return listaServiciosCL;
+        
+    }
+    
     @Override
     public boolean agregarRegistro() {
         

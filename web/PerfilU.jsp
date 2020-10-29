@@ -619,3 +619,9 @@
 
 
         <%@include file="dash2.jsp" %>
+    <script>
+        document.getElementById(`opcionesPU_menu`).classList.add("active");
+        document.getElementById(`opcionesPU_menu`).classList.add("expand");
+        document.getElementById(`configuracion`).classList.add("show");
+        document.getElementById(`opciones_perfilPU`).classList.add("active");
+    </script>

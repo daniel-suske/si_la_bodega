@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%@include file="dash1.jsp"%>
 
-<title>La Bodega S</title>
+<title>Menu</title>
 <!-- AQUI VA EL contenido-->
 
 <div class="content-wrapper">
@@ -132,6 +132,9 @@
         </div>
     </div>     
         
-        <!-- footer ->
+        <!-- footer -->
         
       <%@include file="dash2.jsp"%>
+    <script>
+        document.getElementById(`dashboard_menu`).classList.add("active");
+    </script>

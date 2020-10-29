@@ -7,6 +7,7 @@ package controlador;
 
 import modeloVO.UsuarioVO;
 import modeloDAO.UsuarioDAO;
+import util.DatosImport;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -209,6 +210,7 @@ public class UsuarioControlador extends HttpServlet {
                     
                     miSesion.setAttribute("sesion_usuario", usuVO); //Enviando por la sesion
                     
+                    
                     switch (usuVO.getPerfil()) {
                         
                         case "1":
@@ -303,7 +305,7 @@ public class UsuarioControlador extends HttpServlet {
                     
                     if(usuDAO.generarCodigo()) {
                         
-                    request.setAttribute("mensajeExitoso", "¡Se envio la Respuesta al Correo, Porf favor verifique!");
+                    request.setAttribute("mensajeExitoso", "¡Se envio la Respuesta al Correo, Por favor verifique!");
                     
                         
                     } else {

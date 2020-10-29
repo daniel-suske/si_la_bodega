@@ -42,7 +42,7 @@
                             <div class="card-body">
                             <div class="basic-data-table pagination-seperated pagination-seperated-rounded">
                                 
-                            <table id="basic-data-table" class="table table-sm table-bordered table-hover" style="width:100%">
+                            <table id="basic-data-table" class="table table-sm table-bordered table-hover text-justify" style="width:100%">
                                 <thead>
                                     <tr class="thead-dark">
                                         <th scope="col" class="text-center">#</th>
@@ -206,4 +206,10 @@
                 }
             });
         });
+    </script>
+    <script>
+        document.getElementById(`usuario_menu`).classList.add("active");
+        document.getElementById(`usuario_menu`).classList.add("expand");
+        document.getElementById(`usuario`).classList.add("show");
+        document.getElementById(`usuario_empleado`).classList.add("active");
     </script>

@@ -1,57 +1,43 @@
 $(document).ready(function (){
-
-const formularioDUE = document.getElementById('formularioDUE');
-const inputs = document.querySelectorAll('#formularioDUE input');
-const selects = document.querySelectorAll('#formularioDUE select');
+    
+const formularioSE = document.getElementById('formularioSE');
+const inputs = document.querySelectorAll('#formularioSE input');
+const selects = document.querySelectorAll('#formularioSE select');
+const textareas = document.querySelectorAll('#formularioSE textarea');
 
 const expresiones = {
-    
-    Fecha_N: /^\d/ ,
-    Eps: /^.{3,100}$/,
-    Arl: /^.{3,100}$/,
-    Fondo_P: /^.{3,100}$/,
-    Exp: /^\d{1,100}$/
+  
+  Fecha_P: /^\d/,
+  Descript: /^.{25,1000}$/
     
 };
 const campos = {
-    
-    Id_Empleado:true,
-    Fecha_N:false,
-    Estado_C:false,
-    Eps:false,
-    Arl:false,
-    Fondo_P:false,
-    Nivel_E:false,
-    Exp:false
+  
+    Fecha_P:false,
+    Descript:false,
+    Cliente:false,
+    R_Por:true,
+    Est:false
     
 };
-const validarFormularioDUE = (e) => {
+const validarFormularioSE = (e) => {
   
-  switch (e.target.name) {
-   
-        case "Fecha_N":
-            validarCampo(expresiones.Fecha_N, e.target, 'Fecha_N');
+    switch (e.target.name) {
+    
+        case "Fecha_P":
+            validarCampo(expresiones.Fecha_P, e.target, 'Fecha_P');
+        break;    
+        case "Descript":
+            validarTextArea(expresiones.Descript, e.target, 'Descript');
+        break; 
+        case "Cliente":
+            validarSelect(e.target, 'Cliente');
         break;
-        case "Estado_C" :
-            validarSelect(e.target, 'Estado_C');
+        case "Est":
+            validarSelect(e.target, 'Est');
         break;
-        case "Eps":
-            validarCampo(expresiones.Eps, e.target, 'Eps');
-        break;
-        case "Arl":
-            validarCampo(expresiones.Arl, e.target, 'Arl');
-        break;
-        case "Fondo_P":
-            validarCampo(expresiones.Fondo_P, e.target, 'Fondo_P');
-        break;
-        case "Nivel_E" :
-            validarSelect(e.target, 'Nivel_E');
-        break;
-        case "Exp":
-            validarCampo(expresiones.Exp, e.target, 'Exp');
-        break;
-        
-  }
+    
+    }
 };
 
 const validarCampo = (expresion, input, campo) => {
@@ -98,27 +84,56 @@ const validarSelect = (select, campo) => {
         
     }
 };
+const validarTextArea = (expresion,textarea, campo) => {
+  
+    if (expresion.test(textarea.value)) {
 
-/* Toma los inputs y selects y el enviar :)*/
+    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
+    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-exclamation-triangle');
+    document.querySelector(`#grupo__${campo} i`).classList.add('fa-clipboard-check');
+    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
+    campos[campo] = true;
+    
+  } else {
+      
+    document.querySelector(`#grupo__${campo} i`).classList.add('fa-exclamation-triangle');
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-clipboard-check');
+    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-correcto");
+    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-incorrecto");
+    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
+    campos[campo] = false;
+    
+    }
+};
+
+/* Toma los inputs y selects y texttareas y el enviar :)*/
 inputs.forEach((input) => {
         
-     input.addEventListener("keyup", validarFormularioDUE);
+     input.addEventListener("keyup", validarFormularioSE);
       
 });
 
 selects.forEach((select) => {
    
-   select.addEventListener("change", validarFormularioDUE);
+   select.addEventListener("change", validarFormularioSE);
     
 });
-//Cuando se envia todo
-formularioDUE.addEventListener('submit', (e) => {
+
+textareas.forEach((textarea) => {
     
+    textarea.addEventListener("keyup", validarFormularioSE);
+
+});
+
+//Aqui se envia :V
+formularioSE.addEventListener('submit', (e) => {
+   
     e.preventDefault();
     
-    if(campos.Id_Empleado && campos.Fecha_N && campos.Estado_C && campos.Eps && campos.Arl && campos.Fondo_P && campos.Nivel_E && campos.Exp) {
+    if(campos.Fecha_P && campos.Descript && campos.Cliente && campos.R_Por && campos.Est) {
         
-       formularioDUE.submit();
+       formularioSE.submit();
         
     } else {
         
@@ -131,5 +146,6 @@ formularioDUE.addEventListener('submit', (e) => {
         }, 20000);
         
     }
+    
 });
-});
+}); 

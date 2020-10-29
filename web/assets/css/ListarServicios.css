@@ -1,12 +1,128 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 15-oct-2020, 6:47:17
     Author     : Yeison
 */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+h1 {
+    font-size: 55px;
+}
 .img-ser {
     width:150px;
+}
+.service 
+{
+	width:500px;
+	height:300px;
+	border-radius:5px;
+        position:relative;
+        margin: 20px;
+        float: left;
+        overflow: scroll;
+}
+.border-A {
+  border: 2px solid blue;
+}
+.border-E {
+    border: 2px solid #ff9400;
+}
+.border-F {
+  border: 2px solid green;
+}
+.title-service
+{
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 5px;
+}
+.formil
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.linkS:hover
+{
+    cursor: pointer;
+}
+.row-service
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.col-5
+{
+    width: 35%;
+    height: 100%;
+    float:left;
+    padding-top:7%;
+}
+.col-6
+{
+    width: 100%;
+    height: 100%;
+    float:left;
+}
+.primer
+{
+	width:150px;
+	height:150px;
+	border:1px solid white;
+	border-radius:5px;
+	transition: all 0.5s;
+}
+.iconi
+{
+    color: #232323;
+}
+.text-id
+{
+    float:left;
+    margin: auto 10% auto 0px;
+    font-size: 23px;
+    font-family: 'Audiowide', cursiva;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.color-text-a
+{
+    color: #000e7d;
+}
+.fondo-text-a
+{
+    background: #fff;
+    border-radius: 35px;
+    color: #000e7d;
+    padding: 10px;
+    font-weight: 500;
+}
+.fondo-text-e
+{
+    background: #4c84ff;
+    border-radius: 35px;
+    color: #000e7d;
+    padding: 10px;
+    font-weight: 500;
+}
+.text-dat-id
+{
+    margin: auto 0px;
+    float: right;
+    font-size: 20px;
+}
+.text-dat
+{
+    float:right;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+/*La otra lista*/
+.estatus{
+    padding-top: 50%;
+    padding-bottom: 50%;
+}
+.edit {
+    margin: 30%;
 }

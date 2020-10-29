@@ -163,99 +163,141 @@
                         <!-- sidebar menu -->
                         <ul class="nav sidebar-inner" id="sidebar-menu">
 
+                            <%
+                                if(p.equals("1")) {
+                            %>
 
-
-                            <li  class="has-sub active expand" >
+                            <li  class="has-sub" id="dashboard_menu">
                                 <a class="sidenav-item-link" href="dashboard.jsp">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span class="nav-text">MENU</span> 
                                 </a>
 
                             </li>
+                            
+                            <% } else if(p.equals("2")) { %>
 
-
-
-
-
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#usuarios"
-                                   aria-expanded="false" aria-controls="usuarios">
-                                    <i class="mdi mdi-account-circle"></i>
-                                    <span class="nav-text">USUARIOS</span> <b class="caret"></b>
+                            <li  class="has-sub" id="dashboard_menu">
+                                <a class="sidenav-item-link" href="dashboardS.jsp">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span class="nav-text">MENU</span> 
                                 </a>
-                                <ul  class="collapse"  id="usuarios"
-                                     data-parent="#sidebar-menu">
-                                    <div class="sub-menu">
 
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="Usuarios.jsp">
-
-                                                <span class="nav-text">Empleados</span> <b class="caret"></b>
-                                            </a>
-
-                                        </li>
-
-
-
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="UsuariosC.jsp">
-                                                <span class="nav-text">Clientes</span> <b class="caret"></b>
-
-                                            </a>
-                                        </li>
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="Perfiles.jsp">
-                                                <span class="nav-text">Perfiles</span> <b class="caret"></b>
-
-                                            </a>
-                                        </li>                            
-
-
-
-                                    </div>
-                                </ul>
                             </li>
+                            
+                            <% } else if(p.equals("3")) { %>
+
+                            <li  class="has-sub" id="dashboard_menu">
+                                <a class="sidenav-item-link" href="dashboardT.jsp">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span class="nav-text">MENU</span> 
+                                </a>
+
+                            </li>
+                            
+                            <% } else if(p.equals("4")) { %>
+
+                            <li  class="has-sub" id="dashboard_menu">
+                                <a class="sidenav-item-link" href="dashboardCA.jsp">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span class="nav-text">MENU</span> 
+                                </a>
+
+                            </li>
+                            
+                            <% } else if(p.equals("5")) { %>
+
+                            <li  class="has-sub" id="dashboard_menu">
+                                <a class="sidenav-item-link" href="dashboardCL.jsp">
+                                    <i class="mdi mdi-view-dashboard-outline"></i>
+                                    <span class="nav-text">MENU</span> 
+                                </a>
+
+                            </li>
+                            
+                            
+                            <%
+                                }
+
+                                if(p.equals("1") || p.equals("2")) {
+                            %>
+
+
+                            <li  class="has-sub" id="usuario_menu">
+                              <a id="usuario_coll" class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#usuario"
+                              aria-expanded="false" aria-controls="usuario">
+                              <i class="mdi mdi-account-circle"></i>
+                              <span class="nav-text">USUARIOS</span><b class="caret"></b>
+                            </a>
+                            <ul  class="collapse"  id="usuario" data-parent="#sidebar-menu">
+                              <div class="sub-menu">
+
+
+                                    <li id="usuario_empleado">
+                                      <a class="sidenav-item-link" href="Usuarios.jsp">
+                                        <span class="nav-text">Empleados</span>
+
+                                      </a>
+                                    </li>
+
+
+
+                                    <li id="usuario_cliente">
+                                      <a class="sidenav-item-link" href="UsuariosC.jsp">
+                                        <span class="nav-text">Clientes</span>
+
+                                      </a>
+                                    </li>
 
 
 
 
+                                    <li id="usuario_perfiles">
+                                      <a class="sidenav-item-link" href="Perfiles.jsp">
+                                        <span class="nav-text">Perfiles</span>
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
-                                   aria-expanded="false" aria-controls="components">
+                                      </a>
+                                    </li>
+
+
+                              </div>
+                            </ul>
+                          </li>
+
+                          <% } %>
+
+                            <li  class="has-sub" id="servicio_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#servicio"
+                                   aria-expanded="false" aria-controls="servicio">
                                     <i class="mdi mdi-clipboard-list"></i>
                                     <span class="nav-text">SERVICIOS</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="components"
+                                <ul  class="collapse"  id="servicio"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
+                                        <%if(p.equals("1") || p.equals("2") || p.equals("3") || p.equals("4")) { %>
 
-
-                                        <li >
+                                        <li id="servicio_gestion">
                                             <a class="sidenav-item-link" href="Servicios.jsp">
                                                 <span class="nav-text">Gestion</span>
-
                                             </a>
                                         </li>
-
-
-
-
-
-
-
-
-
-
+                                        <% } %>
+                                        <li id="servicio_listar">
+                                          <a class="sidenav-item-link" href="ListarServicios.jsp">
+                                            <span class="nav-text">Listar Servicios</span>
+                                          </a>
+                                        </li>
+                                        
+                                        <% if(p.equals("5")) { %>
+                                        <li id="servicio_cliente">
+                                          <a class="sidenav-item-link" href="MiServicio.jsp">
+                                            <span class="nav-text">Mis Servicios</span>
+                                          </a>
+                                        </li>
+                                        <% } %>
+                                        
                                     </div>
                                 </ul>
                             </li>
@@ -264,34 +306,25 @@
 
 
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
-                                   aria-expanded="false" aria-controls="icons">
+                            <li class="has-sub" id="producto_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#producto"
+                                   aria-expanded="false" aria-controls="producto">
                                     <i class="mdi mdi-laptop-chromebook"></i>
-                                    <span class="nav-text">Productos</span> <b class="caret"></b>
+                                    <span class="nav-text">PRODUCTOS</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="icons"
+                                <ul  class="collapse"  id="producto"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
 
-
-                                        <li >
-                                            <a class="sidenav-item-link" href=#>
+                                        <li id="producto_gestion">
+                                            <a class="sidenav-item-link" href="consultarProducto.jsp">
                                                 <span class="nav-text">Gestion</span>
 
                                             </a>
                                         </li>
 
 
-
-
-
-
-
-
-
-
                                     </div>
                                 </ul>
                             </li>
@@ -300,39 +333,39 @@
 
 
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#forms"
-                                   aria-expanded="false" aria-controls="forms">
+                            <li  class="has-sub" id="reparacion_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#reparacion"
+                                   aria-expanded="false" aria-controls="reparacion">
                                     <i class="mdi mdi mdi-wrench"></i>
-                                    <span class="nav-text">Reparaciones</span> <b class="caret"></b>
+                                    <span class="nav-text">REPARACIONES</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="forms"
+                                <ul  class="collapse"  id="reparacion"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
 
 
-                                        <li >
+                                        <li id="reparacion_gestion">
                                             <a class="sidenav-item-link" href="consultaReparacion.jsp">
                                                 <span class="nav-text">Gestion</span>
 
                                             </a>
                                         </li>
                                         
-                                                                                <li  class="has-sub" >
-                                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#data-tables"
-                                               aria-expanded="false" aria-controls="data-tables">
-                                                <span class="nav-text">Detalles de Repuestos</span> <b class="caret"></b>
+                                       <li class="has-sub" >
+                                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#detalles_reparacion"
+                                               aria-expanded="false" aria-controls="detalles_reparacion">
+                                                <span class="nav-text">Detalles de Reparaciones</span> <b class="caret"></b>
                                             </a>
-                                            <ul  class="collapse"  id="data-tables">
+                                            <ul  class="collapse"  id="detalles_reparacion">
                                                 <div class="sub-menu">
 
                                                     <li >
-                                                        <a href="basic-data-table.html">Recientes</a>
+                                                        <a href="#">Recientes</a>
                                                     </li>
 
                                                     <li >
-                                                        <a href="responsive-data-table.html">Responsive Data Table</a>
+                                                        <a href="#">Productos</a>
                                                     </li>
 
 
@@ -351,19 +384,19 @@
 
 
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#tables"
-                                   aria-expanded="false" aria-controls="tables">
+                            <li class="has-sub" id="repuesto_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#repuesto"
+                                   aria-expanded="false" aria-controls="repuesto">
                                     <i class="mdi mdi-screwdriver"></i>
-                                    <span class="nav-text">Repuestos</span> <b class="caret"></b>
+                                    <span class="nav-text">REPUESTOS</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="tables"
+                                <ul  class="collapse"  id="repuesto"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
 
 
-                                        <li >
+                                        <li id="repuesto_gestion">
                                             <a class="sidenav-item-link" href="consultarRepuesto.jsp">
                                                 <span class="nav-text">Inventario de Repuestos</span>
 
@@ -374,21 +407,20 @@
 
 
 
-
                                         <li  class="has-sub" >
-                                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#data-tables"
-                                               aria-expanded="false" aria-controls="data-tables">
+                                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#detalles_repuestos"
+                                               aria-expanded="false" aria-controls="detalles_repuestos">
                                                 <span class="nav-text">Detalles de Repuestos</span> <b class="caret"></b>
                                             </a>
-                                            <ul  class="collapse"  id="data-tables">
+                                            <ul  class="collapse" id="detalles_repuestos">
                                                 <div class="sub-menu">
 
                                                     <li >
-                                                        <a href="basic-data-table.html">Recientes</a>
+                                                        <a href="#">Especifica</a>
                                                     </li>
 
                                                     <li >
-                                                        <a href="responsive-data-table.html">Responsive Data Table</a>
+                                                        <a href="#">Reciente</a>
                                                     </li>
 
 
@@ -406,19 +438,19 @@
 
 
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#maps"
-                                   aria-expanded="false" aria-controls="maps">
+                            <li  class="has-sub" id="factura_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#factura"
+                                   aria-expanded="false" aria-controls="factura">
                                     <i class="mdi mdi-cash-usd"></i>
-                                    <span class="nav-text">Facturas</span> <b class="caret"></b>
+                                    <span class="nav-text">FACTURA</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="maps"
+                                <ul  class="collapse"  id="factura"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
 
 
-                                        <li >
+                                        <li id="factura_gestion">
                                             <a class="sidenav-item-link" href="consultarFactura.jsp">
                                                 <span class="nav-text">General</span>
 
@@ -426,14 +458,9 @@
                                         </li>
 
 
-
-
-
-
                                         <li >
-                                            <a class="sidenav-item-link" href="vector-map.html">
+                                            <a class="sidenav-item-link" href="#">
                                                 <span class="nav-text">Especificas</span>
-
                                             </a>
                                         </li>
 
@@ -446,60 +473,11 @@
 
 
 
-
-
-
-
-
-
-                            <li  class="has-sub" >
-
-                                <ul  class="collapse"  id="pages"
-                                     data-parent="#sidebar-menu">
-                                    <div class="sub-menu">
-
-
-
-
-
-
-
-
-
-
-                                        <li  class="has-sub" >
-                                            <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#others"
-                                               aria-expanded="false" aria-controls="others">
-                                                <span class="nav-text">Otros</span> <b class="caret"></b>
-                                            </a>
-                                            <ul  class="collapse"  id="others">
-                                                <div class="sub-menu">
-
-                                                    <li >
-                                                        <a href="invoice.html">Convexo</a>
-                                                    </li>
-
-                                                    <li >
-                                                        <a href="404.html">404 Page</a>
-                                                    </li>
-
-                                                </div>
-                                            </ul>
-                                        </li>
-
-
-
-                                    </div>
-                                </ul>
-                            </li>
-
-
-
-                            <li  class="has-sub" >
+                            <li  class="has-sub" id="estado_menu">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#estados"
                                    aria-expanded="false" aria-controls="estados">
                                     <i class="mdi mdi-table"></i>
-                                    <span class="nav-text">Estados</span> <b class="caret"></b>
+                                    <span class="nav-text">ESTADOS</span> <b class="caret"></b>
                                 </a>
                                 <ul  class="collapse"  id="estados"
                                      data-parent="#sidebar-menu">
@@ -507,7 +485,7 @@
 
 
 
-                                        <li >
+                                        <li id="estado_gestion">
                                             <a class="sidenav-item-link" href="Estados.jsp">
                                                 <span class="nav-text">Gestion</span>
 
@@ -519,43 +497,21 @@
                                 </ul>
                             </li>
 
-                            <li  class="has-sub" >
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
-                                   aria-expanded="false" aria-controls="documentation">
+                            <li  class="has-sub" id="opcionesPU_menu">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#configuracion"
+                                   aria-expanded="false" aria-controls="configuracion">
                                     <i class="mdi mdi-cogs"></i>
-                                    <span class="nav-text">Configuración</span> <b class="caret"></b>
+                                    <span class="nav-text">CONFIGURACIÓN</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="documentation"
+                                <ul  class="collapse"  id="configuracion"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
 
 
-                                        <li class="section-title">
-                                            opciones
-                                        </li>
-
-
-
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="#">
-                                                <span class="nav-text">Usuario</span>
-
-                                            </a>
-                                        </li>
-
-
-
-
-
-
-                                        <li >
-                                            <a class="sidenav-item-link" href="#">
-                                                <span class="nav-text">Personalización</span>
-
+                                        <li id="opciones_perfilPU">
+                                            <a class="sidenav-item-link" href="PerfilU.jsp">
+                                                <span class="nav-text">Opciones de Perfil</span>
                                             </a>
                                         </li>
 
@@ -564,17 +520,6 @@
                                     </div>
                                 </ul>
                             </li>     
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -697,21 +642,21 @@
 
                                     <li>
                                         <a href="PerfilU.jsp" class="text-dark">
-                                        <i class="mdi mdi-account text-primary"></i> Mi Perfil
+                                        <i class="mdi mdi-account text-primary"></i>Mi Perfil
                                       </a>
                                     </li>
                                     <li>
                                       <a href="#" class="text-dark">
-                                        <i class="mdi mdi-email text-primary"></i> Mensages
+                                        <i class="mdi mdi-email text-primary"></i>Mensages
                                       </a>
                                     </li>
                                     <li>
                                       <a href="#" class="text-dark">
-                                          <i class="mdi mdi-diamond-stone text-primary"></i> Cargos</a>
+                                          <i class="mdi mdi-diamond-stone text-primary"></i>Cargos</a>
                                     </li>
                                     <li class="right-sidebar-in">
-                                      <a href="javascript:0" class="text-dark">
-                                          <i class="mdi mdi-settings text-primary"></i> Configuración </a>
+                                      <a href="PerfilU.jsp" class="text-dark">
+                                          <i class="mdi mdi-settings text-primary"></i>Configuración</a>
                                     </li>
 
                                     <li class="dropdown-footer">

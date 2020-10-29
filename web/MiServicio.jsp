@@ -1,9 +1,8 @@
 <%-- 
-    Document   : Servicios
-    Created on : 17-ago-2020, 23:49:09
+    Document   : MiServicio.jsp
+    Created on : 29-oct-2020, 8:17:39
     Author     : Yeison
 --%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="modeloDAO.ServicioDAO"%>
 <%@page import="modeloVO.ServicioVO"%>
@@ -28,15 +27,6 @@
                 <h1 class="text text-dark">Gestion de Servicios</h1>
               
                   <hr>
-                  <br>
-                  <div class="navbar">
-                      <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarServicio.jsp">+ Nuevo Registro</a><br>
-                  <form class="form-inline" method="POST" action="Servicio">
-                      <input type="search" class="form-control form-dark" name="text"/>
-                      <input type="submit" class="btn btn-primary" value="Buscar"/>
-                      <input type="hidden" name="opcion" value="4" />
-                  </form>
-                  </div>
                   
                 <br><br>
                 <div class="card bg-white" style="width: 100%">
@@ -62,11 +52,11 @@
 
                                 String e = "", a = "", f = "";
 
-                                ArrayList<ServicioVO> listaServicios = serDAO.listarS();
+                                ArrayList<ServicioVO> listaServiciosCL = serDAO.listarSCL();
 
-                                for (int i = 0; i < listaServicios.size(); i++) {
+                                for (int i = 0; i < listaServiciosCL.size(); i++) {
 
-                                    serVO = listaServicios.get(i);
+                                    serVO = listaServiciosCL.get(i);
                                     
                                      a = "Activo";
                                      e = "En Proceso";
@@ -278,12 +268,11 @@
  <!-- Optional JavaScript -->
     <!--, then Popper.js, then Bootstrap JS -->
     <script src="assets/plugins/jquery/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="assets/js/Servicio.js"></script>
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <%@include file="dash2.jsp"%>
     <script>
         document.getElementById(`servicio_menu`).classList.add("active");
         document.getElementById(`servicio_menu`).classList.add("expand");
         document.getElementById(`servicio`).classList.add("show");
-        document.getElementById(`servicio_gestion`).classList.add("active");
+        document.getElementById(`servicio_cliente`).classList.add("active");
     </script>
