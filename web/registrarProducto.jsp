@@ -16,7 +16,7 @@
         <div class="content-wrapper">
             <main class="container mb-5">
                 <div class="row">
-                    <h1 class="col-12 d-flex justify-content-center p-4 btn-secondary w-100">Registrar Porducto</h1>
+                    <h1 class="col-12 d-flex justify-content-center p-4 btn-secondary w-100">Registrar Producto</h1>
                 </div>
                 <section class="row mt-5">
                     <div class="card w-100 m-auto">
@@ -29,7 +29,7 @@
                                <div class="form-group row m-90" id="grupo__fecha_compra">
                  <label class="col-lg-3 col-form-label form-control-label">Tipo de Producto :</label>
                         <div class="col-lg-9">
-                            <input  class="form-control" type="text" name="textProducto" id="fecha" placeholder="Ejem:computador">
+                            <input  class="form-control" type="text" name="textProducto" id="fecha" placeholder="Ejem:Computador">
                             <i class="formulario__validacion-estado far fa-times-circle"></i>
                         </div>
              </div>
@@ -44,7 +44,7 @@
                       <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Modelo:</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" name="textModelo" placeholder="Ejem:LG y Version ">
+                            <input class="form-control" type="text" name="textModelo" placeholder="Ejem:LG y Versión ">
                              <i class="formulario__validacion-estado far fa-times-circle"></i>
                         </div>
                       </div>

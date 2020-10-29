@@ -170,7 +170,7 @@ public class FacturaDAO extends Conexion implements Crud{
         ArrayList<FacturaVO>ListaFacturas = new ArrayList<FacturaVO>();// se declara un objeto Arraylist de tipo VehiculoVO y el nombre del arregloo alias : listaVehiculos  , y se volve a declarar el nombre:ArrayList y el nombre del objeto<VehiculoVO>
                 try {
             conexion = this.obtenerConexion();
-            sql =" SELECT F.*, S.Descripcion, U.Nombres FROM factura F INNER JOIN servicio S ON f.Servicio = s.Id INNER JOIN usuario U ON u.Id = f.Recibe   ";
+            sql ="SELECT * FROM vista_factura_list";
             puente=conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {

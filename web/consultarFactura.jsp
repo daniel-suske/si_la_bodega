@@ -91,7 +91,7 @@
                                     <input type="hidden" value="2" name="opcion">
                                     <input type="hidden" value="<%=faVO.getId()%>" name="textId" id="id">
                                     <div class="row justify-content-center">
-                                        <button class="btn btn-primary"><i><img src="assets/icons/editar.png" width="25px"></i>Editar</button>                                        
+                                        <button class="btn btn-primary"><i><img src="assets/icons/editar.png" width="18px"></i></button>                                        
                                     </div>
                                 </form>
                             </td>

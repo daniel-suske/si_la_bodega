@@ -46,7 +46,8 @@
                               <label for="factura" class=" formulario__label mark ">Fecha de Factura :</label>
                               <div class="formulario__grupo-input">
 
-                                  <input type="date" class="form-control-lg col-lg-11"  name="factura" id="factura " placeholder="Ejem:12/07/2020">
+                                  <input type="date" class="form-control-lg col-lg-11"  name="dates" id="dates">
+                                  <input type="hidden" name="factura" id="factura">
 
                               </div>
                               
@@ -79,8 +80,8 @@
                           <label for="pago" class="formulario__label mark">Tipo de Pago:</label>
                          
                         <div class="formulario__grupo-input">
-                            <input class="form-control-lg col-lg-11  " type="text" name="pago" id="pago" placeholder="Ejem: EF O TD">
-                            <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
+                            
+                           <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
                              <select id="pago" name="pago" class="form-control-lg col-lg-11">
                                  <option value="" disabled="" selected="">Seleccione...</option>
                                        <option value="EF">EFECTIVO</option>
@@ -88,7 +89,7 @@
                                       
                               </select>
                         </div>
-                          <p class="formulario__input-error ">El tipo de pago debe contener de 2 a 4 digitos</p>
+                          <p class="formulario__input-error ">El tipo de pago debe se deber llenar completo</p>
                       </div>
                               <div class="form-group col-md-6 " id="grupo__total">
                         <label for="total" class="formulario__label mark ">Valor Total:</label>
@@ -108,8 +109,14 @@
                             <label for="garantia" class="formulario__label mark ">Garantia:</label>
                             
                         <div class="formulario__grupo-input">
-                            <input class="form-control-lg col-lg-11"type="text" name="garantia" id="garantia" placeholder="Digite: Si o No">
+                            
                            <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
+                            <select id="pago" name="garantia" class="form-control-lg col-lg-11">
+                                 <option value="" disabled="" selected="">Seleccione Tipo de Garantia </option>
+                                       <option value="SI">SI TIENE GARANTIA</option>
+                                        <option value="NO">NO TIENE GARANTIA</option>
+                                      
+                              </select>
                         </div>
                             <p class="formulario__input-error">Digite repuesta con dos digitos de coherencia</p>
                       </div>
@@ -139,20 +146,22 @@
                     
                     </div>
                         
-                        <div class="formulario__mensaje" id="formulario__mensaje">
+                        <div class="formulario__mensaje m-auto text-center" id="formulario__mensaje">
+                            
                             <p ><i class="fas fa-exclamation-triangle"></i><b>Error:</b> Porfavor llenar los espacios del formulario completamente.</p>
                          </div>
                            <div class="formulario__btn ">
                                <button type="submit "class="formulario__btn btn btn-success border border-dark btn-lg btn-block col-lg-8 mt-5 ">Registrar</button>     
                       <input type="hidden" value="1" name="opcion">
-              <div style="color:Red">
-                   <center>
+                      <div  style="color:Red">
+                  
                        <%if (request.getAttribute("mensajeFallido") != null) {%>
-                       ${mensajeFallido}
+                       <h5 class="text-center">${mensajeFallido}</h5>
                        <% } %>
-              </center>
+              
               </div>
-                           </div>                      
+                           </div>    
+                       
             
         </div>
                   

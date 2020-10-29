@@ -9,8 +9,11 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modeloDAO.UsuarioDAO"%>
 <%@page import="modeloVO.UsuarioVO"%>
+<%@page  import="modeloVO.ServicioVO" %>
+<%@page  import="modeloDAO.ServicioDAO" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" href="assets/css/RegistrarFactura.css"/>
 <%@include file="dash1.jsp" %>
 
 <title> Actualizar Factura</title>
@@ -29,50 +32,103 @@
                                 </div>      
                                 
          
-                    <div class="card-body">
-                        <form class="form" role="form" method="post" action="Factura" autocomplete="off">
-                                <%  FacturaVO faVO = (FacturaVO) request.getAttribute("Factura");
+                 
+                          <%  FacturaVO faVO = (FacturaVO) request.getAttribute("Factura");
                                     if (faVO != null) {%>
-                                    <div class="form-group row">
+                                       <div class="card-body">
+                                    
+                        <form class="form"  method="post" action="Factura" id="form">
+                              
+                                     <div class="form-row content ">
+                                    <div class="form-group col-md-6 " id="grupo__factura">
+                                         <label for="factura" class="formulario__label mark ">Fecha de Factura :</label>
+                                         <div class="formulario__grupo-input">
+                                    
+                                            <input type="date" class="form-control-lg col-lg-11"  name="factura" id="factura" value="<%=faVO.getFecha()%>">
+                                            <p class="formulario__input-error">Debe completar La fecha de la factura</p>
+                              
+                          </div>
+                                        <div class="form-group col-md-13" id="grupo__servicio">
+                                        <label for="servicio" class="formulario__label mark ">Descripcion Del Servicio</label>
+                                        
+                                                <div class="formulario__grupo-input ">
+                                                     <select name="servicio"  class="form-control form-control-lg">
+                                                <option value=""> Seleccione...</option>
+                                                <%
+                                                   ServicioDAO SerDAO = new ServicioDAO();
+                                          for (ServicioVO SerVO : SerDAO.listarS()) {
+                                                        String a = faVO.getServicio();
+                                                        String b = SerVO.getId();
+                                                        if (a.equals(b)) {
 
+                                                %>
+                                                <option value="<%= SerVO.getId()%>" selected> <%= SerVO.getDescripcion()%></option>
+                                                <%
+                                                    }else{
+                                                %>
+                                                
+                                                
+                                                  <option value="<%= SerVO.getId()%>" > <%= SerVO.getDescripcion()%></option>
+                                                <%
+                                                    }}
+                                                %>
+                                            </select>
 
-
-                                        <label class="col-lg-3 col-form-label form-control-label">Fecha de Factura:</label>
-                                        <div class="col-lg-9">
-                                            <input  class="form-control" type="date" name="textFecha" value="<%=faVO.getFecha()%>">
-                                        </div>
+                                                </div>
+                                                <p class="formulario__input-error">Debe seleccionar el la descripcion del producto</p>
+                                            </div>
                                     </div>
-                                    <div class="form-group row">
-
-                                        <label class="col-lg-3 col-form-label form-control-label">Servicio:</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control"type="number" name="textservicio" value="<%=faVO.getServicio()%>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-
-                                        <label class="col-lg-3 col-form-label form-control-label">Tipo Pago:</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" name="textTipPago" value="<%=faVO.getTipo_Pago()%>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Valor Total:</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" name="textVaPago" value="<%=faVO.getValor_Total()%>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Garantia:</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control"type="text" name="textGarantia" value="<%=faVO.getGarantia()%>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"> Recibe:</label>
-                                        <div class="col-lg-9">
-                                           
-                                            <select name="textRecibe"  class="form-control form-control-lg">
+                                     
+         
+                    <div class="form-row content">
+                                  <div class="form-group col-md-6 " id="grupo__pago">
+                          <label for="pago" class="formulario__label mark">Tipo de Pago:</label>
+                         
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="form-control-lg col-lg-11"  name="pago" id="pago" value="<%=faVO.getTipo_Pago()%>">
+                            
+                           <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
+                           
+                        </div>
+                          <p class="formulario__input-error ">El tipo de pago debe se deber llenar completo</p>
+                      </div>
+                              <div class="form-group col-md-6 " id="grupo__total">
+                        <label for="total" class="formulario__label mark ">Valor Total:</label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control-lg col-lg-11" type="text" name="total" id="total"  value="<%=faVO.getValor_Total()%>">
+                             <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
+                            
+                        </div>
+                        
+                        <p class="formulario__input-error">El valor debe ser con numeros enteros </p>
+                      </div>
+                    </div>
+                    
+                             
+                    <div class="form-row content">
+                        <div class="form-group col-md-6" id="grupo_garantia">
+                            <label for="garantia" class="formulario__label mark ">Garantia:</label>
+                            
+                        <div class="formulario__grupo-input">
+                            
+                           <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
+                            <select id="garantia" name="garantia" class="form-control-lg col-lg-11">
+                             
+                                       <option value="<%=faVO.getGarantia()%>">SI TIENE GARANTIA</option>
+                                        <option value="<%=faVO.getGarantia()%>">NO TIENE GARANTIA</option>
+                                      
+                              </select>
+                        </div>
+                            <p class="formulario__input-error">Digite repuesta con dos digitos de coherencia</p>
+                      </div>
+                   
+                        
+                        <div class="form-group col-md-6" id="grupo_recibe">
+                            <label for="recibe" class="formulario__label mark">Recibe:</label>
+                            <div class="formulario__grupo-input">
+                                <i class="formulario__validacion-status fas fa-exclamation-circle"></i>
+                               
+                                            <select name="recibe"  class="form-control form-control-lg">
                                                 <option value=""> Seleccione...</option>
                                                 <%
                                                     UsuarioDAO usuDAO = new UsuarioDAO();
@@ -93,24 +149,41 @@
                                                     }}
                                                 %>
                                             </select>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-lg-12 text-center">
-                                            <button class="btn btn-success col-lg-3 col-form-label form-control-label">Actualizar</button>
-                                            <input type="hidden" value="3" name="opcion">
-                                            <input type="hidden" value="<%=faVO.getId()%>" name="textId">
-                                        </div>
-                                    </div>
-
-                                </form>
-                    </div>
                             </div>
-                                        
-                        </section>
-                    </main>
+                        <p class="formulario__input-error">Debe seleccionar el nombre de quien recibe el producto </p>
+                       </div>
+                    
+                    </div>
+                        
+                        <div class="formulario__mensaje m-auto text-center" id="formulario__mensaje">
+                            
+                            <p ><i class="fas fa-exclamation-triangle"></i><b>Error:</b> Porfavor llenar los espacios que desea actualizar .</p>
+                         </div>
+                           <div class="formulario__btn ">
+                               <button type="submit "class="formulario__btn btn btn-success border border-dark btn-lg btn-block col-lg-8 mt-5 ">Actualizar</button>     
+                      <input type="hidden" value="3" name="opcion">
+                       <input type="hidden" value="<%=faVO.getId()%>" name="textId">
+                      <div  style="color:Red">
+                  
+                       <%if (request.getAttribute("mensajeFallido") != null) {%>
+                       <h5 class="text-center">${mensajeFallido}</h5>
+                       <% } %>
+              
+              </div>
+                           </div>    
+                       
+            
+        </div>
+                        
+                  
+                  
+                  </form>  
+                    
+                </div>
+            
+   
+            </section>
+           </main>
                 
                                        
                                         <center>
@@ -135,3 +208,7 @@
 
                 <!-- Termina aqui -->
                 <%@include file="dash2.jsp" %>
+                 <!-- validaciones y demas -->
+       
+        <script  type="" src = "https://unpkg.com/ionicons@5.2.3/dist/ionicons.js" ></script >
+                <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>

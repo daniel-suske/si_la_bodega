@@ -9,13 +9,15 @@
     outline:none;
     box-shadow: 3px 0px 30pxpx rgba(163,163,163,0.4);
     
-
+    
 }
 .formulario__input-error{
-    padding: 10px;
-    color:#000;
-    font-size: 15px;
-    display: none;
+   padding: 10px;
+   color: #bb2929;
+   font-size: 15px;
+   display: none;
+    
+    
     
 }
 .formulario__input-error-activo{
@@ -69,6 +71,7 @@ color:#000
 }
 .formulario__mensaje p{
     margin: 0;
+    margin-top: 20px;
     font-size: 20px;
     font-family: AUTO;
     padding: 7px;
