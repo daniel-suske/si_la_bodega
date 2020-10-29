@@ -266,12 +266,12 @@ $("#addElement").click(function (e) {
    
 
     
-    var idCategory = $("#repuesto").val()
+    var idCategory = $("#repuestoss").val()
     
  
 
     
-    let nameCategory = $("#repuesto option:selected").text()
+    var  nameCategory = $("#repuestoss option:selected").text();
      cantidad =parseInt( $("#cantidad").val());
    
     
@@ -282,7 +282,7 @@ $("#addElement").click(function (e) {
              
             var parametros = {
         
-        Id: $("#repuesto").val(),
+        Id: $("#repuestoss").val(),
         opcion:69
       }
   

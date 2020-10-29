@@ -23,6 +23,9 @@ h1 {
 .border-A {
   border: 2px solid blue;
 }
+::-webkit-scrollbar {   /*scroll invisible*/
+    display: none;
+}
 .border-E {
     border: 2px solid #ff9400;
 }

@@ -143,8 +143,8 @@
             <div class="formulario__grupo" id="grupo__repuesto">
                 <label for="repuesto" class="formulario__label">Repuesto</label>
                 <div class="formulario__grupo-inputs">
-                    <select class="formulario__inputs" name="repuesto" id="repuesto">
-                        <option value="" selected>Seleccione...</option>
+                    <select class="formulario__inputs" name="repuestoss" id="repuestoss">
+                        <option value="" >Seleccione...</option>
                         <%
                             RepuestoDAO repuDAO = new RepuestoDAO();
 

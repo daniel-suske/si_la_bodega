@@ -76,7 +76,7 @@ public class Correo {
         text = "Bienvenido al sistema LA BODEGA  <b>"+Nombres+" "+Apellidos+"</b>"
                 +"<br>su codigo proporcionado es: <b>"+Contrasena+"</b>"
                 +"<br>Para cambiar su Contraseña de click aqui:"
-                +"<br><a href = 'http://localhost:26775/si_la_bodega/CambiarContrasenaU.jsp'>Confirmar</a>";
+                +"<br><a href = 'http://localhost:27553/si_la_bodega/CambiarContrasenaU.jsp'>Confirmar</a>";
         
         try {
             
