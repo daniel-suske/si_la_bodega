@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,9 @@ import modeloVO.RepuestoVO;
  *
  * @author jony
  */
+
 @WebServlet(name = "RepuestoControlador", urlPatterns = {"/Repuesto"})
+@MultipartConfig(maxFileSize = 16177215) 
 public class RepuestoControlador extends HttpServlet {
 
     /**
@@ -47,22 +50,33 @@ public class RepuestoControlador extends HttpServlet {
         String No_Serie = request.getParameter("no_serie");
         String Marca = request.getParameter("marca");
         String Modelo = request.getParameter("modelo");
-        String Fecha_Compra = request.getParameter("fecha");
+         String Fecha_Compra = request.getParameter("fecha");
         String Lugar_Compra = request.getParameter("lugar_compra");
         String Valor_Compra = request.getParameter("valor_compra");
         String Valor_Venta = request.getParameter("valor_venta");
         String Cantidad = request.getParameter("cantidad");
         String Estado = request.getParameter("estado");
-       /* Part part = request.getPart("imagen");
-        InputStream inputStream = part.getInputStream();*/
-
-        RepuestoVO repuVO = new RepuestoVO(Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado);
+        InputStream inputStream = null;
+        if(opcion ==1){
+         Part part = request.getPart("imagen");
+        
+         String a=part.getSubmittedFileName();
+         System.out.println(a);
+         if( !a.isEmpty()){
+          inputStream = part.getInputStream();
+         
+        }
+        }
+        
+        
+        RepuestoVO repuVO = new RepuestoVO(Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado, inputStream);
         RepuestoDAO repuDAO = new RepuestoDAO(repuVO);
 
         switch (opcion) {
 
             case 1:
-                
+               
+
                 if (repuDAO.agregarRegistro()) {
                     
                     request.getRequestDispatcher("consultarRepuesto.jsp").forward(request, response);

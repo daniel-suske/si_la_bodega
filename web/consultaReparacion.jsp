@@ -19,25 +19,20 @@
 <div class="content-wrapper">
 
     <div class="content">
-        <div class="card bg-white" style="width: 104%">
+        <div class="card bg-white" style="width: 100%">
             <div class="card-body ">
-                <h5>Consultar Repuestos</h5>
+                <h3 class="text-center">Gestión de Reparación</h3>
                 <br><br>
 
-                <form method="post" action="Repuesto" class="form-inline"> 
-
-                    <input type="hidden" value="3" name="opcion"> 
-                    <label for="no_serie" class="m-2"> No_Serie:</label>
-                    <input type="text"  class="form-control m-2" name="no_serie" id="no_serie" autofocus="100"> 
-                    <div class="form-inline">
-                        <button class="btn btn-success m-2">Consultar</button> 
-                </form>
+                
+                    <div class="form-inline justify-content-center">
+                        
 
 
-                <a class="btn btn-info" style="text-decoration: none; color: #Fff" href="registrarReparacion.jsp">Crear</a>
+                <a class="btn btn-success" style="text-decoration: none; color: #Fff" href="registrarReparacion.jsp"> + Nueva Reparación</a>
 
 
-                <a class="btn btn-dark m-2" style="text-decoration: none; color: #Fff" href="consultarReparacion.jsp">Todo</a>
+                
 
             </div>
 

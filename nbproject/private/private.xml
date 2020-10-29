@@ -3,8 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/WEB-INF/base.html</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/registrarReparacion.js</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/index.jsp</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/ReparacionControlador.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/registrarRepuesto.jsp</file>
             <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/util/Conexion.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/consultarRepuesto.jsp</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/ServicioControlador.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/registrarRepuesto.js</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/registrarReparacion.jsp</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloDAO/Detalles_RepuestoDAO.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloDAO/RepuestoDAO.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/Servicio.js</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloVO/RepuestoVO.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/UsuarioControlador.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/modeloDAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/assets/js/Usuario.js</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/ControladorImagenRepuesto.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/util/Correo.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/Usuarios.jsp</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/RepuestoControlador.java</file>
+            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/EnviarCorrCon.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+.custom-file-input ~ .custom-file-label::after {
+   
+    content:"";
+    background-image:  url("../img/subir.png") ;
+    background-size: 57px;
+    background-repeat: no-repeat;
+    color: white;
+    justify-content: center;
+    height: 58px;
+    width: 60px;
+    text-align: justify;
+    
+}
+.custom-file-label{
+    height: 60px;
+    justify-content: center;
+}
+
 *{
 	box-sizing: border-box;
 }
 body{
 font-family: 'Roboto', sans-serif;
+
 }
 .logona {
 	width: 70px;
@@ -21,6 +41,7 @@ font-family: 'Roboto', sans-serif;
 	  background: rgb(156,195,242);
 	  background: linear-gradient(90deg, rgba(156,195,242,1) 0%, rgba(13,84,242,1) 100%);
   }
+ 
   .equis {
 	
 	font-size: 40px;

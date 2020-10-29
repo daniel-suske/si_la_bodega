@@ -33,7 +33,7 @@ public class Detalles_RepuestoDAO extends Conexion implements Crud {
     private String sql;                                  //Permite manejar consultas
     private boolean operacion = false; 
     
-    private String Id_Reparacion="", Id_Repuesto="", Cantidad="";
+    private String Id_Reparacion="", Id_Repuesto="", Cantidad="", Valor_Venta="";
     
    
     
@@ -43,6 +43,7 @@ public class Detalles_RepuestoDAO extends Conexion implements Crud {
     Id_Reparacion = detaVO.getId_Reparacion();
     Id_Repuesto = detaVO.getId_Repuesto();
     Cantidad= detaVO.getCantidad();
+    Valor_Venta = detaVO.getValor_Venta();
     
     }
     
@@ -95,8 +96,8 @@ conexion=this.obtenerConexion();
             puentesp = conexion.prepareCall(sql);
             mensajero = puentesp.executeQuery();//execute query para consultas
             while (mensajero.next()) {
-                Detalles_RepuestoVO repaVO = new Detalles_RepuestoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(5), mensajero.getString(4));
-                listaDetallles.add(repaVO);
+                Detalles_RepuestoVO detVO = new Detalles_RepuestoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(5), mensajero.getString(4));
+                listaDetallles.add(detVO);
             }
         } catch (SQLException e) {
             Logger.getLogger(ReparacionDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -109,6 +110,32 @@ conexion=this.obtenerConexion();
             }
         }
         return listaDetallles;
+    }
+    
+     public ArrayList<Detalles_RepuestoVO> consultarId(String Id) {
+        ArrayList<Detalles_RepuestoVO>detalles_id = new ArrayList<Detalles_RepuestoVO>();
+        try {
+            conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
+            sql = "CALL consultar_detalles_id ( ? ) ";
+            puente = conexion.prepareCall(sql);
+            puente.setString(1, Id);
+            mensajero = puente.executeQuery();//execute query para consultas
+            while (mensajero.next()) {
+               Detalles_RepuestoVO detVO = new Detalles_RepuestoVO(Id, mensajero.getString(2), mensajero.getString(5), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
+               detalles_id.add(detVO);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return detalles_id;
+
     }
     
     @Override

@@ -4,6 +4,8 @@
     Author     : jony
 --%>
 
+<%@page import="modeloVO.ProductoVO"%>
+<%@page import="modeloDAO.ProductoDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modeloVO.ServicioVO"%>
 <%@page import="modeloDAO.ServicioDAO"%>
@@ -17,9 +19,10 @@
 <div class="content-wrapper">
 
     <div class="content">
+ <div class="card bg-white justify-content-center mb-2" style="width: 100% ">
+    <div class="card-body ">
 
-
-        <h3>Registrar Reparacion</h3>
+        <h3 class="text-center">Registrar Reparación</h3>
         <br><br>
 
         <form action="Reparacion" class="formulario" id="formulario" name="formulario"
@@ -29,8 +32,9 @@
                     <label for="id_servicio" class="formulario__label">Servicio:</label>
                     <div class="formulario__grupo-input">
 
-                        <select class="formulario__input" name="id_servicio" id="id_servicio" onchange="validselect('id_servicio')" onblur="validselect('id_servicio')">
+                        <select class="formulario__input" name="id_servicio" id="id_servicio">
                             <option disabled selected value="" >Seleccione un Servicio...</option>
+                           
                             <%                                ServicioDAO serviDAO = new ServicioDAO();
                                 for (ServicioVO serviVO : serviDAO.listarS()) {
                             %>
@@ -45,25 +49,41 @@
                         </select>
                         <i class="formulario__validacion-estado far fa-times-circle"></i>
                     </div>
-                    <p class="formulario__input-error">Digite un Id servicio</p>
+                    <p class="formulario__input-error">Seleccione un Servicio</p>
             </div>
 
             <div class="formulario__grupo" id="grupo__id_producto">
-                <label for="id_producto" class="formulario__label">Id_Producto:</label>
+                <label for="id_producto" class="formulario__label">Producto:</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="id_producto" id="id_producto" onchange="validselect('id_producto')" onblur="validselect('id_producto')"
-                           placeholder="58">
+                    
+                    <select class="formulario__input" name="id_producto" id="id_producto">
+                            <option disabled selected value="" >Seleccione un Producto...</option>
+                           
+                            <%                                ProductoDAO proDAO = new ProductoDAO();
+                                for (ProductoVO proVO : proDAO.listarP()) {
+                                    String es=proVO.getEstado();
+                                    if(es.equals("Activo")){
+                            %>
+                            <option value="<%=proVO.getId()%>"><%=proVO.getTipo_Producto()%> <%=proVO.getMarca()%> <%=proVO.getModelo()%>  <%=proVO.getNumero_Serie()%></option>
+
+                            <%
+                                }}
+                            %>
+
+
+
+                        </select>
 
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">Digite un id producto</p>
+                <p class="formulario__input-error">Seleccione un producto</p>
             </div>
 
             <div class="formulario__grupo" id="grupo__dates">
                 <label for="dates" class="formulario__label">Fecha y Hora Reparacion:</label>
                 <div class="formulario__grupo-input">
 
-                    <input type="datetime-local" class="formulario__input" onchange="validselect('dates'), agre()" onblur="validselect('dates'), agre()"  name="dates" id="dates">
+                    <input type="datetime-local" class="formulario__input" onchange=" agre()" onblur=" agre()"  name="dates" id="dates">
                     <input type="hidden" name="fecha" id="fecha" >
                     <i class="formulario__validacion-estado far fa-times-circle"></i>
                 </div>
@@ -101,7 +121,7 @@
                 <label for="tecnico" class="formulario__label">Tecnico</label>
                 <div class="formulario__grupo-input">
                     
-                      <select class="formulario__input" name="tecnico" id="tecnico" onchange="validselect('tecnico')" onblur="validselect('tecnico')">
+                      <select class="formulario__input" name="tecnico" id="tecnico">
                             <option disabled selected value="">Seleccione un Tecnico...</option>
                             <%  UsuarioDAO tecDAO = new UsuarioDAO();
                                 for (UsuarioVO tecVO : tecDAO.listarT()) {
@@ -226,7 +246,8 @@
 
         <br>
     </div>
-</div>   
+</div>
+   
 <script src="assets/js/registrarReparacion.js" type="text/javascript"></script>
 <script>
                        /* funcion para pasar input a formato moneda colombiana
@@ -259,5 +280,5 @@ function autosize(){
 }
 
 </script>
-<
+
 <%@include file="dash2.jsp" %>

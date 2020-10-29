@@ -5,6 +5,8 @@
  */
 package modeloVO;
 
+import java.io.InputStream;
+
 /**
  *
  * @author jony
@@ -12,13 +14,11 @@ package modeloVO;
 public class RepuestoVO {
 
     
-    private String ruta;
-
-   
+   private InputStream Imagenes;
     private String Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado;
     
     public RepuestoVO(String Id, String Nombre, String No_Serie, String Marca, String Modelo, String Fecha_Compra, String Lugar_Compra,
-            String Valor_Compra, String Valor_Venta, String Cantidad, String Estado) {
+            String Valor_Compra, String Valor_Venta, String Cantidad, String Estado, InputStream Imagen) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.No_Serie = No_Serie;
@@ -30,20 +30,22 @@ public class RepuestoVO {
         this.Valor_Venta = Valor_Venta;
         this.Cantidad = Cantidad;
         this.Estado = Estado;
+        this.Imagenes= Imagenes;
     }
     
     public RepuestoVO() {
         
     }
     
-     public String getRuta() {
-        return ruta;
+    
+    public InputStream getImagenes() {
+        return Imagenes;
     }
 
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public void setImagen(InputStream Imagenes) {
+        this.Imagenes = Imagenes;
     }
-
+    
     public RepuestoVO(String Valor_Venta) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

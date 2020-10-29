@@ -3,7 +3,7 @@
 
 
 <%@include file="dash1.jsp" %>
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- AQUI VA EL contenido-->
 <link rel="stylesheet" href="assets/css/registrarRepuesto.css">
 
@@ -130,10 +130,13 @@
                                 contener numeros</p>
                         </div>
                         
-                        <div class="formulario__grupo" id="grupo__imagen">
+                        <div class="formulario__grupo" id="grupo__imagen formulario__grupo-input" >
                             <label for="cantidad" class="formulario__label">Imagen del Repuesto</label>
-                            <div class="formulario__grupo-input">
-                                <input type="file" class="form-control-file" accept="image/*"    onchange="validateFileType()" name="imagen" id="imagen">
+                            <div class="custom-file" style="height: 60px; cursor:pointer; ">
+                                <input type="file" class="custom-file-input"    accept="image/*"  style="cursor:pointer;" onchange="validateFileType()" multiple="multiple" name="imagen" id="imagen" >
+                                
+                                <label class="custom-file-label text-justify" for="imagen" style="border: 1px dashed  #000;">Seleccione o arrastre la imagen</label>
+                                
                                 <i class="formulario__validacion-estado far fa-times-circle"></i>
                             </div>
                             <p class="formulario__input-error">La cantidad de repuestos debe ser minimo de 1 a 8 digitos
@@ -198,6 +201,13 @@
 
          <script src="assets/js/registrarRepuesto.js" language="javascript" type="text/javascript"></script>
           <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+          <script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
 <%@include file="dash2.jsp" %>
 
         

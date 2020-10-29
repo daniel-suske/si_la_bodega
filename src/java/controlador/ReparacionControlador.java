@@ -100,14 +100,28 @@ public class ReparacionControlador extends HttpServlet {
             case 4:
                repaVO= repaDAO.consultarId(Id);
                 if(repaVO != null){
+                      String Id_Reparacion=repaVO.getId();
+                      String Cantidad="";
+                    
+                    
                 request.setAttribute("reparacion_id", repaVO);
                     request.getRequestDispatcher("actualizarReparacion.jsp").forward(request, response);
                 }else {
-                    request.setAttribute("mensajeError", "¡La Reparacion NO existe!");
+                    request.setAttribute("mensajeError", "¡No se puede Actualizar!");
                     request.getRequestDispatcher("consultaReparacion.jsp").forward(request, response);
                 }
                 break;
+            case 3: 
+               if( repaDAO.actualizarRegistro()){
+                   
+                 request.getRequestDispatcher("consultaReparacion.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "¡El Repuesto NO se actualizo correctamente!");
+                    request.getRequestDispatcher("actualizarReparacion.jsp").forward(request, response);
 
+                }
+
+                break;
         }
 
     }

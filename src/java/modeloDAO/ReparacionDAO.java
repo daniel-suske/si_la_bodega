@@ -131,12 +131,12 @@ public class ReparacionDAO extends Conexion implements Crud {
         ReparacionVO repaVO = null;
         try {
             conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
-            sql = "CALL consultar_Reparacion_Id ( ? ) ";
+            sql = "CALL consultar_Reparacion_Id ( ? )";
             puente = conexion.prepareCall(sql);
             puente.setString(1, Id);
             mensajero = puente.executeQuery();//execute query para consultas
             while (mensajero.next()) {
-                repaVO = new ReparacionVO(Id, mensajero.getString(2),mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(8));
+                repaVO = new ReparacionVO(Id, mensajero.getString(2),mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7));
             }
         } catch (SQLException e) {
             Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -155,16 +155,15 @@ public class ReparacionDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-
-            sql = "UPDATE REPARACION  SET Id_Servicio=?, Id_Producto=?, Fecha_Hora=?, Descripcion=?, Costos=?, Tecnico=? where Id=? ";
+            conexion = this.obtenerConexion();
+            sql = "UPDATE REPARACION  SET Id_Servicio=?, Id_Producto=?, Fecha_Hora=?, Descripcion=?, Tecnico=? where Id=? ";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, Id_Servicio);
             puente.setString(2, Id_Producto);
             puente.setString(3, Fecha_Hora);
             puente.setString(4, Descripcion);
-            puente.setString(5, Costos);
-            puente.setString(6, Tecnico);
-            puente.setString(7, Id);
+            puente.setString(5, Tecnico);
+            puente.setString(6, Id);
 
             puente.executeUpdate();
             operacion = true;

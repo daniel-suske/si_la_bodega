@@ -19,12 +19,12 @@ const expresiones = {
 };
 const campos = {
 
-    id_servicio: false,
-    id_producto: false,
-    dates: false,
-    descripcion: false,
-    costos: false,
-    tecnico: false
+    id_servicio: true,
+    id_producto: true,
+    dates: true,
+    descripcion: true,
+    costos: true,
+    tecnico: true
    
     
 };
@@ -147,13 +147,13 @@ formulario.addEventListener("submit", (e) => {
         /*formulario.reset(); */
 
         var formularion = document.getElementById("formulario");
-       /*formularion.submit();*/
+       formularion.submit();
         var opcion = document.getElementById("opcion").value;
         var id_servicio = document.getElementById("id_servicio").value;
         var id_producto = document.getElementById("id_producto").value;
          var fecha = document.getElementById("fecha").value;
           var descripcion = document.getElementById("descripcion").value;
-           var costos = document.getElementById("costos").value;
+         /*  var costos = document.getElementById("costos").value;*/
             var tecnico = document.getElementById("tecnico").value;
            
         /*
@@ -181,7 +181,7 @@ formulario.addEventListener("submit", (e) => {
         
       
       }*/
-  var ass=""
+  /*var ass=""
   var repuestosid =[];
   var repuestoscantidad=[];
   arrCategories.map(function (arrCategories){
@@ -189,7 +189,8 @@ formulario.addEventListener("submit", (e) => {
      repuestoscantidad.push(arrCategories.cantidad);
      
   });
-  var datoss=""
+  var datoss=""*/
+  /*
         $.post("Reparacion", { 
         repuestosid: repuestosid,
         repuestoscantidad: repuestoscantidad,
@@ -218,7 +219,7 @@ formulario.addEventListener("submit", (e) => {
                 
             }
          
-        })
+        })*/
             
             
           /*  var ruta= "id_servicio=" + id_servicio + "id_producto=" + id_producto + "fecha=" + fecha + "descripcion=" + descripcion + "costos" + costos + + "opcion=" + opcion + "tecnico=" + tecnico + "array=" + arrCategories;
@@ -254,6 +255,7 @@ var cantidadR=0
 var total_subtotal=0;
 var costos=0;
 var cantidad=0;
+var ak=0;
 
 
 
@@ -349,7 +351,11 @@ function existCategory(idCategory) {
     return existCategory
     
 }
+ak= $("#ak").val();
+    var ak47=parseInt(ak);
+    total_subtotal=ak47;
 function adicionar(){
+    
     if( costos){
         var efe=parseInt(costos);
         total_subtotal-=efe;
@@ -357,7 +363,9 @@ function adicionar(){
         costos= $("#costos").val();
         if(costos){
          var changess=parseInt(costos);
+         
          total_subtotal+=changess;
+        
          showTotalPre(total_subtotal)
         }
     return total_subtotal;

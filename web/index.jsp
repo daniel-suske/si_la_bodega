@@ -395,7 +395,7 @@
                         data-wow-duration=".3" data-wow-delay=".3s">
                 </div>
                 <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
-                    <div class="margin-t-60 margin-b-60">
+                    <div class=" margin-b-60">
                         <h2>Verificación de datos</h2>
                         <p>Nuestra secretaria se asegura de tener tus datos en orden </p>
                     </div>

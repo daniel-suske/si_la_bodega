@@ -3,12 +3,13 @@
 <%@page import="modeloVO.RepuestoVO"%>
 <%@include file="dash1.jsp" %>
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/> 
+<link href="assets/css/consultarRepuesto.css" rel="stylesheet" type="text/css"/>
 <!-- AQUI VA EL contenido-->
 <title>Consultar Repuesto</title>
 <div class="content-wrapper">
 
     <div class="content">
-        <div class="card bg-white justify-content-center">
+        <div class="card bg-white justify-content-center" style="width:104%">
             <div class="card-body ">
                 <h5>Consultar Repuestos</h5>
                 <br><br>
@@ -38,13 +39,14 @@
     <div > 
         <% if (request.getAttribute("mensajeError") != null) { %> <h4 class="text-center text-danger mb-2">${mensajeError}</h4> <%}%>
     </div>  
-    <div class="card bg-white">
+    <div class="card bg-white" style="width:104%">
         <div class="card-body ">
             <div class="basic-data-table">
                 <table id="datatable" class="table-responsive table-hover table-bordered" > 
                     <thead class="bg-dark" > 
                         <tr class="thead-dark">  
                             <th class="text-light">#</th> 
+                            <th class="text-light">Imagen</th>
                             <th class="text-light">Nombre</th> 
                             <th class="text-light">No Serie</th> 
                             <th class="text-light">Marca</th> 
@@ -61,7 +63,7 @@
 
                     </thead> 
 
-                    <tbody> 
+                    <tbody class="text-dark"> 
 
                         <%
                             if (request.getAttribute("validacion") == null) {
@@ -71,9 +73,10 @@
                                 ArrayList<RepuestoVO> listaVehiculos = repDAO.listar();
                                 for (int i = 0; i < listaVehiculos.size(); i++) {
                                     repVO = listaVehiculos.get(i);%> 
-
                         <tr> 
                             <td scope="col" ><%=repVO.getId()%></td>
+                            <td scope="col" >  <a href="ControladorImagenRepuesto?ids=<%=repVO.getId()%>" onerror="this.href=''" target="_blank"> <img src="ControladorImagenRepuesto?ids=<%=repVO.getId()%>" width="100" height="100" onerror="this.src='assets/img/no_image.png'"></a></td>
+
                             <td scope="col" ><%=repVO.getNombre()%></td> 
                             <td scope="col" ><%=repVO.getNo_Serie()%></td> 
                             <td scope="col" ><%=repVO.getMarca()%></td> 
@@ -138,7 +141,7 @@
 
                                                     </tr> 
                                                     <%}
-                                                    }%> 
+                                                        }%> 
                                                     </tbody>
                                                     <tfoot> 
                                                     </tfoot> 
@@ -151,62 +154,63 @@
 
 
                                                     </div>
-                                                    </div>   
 
-                                                    <!-- Termina aqui -->
+                                                        </div>   
+
+                                                        <!-- Termina aqui -->
 
 
-                                                    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+                                                        <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 
-                                                    <%@include file="dash2.jsp"%>
+                                                        <%@include file="dash2.jsp"%>
 
-                                                    <!-- Optional JavaScript -->
-                                                    <!--, then Popper.js, then Bootstrap JS -->
-                                                    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-                                                    <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+                                                        <!-- Optional JavaScript -->
+                                                        <!--, then Popper.js, then Bootstrap JS -->
+                                                        <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+                                                        <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
 
-                                                    <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
+                                                        <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
 
-                                                    <script>
-                                                        $(document).ready(function () {
-                                                            $("#datatable").DataTable({
-                                                                language: {
-                                                                    "sProcessing": "Procesando ...",
-                                                                    "sLengthMenu": "Mostrar _MENU_ registros",
-                                                                    "sZeroRecords": "No se encontraron resultados",
-                                                                    "sEmptyTable": "Ningún dato disponible en esta tabla",
-                                                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                                                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                                                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                                                    "sSearch": "Buscar:",
-                                                                    "sInfoThousands": ",",
-                                                                    "sLoadingRecords": "Cargando ...",
-                                                                    "oPaginate": {
-                                                                        "sFirst": "Primero",
-                                                                        "sLast": "Último",
-                                                                        "sNext": "Siguiente",
-                                                                        "sPrevious": "Anterior"
-                                                                    },
-                                                                    "oAria": {
-                                                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                                                    },
-                                                                    "botones": {
-                                                                        "copiar": "Copiar",
-                                                                        "colvis": "Visibilidad"
+                                                        <script>
+                                                            $(document).ready(function () {
+                                                                $("#datatable").DataTable({
+                                                                    language: {
+                                                                        "sProcessing": "Procesando ...",
+                                                                        "sLengthMenu": "Mostrar _MENU_ registros",
+                                                                        "sZeroRecords": "No se encontraron resultados",
+                                                                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                                                                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                                                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                                                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                                                        "sSearch": "Buscar:",
+                                                                        "sInfoThousands": ",",
+                                                                        "sLoadingRecords": "Cargando ...",
+                                                                        "oPaginate": {
+                                                                            "sFirst": "Primero",
+                                                                            "sLast": "Último",
+                                                                            "sNext": "Siguiente",
+                                                                            "sPrevious": "Anterior"
+                                                                        },
+                                                                        "oAria": {
+                                                                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                                                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                                                        },
+                                                                        "botones": {
+                                                                            "copiar": "Copiar",
+                                                                            "colvis": "Visibilidad"
+                                                                        }
                                                                     }
-                                                                }
+                                                                });
                                                             });
-                                                        });
-                                                    </script>
+                                                        </script>
 
-                                                    //Script para cargar la pagina en el lugar del scroll anterior
-                                                    <script>
-                                                        window.onload = function () {
-                                                            var pos = window.name || 0;
-                                                            window.scrollTo(0, pos);
-                                                        }
-                                                        window.onunload = function () {
-                                                            window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
-                                                        }
-                                                    </script>
+                                                        //Script para cargar la pagina en el lugar del scroll anterior
+                                                        <script>
+                                                            window.onload = function () {
+                                                                var pos = window.name || 0;
+                                                                window.scrollTo(0, pos);
+                                                            }
+                                                            window.onunload = function () {
+                                                                window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
+                                                            }
+                                                        </script>
