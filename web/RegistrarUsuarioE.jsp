@@ -40,7 +40,7 @@
                                                 
                                                 <div class="formulario">
                                                     <div class="formulario__grupo mr-5" id="grupo__nombres">
-                                                        <label for="nombres" class="formulario__label"> * Nombres:</label>
+                                                        <label for="nombres" class="formulario__label">* Nombres:</label>
                                                         <div class="formulario__grupo-input">
                                                             <!--<i class="fas fa-clipboard-check"></i>-->
                                                             <span><i class="formulario__validacion-estado  fas fa-exclamation-triangle"></i></span>

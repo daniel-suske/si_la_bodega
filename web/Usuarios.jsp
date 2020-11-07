@@ -15,8 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="ContentType" content="text/html">
     
-    <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/> 
-    
+    <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
       <title>Gestion de Empleados</title>
 
@@ -28,13 +27,15 @@
               
                 <br>
                 
-
                 <h1 class="text text-dark">Gestion de Empleados</h1>
               
                  <hr>
                  <br> 
                             <div class="navbar">
-                                <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarUsuarioE.jsp">+ Nuevo Registro</a><br>
+                                <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarUsuarioE.jsp"><i class="mdi mdi-account-multiple-plus mdi-24px mr-2"></i>Nuevo Registro</a>
+                                <form name="ReporteUsuarios" action="GenerarPDF_Usuario.jsp" target="_black">
+                                    <button class="btn btn-primary btn-lg m-3" type="submit"><i class="mdi mdi-file-pdf mdi-24px mr-2"></i> Generar PDF</button>
+                                </form>
                             </div>
                             <br><br>
 

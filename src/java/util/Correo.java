@@ -73,10 +73,14 @@ public class Correo {
     public boolean enviarPNewUE(String Nombres, String Apellidos, String Contrasena, String Correo) {
         
         asunt = "Confirmación de Cuenta en LA BODEGA";
-        text = "Bienvenido al sistema LA BODEGA  <b>"+Nombres+" "+Apellidos+"</b>"
+        text = "<html><head></head>"
+                +"<body>"
+                +"<p>Bienvenido al sistema LA BODEGA  <b>"+Nombres+" "+Apellidos+"</b>"
                 +"<br>su codigo proporcionado es: <b>"+Contrasena+"</b>"
                 +"<br>Para cambiar su Contraseña de click aqui:"
-                +"<br><a href = 'http://localhost:27553/si_la_bodega/CambiarContrasenaU.jsp'>Confirmar</a>";
+                +"<br><a href = 'http://localhost:27553/si_la_bodega/CambiarContrasenaU.jsp'>Confirmar</a></p>"
+                +"</body>"
+                +"</html>";
         
         try {
             
