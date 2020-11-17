@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte Usuarios" pageWidth="595" pageHeight="842" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="04a35d06-e20a-4635-a8b9-a8d785fc880e">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="table">
@@ -178,7 +178,7 @@ FROM
 				</staticText>
 				<image>
 					<reportElement x="20" y="15" width="85" height="55" uuid="e6b049a1-5e35-4793-ba15-6350306faeff"/>
-					<imageExpression><![CDATA["/Library/Yeison All/Seguimiento a proyect/Desarrollo/si_la_bodega/web/recursos/img/logo.png"]]></imageExpression>
+					<imageExpression><![CDATA["http://localhost:27553/si_la_bodega/assets/img/logo.png"]]></imageExpression>
 				</image>
 			</frame>
 		</band>
