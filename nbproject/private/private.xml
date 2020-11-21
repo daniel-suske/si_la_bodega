@@ -3,12 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/consultarRepuesto.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/util/Conexion.java</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/Usuarios.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/reportes/Repuestos/ReporteRepuesto.jrxml</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/web/dash1.jsp</file>
-            <file>file:/C:/Users/jony/Documents/NetBeansProjects/SI_LA_BODEGA/si_la_bodega/src/java/controlador/RepuestoControlador.java</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/si_la_bodega/web/dash1.jsp</file>
+            <file>file:/C:/Users/johan/Documents/NetBeansProjects/si_la_bodega/web/reportes/Usuarios/ReporteUsuarios.jrxml</file>
         </group>
     </open-files>
 </project-private>

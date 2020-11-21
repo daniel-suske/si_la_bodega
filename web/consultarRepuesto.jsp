@@ -239,3 +239,9 @@
                                                         window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
                                                     }
                                                 </script>
+<script>
+        document.getElementById(`repuesto_menu`).classList.add("active");
+        document.getElementById(`repuesto_menu`).classList.add("expand");
+        document.getElementById(`repuesto_c`).classList.add("show");
+        document.getElementById(`repuesto_gestion`).classList.add("active");
+</script>          

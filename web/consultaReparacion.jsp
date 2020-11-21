@@ -220,6 +220,9 @@
                                                                                                 });
                                                                                             });
                                                                                         </script>
-
-
-
+<script>
+        document.getElementById(`reparacion_menu`).classList.add("active");
+        document.getElementById(`reparacion_menu`).classList.add("expand");
+        document.getElementById(`reparacion_c`).classList.add("show");
+        document.getElementById(`reparacion_gestion`).classList.add("active");
+</script>            

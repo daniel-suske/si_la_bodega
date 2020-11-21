@@ -27,7 +27,7 @@
                             <div class="profile-content-left pt-5 pb-3 px-3 px-xl-5">
                                 <div class="card text-center widget-profile px-0 border-0">
                                     <div class="card-img mx-auto rounded-circle">
-                                            <img src="assets/img/user/u6.jpg" alt="user image">
+                                        <img src="ControladorImagenUsuario?idu=<%=IdU%>" onerror="this.src='assets/img/user/usuario.png'" class="image-perfil">
                                     </div>
                                     <div class="card-body">
                                         <h4 class="py-2 text-dark"><%= NombreU %> <%= ApellidoU %></h4>

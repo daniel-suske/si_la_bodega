@@ -12,6 +12,10 @@
         <servlet-name>vbbvbvbvb</servlet-name>
         <servlet-class>controlador.vbbvbvbvb</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorImagenUsuario</servlet-name>
+        <servlet-class>controlador.ControladorImagenUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorImagenRepuesto</servlet-name>
         <url-pattern>/ControladorImagenRepuesto</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>vbbvbvbvb</servlet-name>
         <url-pattern>/vbbvbvbvb</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorImagenUsuario</servlet-name>
+        <url-pattern>/ControladorImagenUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

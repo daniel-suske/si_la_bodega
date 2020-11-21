@@ -19,3 +19,15 @@ iframe
     width: 100%;
     height: 100%;
 }
+.image-user
+{
+    width: 50PX !important;
+    height: 50px !important;
+    border-radius:100px !important;
+}
+.image-perfil
+{
+    width: 100% !important;
+    height: 100% !important;
+    
+}

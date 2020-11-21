@@ -334,21 +334,18 @@
 
 
                             <li  class="has-sub" id="reparacion_menu">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#reparacion"
-                                   aria-expanded="false" aria-controls="reparacion">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#reparacion_c"
+                                   aria-expanded="false" aria-controls="reparacion_c">
                                     <i class="mdi mdi mdi-wrench"></i>
                                     <span class="nav-text">REPARACIONES</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="reparacion"
+                                <ul  class="collapse"  id="reparacion_c"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
-
-
 
                                         <li id="reparacion_gestion">
                                             <a class="sidenav-item-link" href="consultaReparacion.jsp">
                                                 <span class="nav-text">Gestion</span>
-
                                             </a>
                                         </li>
                                         
@@ -385,12 +382,12 @@
 
 
                             <li class="has-sub" id="repuesto_menu">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#repuesto"
-                                   aria-expanded="false" aria-controls="repuesto">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#repuesto_c"
+                                   aria-expanded="false" aria-controls="repuesto_c">
                                     <i class="mdi mdi-screwdriver"></i>
                                     <span class="nav-text">REPUESTOS</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="repuesto"
+                                <ul  class="collapse"  id="repuesto_c"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
@@ -439,12 +436,12 @@
 
 
                             <li  class="has-sub" id="factura_menu">
-                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#factura"
-                                   aria-expanded="false" aria-controls="factura">
+                                <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#factura_c"
+                                   aria-expanded="false" aria-controls="factura_c">
                                     <i class="mdi mdi-cash-usd"></i>
                                     <span class="nav-text">FACTURA</span> <b class="caret"></b>
                                 </a>
-                                <ul  class="collapse"  id="factura"
+                                <ul  class="collapse"  id="factura_c"
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
@@ -628,13 +625,13 @@
                                 <!-- User Account -->
                                 <li class="dropdown user-menu">
                                   <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <img src="assets/img/user/usuario.png" class="user-image" alt="User Image" />
+                                    <img src="ControladorImagenUsuario?idu=<%=IdU%>" onerror="this.src='assets/img/user/usuario.png'" class="image-user">
                                     <span class="d-none d-lg-inline-block"><%= NombreU %></span>
                                   </button>
                                   <ul class="dropdown-menu dropdown-menu-right">
                                     <!-- User image -->
                                     <li class="dropdown-header">
-                                      <img src="assets/img/user/usuario.png" class="img-circle" alt="User Image" />
+                                      <img src="ControladorImagenUsuario?idu=<%=IdU%>" onerror="this.src='assets/img/user/usuario.png'" class="image-user">
                                       <div class="d-inline-block">
                                       <%= NombreU %> <small class="pt-1"><%= CorreoU %></small>
                                       </div>

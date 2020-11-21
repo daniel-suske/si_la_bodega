@@ -142,5 +142,9 @@
         });
         
     </script>
-    
-    
+<script>
+        document.getElementById(`factura_menu`).classList.add("active");
+        document.getElementById(`factura_menu`).classList.add("expand");
+        document.getElementById(`factura_c`).classList.add("show");
+        document.getElementById(`factura_gestion`).classList.add("active");
+</script>     
