@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteRepuestos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07b003b4-39b7-4409-883f-152c0899421e">
-	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteRepuestos" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07b003b4-39b7-4409-883f-152c0899421e">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="824"/>
+	<property name="ireport.y" value="246"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      r.*,
@@ -48,78 +48,163 @@ ORDER BY
 	<field name="Imagenes" class="java.lang.Object">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="82" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="82" backcolor="#1648AE" uuid="9a03c0be-63c5-499c-a05c-459b60f34a5e"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="149" y="18" width="310" height="48" uuid="5318e74a-3cc5-4c21-a6a0-43bfca2925aa"/>
-				<textElement>
-					<font fontName="Berlin Sans FB" size="35"/>
+				<reportElement x="300" y="14" width="209" height="43" forecolor="#FFFFFF" uuid="167c9e7e-fd37-48f3-a2cd-a1baf01d1eeb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Reporte Repuesto]]></text>
+				<text><![CDATA[LA BODEGA]]></text>
 			</staticText>
+			<image>
+				<reportElement x="36" y="14" width="85" height="55" uuid="a9b994bd-7a51-483c-afa4-8471889ef60d"/>
+				<imageExpression><![CDATA["../../assets/img/logo.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss ">
+				<reportElement x="587" y="14" width="180" height="19" forecolor="#FFFFFF" uuid="59c4870c-e832-4ea4-abc8-ab186ca18812"/>
+				<textElement>
+					<font fontName="Baskerville Old Face" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="320" y="18" width="221" height="30" uuid="2a130ee9-6f22-4886-8761-32805fbe44cc"/>
+				<textElement>
+					<font fontName="Arial Black" size="20"/>
+				</textElement>
+				<text><![CDATA[Reporte Repuestos]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="29" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="29" forecolor="#FFFFFF" backcolor="#646464" uuid="f2dc770d-469b-4358-a37e-aab7fd01d254"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="10" y="22" width="52" height="20" uuid="67abdf5c-f644-48d6-bda1-6f9beba11122"/>
+				<reportElement x="5" y="5" width="26" height="20" forecolor="#F6F6F6" uuid="67abdf5c-f644-48d6-bda1-6f9beba11122"/>
 				<text><![CDATA[#]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="114" y="22" width="47" height="20" uuid="f930faf1-c52a-4327-973e-4a50f19f1b37"/>
+				<reportElement x="59" y="5" width="47" height="20" forecolor="#F6F6F6" uuid="f930faf1-c52a-4327-973e-4a50f19f1b37"/>
 				<text><![CDATA[Nombre]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="22" width="100" height="20" uuid="39537e95-0271-4467-9add-4bfdb399aa86"/>
+				<reportElement x="135" y="5" width="100" height="20" forecolor="#F5F5F5" uuid="39537e95-0271-4467-9add-4bfdb399aa86"/>
 				<text><![CDATA[No Serie]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="22" width="100" height="20" uuid="48207183-a483-4ca8-9521-5baa658c7d7d"/>
+				<reportElement x="255" y="5" width="58" height="20" forecolor="#F6F6F6" uuid="48207183-a483-4ca8-9521-5baa658c7d7d"/>
 				<text><![CDATA[Marca]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="455" y="22" width="100" height="20" uuid="1c5695a7-bdb1-4725-8039-e9e1955ea9ca"/>
+				<reportElement x="702" y="5" width="100" height="20" forecolor="#F4F4F4" uuid="1c5695a7-bdb1-4725-8039-e9e1955ea9ca"/>
 				<text><![CDATA[Imagen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="5" width="84" height="20" forecolor="#F5F5F5" uuid="f3d54a6f-05f8-4c17-9cce-94691259c985"/>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="5" width="71" height="20" forecolor="#F5F5F5" uuid="ecf1896f-b900-4333-9cbf-eacc4732a0fe"/>
+				<text><![CDATA[Lugar Compra]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="115" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="95" width="802" height="20" forecolor="#FFFFFF" backcolor="#C5C5C5" uuid="a012d2be-aa49-4921-ae6d-6b400107ba9a"/>
+			</rectangle>
 			<textField>
-				<reportElement x="10" y="47" width="52" height="20" uuid="b0abc5f7-d076-4662-8290-485151cd13f4"/>
+				<reportElement x="5" y="34" width="38" height="20" uuid="b0abc5f7-d076-4662-8290-485151cd13f4"/>
 				<textFieldExpression><![CDATA[$F{Id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="114" y="45" width="60" height="50" uuid="f4f34a25-0f80-4ca3-975d-30f14b0c03a2"/>
+				<reportElement x="59" y="34" width="60" height="50" uuid="f4f34a25-0f80-4ca3-975d-30f14b0c03a2"/>
 				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="45" width="100" height="20" uuid="ea795f3d-5d78-4b86-bc2c-17c68346f0a2"/>
+				<reportElement x="135" y="34" width="100" height="50" uuid="ea795f3d-5d78-4b86-bc2c-17c68346f0a2"/>
 				<textFieldExpression><![CDATA[$F{No_Serie}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="330" y="47" width="100" height="20" uuid="6571f26a-12fd-491a-a8a3-bfa552a0cb11"/>
+				<reportElement x="255" y="34" width="72" height="47" uuid="6571f26a-12fd-491a-a8a3-bfa552a0cb11"/>
 				<textFieldExpression><![CDATA[$F{Marca}]]></textFieldExpression>
 			</textField>
 			<image onErrorType="Blank">
-				<reportElement x="459" y="16" width="82" height="68" uuid="23915293-e28b-474f-8cdb-e0dabe4cfbc3"/>
-				<imageExpression><![CDATA["http://localhost:27553/si_la_bodega/ControladorImagenRepuesto?ids="+$F{Id}.toString()]]></imageExpression>
+				<reportElement x="702" y="16" width="82" height="68" uuid="23915293-e28b-474f-8cdb-e0dabe4cfbc3"/>
+				<imageExpression><![CDATA["http://localhost:8080/si_la_bodega/ControladorImagenRepuesto?ids="+$F{Id}.toString()]]></imageExpression>
 			</image>
+			<textField>
+				<reportElement x="340" y="34" width="84" height="47" uuid="efc3a74a-7745-441f-b488-ba185a41ce2c"/>
+				<textFieldExpression><![CDATA[$F{Modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="446" y="34" width="90" height="50" uuid="574be00b-bd58-4c2a-861d-6a59af72e3de"/>
+				<textFieldExpression><![CDATA[$F{Lugar_Compra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="98" width="101" height="17" uuid="8e68bbca-247d-4723-afea-8a0b6153989e"/>
+				<text><![CDATA[Fecha Compra:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="98" width="91" height="17" uuid="3f6ad3b1-23c8-473e-852d-51d80cb8c51c"/>
+				<textFieldExpression><![CDATA[$F{Fecha_Compra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="189" y="98" width="66" height="17" uuid="ab6b491d-3f5c-4291-a90c-10df208c3826"/>
+				<text><![CDATA[Valor Compra:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="98" width="97" height="17" uuid="1a7ff1c6-3ecc-408c-974e-8e85e802ab73"/>
+				<textFieldExpression><![CDATA[$F{Valor_Compra}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="366" y="98" width="58" height="17" uuid="3b5a724e-f954-49a4-b202-7d4ba0756236"/>
+				<text><![CDATA[Valor Venta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="98" width="85" height="17" uuid="a0cdfc49-8af2-48f8-98be-df3224bee59a"/>
+				<textFieldExpression><![CDATA[$F{Valor_Venta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="536" y="98" width="40" height="17" uuid="82b7a221-8503-4122-a7a6-a1fcc3b51c76"/>
+				<text><![CDATA[Estado:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="576" y="98" width="68" height="17" uuid="b2939270-b71d-4c93-8431-9d60899e2ee3"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="689" y="98" width="47" height="17" uuid="c0be407e-4161-4332-9da3-a16d9fabd94f"/>
+				<text><![CDATA[Cantidad:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="736" y="98" width="66" height="17" uuid="7fa66011-3025-4e16-b0c0-6f5e294cf332"/>
+				<textFieldExpression><![CDATA[$F{Cantidad}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="340" y="14" width="80" height="20" uuid="2fe3438e-fb52-4861-ba94-f7c4f185913b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="424" y="14" width="40" height="20" uuid="e96cf4cb-afae-4520-a36e-e00ff68a570e"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
