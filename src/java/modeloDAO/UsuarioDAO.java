@@ -5,6 +5,7 @@
  */
 package modeloDAO;
 
+import java.io.InputStream;
 import util.*;
 import modeloVO.UsuarioVO;
 import java.sql.Connection;
@@ -737,6 +738,40 @@ public class UsuarioDAO extends Conexion implements Crud {
         }
         
         return usuVO;
+    }
+    
+    public boolean agregarImagen(InputStream Foto) {
+        
+        try {
+            
+            sql = "CALL sp_agregar_imagen (?, ?)";
+            puentesp = conexion.prepareCall(sql);
+            puentesp.setBlob(1, Foto);
+            puentesp.setString(2, Id);
+            
+            puentesp.executeUpdate();
+            operacion = true;
+              
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+                
+        return operacion;
     }
     
 }

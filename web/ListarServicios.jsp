@@ -57,11 +57,11 @@
                           String e = "En Proceso";
                           String o = "Finalizado";
                           
-                          ArrayList<ServicioVO> listaServiciosCL = serDAO.listarSCL();
+                          ArrayList<ServicioVO> listaServicioS = serDAO.listarS();
                           
-                          for (int i = 0; i < listaServiciosCL.size(); i++) {
+                          for (int i = 0; i < listaServicioS.size(); i++) {
                               
-                              serVO = listaServiciosCL.get(i);
+                              serVO = listaServicioS.get(i);
                               
                       %>
                             <tr>

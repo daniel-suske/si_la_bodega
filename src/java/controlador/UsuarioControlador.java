@@ -7,7 +7,6 @@ package controlador;
 
 import modeloVO.UsuarioVO;
 import modeloDAO.UsuarioDAO;
-import util.DatosImport;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -17,11 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
+import java.io.InputStream;
 import java.io.PrintWriter;
-/**
- *
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
+ /*
  * @author Yeison
  */
+@MultipartConfig
 @WebServlet(name = "UsuarioControlador", urlPatterns = {"/Usuario"})
 public class UsuarioControlador extends HttpServlet {
 
@@ -73,6 +75,7 @@ public class UsuarioControlador extends HttpServlet {
            Perfil = "5";
            Estado = "1";   
         }
+        
         
         //Lleguan los datos y se aseguran
         UsuarioVO usuVO = new UsuarioVO(Id, Nombres, Apellidos, Numero_Documento, Tipo_Documento, Correo, Contrasena, Telefono, Barrio, Dirrecion, Id_Registrado_Por, Perfil, Estado);
@@ -322,9 +325,46 @@ public class UsuarioControlador extends HttpServlet {
                 
                     request.getRequestDispatcher("EnviarCorrCon.jsp").forward(request, response); 
                 
-            break;    
-        }
+            break;
+            
+            case 12: //Modificación de Registro
+                
+                if(usuDAO.actualizarRegistro()) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡El Usuario se Modifico Correctamente!");
+                    
+                    request.getRequestDispatcher("PerfilU.jsp").forward(request, response);     
+                 
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡El Usuario No se Modifico Correctamente!");
+                    
+                    request.getRequestDispatcher("PerfilU.jsp").forward(request, response);     
+                    
+                }
+                  
+                
+            break;
         
+            case 13: //cambiar imagen
+                
+                Part part = request.getPart("Img-Perfil");
+                InputStream inputStream = part.getInputStream();
+                
+                if(usuDAO.agregarImagen(inputStream)) {
+                    
+                    request.setAttribute("mensajeExitoso", "¡Se Agrego la nueva Imagen!");
+                    
+                } else {
+                    
+                    request.setAttribute("mensajeFallido", "¡No se pudo agregar la nueva imagen!");
+                    
+                }
+                
+                request.getRequestDispatcher("PerfilU.jsp").forward(request, response); 
+                
+            break;
+        }
         
     }
 

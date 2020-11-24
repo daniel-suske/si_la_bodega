@@ -11,22 +11,22 @@ package util;
  */
 public class DatosImport {
 
-    public String IdSER;
+    private String IdUs;
     
-    public DatosImport(String IdSER)
+    public DatosImport(String IdUs)
     {
-        this.IdSER = IdSER;
+        this.IdUs = IdUs;
     }
 
     public DatosImport() {
     }
 
     public String getIdSER() {
-        return IdSER;
+        return IdUs;
     }
 
     public void setIdSER(String IdSER) {
-        this.IdSER = IdSER;
+        this.IdUs = IdSER;
     }
     
 }

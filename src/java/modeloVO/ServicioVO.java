@@ -12,7 +12,6 @@ package modeloVO;
 public class ServicioVO {
 
     public String Id, Fecha_Pedido, Descripcion, Cliente, Registrado_Por, Estado;
-    
 
     public ServicioVO(String Id, String Fecha_Pedido, String Descripcion, String Cliente, String Registrado_Por, String Estado) {
         this.Id = Id;
@@ -27,6 +26,7 @@ public class ServicioVO {
     {
     }
 
+    
     public String getId() {
         return Id;
     }
@@ -74,6 +74,5 @@ public class ServicioVO {
     public void setEstado(String Estado) {
         this.Estado = Estado;
     }
-    
     
 }

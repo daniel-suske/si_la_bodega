@@ -1,3 +1,20 @@
+.custom-file-input ~ .custom-file-label::after {
+   
+    content:"";
+    background-image:  url("../img/subir.png") ;
+    background-size: 57px;
+    background-repeat: no-repeat;
+    color: white;
+    justify-content: center;
+    height: 58px;
+    width: 60px;
+    text-align: justify;
+    
+}
+.custom-file-label{
+    height: 60px;
+    justify-content: center;
+}
 
 .app-brand
 {
@@ -30,4 +47,40 @@ iframe
     width: 100% !important;
     height: 100% !important;
     
+}
+.img-div
+{
+    border: 1px solid #000;
+    border-radius: 10px; 
+}
+.img-in
+{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: calc(1.5em + 1.18rem + 2px);
+    margin: 0;
+    opacity: 0;
+}
+.img-lb
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(1.5em + 1.18rem);
+    padding: 0.60rem 1rem;
+    margin: 0 !important;
+    line-height: 1.5;
+    color: #495057;
+    font-size: 16px !important;
+    content: "Subir";
+    background-color: #e9ecef;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: inherit;
+    border-radius: 0 0.25rem 0.25rem 0;
 }

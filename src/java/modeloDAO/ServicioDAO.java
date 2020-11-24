@@ -34,8 +34,8 @@ public class ServicioDAO extends Conexion implements Crud {
 
     
     private String Id = "", Fecha_Pedido = "", Descripcion = "", Cliente = "", Registrado_Por = "", Estado = ""; //Declarar las variables del VO
+    private String IdSer = "";
     
-    public  String IdSer = "7";
     
     public ServicioDAO() 
     {
@@ -62,7 +62,7 @@ public class ServicioDAO extends Conexion implements Crud {
             
         }
     }
-    
+            
     public ArrayList<ServicioVO> listarS()
     {
         
@@ -103,23 +103,23 @@ public class ServicioDAO extends Conexion implements Crud {
         
     }
 
-   public ArrayList<ServicioVO> listarSCL()
+   public ArrayList<ServicioVO> listarSCL(String IdSU)
     {
         
-        ArrayList<ServicioVO>listaServiciosCL = new ArrayList<ServicioVO>();
+        ArrayList<ServicioVO>listaServicioSCL = new ArrayList<ServicioVO>();
         
         try {
             
             conexion = this.obtenerConexion();
-            sql = "SELECT * FROM vista_servicio WHERE Cliente = ?";
+            sql = "SELECT VS.*, VE.Nombre FROM vista_servicio VS INNER JOIN vista_estados VE ON VS.Estado = VE.Id WHERE Cliente = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, IdSer);
+            puente.setString(1, IdSU);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
                 
-                ServicioVO serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
+                ServicioVO serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(7));
                 
-                listaServiciosCL.add(serVO);
+                listaServicioSCL.add(serVO);
             }
             
         } catch (SQLException e) {
@@ -140,7 +140,7 @@ public class ServicioDAO extends Conexion implements Crud {
             
         }
         
-        return listaServiciosCL;
+        return listaServicioSCL;
         
     }
     
@@ -187,7 +187,7 @@ public class ServicioDAO extends Conexion implements Crud {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-        public ServicioVO consultarId(String Id) {
+    public ServicioVO consultarId(String Id) {
         
         ServicioVO  serVO = null;
         

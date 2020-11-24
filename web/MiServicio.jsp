@@ -33,16 +33,7 @@
                  <div class="card-body "> 
                      
                     
-                    <center>
-                      <div style="color:Red">
-                      <%if (request.getAttribute("mensajeFallido") != null) {%>
-                      ${mensajeFallido}
-                      <% } else { %>
-                      ${mensajeExitoso}
-                      <% } %>
-                      </div> 
-                   </center>
-                      <h2>Servicios Activos o Iniciados</h2>
+                 <h2>Servicios Activos o Iniciados</h2>
                       <hr>
 
                           <div class="row">
@@ -52,7 +43,7 @@
 
                                 String e = "", a = "", f = "";
 
-                                ArrayList<ServicioVO> listaServiciosCL = serDAO.listarSCL();
+                                ArrayList<ServicioVO> listaServiciosCL = serDAO.listarSCL(IdU);
 
                                 for (int i = 0; i < listaServiciosCL.size(); i++) {
 
@@ -255,21 +246,68 @@
                               </div>
                             </div>
                           </div>
+                <a href="javascript:window.print()">Imprimir</a>
+                <br>
+            </div>
+            </div>
 
-                 </div>
-               </div>
-                      
+        <!-- Termina aqui -->
+        
+        <!-- Modales -->
+        
+
+    <!-- Modal para Actualizar -->
+    
+    
        </div>
     </div>
-                          
-        <!-- Termina aqui -->          
+   
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
 
+        <!-- End Modals -->
+
+        
+        <%@include file="dash2.jsp" %>
 
  <!-- Optional JavaScript -->
     <!--, then Popper.js, then Bootstrap JS -->
-    <script src="assets/plugins/jquery/jquery.min.js" type="text/javascript"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    <%@include file="dash2.jsp"%>
+    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
+      
+    <script>
+        $(document).ready(function(){
+            $("#datatable").DataTable({
+                language: {
+                        "sProcessing": "Procesando ...",
+                        "sLengthMenu": "Mostrar _MENU_ registros",
+                        "sZeroRecords": "No se encontraron resultados",
+                        "sEmptyTable": "Ningún dato disponible en esta tabla",
+                        "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                        "sSearch": "Buscar:",
+                        "sInfoThousands": ",",
+                        "sLoadingRecords": "Cargando ...",
+                        "oPaginate": {
+                            "sFirst": "Primero",
+                            "sLast": "Último",
+                            "sNext": "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                        "botones": {
+                            "copiar": "Copiar",
+                            "colvis": "Visibilidad"
+                        }
+                }
+            });
+        });
+    </script>
     <script>
         document.getElementById(`servicio_menu`).classList.add("active");
         document.getElementById(`servicio_menu`).classList.add("expand");

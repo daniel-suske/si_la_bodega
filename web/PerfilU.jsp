@@ -9,18 +9,17 @@
 <%@page import="modeloDAO.UsuarioDAO"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<link href="assets/css/estilos.css" rel="stylesheet" type="text/css"/>
 <%@include file="dash1.jsp" %>
 
 
   <title>Mi Perfil</title>
 
-
-
         <!-- AQUI VA EL contenido-->
 
  <div class="content-wrapper">
-        <div class="content"> <div class="bg-white border rounded">
+        <div class="content">
+            <div class="bg-white border rounded">
 
 		<div class="row no-gutters">
 			<div class="col-lg-4 col-xl-3">
@@ -67,9 +66,6 @@
 			<div class="profile-content-right py-5">
 			<ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
                             <li class="nav-item">
-				<a class="nav-link" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true">Historial</a>
-                            </li>
-                            <li class="nav-item">
 				<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Perfil</a>
                             </li>
                             <li class="nav-item">
@@ -77,71 +73,6 @@
                             </li>
 			</ul>
                         <div class="tab-content px-3 px-xl-5" id="myTabContent">
-                            <div class="tab-pane fade" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
-				<div class="media mt-5 profile-timeline-media">
-                                    <div class="align-self-start iconbox-45 overflow-hidden mr-3">
-					<img  src="assets/img/user/u3.jpg" alt="Generic placeholder image">
-                                    </div>
-                                    <div class="media-body">
-					<h6 class="mt-0 text-dark">Larissa Gebhardt</h6>
-					<span>Designer</span>
-					<span class="float-right">5 mins ago</span>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-					<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-						<img src="assets/img/products/pa1.jpg" alt="Product">
-					</div>
-					<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-						<img src="assets/img/products/pa2.jpg" alt="Product">
-					</div>
-					<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-							<img src="assets/img/products/pa3.jpg" alt="Product">
-					</div>
-                                    </div>
-				</div>
-				<div class="media mt-5 profile-timeline-media">
-					<div class="align-self-start iconbox-45 overflow-hidden mr-3">
-						<img  src="assets/img/user/u4.jpg" alt="Generic placeholder image">
-					</div>
-					<div class="media-body">
-						<h6 class="mt-0 text-dark">Walter Reuter</h6>
-						<span>Designer</span>
-						<span class="float-right">2 hrs ago</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-
-					</div>
-				</div>
-				<div class="media mt-5 profile-timeline-media">
-					<div class="align-self-start iconbox-45 overflow-hidden mr-3">
-						<img  src="assets/img/user/u7.jpg" alt="Generic placeholder image">
-					</div>
-					<div class="media-body">
-						<h6 class="mt-0 text-dark">Albrecht Straub</h6>
-						<span>Designer</span>
-						<span class="float-right">5 days ago</span>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-						<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-							<img src="assets/img/products/pa4.jpg" alt="Product">
-						</div>
-					</div>
-				</div>
-				<div class="media mt-5 profile-timeline-media">
-						<div class="align-self-start iconbox-45 overflow-hidden mr-3">
-							<img  src="assets/img/user/u8.jpg" alt="Generic placeholder image">
-						</div>
-						<div class="media-body">
-							<h6 class="mt-0 text-dark">Selena Wagner</h6>
-							<span>Designer</span>
-							<span class="float-right">Mar 05, 2018</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-							<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-								<img src="assets/img/products/pa5.jpg" alt="Product">
-							</div>
-						<div class="d-inline-block rounded overflow-hidden mt-4 mr-0 mr-lg-4">
-							<img src="assets/img/products/pa6.jpg" alt="Product">
-						</div>
-						</div>
-				</div>
-			</div>
 			<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                           <div class="mt-5">
                             <div class="row">
@@ -510,19 +441,33 @@
 	<div class="tab-pane fade show active" id="settings" role="tabpanel" aria-labelledby="settings-tab">
 
                           <div class="mt-5">
-                            <form>
-                              <div class="form-group row mb-6">
-                                <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Imagen</label>
-                                <div class="col-sm-8 col-lg-10">
-                                  <div class="custom-file mb-1">
-                                    <input type="file" class="custom-file-input" id="coverImage" required>
-                                    <label class="custom-file-label" for="coverImage">Choose file...</label>
-                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                            
+                              <form id="agregar-img" method="POST" action="Usuario" enctype="multipart/form-data">
+                                  <div class="form-group">
+                                  <label for="Img-Perfil">Imagen:</label>
                                   </div>
-                                </div>
-                              </div>
+                                  <input type="hidden" name="textId" id="textId" value="<%= IdU %>"/>
+                                    <div class="custom-file" style="height: 60px; cursor:pointer; ">
+                                        <input type="file" class="custom-file-input" accept="image/*"  style="cursor:pointer;" onchange="validateFileType()" multiple="multiple" name="Img-Perfil" id="Img-Perfil" >
+
+                                        <label class="custom-file-label text-justify" for="Img-Perfil" style="border: 1px dashed  #000;">Seleccione o arrastre la imagen</label>
+                                        <i class="formulario__validacion-estado far fa-times-circle"></i>
+                                    </div>
+                                  <input type="hidden" name="opcion" value="13"/>
+                                  <button type="submit" for="agregar-img" class="btn btn-success border border-dark btn-block mt-5 mb-5">Agregar</button>
+                                  <div style="color:Red">
+                                        <%if (request.getAttribute("mensajeFallido") != null) {%>
+                                        ${mensajeFallido}
+                                        <% } else { %>
+                                        ${mensajeExitoso}
+                                        <% } %>
+                                  </div>  
+                            </form>
+                            
+                            <form action="Usuario" method="POST">
                               <div class="row mb-2">
                                 <div class="col-lg-6">
+                                  <input type="hidden" name="textId" value="<%= IdU %>"/>
                                   <div class="form-group">
                                     <label for="nombres">Nombres:</label>
                                     <input type="text" class="form-control" name="nombres" id="nombres" value="<%= NombreU %>">
@@ -544,79 +489,106 @@
                               </div>
 
                                <div class="form-group">
-                                                            <label>Tipo de Documento:</label>
-                                                            <select name="tipo" class="form-control form-control-lg">
-                                                                    <option value="" selected>Seleccione su tipo de Identificación...</option>
-                                                                    <%
-                                                                        String cc = "CC";
-                                                                        String ce = "CE";
-                                                                        String pa = "PA";
-                                                                        String rc = "RC";
-                                                                        
-                                                                        if (cc.equals(TipoDU)) {
-                                                                    %>
-                                                                    <option value="CC" selected>Cédula de Ciudadanía</option>
-                                                                    <option value="CE">Cédula de Extranjería</option>
-                                                                    <option value="PA">Pasaporte</option>
-                                                                    <option value="RC">Registro Civil</option>
-                                                                    <%
-                                                                        } else if(ce.equals(TipoDU)){
-                                                                    %>
-                                                                    <option value="CC">Cédula de Ciudadanía</option>
-                                                                    <option value="CE" selected>Cédula de Extranjería</option>
-                                                                    <option value="PA">Pasaporte</option>
-                                                                    <option value="RC">Registro Civil</option>
-                                                                    <%
-                                                                        }  else if(pa.equals(TipoDU)) {
-                                                                    %>
-                                                                    <option value="CC">Cédula de Ciudadanía</option>
-                                                                    <option value="CE">Cédula de Extranjería</option>
-                                                                    <option value="PA" selected>Pasaporte</option>
-                                                                    <option value="RC">Registro Civil</option>
-                                                                    <%
-                                                                        }  else if(rc.equals(TipoDU)) {
-                                                                    %>
-                                                                    <option value="CC">Cédula de Ciudadanía</option>
-                                                                    <option value="CE">Cédula de Extranjería</option>
-                                                                    <option value="PA" selected>Pasaporte</option>
-                                                                    <option value="RC">Registro Civil</option>
-                                                                    <% } %>
-                                                            </select>       
-                                                    </div>                                       
-                                                    <div class="form-group">
-                                                            <label>Correo:</label>
-                                                            <input type="email" name="correos" class="form-control" placeholder="Ingrese Email" value="<%= CorreoU %>">
-                                                    </div>	
-                                                    <div class="form-group">
-                                                            <label>Teléfono:</label>
-                                                            <input type="number" name="telefono" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= TelefonoU %>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label>Barrio:</label>
-                                                            <input type="text" name="barrio" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= BarrioU %>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                            <label>Dirección:</label>
-                                                            <input type="text" name="direccion" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= DireccionU %>">
-                                                    </div>
+                                    <label>Tipo de Documento:</label>
+                                    <select name="tipo" class="form-control form-control-lg">
+                                    <option value="" selected>Seleccione su tipo de Identificación...</option>
+                                    <%
+                                        String cc = "CC";
+                                        String ce = "CE";
+                                        String pa = "PA";
+                                        String rc = "RC";
 
+                                        if (cc.equals(TipoDU)) {
+                                    %>
+                                    <option value="CC" selected>Cédula de Ciudadanía</option>
+                                    <option value="CE">Cédula de Extranjería</option>
+                                    <option value="PA">Pasaporte</option>
+                                    <option value="RC">Registro Civil</option>
+                                    <%
+                                        } else if(ce.equals(TipoDU)){
+                                    %>
+                                    <option value="CC">Cédula de Ciudadanía</option>
+                                    <option value="CE" selected>Cédula de Extranjería</option>
+                                    <option value="PA">Pasaporte</option>
+                                    <option value="RC">Registro Civil</option>
+                                    <%
+                                        }  else if(pa.equals(TipoDU)) {
+                                    %>
+                                    <option value="CC">Cédula de Ciudadanía</option>
+                                    <option value="CE">Cédula de Extranjería</option>
+                                    <option value="PA" selected>Pasaporte</option>
+                                    <option value="RC">Registro Civil</option>
+                                    <%
+                                        }  else if(rc.equals(TipoDU)) {
+                                    %>
+                                    <option value="CC">Cédula de Ciudadanía</option>
+                                    <option value="CE">Cédula de Extranjería</option>
+                                    <option value="PA" selected>Pasaporte</option>
+                                    <option value="RC">Registro Civil</option>
+                                    <% } %>
+                                    </select>       
+                                </div>                                       
+                                <div class="form-group">
+                                    <label>Correo:</label>
+                                    <input type="email" name="correos" class="form-control" placeholder="Ingrese Email" value="<%= CorreoU %>">
+                                </div>	
+                                <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input type="number" name="telefono" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= TelefonoU %>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Barrio:</label>
+                                   <input type="text" name="barrio" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= BarrioU %>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Dirección:</label>
+                                    <input type="text" name="direccion" class="form-control" placeholder="Ingrese Nombres Completos" value="<%= DireccionU %>">
+                                </div>
                               <div class="d-flex justify-content-end mt-5">
-                                <button type="submit" class="btn btn-warning btn-lg btn-block mt-5 btn-pill">Modificar</button>
+                                <button type="submit" class="btn btn-warning border border-dark btn-lg btn-block mt-5 btn-pill">Modificar</button>
+                                <input type="hidden" name="opcion" value="12"/>
                               </div>
-
+                              <div style="color:Red">
+                                    <%if (request.getAttribute("mensajeFallido") != null) {%>
+                                    ${mensajeFallido}
+                                    <% } else { %>
+                                    ${mensajeExitoso}
+                                    <% } %>
+                              </div>
                             </form>
                           </div>
                         </div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+		</div>
+	</div>
 </div>
- </div>
+</div>
+</div>
+</div>
+</div>
 
         <!-- End Modals -->
-
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+    
+<script type="text/javascript">
+       function validateFileType(){
+           var fileName = document.getElementById("Img-Perfil").value;
+           var idxDot = fileName.lastIndexOf(".") + 1;
+           var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+           if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+               //TO DO
+           }else{
+               alert("Solo se Aceptan archivos tipo imagen");
+               var filess = document.getElementById("Img-Perfil");
+               filess.value="";
+           }   
+       }
+</script>
 
         <%@include file="dash2.jsp" %>
     <script>
