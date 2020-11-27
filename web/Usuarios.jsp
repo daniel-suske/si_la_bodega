@@ -33,7 +33,7 @@
                  <br> 
                             <div class="navbar">
                                 <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarUsuarioE.jsp"><i class="mdi mdi-account-multiple-plus mdi-24px mr-2"></i>Nuevo Registro</a>
-                                <form name="ReporteUsuarios" action="GenerarPDF_Usuario.jsp" target="_black">
+                                <form name="ReporteUsuarios" action="GenerarPDF_Usuario.jsp">
                                     <button class="btn btn-primary btn-lg m-3" type="submit"><i class="mdi mdi-file-pdf mdi-24px mr-2"></i> Generar PDF</button>
                                 </form>
                             </div>

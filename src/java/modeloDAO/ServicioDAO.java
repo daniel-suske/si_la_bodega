@@ -144,6 +144,47 @@ public class ServicioDAO extends Conexion implements Crud {
         
     }
     
+    public ArrayList<ServicioVO> listarSTEC(String IdSU)
+    {
+        
+        ArrayList<ServicioVO>listaServicioSTEC = new ArrayList<ServicioVO>();
+        
+        try {
+            
+            conexion = this.obtenerConexion();
+            sql = "SELECT VSS.*, U.Nombres AS Tecnico FROM vista_servicios VSS INNER JOIN reparacion RP ON RP.Id_Servicio = VSS.Id INNER JOIN usuario U ON U.Id = RP.Tecnico WHERE U.Id = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, IdSU);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                
+                ServicioVO serVO = new ServicioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(7), mensajero.getString(6));
+                
+                listaServicioSTEC.add(serVO);
+            }
+            
+        } catch (SQLException e) {
+            
+            Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+            
+        } finally {
+            
+            try {
+                
+                this.cerrarConexion();
+                
+            } catch (SQLException e) {
+                
+                Logger.getLogger(ServicioDAO.class.getName()).log(Level.SEVERE,null,e);
+                
+            }
+            
+        }
+        
+        return listaServicioSTEC;
+        
+    }
+   
     @Override
     public boolean agregarRegistro() {
         

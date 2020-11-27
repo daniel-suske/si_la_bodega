@@ -298,6 +298,14 @@
                                         </li>
                                         <% } %>
                                         
+                                        <% if(p.equals("3")) { %>
+                                        <li id="servicio_tecnico">
+                                          <a class="sidenav-item-link" href="MiServiciosTEC.jsp">
+                                            <span class="nav-text">Servicios Asignados</span>
+                                          </a>
+                                        </li>
+                                        <% } %>
+                                        
                                     </div>
                                 </ul>
                             </li>
@@ -377,9 +385,7 @@
                                 </ul>
                             </li>
 
-
-
-
+                            <%if(p.equals("1") || p.equals("3") || p.equals("4")) { %>
 
                             <li class="has-sub" id="repuesto_menu">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#repuesto_c"
@@ -431,9 +437,7 @@
                                 </ul>
                             </li>
 
-
-
-
+                            <% } %>
 
                             <li  class="has-sub" id="factura_menu">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#factura_c"
@@ -468,7 +472,7 @@
                                 </ul>
                             </li>
 
-
+                            <% if(p.equals("1") || p.equals("2")) { %>
 
                             <li  class="has-sub" id="estado_menu">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#estados"
@@ -494,6 +498,8 @@
                                 </ul>
                             </li>
 
+                            <% } %>
+                            
                             <li  class="has-sub" id="opcionesPU_menu">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#configuracion"
                                    aria-expanded="false" aria-controls="configuracion">

@@ -7,7 +7,6 @@ const textareas = document.querySelectorAll('#formularioSE textarea');
 
 const expresiones = {
   
-  Fecha_P: /^\d/,
   Descript: /^.{25,1000}$/
     
 };
@@ -25,7 +24,7 @@ const validarFormularioSE = (e) => {
     switch (e.target.name) {
     
         case "Fecha_P":
-            validarCampo(expresiones.Fecha_P, e.target, 'Fecha_P');
+            validarCampo(e.target, 'Fecha_P');
         break;    
         case "Descript":
             validarTextArea(expresiones.Descript, e.target, 'Descript');
@@ -40,25 +39,25 @@ const validarFormularioSE = (e) => {
     }
 };
 
-const validarCampo = (expresion, input, campo) => {
+const validarCampo = (input, campo) => {
     
-    if (expresion.test(input.value)) {
+    if (input.value === "") {
 
-    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
-    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
-    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-exclamation-triangle');
-    document.querySelector(`#grupo__${campo} i`).classList.add('fa-clipboard-check');
-    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
-    campos[campo] = true;
-    
-  } else {
-      
     document.querySelector(`#grupo__${campo} i`).classList.add('fa-exclamation-triangle');
     document.querySelector(`#grupo__${campo} i`).classList.remove('fa-clipboard-check');
     document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-correcto");
     document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-incorrecto");
     document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
     campos[campo] = false;
+    
+  } else {
+      
+    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
+    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-exclamation-triangle');
+    document.querySelector(`#grupo__${campo} i`).classList.add('fa-clipboard-check');
+    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
+    campos[campo] = true;
     
     } 
 };
@@ -111,6 +110,7 @@ const validarTextArea = (expresion,textarea, campo) => {
 inputs.forEach((input) => {
         
      input.addEventListener("keyup", validarFormularioSE);
+     input.addEventListener("blur", validarFormularioSE);
       
 });
 
