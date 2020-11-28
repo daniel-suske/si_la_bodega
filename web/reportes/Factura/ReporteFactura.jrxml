@@ -84,7 +84,7 @@
 				</staticText>
 				<image>
 					<reportElement x="61" y="0" width="219" height="96" uuid="636e945f-5a86-498c-8015-375f0daae25b"/>
-					<imageExpression><![CDATA["C:\\Users\\Patiño Sauarez\\Downloads\\descarga.jpg"]]></imageExpression>
+					<imageExpression><![CDATA["../../assets/img/logo.png"]]></imageExpression>
 				</image>
 			</frame>
 		</band>
@@ -216,9 +216,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Servicio}]]></textFieldExpression>
 			</textField>
-			<frame>
-				<reportElement x="12" y="14" width="783" height="58" uuid="687872d5-530e-4386-9d4d-f8f1af77fcbe"/>
-			</frame>
 		</band>
 	</detail>
 	<columnFooter>

@@ -14,7 +14,7 @@
 <div class="content-wrapper">
 
     <div class="content">
-        <div class="card bg-white " style="width:100%">
+        <div class="card bg-white anchos ">
             <div class="card-body ">
                 <h4 class="text-center">Consultar Repuestos</h4>
                 <br><br>
@@ -29,18 +29,18 @@
                 </form>
 
 
-                <a class="btn btn-info" style="text-decoration: none; color: #Fff" href="registrarRepuesto.jsp">Crear</a> 
+                <a class="btn btn-info hass"  href="registrarRepuesto.jsp">Crear</a> 
 
 
-                <a class="btn btn-dark m-2" style="text-decoration: none; color: #Fff" href="consultarRepuesto.jsp">Todo</a>
-              
-                <form name="ReporteUsuarios" action="GenerarPDF_Repuesto_1.jsp" target="_black" class="derecha pull-right">
-                                    <button class="btn btn-dark btn-lg " type="submit"><i class="mdi mdi-file-pdf mdi-24px mr-2"></i> Generar PDF</button>
-                                </form>
-               
-              
+                <a class="btn btn-dark m-2 hass" href="consultarRepuesto.jsp">Todo</a>
 
-                
+                <form name="ReporteUsuarios" action="GenerarPDF_Repuesto_1.jsp" target="_blank" class="derecha pull-right">
+                    <button class="btn btn-dark btn-lg " type="submit"><i class="mdi mdi-file-pdf mdi-24px mr-2"></i> Generar PDF</button>
+                </form>
+
+
+
+
 
             </div>
 
@@ -52,10 +52,10 @@
     <div > 
         <% if (request.getAttribute("mensajeError") != null) { %> <h4 class="text-center text-danger mb-2">${mensajeError}</h4> <%}%>
     </div>  
-    <div class="card bg-white" style="width:100%">
+    <div class="card bg-white anchos" >
         <div class="card-body ">
             <div class="basic-data-table pagination-seperated pagination-seperated-rounded ">
-                <table id="responsive-data-table" class="table dt-responsive nowrap table-bordered table-striped " cellspading="0" style="border-collapse: collapse; overflow: hidden;   width:100%; border-radius: 5px !important; ">
+                <table id="responsive-data-table" class="table dt-responsive nowrap table-bordered table-striped thable " cellspading="0" >
                     <thead class="bg-dark" > 
                         <tr class="thead-dark">  
                             <th class="text-light" data-priority="1">#</th> 
@@ -88,7 +88,7 @@
                                     repVO = listaVehiculos.get(i);%> 
                         <tr> 
                             <td scope="col" class="text-center" ><%=repVO.getId()%></td>
-                            <td scope="col" >  <a href="ControladorImagenRepuesto?ids=<%=repVO.getId()%>"  target="_blank"> <img src="ControladorImagenRepuesto?ids=<%=repVO.getId()%>" onerror="this.src='assets/img/no_image.png'" width="100" height="100" ></a></td>
+                            <td scope="col" > <img src="ControladorImagenRepuesto?ids=<%=repVO.getId()%>" class="repuez myImg" onerror="this.src='assets/img/no_image.png'" width="100" height="100" id="<%=repVO.getId()%>" alt="Perra"  onclick="opens(<%=repVO.getId()%>)"></a></td>
 
                             <td scope="col" ><%=repVO.getNombre()%> </td> 
                             <td scope="col" ><%=repVO.getNo_Serie()%></td> 
@@ -154,11 +154,16 @@
 
                                                 </tr> 
                                                 <%}
-                                                    }%> 
+                                            }%> 
                                                 </tbody>
                                                 <tfoot> 
                                                 </tfoot> 
                                                 </table>
+                                                <div id="myModal" class="modal">
+                                                    <span class="close">&times;</span>
+                                                    <img class="modal-content"  id="img01" onerror="this.src='assets/img/no_image.png'"  >
+                                                    <div id="caption"></div>
+                                                </div>
                                                 </div>
 
                                                 </div>
@@ -186,43 +191,43 @@
                                                 <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
 
                                                 <script>
-                                                    jQuery(document).ready(function () {
+                                        jQuery(document).ready(function () {
 
-                                                        jQuery('#responsive-data-table').DataTable({
-                                                            language: {
-                                                                "sProcessing": "Procesando ...",
-                                                                "sLengthMenu": "Mostrar _MENU_ registros",
-                                                                "sZeroRecords": "No se encontraron resultados",
-                                                                "sEmptyTable": "Ningn dato disponible en esta tabla",
-                                                                "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                                                                "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                                                                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                                                "sSearch": "Buscar:",
-                                                                "sInfoThousands": ",",
-                                                                "sLoadingRecords": "Cargando ...",
-                                                                "oPaginate": {
-                                                                    "sFirst": "Primero",
-                                                                    "sLast": "ltimo",
-                                                                    "sNext": "Siguiente",
-                                                                    "sPrevious": "Anterior"
-                                                                },
-                                                                "oAria": {
-                                                                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
-                                                                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                                                                },
-                                                                "botones": {
-                                                                    "copiar": "Copiar",
-                                                                    "colvis": "Visibilidad"
-                                                                }
-                                                            },
-                                                            "aLengthMenu": [[10, 20, 50, 75, -1], [10, 20, 50, 75, "All"]],
-                                                            "pageLength": 10,
-                                                            "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
+                                            jQuery('#responsive-data-table').DataTable({
+                                                language: {
+                                                    "sProcessing": "Procesando ...",
+                                                    "sLengthMenu": "Mostrar _MENU_ registros",
+                                                    "sZeroRecords": "No se encontraron resultados",
+                                                    "sEmptyTable": "Ningn dato disponible en esta tabla",
+                                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                                    "sSearch": "Buscar:",
+                                                    "sInfoThousands": ",",
+                                                    "sLoadingRecords": "Cargando ...",
+                                                    "oPaginate": {
+                                                        "sFirst": "Primero",
+                                                        "sLast": "ltimo",
+                                                        "sNext": "Siguiente",
+                                                        "sPrevious": "Anterior"
+                                                    },
+                                                    "oAria": {
+                                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                                    },
+                                                    "botones": {
+                                                        "copiar": "Copiar",
+                                                        "colvis": "Visibilidad"
+                                                    }
+                                                },
+                                                "aLengthMenu": [[10, 20, 50, 75, -1], [10, 20, 50, 75, "All"]],
+                                                "pageLength": 10,
+                                                "dom": '<"row justify-content-between top-information"lf>rt<"row justify-content-between bottom-information"ip><"clear">'
 
 
-                                                        });
+                                            });
 
-                                                    });
+                                        });
                                                 </script>
 
                                                 <script src="assets/plugins/data-tables/jquery.datatables.min.js"></script>
@@ -231,17 +236,41 @@
 
                                                 <!--Script para cargar la pagina en el lugar del scroll anterior -->
                                                 <script>
-                                                    window.onload = function () {
-                                                        var pos = window.name || 0;
-                                                        window.scrollTo(0, pos);
+                                        window.onload = function () {
+                                            var pos = window.name || 0;
+                                            window.scrollTo(0, pos);
+                                        }
+                                        window.onunload = function () {
+                                            window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
+                                        }
+                                                </script>
+                                                <script>
+                                                    document.getElementById(`repuesto_menu`).classList.add("active");
+                                                    document.getElementById(`repuesto_menu`).classList.add("expand");
+                                                    document.getElementById(`repuesto_c`).classList.add("show");
+                                                    document.getElementById(`repuesto_gestion`).classList.add("active");
+                                                </script>
+                                                <script>
+                                                    // Get the modal
+                                                    var modal = document.getElementById("myModal");
+
+                                                    // Get the image and insert it inside the modal - use its "alt" text as a caption
+
+
+                                                    var captionText = document.getElementById("caption");
+                                                    var modalImg = document.getElementById("img01");
+                                                    function opens(holaz) {
+
+                                                        modal.style.display = "block";
+                                                        modalImg.src = 'ControladorImagenRepuesto?ids='+holaz;
+                                                        
                                                     }
-                                                    window.onunload = function () {
-                                                        window.name = self.pageYOffset || (document.documentElement.scrollTop + document.body.scrollTop);
+
+                                                    // Get the <span> element that closes the modal
+                                                    var span = document.getElementsByClassName("close")[0];
+
+                                                    // When the user clicks on <span> (x), close the modal
+                                                    modal.onclick = function () {
+                                                        modal.style.display = "none";
                                                     }
                                                 </script>
-<script>
-        document.getElementById(`repuesto_menu`).classList.add("active");
-        document.getElementById(`repuesto_menu`).classList.add("expand");
-        document.getElementById(`repuesto_c`).classList.add("show");
-        document.getElementById(`repuesto_gestion`).classList.add("active");
-</script>          
