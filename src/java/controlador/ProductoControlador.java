@@ -38,11 +38,11 @@ public class ProductoControlador extends HttpServlet {
        int opcion = Integer.parseInt(request.getParameter("opcion"));
        
        String Id = request.getParameter("Id");
-        String Tipo_Producto = request.getParameter("textProducto");
-        String Marca = request.getParameter("textmarca");
-        String Modelo = request.getParameter("textModelo");
-        String Numero_Serie  = request.getParameter("textSerie");
-        String Estado = request.getParameter("textestado");
+        String Tipo_Producto = request.getParameter("producto");
+        String Marca = request.getParameter("marca");
+        String Modelo = request.getParameter("modelo");
+        String Numero_Serie  = request.getParameter("serie");
+        String Estado = request.getParameter("status");
         String text = request.getParameter("text");
          if(opcion == 1) {
             

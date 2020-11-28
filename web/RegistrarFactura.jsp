@@ -105,13 +105,13 @@
                     
                              
                     <div class="form-row content">
-                        <div class="form-group col-md-6" id="grupo_garantia">
+                        <div class="form-group col-md-6" id="grupo__garantia">
                             <label for="garantia" class="formulario__label mark ">Garantia:</label>
                             
                         <div class="formulario__grupo-input">
                             
-                           <i class="formulario__validacion-estado fas fa-exclamation-circle"></i>
-                            <select id="pago" name="garantia" class="form-control-lg col-lg-11">
+                           <i class="formulario__validacion-status fas fa-exclamation-circle"></i>
+                            <select id="garantia" name="garantia" class="form-control-lg col-lg-11">
                                  <option value="" disabled="" selected="">Seleccione Tipo de Garantia </option>
                                        <option value="SI">SI TIENE GARANTIA</option>
                                         <option value="NO">NO TIENE GARANTIA</option>
@@ -122,7 +122,7 @@
                       </div>
                    
                         
-                        <div class="form-group col-md-6" id="grupo_recibe">
+                        <div class="form-group col-md-6" id="grupo__recibe">
                             <label for="recibe" class="formulario__label mark">Recibe:</label>
                             <div class="formulario__grupo-input">
                                 <i class="formulario__validacion-status fas fa-exclamation-circle"></i>
