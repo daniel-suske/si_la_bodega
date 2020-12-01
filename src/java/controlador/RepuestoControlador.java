@@ -57,7 +57,7 @@ public class RepuestoControlador extends HttpServlet {
         String Cantidad = request.getParameter("cantidad");
         String Estado = request.getParameter("estado");
         InputStream inputStream = null;
-        if(opcion ==1){
+        if(opcion ==1 || opcion ==2){
          Part part = request.getPart("imagen");
         
          String a=part.getSubmittedFileName();

@@ -44,8 +44,10 @@ margin-left: 1px;
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 10000000; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  z-index: 15000; /* Sit on top */
+  padding-top: 5%;
+  padding-bottom: 5%;
+  /* Location of the box */
   left: 0;
   top: 0%;
   width: 100%; /* Full width */
@@ -57,10 +59,11 @@ margin-left: 1px;
 
 /* Modal Content (image) */
 .modal-content {
-  margin: auto;
+  margin: auto auto;
   display: block;
-  width: 40%;
-  max-width: 700px;
+  width: 50%;
+  height: 100%;
+  
 }
 
 /* Caption of Modal Image */
@@ -95,13 +98,15 @@ margin-left: 1px;
 
 /* The Close Button */
 .close {
+    z-index: 15100; 
   position: absolute;
   top: 15px;
   right: 35px;
   color: #f1f1f1;
-  font-size: 40px;
+  font-size: 2.5em !important;
   font-weight: bold;
   transition: 0.3s;
+  
 }
 
 .close:hover,

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/assets/css/consultarRepuesto.css</file>
+            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/consultaReparacion.jsp</file>
+            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/src/java/controlador/RepuestoControlador.java</file>
             <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/consultarRepuesto.jsp</file>
-            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/reportes/Factura/ReporteFactura.jrxml</file>
-            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/reportes/Repuestos/ReporteRepuesto.jrxml</file>
+            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/src/java/modeloDAO/RepuestoDAO.java</file>
+            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/src/java/modeloVO/RepuestoVO.java</file>
+            <file>file:/C:/Users/jony/Desktop/NetBeansProjects/si_la_bodega/web/GenerarPDF_Usuario.jsp</file>
         </group>
     </open-files>
 </project-private>

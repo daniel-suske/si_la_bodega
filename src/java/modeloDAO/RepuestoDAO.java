@@ -254,21 +254,30 @@ public class RepuestoDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update repuesto set Nombre =?, No_Serie =?, Marca =?, Modelo =?, Fecha_Compra =?, Lugar_Compra =?, Valor_Compra =?, Valor_Venta =?, Cantidad =?, Estado =? where Id=?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombre);
-            puente.setString(2, No_Serie);
-            puente.setString(3, Marca);
-            puente.setString(4, Modelo);
-            puente.setString(5, Fecha_Compra);
-            puente.setString(6, Lugar_Compra);
-            puente.setString(7, Valor_Compra);
-            puente.setString(8, Valor_Venta);
-            puente.setString(9, Cantidad);
-            puente.setString(10, Estado);
-            puente.setString(11, Id);
+            if(Imagenes!=null){
+            sql = " CALL actualizar_Repuesto_Imagen (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puenteps = conexion.prepareCall(sql);
+            puenteps.setBlob(11, Imagenes);
+            puenteps.setString(12, Id);
+            }else{
+            sql = "CALL actualizar_Repuesto (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            puenteps = conexion.prepareCall(sql);
+            puenteps.setString(11, Id);
+            }
+            puenteps.setString(1, Nombre);
+            puenteps.setString(2, No_Serie);
+            puenteps.setString(3, Marca);
+            puenteps.setString(4, Modelo);
+            puenteps.setString(5, Fecha_Compra);
+            puenteps.setString(6, Lugar_Compra);
+            puenteps.setString(7, Valor_Compra);
+            puenteps.setString(8, Valor_Venta);
+            puenteps.setString(9, Cantidad);
+            puenteps.setString(10, Estado);
+           
+            
 
-            puente.executeUpdate();//execute update para insertar, actualizar y eliminar
+            puenteps.executeUpdate();//execute update para insertar, actualizar y eliminar
             operacion = true;
         } catch (SQLException e) {
             Logger.getLogger(RepuestoDAO.class.getName()).log(Level.SEVERE, null, e);

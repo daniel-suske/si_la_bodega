@@ -25,7 +25,7 @@
                 <h2 class="text-center">Actualizar Repuestos</h2>
                 <br><br>
 
-                <form action="Repuesto" class="formulario" id="formulario" name="formulario"
+                <form action="Repuesto" class="formulario" id="formulario" name="formulario" enctype="multipart/form-data"
                       method="POST">
                     <div class="formulario__grupo" id="grupo__nombre">
                         <span>
@@ -164,12 +164,12 @@
                     <div class="formulario__grupo" id="grupo__imagen formulario__grupo-input" >
                         <label for="cantidad" class="formulario__label">Imagen del Repuesto</label>
                         <div class="custom-file" style="height: 60px; cursor:pointer; ">
-                            <input type="file" class="custom-file-input"    accept="image/*"  style="cursor:pointer;" onchange="validateFileType()" multiple="multiple" name="imagen" id="imagen" >
-
-                            <label class="custom-file-label text-justify" for="imagen" style="border: 1px dashed  #000;">Seleccione o arrastre la imagen</label>
-
-                            <i class="formulario__validacion-estado far fa-times-circle"></i>
-                        </div>
+                                <input type="file" class="custom-file-input"    accept="image/*"  style="cursor:pointer;" onchange="validateFileType()" multiple="multiple" name="imagen" id="imagen" >
+                                
+                                <label class="custom-file-label text-justify" for="imagen" style="border: 1px dashed  #000;">Seleccione o arrastre la imagen</label>
+                                
+                                <i class="formulario__validacion-estado far fa-times-circle"></i>
+                            </div>
                         <p class="formulario__input-error">La cantidad de repuestos debe ser minimo de 1 a 8 digitos
                             y debe
                             contener numeros</p>

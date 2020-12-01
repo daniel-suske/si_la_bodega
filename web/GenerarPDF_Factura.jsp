@@ -20,7 +20,7 @@
     <body>
        
         <%
-            File reporte = new File(application.getRealPath("ReporteFactura.jasper"));//Objeto y ruta para traer el nombre del reporte 
+            File reporte = new File(application.getRealPath("reportes/Factura/ReporteFactura.jasper"));//Objeto y ruta para traer el nombre del reporte 
             Map<String, Object> parametros = new HashMap<String,Object>();//convertir elementos del documento reporte en un solo documento
             Connection conexion = null; //crear el parametro conexion en relacion con byte
             Conexion ConBD = new Conexion();//instanciar conexion 

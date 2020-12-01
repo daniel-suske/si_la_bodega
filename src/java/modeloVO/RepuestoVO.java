@@ -18,7 +18,7 @@ public class RepuestoVO {
     private String Id, Nombre, No_Serie, Marca, Modelo, Fecha_Compra, Lugar_Compra, Valor_Compra, Valor_Venta, Cantidad, Estado;
     
     public RepuestoVO(String Id, String Nombre, String No_Serie, String Marca, String Modelo, String Fecha_Compra, String Lugar_Compra,
-            String Valor_Compra, String Valor_Venta, String Cantidad, String Estado, InputStream Imagen) {
+            String Valor_Compra, String Valor_Venta, String Cantidad, String Estado, InputStream Imagenes) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.No_Serie = No_Serie;
