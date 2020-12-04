@@ -20,20 +20,13 @@
 
               <div class="content">
               
-                <br>
+                <div class="card bg-white justify-content-center">
+                    <div class="card-body ">
 
-                <h1 class="text text-dark">Gestion de Estados</h1>
-              
-                  <hr>
-                  <br>
-                  <div class="navbar">
-                  <br>
-                  <form class="form-inline" method="PÒST" action="">
-                      <input type="search" class="form-control form-dark" name="text"/>
-                      <input type="submit" class="btn btn-primary" value="Buscar"/>
-                      <input type="hidden" name="opcion" value="4" />
-                  </form>
-                  </div>
+                        <h1 class="text text-dark">Estados</h1>
+                        <hr>
+                        
+                </div></div>
                   <br><br>
                 <div class="card bg-white" style="width: 100%">
                 <div class="card-body ">
@@ -64,13 +57,9 @@
                                 <td class="text-center"><%= estVO.getNombre()%></td>
               
                                 <td class="text-center">
-                                     <form method="post" action="Estado" class="justify-content-center">
-                                            <input type="hidden" name="textId" value="<%= estVO.getId() %>" />
                                             <div class="row justify-content-center">
                                             <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/edit.png" width="20px"></i></button>
                                             </div>
-                                            <input type="hidden" name="opcion" value="3"/>
-                                     </form>
                                 </td>
                             </tr>
                       <% } %>

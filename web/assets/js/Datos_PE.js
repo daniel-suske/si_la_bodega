@@ -6,7 +6,6 @@ const selects = document.querySelectorAll('#formularioDUE select');
 
 const expresiones = {
     
-    Fecha_N: /^\d/ ,
     Eps: /^.{3,100}$/,
     Arl: /^.{3,100}$/,
     Fondo_P: /^.{3,100}$/,
@@ -30,7 +29,7 @@ const validarFormularioDUE = (e) => {
   switch (e.target.name) {
    
         case "Fecha_N":
-            validarCampo(expresiones.Fecha_N, e.target, 'Fecha_N');
+            validarCampoF(e.target, 'Fecha_N');
         break;
         case "Estado_C" :
             validarSelect(e.target, 'Estado_C');
@@ -76,6 +75,28 @@ const validarCampo = (expresion, input, campo) => {
     
     } 
 };
+const validarCampoF = (input, campo) => {
+    
+    if (input.value === "") {
+
+    document.querySelector(`#grupo__${campo} i`).classList.add('fa-exclamation-triangle');
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-clipboard-check');
+    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-correcto");
+    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-incorrecto");
+    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add("formulario__input-error-activo");
+    campos[campo] = false;
+    
+  } else {
+      
+    document.getElementById(`grupo__${campo}`).classList.remove("formulario__grupo-incorrecto");
+    document.getElementById(`grupo__${campo}`).classList.add("formulario__grupo-correcto");
+    document.querySelector(`#grupo__${campo} i`).classList.remove('fa-exclamation-triangle');
+    document.querySelector(`#grupo__${campo} i`).classList.add('fa-clipboard-check');
+    document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove("formulario__input-error-activo");
+    campos[campo] = true;
+    
+    } 
+};
 const validarSelect = (select, campo) => {
   
     if (select.value === "") {
@@ -102,8 +123,9 @@ const validarSelect = (select, campo) => {
 /* Toma los inputs y selects y el enviar :)*/
 inputs.forEach((input) => {
         
-     input.addEventListener("keyup", validarFormularioDUE);
-      
+    input.addEventListener("keyup", validarFormularioDUE);
+    input.addEventListener("blur", validarFormularioDUE);
+     
 });
 
 selects.forEach((select) => {

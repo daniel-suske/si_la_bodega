@@ -21,20 +21,13 @@
 
               <div class="content">
               
-                <br>
+                <div class="card bg-white justify-content-center">
+                    <div class="card-body ">
 
-                <h1 class="text text-dark">Gestion de Perfiles</h1>
-              
-                  <hr>
-                  <br>
-                  <div class="navbar ">
-                  <br>
-                  <form class="form-inline" method="POST" action="">
-                      <input type="search" class="form-control form-dark" name="text"/>
-                      <input type="submit" class="btn btn-primary" value="Buscar"/>
-                      <input type="hidden" name="opcion" value="4" />
-                  </form>
-                  </div>
+                            <h1 class="text text-dark">Gestion de Perfiles</h1>
+                        <hr>
+
+                </div></div>
                   <br><br>
                  <div class="card bg-white" style="width: 100%">
                  <div class="card-body">
@@ -64,14 +57,9 @@
                                 <td class="text-center"><%= perfVO.getNombre()%></td>
               
                                 <td class="text-center">
-                                   <form method="post" action="Perfil" class="justify-content-center">
-                                            <input type="hidden" name="textId" value="<%= perfVO.getId() %>" />
                                             <div class="row justify-content-center">
                                             <button class="btn-sm btn-warning mg-auto"><i><img src="assets/icons/edit.png" width="20px"></i></button>
                                             </div>
-                                            <input type="hidden" name="opcion" value="3"/>
-                                   </form>
-                                   <!-- <a href="#" class="btn btn-danger">Inactivar</a> -->
                                 </td>
                             </tr>
                       <% } %>

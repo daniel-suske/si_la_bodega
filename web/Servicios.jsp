@@ -23,12 +23,12 @@
 
               <div class="content">
               
-                <br>
+                <div class="card bg-white justify-content-center">
+                    <div class="card-body ">
 
-                <h1 class="text text-dark">Gestion de Servicios</h1>
-              
-                  <hr>
-                  <br>
+                        <h1 class="text text-dark">Gestionar Servicios</h1>
+                        <hr>
+                        
                   <div class="navbar">
                       <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarServicio.jsp">+ Nuevo Registro</a><br>
                   <form class="form-inline" method="POST" action="Servicio">
@@ -37,6 +37,8 @@
                       <input type="hidden" name="opcion" value="4" />
                   </form>
                   </div>
+
+                </div></div>
                   
                 <br><br>
                 <div class="card bg-white" style="width: 100%">

@@ -665,20 +665,16 @@
                                         <i class="mdi mdi-account text-primary"></i>Mi Perfil
                                       </a>
                                     </li>
+                                    <% if(p.equals("1") || p.equals("2")) { %>
                                     <li>
-                                      <a href="#" class="text-dark">
-                                        <i class="mdi mdi-email text-primary"></i>Mensages
-                                      </a>
-                                    </li>
-                                    <li>
-                                      <a href="#" class="text-dark">
+                                      <a href="Perfiles.jsp" class="text-dark">
                                           <i class="mdi mdi-diamond-stone text-primary"></i>Cargos</a>
                                     </li>
+                                    <% } %>
                                     <li class="right-sidebar-in">
                                       <a href="PerfilU.jsp" class="text-dark">
                                           <i class="mdi mdi-settings text-primary"></i>Configuración</a>
                                     </li>
-
                                     <li class="dropdown-footer">
                                     <form method="POST" action="Sesiones">
                                         <a class="text-dark"> 
