@@ -277,20 +277,20 @@
                                     <div class="sub-menu">
 
                                         <%if(p.equals("1") || p.equals("2") || p.equals("3") || p.equals("4")) { %>
-
                                         <li id="servicio_gestion">
                                             <a class="sidenav-item-link" href="Servicios.jsp">
                                                 <span class="nav-text">Gestion</span>
                                             </a>
                                         </li>
-                                        <% } %>
+                                        
                                         <li id="servicio_listar">
                                           <a class="sidenav-item-link" href="ListarServicios.jsp">
                                             <span class="nav-text">Listar Servicios</span>
                                           </a>
                                         </li>
                                         
-                                        <% if(p.equals("5")) { %>
+                                        <%}
+                                          if(p.equals("5")) { %>
                                         <li id="servicio_cliente">
                                           <a class="sidenav-item-link" href="MiServicio.jsp">
                                             <span class="nav-text">Mis Servicios</span>
@@ -324,7 +324,7 @@
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
-
+                                        <%if(p.equals("1") || p.equals("2") || p.equals("3") || p.equals("4")) { %>
                                         <li id="producto_gestion">
                                             <a class="sidenav-item-link" href="consultarProducto.jsp">
                                                 <span class="nav-text">Gestion</span>
@@ -332,6 +332,13 @@
                                             </a>
                                         </li>
 
+                                        <%} if(p.equals("5")) { %>
+                                        <li id="producto_cliente">
+                                          <a class="sidenav-item-link" href="MiProducto.jsp">
+                                            <span class="nav-text">Mis Productos</span>
+                                          </a>
+                                        </li>
+                                        <% } %>
 
                                     </div>
                                 </ul>
@@ -351,13 +358,14 @@
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
+                                        <%if(p.equals("1") || p.equals("2") || p.equals("3") || p.equals("4")) { %>
                                         <li id="reparacion_gestion">
                                             <a class="sidenav-item-link" href="consultaReparacion.jsp">
                                                 <span class="nav-text">Gestion</span>
                                             </a>
                                         </li>
                                         
-                                       <li class="has-sub" >
+                                        <li class="has-sub" >
                                             <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#detalles_reparacion"
                                                aria-expanded="false" aria-controls="detalles_reparacion">
                                                 <span class="nav-text">Detalles de Reparaciones</span> <b class="caret"></b>
@@ -377,9 +385,14 @@
                                                 </div>
                                             </ul>
                                         </li>
-
-
-
+                                        
+                                        <%} if(p.equals("5")) { %>
+                                        <li id="reparacion_cliente">
+                                          <a class="sidenav-item-link" href="MiReparacion.jsp">
+                                            <span class="nav-text">Mis Reparaciones</span>
+                                          </a>
+                                        </li>
+                                        <% } %>
 
                                     </div>
                                 </ul>
@@ -449,8 +462,7 @@
                                      data-parent="#sidebar-menu">
                                     <div class="sub-menu">
 
-
-
+                                        <%if(p.equals("1") || p.equals("2") || p.equals("3") || p.equals("4")) { %>
                                         <li id="factura_gestion">
                                             <a class="sidenav-item-link" href="consultarFactura.jsp">
                                                 <span class="nav-text">General</span>
@@ -465,8 +477,13 @@
                                             </a>
                                         </li>
 
-
-
+                                        <%} if(p.equals("5")) { %>
+                                        <li id="factura_cliente">
+                                          <a class="sidenav-item-link" href="MiFactura.jsp">
+                                            <span class="nav-text">Mis Facturas</span>
+                                          </a>
+                                        </li>
+                                        <% } %>
 
                                     </div>
                                 </ul>

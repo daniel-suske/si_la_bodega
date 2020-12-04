@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteRepuestos" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07b003b4-39b7-4409-883f-152c0899421e">
 	<property name="ireport.zoom" value="2.0"/>
-	<property name="ireport.x" value="573"/>
+	<property name="ireport.x" value="487"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
@@ -67,7 +67,7 @@ ORDER BY
 			<textField pattern="EEE, d MMM yyyy HH:mm:ss ">
 				<reportElement x="587" y="14" width="180" height="19" forecolor="#FFFFFF" uuid="59c4870c-e832-4ea4-abc8-ab186ca18812"/>
 				<textElement>
-					<font fontName="Baskerville Old Face" size="13"/>
+					<font fontName="Arial" size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>

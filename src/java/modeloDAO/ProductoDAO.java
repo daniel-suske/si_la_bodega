@@ -244,7 +244,34 @@ public class ProductoDAO extends Conexion implements Crud{
 
     }
      
-  
+    public ArrayList<ProductoVO>listarPCL(String IdCL){
+        ArrayList<ProductoVO>ListaProductosCL = new ArrayList<ProductoVO>();// se declara un objeto Arraylist de tipo VehiculoVO y el nombre del arregloo alias : listaVehiculos  , y se volve a declarar el nombre:ArrayList y el nombre del objeto<VehiculoVO>
+            try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT DISTINCT VP.* FROM vista_productos VP INNER JOIN reparacion R ON VP.Id = R.Id_Producto INNER JOIN servicio S ON S.Id = R.Id_Servicio WHERE S.Cliente = ?";
+            puente=conexion.prepareStatement(sql);
+            puente.setString(1, IdCL);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+       //Si lo encuentra Va a crearme un VO. agregar el vehiculoVO eL alias  y como no es placa si no mensajero.getString(1)      
+        ProductoVO  ProVO = new ProductoVO(mensajero.getString(1),mensajero.getString(2), mensajero.getString(3), mensajero.getString(4),mensajero.getString(5),mensajero.getString(6));
+        // si lo encuentra  va a crear un todas las columnas de la base de datos 
+               ListaProductosCL.add(ProVO);//agregar lista de vehiculos y crea UNA POSICION DE LOS DATOS DEL ARREGLO A TRAVEZ DE LOS DATOS DEL VO.
+            }
+            
+        } catch (SQLException e) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,e); 
+        }finally{
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE,null,e);     
+            }
+        }
+                return ListaProductosCL;
+
+    }
+      
 }
 
     

@@ -187,4 +187,32 @@ public class FacturaDAO extends Conexion implements Crud {
 
     }
 
+    public ArrayList<FacturaVO> listarCL(String IdCL) {
+        ArrayList<FacturaVO> ListaFacturasCL = new ArrayList<FacturaVO>();// se declara un objeto Arraylist de tipo VehiculoVO y el nombre del arregloo alias : listaVehiculos  , y se volve a declarar el nombre:ArrayList y el nombre del objeto<VehiculoVO>
+        try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT f.*, u.Id FROM factura f INNER JOIN usuario u ON f.Recibe = u.Id WHERE u.Id = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, IdCL);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                /*Si lo encuentra Va a crearme un VO. agregar el vehiculoVO eL alias  y como no es placa si no mensajero.getString(1)      */
+                FacturaVO vehVO = new FacturaVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7));
+                /* si lo encuentra  va a crear un todas las columnas de la base de datos*/
+                ListaFacturasCL.add(vehVO);//agregar lista de vehiculos y crea UNA POSICION DE LOS DATOS DEL ARREGLO A TRAVEZ DE LOS DATOS DEL VO.
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(FacturaDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(FacturaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return ListaFacturasCL;
+
+    }
+    
 }

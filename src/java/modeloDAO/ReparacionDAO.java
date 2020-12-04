@@ -193,5 +193,30 @@ public class ReparacionDAO extends Conexion implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+ public ArrayList<ReparacionVO>listarCL(String IdCL){
+    ArrayList<ReparacionVO>listaReparacionesCL = new ArrayList<ReparacionVO>();
+    try {
+            conexion = this.obtenerConexion(); //se llama el metodo conexion porque este no pasa el constructor
+            sql = "select r.*, u.Nombres, s.Cliente from reparacion r inner join usuario u on r.tecnico=u.id inner join servicio s on r.Id_servicio  = s.id inner join usuario uc on s.Cliente = uc.id where uc.id = ?;";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, IdCL);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                ReparacionVO repaVO = new ReparacionVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(8));
+                listaReparacionesCL.add(repaVO);
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(ReparacionDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(ReparacionDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return listaReparacionesCL;
+    }
 
 }

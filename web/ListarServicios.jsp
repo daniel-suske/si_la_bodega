@@ -29,10 +29,15 @@
 
               <div class="content">
               
-                <br>
+                <div class="card bg-white justify-content-center">
+                    <div class="card-body ">
 
-                <h1 class="text text-dark">Listado de Servicios</h1>
-                <br><br>
+                        <h1 class="text text-dark">Listar Servicios</h1>
+                        <hr>
+
+                </div></div>
+                
+                <br><br> 
                 
                 <div class="card bg-white" style="width: 100%">
                  <div class="card-body "> 

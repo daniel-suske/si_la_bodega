@@ -22,13 +22,17 @@
 
               <div class="content">
               
-                <br>
+                <div class="card bg-white justify-content-center">
+                    <div class="card-body ">
 
-                <h1 class="text text-dark">Gestion de Servicios</h1>
-              
-                  <hr>
-                  
-                <br><br>
+                        <h1 class="text text-dark">Mis Servicios</h1>
+                        <hr>
+
+                      <a class="btn btn-success btn-lg m-3 text-light" href="RegistrarServicio.jsp">+ Solicitar Nuevo Registro</a><br>
+                        
+                </div></div>
+                
+                <br><br> 
                 <div class="card bg-white" style="width: 100%">
                  <div class="card-body "> 
                      

@@ -139,13 +139,6 @@
 					<text><![CDATA[nombres]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" positionType="Float" x="12" y="13" width="71" height="40" forecolor="#000000" uuid="b13869b7-da81-407c-aa24-9b797db41ba7"/>
-					<textElement>
-						<font fontName="Arial" size="16" isBold="true" pdfFontName="Helvetica"/>
-					</textElement>
-					<text><![CDATA[Fecha]]></text>
-				</staticText>
-				<staticText>
 					<reportElement style="Column header" positionType="Float" x="291" y="13" width="71" height="40" forecolor="#000000" uuid="c6a2d9eb-0e8e-4d8c-9a91-dd12bde6d880"/>
 					<textElement>
 						<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica"/>
@@ -160,13 +153,6 @@
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="227" y="14" width="575" height="1" uuid="6e9c525b-9541-4cce-9f81-6213880873f2"/>
 			</line>
-			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="12" y="14" width="71" height="58" uuid="ca270c11-afee-4e20-8f6c-93bdbf13b881"/>
-				<textElement>
-					<font fontName="Arial" size="16" isBold="false" pdfFontName="Helvetica"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
 				<reportElement style="Detail" positionType="Float" x="108" y="15" width="71" height="57" uuid="2d39fbbf-f78a-47bf-93f3-b5145b3e919b"/>
 				<textElement>
