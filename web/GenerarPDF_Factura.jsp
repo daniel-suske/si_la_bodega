@@ -36,5 +36,6 @@
             salida.close();//y se cierra 
             
             %>
+            //Hola mundo
     </body>
 </html>
